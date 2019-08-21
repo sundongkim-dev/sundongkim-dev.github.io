@@ -1,8 +1,8 @@
 ---
 layout: tag-blog
-title: R
-slug: r
-category: dev
+title: C
+slug: C
+category: Algorithm
 menu: false
 order: 1
 ---

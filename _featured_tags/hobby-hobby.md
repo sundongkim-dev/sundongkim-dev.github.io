@@ -1,8 +1,8 @@
 ---
 layout: tag-blog
-title: Review
-slug: review
-category: review
+title: Hobby
+slug: Hobby
+category: Hobby
 menu: false
 order: 1
 ---

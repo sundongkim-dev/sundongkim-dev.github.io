@@ -1,8 +1,8 @@
 ---
 layout: tag-blog
-title: DL
-slug: dl
-category: dev
+title: C++
+slug: C++
+category: Algorithm
 menu: false
 order: 2
 ---
