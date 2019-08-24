@@ -1,10 +1,10 @@
 ---
 layout: list
-title: 취미
-slug: 취미
+title: Etc
+slug: Etc
 menu: true
 submenu: false
 order: 3
 description: >
-  나의 취미
+  잡다한 것들
 ---

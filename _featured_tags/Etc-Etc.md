@@ -1,8 +1,8 @@
 ---
 layout: tag-blog
-title: Hobby
-slug: Hobby
-category: Hobby
+title: Etc
+slug: Etc
+category: Etc
 menu: false
 order: 1
 ---
