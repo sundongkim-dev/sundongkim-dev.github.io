@@ -1,4 +1,4 @@
-# The primary author of this blog.
+﻿# The primary author of this blog.
 # Must be the same as `author` in `_config.yml`.
 # Change `qwtel` to your shortname (used in the front matter to set a page's author, e.g. `author: qwtel`).
 sundong's blog:
@@ -8,7 +8,7 @@ sundong's blog:
   # Used at the bottom of each page and at the top of the `about` layout
   # Markdown enabled, can use multiple paragraphs (enabled by `|`)
   about:             |
-    곧 군입대하는 초보 개발자
+    꾸준히 공부하는 개발자
 
   # This photo will be used in the about section
   picture:
