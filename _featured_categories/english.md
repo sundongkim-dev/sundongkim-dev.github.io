@@ -1,10 +1,10 @@
-﻿---
+---
 layout: list
 title: English
 slug: English
 menu: true
-submenu: false
+submenu: true
 order: 2
 description: >
-  매일매일 회화의 기록
+  하루하루 회화의 기록
 ---
