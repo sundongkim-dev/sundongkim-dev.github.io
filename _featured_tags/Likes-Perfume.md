@@ -2,7 +2,7 @@
 layout: tag-blog
 title: Perfume
 slug: Perfume
-category: likes
+category: Likes
 menu: false
 order: 4
 ---

@@ -2,7 +2,7 @@
 layout: tag-blog
 title: Wine
 slug: Wine
-category: likes
+category: Likes
 menu: false
 order: 2
 ---
