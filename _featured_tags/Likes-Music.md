@@ -4,5 +4,5 @@ title: Music
 slug: Music
 category: likes
 menu: false
-order: 3
+order: 1
 ---

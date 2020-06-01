@@ -1,8 +1,8 @@
 ---
 layout: tag-blog
-title: PaperToMath
-slug: paperToMath
-category: dev
+title: Java
+slug: Java
+category: Algorithm
 menu: false
 order: 3
 ---
