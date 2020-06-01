@@ -13,12 +13,12 @@ url:                 https://sundongkim-dev.github.io
 baseurl:             ""
 
 # A very short description of your page
-tagline:             "Hi"
+tagline:             "Slow & Steady wins the race"
 
 # A short description of the page, used in the sidebar and as fallback for the meta description tag.
 # Markdown enabled, but don't use more than one paragraph (enforced by `>`)
 description:         >
-  곧 군입대,,,
+  보고 느끼고 알게된 것들 정리중..!
 
 # This should be the same author as first entry in `_data/authors.yml`
 author:
@@ -51,7 +51,7 @@ disqus: True
 disqus_shortname:    sundongkim
 
 # This text will appear in the footer of every page. Markdown enabled.
-copyright:           '&copy; 21.08.2019 by sundongkim'
+copyright:           '&copy; 01.06.2020 by sundongkim'
 
 # Format of the permalinks
 permalink:           pretty
