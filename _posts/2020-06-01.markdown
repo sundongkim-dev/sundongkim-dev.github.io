@@ -2,7 +2,7 @@
 layout: post
 title:  "[리뷰] 매트스키너의 캐쥬얼 와인북"
 subtitle:   "매트스키너의 캐쥬얼 와인북"
-categories: Likes
+categories: likes
 tags: Wine
 comments: true
 header-img: img/Matt-Skinner's_wine_book-cover.jpg
