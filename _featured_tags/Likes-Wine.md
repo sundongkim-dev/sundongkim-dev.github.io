@@ -1,8 +1,8 @@
 ---
 layout: tag-blog
 title: Wine
-slug: Wine
-category: Likes
+slug: wine
+category: likes
 menu: false
 order: 2
 ---

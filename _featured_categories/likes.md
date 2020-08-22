@@ -1,7 +1,7 @@
 ---
 layout: list
 title: Likes
-slug: Likes
+slug: likes
 menu: true
 submenu: true
 order: 3
