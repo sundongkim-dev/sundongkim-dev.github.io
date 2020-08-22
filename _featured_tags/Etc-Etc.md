@@ -1,8 +1,8 @@
 ---
 layout: tag-blog
 title: Etc
-slug: Etc
-category: Etc
+slug: etc
+category: etc
 menu: false
 order: 1
 ---

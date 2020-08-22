@@ -1,8 +1,8 @@
 ---
 layout: tag-blog
 title: Conversation
-slug: Conversation
-category: English
+slug: conversation
+category: english
 menu: false
 order: 1
 ---

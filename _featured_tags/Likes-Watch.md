@@ -1,8 +1,8 @@
 ---
 layout: tag-blog
 title: Watch
-slug: Watch
-category: Likes
+slug: watch
+category: likes
 menu: false
 order: 3
 ---

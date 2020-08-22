@@ -1,8 +1,8 @@
 ---
 layout: tag-blog
 title: Music
-slug: Music
-category: Likes
+slug: music
+category: likes
 menu: false
 order: 1
 ---

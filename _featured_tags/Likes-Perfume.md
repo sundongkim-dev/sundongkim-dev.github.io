@@ -1,8 +1,8 @@
 ---
 layout: tag-blog
 title: Perfume
-slug: Perfume
-category: Likes
+slug: perfume
+category: likes
 menu: false
 order: 4
 ---

@@ -1,7 +1,7 @@
 ---
 layout: list
 title: English
-slug: English
+slug: english
 menu: true
 submenu: true
 order: 2

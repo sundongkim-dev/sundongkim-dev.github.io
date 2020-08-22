@@ -1,9 +1,9 @@
 ---
 layout: list
 title: Algorithm
-slug: Algorithm
+slug: algorithm
 menu: true
-submenu: true
+submenu: false
 order: 1
 description: >
   알고리즘 풀이

@@ -1,8 +1,8 @@
 ---
 layout: tag-blog
-title: C
-slug: C
-category: Algorithm
+title: BOJ
+slug: boj
+category: algorithm
 menu: false
 order: 1
 ---
