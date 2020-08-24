@@ -1,10 +1,10 @@
 ---
-published: true
 layout: post
 subtitle: 'BOJ 10039, average from JOI 2014 Qualification #1'
 categories: algorithm
 tags: BOJ
 comments: true
+published: true
 ---
 # 문제
 > [`https://www.acmicpc.net/problem/10039`](https://www.acmicpc.net/problem/10039)
