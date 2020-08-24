@@ -5,6 +5,7 @@ categories: algorithm
 tags: BOJ
 comments: true
 published: true
+title: '[백준] 10039번 - 평균 점수'
 ---
 # 문제
 > [`https://www.acmicpc.net/problem/10039`](https://www.acmicpc.net/problem/10039)
