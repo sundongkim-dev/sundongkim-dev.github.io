@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 layout: post
 title: '[백준] 5543번 - 상근날드'
 subtitle: 'BOJ 5543 from JOI 2012 Qualification #1'
@@ -18,4 +18,3 @@ comments: true
 이와 별개로, 동일한 잦은 연산이라면 함수로 빼주는 습관을 들여야겠다. 
 
 <script src="https://gist.github.com/sundongkim-dev/38e9d97b091cafe3ec7b2cfb20d359c0.js"></script>
-
