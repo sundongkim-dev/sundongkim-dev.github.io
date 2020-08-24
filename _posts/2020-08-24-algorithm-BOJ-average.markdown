@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 layout: post
 subtitle: 'BOJ 10039, average from JOI 2014 Qualification #1'
 categories: algorithm
