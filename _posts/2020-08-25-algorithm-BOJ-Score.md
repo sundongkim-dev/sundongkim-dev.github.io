@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 layout: post
 title: '[백준] 8958번 - OX퀴즈'
 subtitle: 'BOJ 8958, Score from ICPC-Korea-Seoul 2005 #A'
