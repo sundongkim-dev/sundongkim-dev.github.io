@@ -5,7 +5,7 @@ subtitle: BOJ 2577
 categories: algorithm
 tags: BOJ
 comments: true
-title: '[백준] 2577번 - 평균 점수'
+title: '[백준] 2577번 - 숫자의 개수'
 ---
 # 문제
 > [`https://www.acmicpc.net/problem/2577`](https://www.acmicpc.net/problem/2577)
