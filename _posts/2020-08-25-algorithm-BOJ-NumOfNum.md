@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 layout: post
 subtitle: BOJ 2577
 categories: algorithm
