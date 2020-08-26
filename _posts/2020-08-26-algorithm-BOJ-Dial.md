@@ -15,4 +15,5 @@ comments: true
 <script src="https://gist.github.com/sundongkim-dev/96cbdfb0e136fbad169ac61eaacaf806.js"></script>
 
 하지만 미리 알파벳들에 해당하는 값을 배열로 선언한 뒤에 [문자형 데이터 - '0'](https://sundongkim-dev.github.io/algorithm/2020/08/25/algorithm-BOJ-NumOfNum/)을 사용하여 해당 배열에 접근하여 더해주면 매우 간단한 코드가 된다.
-<script src="https://gist.github.com/sundongkim-dev/39d87e544d9c591c131de15f559217fd.js"></script>
+<script src="https://gist.github.com/sundongkim-dev/39d87e544d9c591c131de15f559217fd.js"></script>  
+위의 코드는 다른 사람의 코드를 참고한 것인데, 역시 맞춘 문제일지라도 다른 사람의 코드를 보며 여러 사고를 익혀야 한다는 생각이 들었다. 단순히 답을 맞추기에 급급했던 것 같다.
