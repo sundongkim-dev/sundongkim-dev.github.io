@@ -2,7 +2,7 @@
 published: true
 layout: post
 title: '[백준] 2941번 - 크로아티아 알파벳'
-subtitle: 'BOJ 4673, Self Numbers from ICPC-Mid-Central Regional 1998 #D'
+subtitle: 'BOJ 2941, LJESNJAK  from  COCI 2008/2009 > Contest #5 1번'
 categories: algorithm
 tags: BOJ
 comments: true
