@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 layout: post
 title: '[백준] 2941번 - 크로아티아 알파벳'
 subtitle: 'BOJ 4673, Self Numbers from ICPC-Mid-Central Regional 1998 #D'
