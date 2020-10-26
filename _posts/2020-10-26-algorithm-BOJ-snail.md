@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 layout: post
 subtitle: 'BOJ 2869, PUŽ  from  COCI 2010/2011 > Contest #2 1번'
 categories: algorithm
