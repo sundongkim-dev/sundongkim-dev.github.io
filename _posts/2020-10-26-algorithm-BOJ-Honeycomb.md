@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 layout: post
 title: '[백준] 2292번 - 벌집'
 subtitle: >-
@@ -20,5 +20,3 @@ comments: true
 <script src="https://gist.github.com/sundongkim-dev/892f0e59543a506b3aaea20665ada75b.js"></script>
 
 두 풀이중 어느 것이 나은지는 잘 모르겠으나, 메모리에 한해서는 후자가 훨씬 절약한것을 알 수 있다.
-
-
