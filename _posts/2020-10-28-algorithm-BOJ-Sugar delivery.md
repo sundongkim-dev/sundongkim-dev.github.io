@@ -17,4 +17,4 @@ title: '[백준]-2839번, 설탕 배달'
 음수가 되도록 유도하면 된다.  
 처음에는 조건문을 어떻게 해야 헷갈릴 수 있지만 무엇이 우선되어야 하는가를 생각하면 간단하다.  
 
-<script src="https://gist.github.com/sundongkim-dev/65736d9149963982c05ceb294fe2856b.js"></script>
+("https://gist.github.com/sundongkim-dev/65736d9149963982c05ceb294fe2856b.js")
