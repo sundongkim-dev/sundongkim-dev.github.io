@@ -16,33 +16,5 @@ title: '[백준]-2839번, 설탕 배달'
 그 다음은 5와 3으로도 나누어지지 않을 경우를 걸러내기 위해 5보다 크다면 5를 뺴주고  
 음수가 되도록 유도하면 된다.  
 처음에는 조건문을 어떻게 해야 헷갈릴 수 있지만 무엇이 우선되어야 하는가를 생각하면 간단하다.  
-
-''' c
-#include <stdio.h>
-int main(){
-	int n;
-	int cnt = 0;
-	scanf("%d", &n);
-	while(n > 0){
-		if(n % 5 == 0){
-			n -=5;
-			cnt++;
-		}
-		else if(n % 3 ==0){
-			n -=3;
-			cnt++;
-		}
-		else if(n > 5){
-			n -=5;
-			cnt++;
-		}
-		else{
-			cnt = -1;
-			break;
-		}
-	}
-	printf("%d", cnt);
-}
-'''
-
-
+    
+<script src="https://gist.github.com/sundongkim-dev/65736d9149963982c05ceb294fe2856b.js"></script>
