@@ -1,2 +1,4 @@
 User-agent: *
 Allow:
+
+Sitemap: https://sundongkim-dev.github.io/sitemap.xml
