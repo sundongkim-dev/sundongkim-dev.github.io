@@ -5,7 +5,7 @@ subtitle: 'BOJ 2839, ŠEĆER from  COCI 2010/2011 > Contest #7 1번'
 categories: algorithm
 tags: BOJ
 comments: true
-title: '[백준]-2839번, 설탕 배달'
+title: '[백준]-2839번 - 설탕 배달'
 ---
 # 문제
 > [`https://www.acmicpc.net/problem/2839`](https://www.acmicpc.net/problem/2839)
