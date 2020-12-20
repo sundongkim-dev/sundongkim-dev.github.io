@@ -1,5 +1,11 @@
 ---
 published: false
+layout: post
+subtitle: Daily Conversation
+categories: English
+tags: Conversation
+comments: true
+header-img: img/book_cover/2020-06-01-likes-wine-Matt-Matt-Skinner's_wine_book-cover.png
 ---
 코로나로 인해 휴가 제한이 오래되어서 그런지, 회화의 내용이 죄다 스트레스와 관련된 것들뿐이었다. 다음 주에는 군 생활뿐만 아니라 다른 토픽을 선정해와야겠다는 생각이 들었다. 내가 한국어로 하고 싶은 말들을 기주에게 물어보고 그 답을 정리해보았다.
 
