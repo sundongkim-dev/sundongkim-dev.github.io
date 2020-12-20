@@ -1,7 +1,7 @@
 ---
 published: true
 layout: post
-title: '[백준]-10250번, ACM 호텔'
+title: '[백준]-10250번 - ACM 호텔'
 subtitle: >-
   BOJ 10250, ACM Hotel from ICPC Asia Pacific Korea > Daejeon Nationalwide
   Internet 2014 A번
