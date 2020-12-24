@@ -5,6 +5,7 @@ subtitle: BOJ 2581 from 한국정보올림피아드
 categories: algorithm
 tags: BOJ
 comments: true
+title: '[백준] 2581번 - 소수'
 ---
 # 문제
 > [`https://www.acmicpc.net/problem/2839`](https://www.acmicpc.net/problem/2581)
