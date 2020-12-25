@@ -14,7 +14,7 @@ title: '[리뷰] 김영철·타일러의 진짜 미국식 영어'
 
 - 목차  
 [0. 후기](#후기)  
-[1. 한국에서 마주친 미국인에게 쓸법한 표현들](#한국에서-마주친-미국인에게-쓸법한-표현들)   
+[1. 한국에서 마주친 미국인에게 쓸법한 표현들](#한국에서-마주친-미국인에게-쓸법한-표현들)  
 [2. 칭찬과 관련된 표현들](#칭찬과-관련된-표현들)  
 [3. 음식점에서 쓸법한 표현들](#음식점에서-쓸법한-표현들)  
 [4. 비행기 안에서 쓸법한 표현들](#비행기-안에서-쓸법한-표현들)  
@@ -26,10 +26,10 @@ title: '[리뷰] 김영철·타일러의 진짜 미국식 영어'
 ## 한국에서 마주친 미국인에게 쓸법한 표현들
 ---
 대학생 신분일 때, 종종 유학생들이 임신부, 노약자 등이 이용하는 경로 우대석에 앉아있는 모습을 볼 수 있었다. 다행히 경로 우대석에 앉으실만한 분들이 없어서 별말은 안 했지만 앉아있다면 뭐라고 할까..?를 떠올렸던 기억이 난다.  
-Those seats are for those people(경로 우대석 그림을 가리키면서,,) <img src="https://sundongkim-dev.github.io/assets/img/elderly.png" width="100" height="50"> 
+Those seats are for those people(경로 우대석 그림을 가리키면서,,) <img src="https://sundongkim-dev.github.io/assets/img/elderly.png" width="150" height="100"> 
 아니면 those seats aren't available for you..? 이 책에서 해답을 알 수 있었다.
 
-Excuse me, **those seats are for the elderly**.
+-> Excuse me, **those seats are for the elderly**.
 
 - 쓰레기 무단 투기하는 사람을 보았을 때!!  
 You can't leave your garbage there.  
