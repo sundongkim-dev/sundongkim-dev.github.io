@@ -29,14 +29,14 @@ The **essence / crux** of that issue is ~
 ## DAY 4
 전역하면 구매하고 싶은 것들이 많다. 최근에 집을 리모델링해서 그런지 덩달아 소비욕이 폭발하고 있다. 보조 배터리, 서브 모니터, 홈 iot기기, 선 정리 도구, 조명, 옷, 신발 등 살게 너무나도 많다.
 
-보조 배터리는 삼성 제품을 추천해. 가성비가 있거든.  
+보조 배터리는 삼성 제품을 추천해. **가성비가 있거든**.  
 I recommend SAMSUNG for the secondary battery. Because it's the best bang for your buck.
 
-나는 방의 배치를 다시 할거야. 또 엘리베이터에 내리자마자 문이 자동으로 열리게 할거야.  
-I'm gonna reorganize my room. I will make my door open at the moment that i step of the elevator.
+나는 방의 배치를 다시 할거야. 또 **엘리베이터에 내리자마자** 문이 자동으로 열리게 할거야.  
+I'm gonna reorganize my room. I will make my door open at the moment that i **step off** the elevator.
 
 프로그래밍을 위해 컴퓨터 업그레이드를 해야 해. 불가피한 일이야.  
-I must upgrade my computer to programming. It seems inevitable. OR It can't be helped.
+I must upgrade my computer to programming. It seems **inevitable**. OR **It can't be helped**.
 
 ## 번외
 2주차까지 회화를 하면서 자주 쓰는 표현들을 정리해보았다.
