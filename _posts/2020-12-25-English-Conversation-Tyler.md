@@ -18,6 +18,7 @@ title: '[리뷰] 김영철·타일러의 진짜 미국식 영어'
 [2. 칭찬과 관련된 표현들](#칭찬과-관련된-표현들)  
 [3. 음식점에서 쓸법한 표현들](#음식점에서-쓸법한-표현들)  
 [4. 비행기 안에서 쓸법한 표현들](#비행기-안에서-쓸법한-표현들)  
+[5. 이성에게 쓸법한 표현들](#이성에게-쓸법한-표현들)
 
 ## 후기
 ---
@@ -41,6 +42,10 @@ Stop cutting in line.
 - 미국인치고 한국어를 너무 잘할 때!!  
 You speak Korean pretty well for an American.
 
+- 공공장소에서 유난히 시끄러운 분들,,
+Excuse me, could you please keep it down?
+
+-
 ## 칭찬과 관련된 표현들
 ---
 - 눈썰미가 있다.  
@@ -113,3 +118,14 @@ Can I **take this on the plane**?
 - 자느라 기내식을 못 먹었는데, 기내식 좀 주실래요?  
 (기내식이 영어로 뭐지를 생각하면 망한다!!!)  
 I was sleeping. **Could I have my meal now?**
+
+## 이성에게 쓸법한 표현들
+---
+- 여자친구랑 헤어졌어.
+A: I broke up with my girlfriend.
+B: There's plenty of fish in the sea. You just haven't found the right person yet.
+
+- 지루할 틈이 없었어.
+Never a dull moment. Never a bad day with you.
+
+- 
