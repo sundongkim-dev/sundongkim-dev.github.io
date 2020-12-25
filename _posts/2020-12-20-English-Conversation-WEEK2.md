@@ -6,7 +6,9 @@ subtitle: 'Daily Conversation, New Expressions'
 categories: english
 tags: conversation
 comments: true
+header-img: img/book_cover/2020-12-25-english-conversation-tylerEnglish-cover.png
 ---
+회화의 의존하기엔 내 말주변이 없어서인지, 대화가 아니라 회사 interview를 치르는 기분이었다. 그러던 중, 전자도서관에서 '김영철·타일러의 진짜 미국식 영어'이라는 책을 발견하였다. 평소 타일러에 대한 호감을 갖고 있었는데(여러 모로 뛰어난 사람이어서) 이 책과 회화를 병행해야겠다는 생각이 들었다. 다음 포스트는 이 책에서 배운 표현들을 리뷰하겠다!!
 
 
 # 2주차
