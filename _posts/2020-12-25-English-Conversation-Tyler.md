@@ -35,6 +35,12 @@ Those seats are for those people(경로 우대석 그림을 가리키면서,,) <
 You can't leave your garbage there.  
 You**'re not supposed to** leave your garbage there. -> 자주 듣고 나름 자주 쓰는데 작문하라고 하면 잘 안 튀어나오는 표현이다.
 
+- 새치기하지 마세요.
+Stop cutting in line.
+
+- 미국인치고 한국어를 너무 잘할 때!!  
+You speak Korean pretty well for an American.
+
 ## 칭찬과 관련된 표현들
 ---
 - 눈썰미가 있다.  
@@ -45,9 +51,14 @@ You have a good sense for fashion.
 
 - 첫눈에 반했어요.  
 I fell in love with you at first sight.  
-살면서 이렇게 오글거리는 표현을 영어로 쓸지는 의문이지만 역시나 작문하지 못했기에 적어둔다. 오글거리다는 참고로 It's so **cringy** 이다.
+살면서 이렇게 오글거리는 표현을 영어로 쓸지는 의문이지만 역시나 작문하지 못했기에 적어둔다. 오글거리다는 참고로 That's so **cringy** 이다.
 
+- 나 영어 많이 늘었어요.
+I got a lot better at English.
 
+- 우린 죽이 잘 맞아요.
+We just click. We get along really well.
+기주's 표현: We are **on the same wave-length**. OR We've **got chemistry**.
 ## 음식점에서 쓸법한 표현들
 ---
 - **달걀요리**와 관련된 표현
@@ -92,6 +103,8 @@ I fell in love with you at first sight.
     One iced coffee, no sugar, no syrup.
     - 저녁 제가 대접할게요.
     Let's go out for dinner, **it's on me**.
+    - 이거 잘라드릴까요?
+    Would you like to cut it for you?
     
 ## 비행기 안에서 쓸법한 표현들
 ---
