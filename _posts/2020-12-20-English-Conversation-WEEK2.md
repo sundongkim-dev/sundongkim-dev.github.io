@@ -28,6 +28,9 @@ Those scenes **put the fear into** me.
 Give me a **quick summary / synopsis**.
 cf) 영화뿐만이 아니라 일상적인 상황에서도 곧잘 쓰임, 본론을 바로 듣고 싶은 경우 쓰임(우리나라로 치면 세줄 요약)
 
+그거 너무 재밌어. 끝까지 다 봐!!
+It's really fun. I guess you just have to watch them all.
+
 **원점으로 돌아가서** (설명에 설명을 거듭하다가 다시 처음의 것을 이야기하고 싶을 때)  
 **Let's shelf that**. **Let's revisit that**.
 
