@@ -1,5 +1,11 @@
 ---
 published: true
+layout: post
+subtitle: 'Daily Conversation, New Expressions'
+categories: english
+tags: conversation
+comments: true
+title: WEEK 1 - daily 회화 기록
 ---
 코로나로 인해 휴가 제한이 오래되어서 그런지, 회화의 내용이 죄다 스트레스와 관련된 것들뿐이었다. 다음 주에는 군 생활뿐만 아니라 다른 토픽을 선정해와야겠다는 생각이 들었다. 내가 한국어로 하고 싶은 말들을 기주에게 물어보고 그 답을 정리해보았다.
 
@@ -46,7 +52,7 @@ I don't care for ~. (about이 아닌 **for를 쓴다면 매우 싫어하는 뉘�
 일병이 고비야
 
 그의 빈자리가 너무 커. 예전같지가 않아.
-Things aren't really the same after he left here. It isn't what it used to be.
+Things aren't really the same after he left here. **It isn't what it used to be**.
 cf) 가족이 돌아가셨을 경우처럼 더 강한 표현 -> His departure left a big gap in my heart.
 
 배려해주셔서 감사합니다.
