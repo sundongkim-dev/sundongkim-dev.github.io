@@ -1,5 +1,11 @@
 ---
-published: false
+published: true
+layout: post
+title: Week2 - daily 회화 기록
+subtitle: 'Daily Conversation, New Expressions'
+categories: english
+tags: conversation
+comments: true
 ---
 
 
