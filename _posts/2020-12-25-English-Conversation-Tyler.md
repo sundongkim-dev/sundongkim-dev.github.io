@@ -50,13 +50,13 @@ I fell in love with you at first sight.
 
 ## 음식점에서 쓸법한 표현들
 ---
-- 달걀요리와 관련된 표현
+- **달걀요리**와 관련된 표현
 	- 삶은 완숙 계란 : Hard-boiled egg
     - 반숙 : A soft boiled egg
     - 양쪽 다 굽지만, 노른자는 덜 익음 : Over easy
     - 양쪽 다 굽고, 노른자도 익음: **Over hard**  
     TMI: 나는 이 방식의 달걀후라이를 제일 좋아한다
-- 계산과 관련된 표현
+- **계산**과 관련된 표현
 	- 나갈 때 한번에 계산할게요.
     You can pay **on your way out**.
     You can pay at the door when you're done.
@@ -70,12 +70,12 @@ I fell in love with you at first sight.
     Can I (pay some in cash and) **put the rest on my card?**
     - 이건 계산에서 빼주세요.
     Can you **cancel this one**, please?
-- 맛 표현
+- **맛** 표현
 	- 입안에서 녹아요.
     It **melts in your mouth.**
     - 고소한 맛이 나요.
     This tastes a bit **nutty**.
-- 서비스와 관련된 표현
+- **서비스**와 관련된 표현
 	- 치워주시겠어요?
     Could you **take this away**, please?
     - 물은 저쪽에 준비되어 있어요.
