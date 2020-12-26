@@ -28,6 +28,9 @@ I got a lot on my plate.
 **I'm up to my neck in work**.  
 **I was swamped in work**.
 
+- 너무 무리하지는 마.  
+Don't push yourself too hard. Take it easy.
+
 - 정신 나갈 것 같아  
 I'm going to lose it.
 
@@ -67,9 +70,10 @@ I don't care for ~. (about이 아닌 **for를 쓴다면 매우 싫어하는 뉘�
 
 - 일병이 고비야
 
-- 그의 빈자리가 너무 커. 예전같지가 않아.  
-Things aren't really the same after he left here. **It isn't what it used to be**.  
+- 그의 빈자리가 너무 커. **예전같지가 않아**.  
+Things aren't really the same after he left here. **It isn't what it used to be**.
 cf) 가족이 돌아가셨을 경우처럼 더 강한 표현 -> His departure left a big gap in my heart.
+	음식점같은 곳이 예전같지 않을 때 -> That place **isn't good as it used to be**.
 
 - **배려**해주셔서 감사합니다.  
 Thank you very much for your kind consideration.
@@ -77,8 +81,12 @@ Thank you very much for your kind consideration.
 - 내가 나중에 **갚을게**.  
 I'll **make it up to you**. (**진짜 무언가로 갚겠다는 의지**를 드러내는 표현)  
 보다 약한 표현으론, I **owe you** one. (빚졌다기보단 **고맙다는 표현**의 의미가 더 큼.)  
-I'll pay you back(복수의 의미로 쓰이는 경우도 있음!)
+I'll pay you back(복수의 의미로 쓰이는 경우도 있음!)  
 
+- 갚은 걸로 하자.  
+Let's call it even.  
+cf)	 Let's call it off. = 그만하자 Let's call a day. = 퇴근하자 Let's call it a deal.  = 합의하자
+     
 ## DAY 2
 나는 사소한 스트레스는 주로 먹을 것으로 푸는 것 같다. 극심한 스트레스가 아닌 이상 몸무게는 고무줄처럼 늘어나곤 한다. 음식과 관련된 대화를 재구성해보았다.
 
