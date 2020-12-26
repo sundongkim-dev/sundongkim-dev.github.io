@@ -39,16 +39,27 @@ The **essence / crux** of that issue is ~
 
 
 ## **DAY 4**
-전역하면 구매하고 싶은 것들이 많다. 최근에 집을 리모델링해서 그런지 덩달아 소비욕이 폭발하고 있다. 보조 배터리, 서브 모니터, 홈 iot기기, 선 정리 도구, 조명, 옷, 신발 등 살게 너무나도 많다.
+전역하면 하고 싶은 것, 구매하고 싶은 것들이 많다. 나가면 피아노를 다시 제대로 연습해서, 유투버를 해볼까 싶다.. 자기만족으로 먼저 시작을 해보아야겠다. 알아보니 초기 자금도 5만원 내외라 졸작이라도 만들어봐야겠다는 생각이 든다. 최근에 집을 리모델링해서 그런지 덩달아 소비욕이 폭발하고 있다. 보조 배터리, 서브 모니터, 홈 iot기기, 선 정리 도구, 조명, 옷, 신발 등 살게 너무나도 많다.
 
 보조 배터리는 삼성 제품을 추천해. **가성비가 있거든**.  
 I recommend SAMSUNG for the secondary battery. Because it's the best bang for your buck.
 
-나는 방의 배치를 다시 할거야. 또 **엘리베이터에 내리자마자** 문이 자동으로 열리게 할거야.  
-I'm gonna reorganize my room. I will make my door open at the moment that i **step off** the elevator.
+나는 방의 배치를 다시 할거야.  
+또 **엘리베이터에 내리자마자** 문이 자동으로 열리게 할거야.  
+I'm gonna reorganize my room.  
+I will make my door open at the moment that I **step/get off** the elevator.    
+cf) 버스에서 정류장 내릴 때도 get off 사용  
+-> Get off in four stops. / Four stops from here. / Just four stops.
 
-프로그래밍을 위해 컴퓨터 업그레이드를 해야 해. 불가피한 일이야.  
-I must upgrade my computer to programming. It seems **inevitable**. OR **It can't be helped**.
+개발을 위해 컴퓨터 업그레이드를 해야 해. **불가피**한 일이야.  
+I must upgrade my computer for coding. It seems **inevitable**.  
+OR **It can't be helped**. **I just can't help myself**.
+
+나는 영어를 독학했어.  
+I leanred English **on my own**.
+
+나는 피아노를 독학했어.  
+I'm a **self-taught** pianist.
 
 ## **번외**
 2주차까지 회화를 하면서 자주 쓰는 표현들을 정리해보았다.
@@ -62,7 +73,7 @@ I must upgrade my computer to programming. It seems **inevitable**. OR **It can'
  - I'm thinking about ~
  - I'm considering ~
 3. 참다
- - I can stand
+ - I can stand ~
  - I can keep it in.
 4. 해도 그만, 안해도 그만이야.
  - I can take it or leave it.
@@ -70,3 +81,10 @@ I must upgrade my computer to programming. It seems **inevitable**. OR **It can'
  - Pardon?
  - I didn't catch the last part.
  - What did you say?
+6. 나중에 이야기 하자.
+ - Let's save this for later.
+7. 날짜를 잡아보자.
+ - We can figure the day out.
+8. 조율해보자.
+ - We can work it out.
+ 
