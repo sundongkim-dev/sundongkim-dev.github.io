@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 layout: post
 subtitle: 'BOJ 2839, ŠEĆER from  COCI 2010/2011 > Contest #7 1번'
 categories: algorithm
