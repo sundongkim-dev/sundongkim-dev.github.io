@@ -1,4 +1,4 @@
-﻿# The primary author of this blog.
+# The primary author of this blog.
 # Must be the same as `author` in `_config.yml`.
 # Change `qwtel` to your shortname (used in the front matter to set a page's author, e.g. `author: qwtel`).
 sundong's blog:
@@ -22,7 +22,7 @@ sundong's blog:
   # Comment/uncommet to show/hide
   # Icons appear in order, can be rearranged:
   social:
-    facebook:        sundongkim
+    facebook:        DEVsundongkim
     # twitter:         <username>
     # google:          <number>
     # vk:              <username>
