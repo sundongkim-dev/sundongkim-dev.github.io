@@ -5,6 +5,7 @@ subtitle: 'BOJ 4948, Chebyshevs Theorem from ICPC, Asia Pacific, Japan 2011> Con
 categories: algorithm
 tags: BOJ
 comments: true
+title: '[백준] 4948번 - 베르트랑 공준'
 ---
 # 문제
 > [`https://www.acmicpc.net/problem/4948`](https://www.acmicpc.net/problem/4948)
