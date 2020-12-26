@@ -46,7 +46,7 @@ sundong's blog:
     # pinterest:       <username>
     # foursquare:      <number>
     # yelp:            <string>
-    github:          sundongkim
+    github:          sundongkim-dev
     # stackoverflow:   <number/username>
     # npm:             <username>
     # hackernews:      <username>
@@ -58,7 +58,7 @@ sundong's blog:
     # stumbleupon:     <username>
     # paypal:          <username>
     email:           mailto:mok03127@gmail.com
-    rss:             https://sundongkim.github.io/feed.xml
+    rss:             https://sundongkim-dev.github.io/feed.xml
 
 # Another author
 mdo:
