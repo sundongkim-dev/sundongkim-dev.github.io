@@ -1,7 +1,7 @@
 ---
 published: true
 layout: post
-subtitle: 'BOJ 2839, ŠEĆER from  COCI 2010/2011 > Contest #7 1번'
+subtitle: 'BOJ 4948, Chebyshevs Theorem from ICPC, Asia Pacific, Japan 2011> Contest A번'
 categories: algorithm
 tags: BOJ
 comments: true
