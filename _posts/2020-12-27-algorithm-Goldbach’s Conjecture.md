@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 layout: post
 subtitle: 'BOJ 9020, Goldbach’s Conjecture from ICPC, Asia Pacific, Korea Daejun 2011 E번'
 categories: algorithm
