@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 layout: post
 subtitle: 'BOJ 3053, HERMAN from COCI 2006/2007 > Contest #1 2번'
 categories: algorithm
