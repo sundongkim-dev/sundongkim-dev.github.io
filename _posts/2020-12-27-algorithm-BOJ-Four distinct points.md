@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 layout: post
 subtitle: 'BOJ 3009, CETVRTA from COCI 2007/2008 > Contest #1 1번'
 categories: algorithm
