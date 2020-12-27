@@ -100,7 +100,8 @@ You look better in real life.
     - 물은 저쪽에 준비되어 있어요.
     You can **help yourself to some water** over there.
     - 메뉴 추천해주세요.
-    What's good here? What would you recommend?
+    What's good here? What would you recommend?  
+    **기주's 표현** : What's your **signature dish**? / What's the chef's recommendation?  
     - 맡아 놓은 자리에요.
     Sorry, it's **taken**.
     - 제 이름으로 예약했어요.
@@ -129,12 +130,16 @@ I was sleeping. **Could I have my meal now?**
 ## 이성에게 쓸법한 표현들
 ---
 - 만나는 사람 있어?  
-Are you dating anyone?
+Are you dating anyone?  
+Are you meeting anyone?
 
 - 여자친구랑 헤어졌어. **여자는 많아**. 아직 맞는 사람을 못 찾았을 뿐이야.  
 A: I broke up with my girlfriend.  
 B: There's **plenty of fish** in the sea. You just haven't found the right person yet.  
-기주's 표현: 그냥 plenty of fish라고 짧게 말해도 다 알아듣는다고 한다.
+
+기주's 표현: 그냥 plenty of fish라고 짧게 말해도 다 알아듣는다고 한다.  
+최근에 어떤 사람이 헤어졌다면 **He's on the market now.**  
+TMI : 우리나라에도 품절남,녀 이런 표현이 있는데 이에 반대되는 경우인 것 같다. 언어는 다 비슷한 것 같다는 생각이 든다.
 
 - 지루할 틈이 없었어.  
 Never a dull moment. Never a bad day with you.
@@ -144,8 +149,9 @@ Time flies.
 기주's 표현: I wish we had more time.
 
 - **솔직**하게 말해줘.
-Just be straight with me. Let me get this straight.
-기주's 표현: Keep it one-hunnit. Don't sugar-coated.
+Just be straight with me.   
+cf) Let me get this straight. = 약간 한 번 더 확인하는 느낌이 있음, double check
+기주's 표현: Keep it one-hunnit. Don't sugar coat it.
 
 - 그런 식으로 말하려는 게 아냐.
 I didn't mean it that way.
@@ -158,7 +164,7 @@ You're really in to her.
 
 - 나 문자 씹혔어(읽씹).
 He ghosted on me.
-기주's 표현: **He left me on seen**.
+**기주's 표현** : **He left me on seen**.
 페북을 영어 인터페이스로 써보면 메세지를 읽었을 때 on seen 이라고 쓰여있다. 거기서 온 표현이라고 한다. ghosted on ~은 읽씹에 쓰이기엔 너무 과한 표현이라고 한다.
 
 ## 일상에서 쓸법한 표현들
@@ -208,5 +214,4 @@ Yeah, actually, **i was just there**.
 
 - 오는 길에 아이스크림 좀 사다 줄래?(어느 공간이 지칭되었을 때)
 **While you're at it**, would you get me some ice cream?
-
-
+**기주's 표현** : **On your way back, can you grab an ice cream?**
