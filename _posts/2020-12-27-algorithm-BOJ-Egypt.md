@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 layout: post
 subtitle: 'BOJ 4153, Egypt Contest > Waterloo local Programming Contests > 2010 A번'
 categories: algorithm
