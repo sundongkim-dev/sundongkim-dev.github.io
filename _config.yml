@@ -48,7 +48,7 @@ google_analytics:    UA-137374202-1
 
 # Setting a disqus shortname will enable the comment section on pages with `comments: true` in the front matter
 disqus: True
-disqus_shortname:    DEV_sundongkim
+disqus_shortname:    sundongkim-dev-github-io
 
 # This text will appear in the footer of every page. Markdown enabled.
 copyright:           '&copy; 01.06.2020 by sundongkim'
