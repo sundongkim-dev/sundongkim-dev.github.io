@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 layout: post
 title: '[백준] 2231 - 분해합'
 subtitle: >-
