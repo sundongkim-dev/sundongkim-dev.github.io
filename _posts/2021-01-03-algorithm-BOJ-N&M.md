@@ -17,4 +17,4 @@ title: '[백준] 15649 - N과 M'
 
 ## **코드**
 ---
-
+<script src="https://gist.github.com/sundongkim-dev/88b7235cb52cae3097e56b9356497012.js"></script>
