@@ -6,6 +6,7 @@ categories: algorithm
 tags: BOJ
 comments: true
 tilte: '[백준] 15651번 - N과 M (3)'
+title: '[백준] 15651번 - N과 M (3)'
 ---
 # **문제**
 ---
