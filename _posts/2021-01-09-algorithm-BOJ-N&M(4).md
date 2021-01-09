@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 layout: post
 title: '[백준] 15652번 - N과 M (4)'
 subtitle: 'BOJ 15652, N & M(4)'
