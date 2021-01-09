@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 layout: post
 title: '[백준] 15650번 - N과 M(2)'
 subtitle: 'BOJ 15650, N & M(2)'
@@ -20,5 +20,3 @@ N과 M (1)에선 `순열`을 구했다면, 이번 문제는 `조합`을 구하�
 ## **코드**
 ---
 <script src="https://gist.github.com/sundongkim-dev/47466087e72bcb4650f54625fb47da95.js"></script>
-
-
