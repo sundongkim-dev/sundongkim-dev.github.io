@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 layout: post
 subtitle: 'BOJ 15649, N & M(1)'
 categories: algorithm
