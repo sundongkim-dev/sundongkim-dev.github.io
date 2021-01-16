@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 layout: post
 title: '[백준] 9663번 - N-Queen'
 subtitle: 'BOJ 9663, N-Queen'
