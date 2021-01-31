@@ -14,3 +14,8 @@ comments: true
 
 ## **DAY 5**
 ---
+What a letdown = 이거 정말 실망인데
+That's what I thought so, too = 나도 그렇게 생각했어.
+It looks like that, but it doesn't taste like that. Misleading. = 완전 속았네.
+
+Now I thought we agreed you
