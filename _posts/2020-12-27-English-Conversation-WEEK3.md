@@ -15,20 +15,18 @@ comments: true
 ## **DAY 5**
 ---
 What a letdown = 이거 정말 실망인데
-That's what I thought so, too = 나도 그렇게 생각했어.
+That's what I thought / I thought so = 나도 그렇게 생각했어.
 It looks like that, but it doesn't taste like that. Misleading. = 완전 속았네.
 
 Now I thought we agreed you were gonna have this place clean by the time Daddy got home.
 나는 너희들이 아빠 오기 전에 여기를 말끔히 청소하기로 합의한 줄 알았는데.
 I'm very disappointed in you. 너희들에게 굉장히 실망했다.
 
-Okay, yeah. That scans. = 간단하게 이해되네요.
 I'm a little disappointed. = 조금 실망했어요.
-I thought I might be something cool = 제가 뭐 좀 멋있는 사람일 줄 알았어요.
 
 You call yourself a cook? = 그러면서도 자신을 요리사라고 부르는 거야?
 I need my coffee fix today Walter. = 오늘 내 커피 수혈이 필요하다고 Walter.
-You failed me. = 넌 날 실망하게 했어.
+You failed me. = 넌 날 실망하게 했어. (실망보다 더 강한)
 Do you know how far the nearest Starbucks is?
 = 가장 가까운 스타벅스가 여기서 얼마나 먼지 알고 있나?
 A couple of time-zones away at least.
@@ -59,6 +57,4 @@ I got the cheese burgers and fries.
 He's the top dog in his organization.
 He works like a dog.
 You've been working like a dog all day.
-I'm dog tired today.
-I'm sick as a dog.
-You look sick as a dog.
+
