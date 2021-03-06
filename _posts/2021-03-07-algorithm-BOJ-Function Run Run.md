@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 layout: post
 subtitle: >-
   BOJ 9184, Function Run Run from ICPC > Regionals > North America > Pacific
