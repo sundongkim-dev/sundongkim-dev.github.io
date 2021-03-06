@@ -19,7 +19,7 @@ title: '[백준] 9184번 - 신나는 함수 실행'
 ## **코드**
 ---
 
-```c++
+```c++:안녕.cpp
 #include <bits/stdc++.h>
 
 using namespace std;
