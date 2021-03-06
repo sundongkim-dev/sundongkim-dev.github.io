@@ -51,5 +51,4 @@ int main(void)
   return 0;
 }
 ```
-
-https://gist.github.com/sundongkim-dev/3665e6abc16ff5de195963e3ef415d73
+https://gist.github.com/sundongkim-dev/3665e6abc16ff5de195963e3ef415d73.js
