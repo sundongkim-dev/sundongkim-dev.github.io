@@ -2,7 +2,7 @@
 layout: post
 title: '[백준] 2844번 - 알람시계'
 subtitle: 'BOJ 2844, SPAVANAC from COCI 2009/2010 > Contest #7 Q1'
-categories: BOJ
+categories: algorithm
 tags: BOJ
 comments: true
 published: true
