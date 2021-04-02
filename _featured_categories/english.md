@@ -6,5 +6,5 @@ menu: true
 submenu: true
 order: 2
 description: >
-  하루하루 회화의 기록
+  일상적인 대화에 도움 될만한 표현!!
 ---
