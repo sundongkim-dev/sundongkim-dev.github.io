@@ -1,6 +1,6 @@
 ---
 layout: list
-title: music
+title: Music
 slug: music
 menu: true
 submenu: true

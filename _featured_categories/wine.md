@@ -1,6 +1,6 @@
 ---
 layout: list
-title: wine
+title: Wine
 slug: wine
 menu: true
 submenu: true
