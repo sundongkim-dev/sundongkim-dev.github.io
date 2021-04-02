@@ -1,7 +1,7 @@
 ---
 layout: tag-blog
-title: Daily Conversation
-slug: daily conversation
+title: DailyConversation
+slug: dailyconversation
 category: english
 menu: false
 order: 1

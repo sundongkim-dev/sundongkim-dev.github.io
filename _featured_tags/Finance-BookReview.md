@@ -1,7 +1,7 @@
 ---
 layout: tag-blog
-title: Book review
-slug: book review
+title: BookReview
+slug: bookreview
 category: finance
 menu: false
 order: 1

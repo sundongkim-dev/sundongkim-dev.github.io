@@ -1,7 +1,7 @@
 ---
 layout: tag-blog
 title: Recommendation
-slug: My recommendation
+slug: myrecommendation
 category: music
 menu: false
 order: 1

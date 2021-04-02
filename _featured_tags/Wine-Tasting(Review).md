@@ -1,7 +1,7 @@
 ---
 layout: tag-blog
-title: Tasting
-slug: tasting wine
+title: TastingWine
+slug: tastingwine
 category: wine
 menu: false
 order: 1

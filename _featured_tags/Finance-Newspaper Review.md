@@ -1,6 +1,7 @@
 ---
 layout: tag-blog
-title: Newspaper Review
+title: NewspaperReview
+slug: newspaperreview
 category: finance
 menu: false
 order: 2
