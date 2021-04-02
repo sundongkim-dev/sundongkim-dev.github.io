@@ -2,7 +2,7 @@
 layout: post
 subtitle: 'BOJ 10039, average from JOI 2014 Qualification #1'
 categories: algorithm
-tags: BOJ Problems
+tags: boj Problems
 comments: true
 published: true
 title: '[백준] 10039번 - 평균 점수'
