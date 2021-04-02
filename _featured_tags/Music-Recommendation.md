@@ -1,6 +1,6 @@
 ---
 layout: tag-blog
-title: Music
+title: Recommendation
 slug: My recommendation
 category: music
 menu: false

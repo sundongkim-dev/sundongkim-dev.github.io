@@ -1,6 +1,6 @@
 ---
 layout: tag-blog
-title: Music
+title: Playing Piano
 slug: My playing
 category: music
 menu: false
