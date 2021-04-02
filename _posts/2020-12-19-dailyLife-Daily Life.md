@@ -2,8 +2,8 @@
 published: true
 layout: post
 subtitle: My daily life in ROKA
-categories: Etc
-tags: Etc
+categories: dailylife
+tags: dailylife
 comments: true
 title: 입대 후 처음 쓰는 일기
 ---

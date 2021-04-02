@@ -1,7 +1,7 @@
 ---
 layout: tag-blog
-title: Book Review
-slug: book review
+title: BookReview
+slug: bookreview
 category: wine
 menu: false
 order: 2
