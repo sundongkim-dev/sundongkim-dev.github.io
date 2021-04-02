@@ -1,6 +1,6 @@
 ---
 layout: tag-blog
-title: Finance
+title: Book review
 slug: book review
 category: finance
 menu: false
