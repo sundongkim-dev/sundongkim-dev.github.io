@@ -1,7 +1,7 @@
 ---
 layout: list
-title: Side Projects
-slug: side projects
+title: SideProjects
+slug: sideprojects
 menu: true
 submenu: true
 order: 6
