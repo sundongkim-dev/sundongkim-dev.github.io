@@ -1,8 +1,8 @@
 ---
 layout: tag-blog
-title: Diary
-slug: diary
-category: daily life
+title: Dailylife
+slug: dailylife
+category: dailylife
 menu: false
 order: 1
 ---
