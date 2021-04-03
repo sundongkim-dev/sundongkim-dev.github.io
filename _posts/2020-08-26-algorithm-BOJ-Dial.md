@@ -4,7 +4,7 @@ layout: post
 title: '[백준] 5622번 - 다이얼'
 subtitle: 'BOJ 5622, BAKA from COCI 2012/2013 Contest #6'
 categories: algorithm
-tags: BOJ
+tags: boj problems
 comments: true
 ---
 # 문제

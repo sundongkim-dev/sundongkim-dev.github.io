@@ -4,7 +4,7 @@ title: '[백준] 1149번 - RGB거리'
 layout: post
 subtitle: 'BOJ 1149, RGB거리'
 categories: algorithm
-tags: BOJ
+tags: boj problems
 comments: true
 ---
 # **문제**

@@ -3,7 +3,7 @@ published: true
 layout: post
 subtitle: 'BOJ 9020, Goldbach’s Conjecture from ICPC, Asia Pacific, Korea Daejun 2011 E번'
 categories: algorithm
-tags: BOJ
+tags: boj problems
 comments: true
 title: '[백준] 9020번 - 골드바흐의 추측'
 ---

@@ -4,7 +4,7 @@ title: '[백준] 1463번 - 1로 만들기'
 layout: post
 subtitle: 'BOJ 1463, 1로 만들기'
 categories: algorithm
-tags: BOJ
+tags: boj problems
 comments: true
 ---
 # **문제**

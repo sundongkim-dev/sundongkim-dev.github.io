@@ -4,7 +4,7 @@ title: '[백준] 1904번 - 01타일'
 layout: post
 subtitle: 'BOJ 1904, 01타일'
 categories: algorithm
-tags: BOJ
+tags: boj problems
 comments: true
 ---
 # **문제**

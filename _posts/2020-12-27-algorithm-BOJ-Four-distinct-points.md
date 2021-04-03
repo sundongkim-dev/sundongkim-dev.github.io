@@ -3,7 +3,7 @@ published: true
 layout: post
 subtitle: 'BOJ 3009, CETVRTA from COCI 2007/2008 > Contest #1 1번'
 categories: algorithm
-tags: BOJ
+tags: boj problems
 comments: true
 title: '[백준] 3009번 - 네 번째 점'
 ---

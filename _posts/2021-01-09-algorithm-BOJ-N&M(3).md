@@ -3,7 +3,7 @@ published: true
 layout: post
 subtitle: 'BOJ 15649, N & M(1)'
 categories: algorithm
-tags: BOJ
+tags: boj problems
 comments: true
 tilte: '[백준] 15651번 - N과 M (3)'
 title: '[백준] 15651번 - N과 M (3)'

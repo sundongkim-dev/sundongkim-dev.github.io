@@ -6,7 +6,7 @@ subtitle: >-
   BOJ 2231, Digit generator from ICPC > Regionals > Asia Pacific > Korea > Asia
   Regional - Seoul 2005 B번
 categories: algorithm
-tags: BOJ
+tags: boj problems
 comments: true
 ---
 # **문제**

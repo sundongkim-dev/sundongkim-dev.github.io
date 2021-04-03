@@ -4,7 +4,7 @@ layout: post
 title: '[백준] 15652번 - N과 M (4)'
 subtitle: 'BOJ 15652, N & M(4)'
 categories: algorithm
-tags: BOJ
+tags: boj problems
 comments: true
 ---
 # **문제**

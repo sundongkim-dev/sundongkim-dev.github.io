@@ -4,7 +4,7 @@ title: '[백준] 1932번 - 정수 삼각형'
 layout: post
 subtitle: 'BOJ 1932, Olympiad > International Olympiad in Informatics > IOI 1994 1번'
 categories: algorithm
-tags: BOJ
+tags: boj problems
 comments: true
 ---
 # **문제**

@@ -4,7 +4,7 @@ title: '[백준] 2579번 - 계단 오르기'
 layout: post
 subtitle: 'BOJ 2579, Olympiad > 한국정보올림피아드 > 한국정보올림피아드시․도지역본선 > 지역본선 2006 > 초등부 4번'
 categories: algorithm
-tags: BOJ
+tags: boj problems
 comments: true
 ---
 # **문제**

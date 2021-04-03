@@ -4,7 +4,7 @@ layout: post
 title: '[백준] 9663번 - N-Queen'
 subtitle: 'BOJ 9663, N-Queen'
 categories: algorithm
-tags: BOJ
+tags: boj problems
 comments: true
 ---
 # **문제**

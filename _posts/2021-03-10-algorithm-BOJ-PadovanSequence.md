@@ -6,7 +6,7 @@ subtitle: >-
   BOJ 9461, ICPC > Regionals > Asia Pacific > Korea > Asia Regional - Daejeon
   2013 G번
 categories: algorithm
-tags: BOJ
+tags: boj problems
 comments: true
 ---
 # **문제**
@@ -16,7 +16,7 @@ comments: true
 ## **문제 설명 및 풀이**
 ---
 이 문제 또한 매우 전형적인 DP 문제이다. DP 문제를 가만히 놓고 보면 꼭 어릴 적에 한 번쯤 풀어보았던 IQ 테스트의 수열 주어지고 빈칸에 들어갈 수를 맞히는 것이 떠오른다. 혹시나 이런 사람이 있을까 싶어서 그냥 수만 보고 예측해서 코드를 짜보았다.  1, 1, 1, 2, 2, 3, 4, 5, 7, 9…. 흠 대충 살펴보니, **N 번째 수**는 `N-2 번째 수와 N-3 번째 수의 합`이다.  
-아래는 이를 토대로 짠 코드이다. 
+아래는 이를 토대로 짠 코드이다.
 
 ---
 ```c++
@@ -57,7 +57,7 @@ using namespace std;
 
 long long tri[1000];
 
-int main() 
+int main()
 {
   long long T, N, ans;
   cin >> T;
@@ -65,7 +65,7 @@ int main()
   tri[1] = 1, tri[2] = 1, tri[3] = 1, tri[4] = 2, tri[5] = 2;
   for(int i=6; i<=100; i++)
     tri[i] = tri[i-5] + tri[i-1];
-  
+
   for(int i=0; i<T; i++)
   {
     cin >> N;

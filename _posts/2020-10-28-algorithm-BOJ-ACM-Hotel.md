@@ -6,7 +6,7 @@ subtitle: >-
   BOJ 10250, ACM Hotel from ICPC Asia Pacific Korea > Daejeon Nationalwide
   Internet 2014 A번
 categories: algorithm
-tags: BOJ
+tags: boj problems
 comments: true
 ---
 # 문제
