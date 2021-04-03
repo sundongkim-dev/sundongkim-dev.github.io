@@ -2,7 +2,7 @@
 layout: tag-blog
 title: Diary
 slug: diary
-category: dailylife
+category: daily life
 menu: false
 order: 1
 ---
