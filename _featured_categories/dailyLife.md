@@ -1,6 +1,6 @@
 ---
 layout: list
-title: Daily life
+title: Daily Life
 slug: daily life
 menu: true
 submenu: true
