@@ -2,7 +2,7 @@
 layout: post
 subtitle: 토베 얀손의 무민 전시회
 categories: dailylife
-tags: daily-life
+tags: dailylife
 comments: true
 title: '[리뷰] 무민 전시회....!?'
 header-img: img/2021-03-21-dailyLife-dailylife-MOOMIN.png
