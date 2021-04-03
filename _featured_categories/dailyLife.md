@@ -1,9 +1,9 @@
 ---
 layout: list
 title: Daily life
-slug: Am i doing great?
+slug: daily life
 menu: true
-submenu: false
+submenu: true
 order: 3
 description: >
   나의 일상 ><

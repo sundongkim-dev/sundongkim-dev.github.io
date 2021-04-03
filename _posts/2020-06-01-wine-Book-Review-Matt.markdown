@@ -6,7 +6,6 @@ categories: wine
 tags: bookreview Matt-Skinner's wine
 comments: true
 header-img: img/book_cover/2020-06-01-likes-wine-Matt-Matt-Skinner's_wine_book-cover.png
-published: false
 ---
 
 ## 개요

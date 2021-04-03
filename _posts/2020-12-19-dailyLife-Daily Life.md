@@ -1,11 +1,10 @@
 ---
-published: true
 layout: post
-subtitle: My daily life in ROKA
+subtitle: 'My daily life in ROKA'
 categories: dailylife
 tags: dailylife
 comments: true
-title: 입대 후 처음 쓰는 일기
+title: '입대 후 처음 쓰는 일기'
 ---
 ## 입대 후 처음 쓰는 일기
 
