@@ -1,7 +1,7 @@
 ---
 layout: list
-title: Daily Life
-slug: daily life
+title: DailyLife
+slug: dailylife
 menu: true
 submenu: true
 order: 3
