@@ -1,8 +1,8 @@
 ---
 published: true
-title: '[프로그래머스] Level1 - 숫자 문자열과 영단어'
+title: '[프로그래머스] Level 1 - 숫자 문자열과 영단어'
 layout: post
-subtitle: 'Programmers, Level1, kakao internship 2021'
+subtitle: 'Programmers, Level 1, kakao internship 2021'
 categories: algorithm
 tags: programmers problems
 comments: true
