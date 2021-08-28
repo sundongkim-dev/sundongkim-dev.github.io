@@ -12,16 +12,16 @@ comments: true
 요즘 알고리즘 문제 풀기나 만들고 싶은 program만들기..토이 프로젝트 등만 하다가 교수님의 조언을 듣고 CS의 코어 과목들을 다시 복습, 정리해보려고 한다. 컴퓨터 네트워크를 시작으로 자료구조, 운영체제, db 등을 정리해나갈 생각이다. 3일에 한 챕터를 정리하는 것을 목표로 시작해보겠다. 본문은 James F. Kurose와 Keith W. Ross의 Computer Networking A Top-Down Approach를 바탕으로 정리한 내용이다.  
 - 목차  
  [1. Computer Networks and the Internet](#1-computer-networks-and-the-internet)
-  + [1.1 What is the Internet?](#11-what-is-the-internet-)
+  + [1.1 What is the Internet](#11-what-is-the-internet)
   + [1.2 Network edge](#12-network-edge)
   + [1.3 Network core](#13-network-core)
-  + [1.4 Delay, loss, throughput in networks](#14-delay--loss--throughput-in-networks)
-  + [1.5 Protocol layers, service models](#15-protocol-layers--service-models)
-  + [1.6 Networks under attack: Security](#16-networks-under-attack--security)
+  + [1.4 Delay, loss, throughput in networks](#14-delay-loss-throughput-in-networks)
+  + [1.5 Protocol layers, service models](#15-protocol-layers-service-models)
+  + [1.6 Networks under attack: Security](#16-networks-under-attack-security)
 
 ---
 ##1. Computer Networks and the Internet
-###1.1 What is the Internet?
+###1.1 What is the Internet
 ▷ Internet = network of networks(Interconnected ISPs)  
 #### 1.1.1 Nuts and bolts view(인터넷을 구성하는 기본적인 HW와 SW 요소를 기술)  
 모든 장치(Billions of connected computing devices)이자 Hosts이자 **End systems**은 **communication link**와 **packet switch**의 네트워크로 연결된다. Communication link는 도로, packet은 트럭, packet switch는 교차로라고 할 수 있겠다.  
