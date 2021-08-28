@@ -1,7 +1,7 @@
 ---
 layout: tag-blog
-title: Computer Network
-slug: Computer Network
+title: ComputerNetwork
+slug: ComputerNetwork
 category: csReview
 menu: false
 order: 1
