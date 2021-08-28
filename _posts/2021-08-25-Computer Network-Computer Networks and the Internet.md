@@ -4,7 +4,7 @@ title: '[컴퓨터 네트워크] Computer Networks and the Internet'
 layout: post
 subtitle: 'csReview Computer Network'
 categories: csReview
-tags: csReview
+tags: Computer Network
 comments: true
 ---
 
