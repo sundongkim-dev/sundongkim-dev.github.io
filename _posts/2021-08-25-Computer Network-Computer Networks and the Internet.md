@@ -17,6 +17,7 @@ comments: true
 [3.  1.4 Delay, loss, throughput in networks](#-1.4-Delay,-loss,-throughput-in-networks)  
 [4.  1.5 Protocol layers, service models](#-1.5-Protocol-layers,-service-models)  
 [5.  1.6 Networks under attack: Security](#-1.6-Networks-under-attack:-Security)
+
 ---
 ## 1. Computer Networks and the Internet
 ###  1.1 What is the Internet?
