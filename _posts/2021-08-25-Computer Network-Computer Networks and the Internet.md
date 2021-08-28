@@ -32,6 +32,7 @@ comments: true
 * **Route**(path): 패킷이 송신 종단 시스템에서 수신 종단 시스템에 도달하는 동안 거쳐 온 일련의 통신 링크와 패킷 스위치들  
 * **ISP(Internet Service Provider)**: packet switch와 communication link로 이루어진 네트워크이다. End systems가 이것을 통해서 인터넷에 접속하며 CP(Content Provider)에게 인터넷 접속을 제공한다. 또한 종단 시스템을 서로 연결하는 것이기에 ISP들도 서로 연결되어야만 한다.  
 * **Protocol**: 인터넷에서 정보 송수신을 제어한다. **TCP, IP, HTTP, Skype, 802.11** 등이 있으며 추후에 살펴보도록 하자.
+
 ---
 #### 1.1.2 Service view(분산 app에 서비스를 제공하는 네트워킹 인프라 구조 관점에서 기술)  
 예를 들자면 Web, VoIP(Voice over IP), email, games, e-commerce, social nets 등이 있다. Internet Application은 end system에서 수행된다.(Network core에 있는 packet switch에서 수행 되지 않음)  
