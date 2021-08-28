@@ -11,18 +11,17 @@ comments: true
 # 컴퓨터 네트워크 복습
 요즘 알고리즘 문제 풀기나 만들고 싶은 program만들기..토이 프로젝트 등만 하다가 교수님의 조언을 듣고 CS의 코어 과목들을 다시 복습, 정리해보려고 한다. 컴퓨터 네트워크를 시작으로 자료구조, 운영체제, db 등을 정리해나갈 생각이다. 3일에 한 챕터를 정리하는 것을 목표로 시작해보겠다. 본문은 James F. Kurose와 Keith W. Ross의 Computer Networking A Top-Down Approach를 바탕으로 정리한 내용이다.  
 - 목차  
-- [컴퓨터 네트워크 복습](#-----------)
-  * [1. Computer Networks and the Internet](#1-computer-networks-and-the-internet)
-    + [1.1 What is the Internet?](#11-what-is-the-internet-)
-    + [1.2 Network edge](#12-network-edge)
-    + [1.3 Network core](#13-network-core)
-    + [1.4 Delay, loss, throughput in networks](#14-delay--loss--throughput-in-networks)
-    + [1.5 Protocol layers, service models](#15-protocol-layers--service-models)
-    + [1.6 Networks under attack: Security](#16-networks-under-attack--security)
+ [1. Computer Networks and the Internet](#1-computer-networks-and-the-internet)
+  + [1.1 What is the Internet?](#11-what-is-the-internet-)
+  + [1.2 Network edge](#12-network-edge)
+  + [1.3 Network core](#13-network-core)
+  + [1.4 Delay, loss, throughput in networks](#14-delay--loss--throughput-in-networks)
+  + [1.5 Protocol layers, service models](#15-protocol-layers--service-models)
+  + [1.6 Networks under attack: Security](#16-networks-under-attack--security)
 
 ---
-## 1. Computer Networks and the Internet
-### 1.1 What is the Internet?
+##1. Computer Networks and the Internet
+###1.1 What is the Internet?
 ▷ Internet = network of networks(Interconnected ISPs)  
 #### 1.1.1 Nuts and bolts view(인터넷을 구성하는 기본적인 HW와 SW 요소를 기술)  
 모든 장치(Billions of connected computing devices)이자 Hosts이자 **End systems**은 **communication link**와 **packet switch**의 네트워크로 연결된다. Communication link는 도로, packet은 트럭, packet switch는 교차로라고 할 수 있겠다.  
@@ -46,7 +45,7 @@ comments: true
  **Protocol**: **둘 이상의 통신 개체** 간에 교환되는 **메시지 포맷**과 **순서**뿐 아니라, **메시지의 송수신과 다른 이벤트에 따른 행동**들을 **정의**한다.  
 
 ---
-### 1.2 Network edge  
+###1.2 Network edge  
 수많은 Hosts(End Systems)를 **Client**와 **Server**로 구분
 #### 1.2.1 Access networks  
 **Access networks**: 각 종단 시스템의 경로에 있는 첫 번째 router에 연결하는 네트워크(edge router)를 말한다. 추후에 자세히 다루겠다.  
@@ -54,7 +53,7 @@ comments: true
 그렇게 중요하다고 생각되지 않으니, 필요하다면 서술하도록 하겠다.  
 
 ---
-### 1.3 Network core
+###1.3 Network core
 ▷ 인터넷의 종단 시스템을 연결하는 패킷 스위치들과 링크들의 연결망(mesh)
 
 ---
@@ -102,7 +101,7 @@ cf) 인터넷에서 패킷이 실제로 거쳐 가는 종단간의 경로를 실
 5. **네트워크 구조 5**: 네트워크 구조4 + Content-provider network(ex..google,MS,Akamai)
 
 ---
-### 1.4 Delay, loss, throughput in networks
+###1.4 Delay, loss, throughput in networks
 
 #### 1.4.1 패킷 교환과 네트워크에서의 지연
 1. **노드 처리 지연**: 패킷 헤더를 조사하고 어디로 보낼지를 결정하는 시간
@@ -145,7 +144,7 @@ F비트 파일을 서버에서 클라이언트로 전송하는 데 걸리는 시
 또한, 처리율은 **간섭하는 트래픽(하나의 링크를 공유)**에도 의존한다.
 
 ---
-### 1.5 Protocol layers, service models
+###1.5 Protocol layers, service models
 #### 1.5.1 계층구조
 **인터넷 프로토콜 스택(Internet Protocol Stack)**: 애플리케이션-트랜스포트-네트워크-링크-물리  
 **OSI 참조 모델**(The **O**pen **S**ystem **I**nterconnection model): 애플리케이션-프레젠테이션-세션-트랜스포트-네트워크-링크-물리  
@@ -167,7 +166,7 @@ F비트 파일을 서버에서 클라이언트로 전송하는 데 걸리는 시
 애플리케이션 계층 **메시지**는 트랜스포트 계층으로 보내지고, 트랜스포트 계층에서 헤더를 붙여 **세그먼트**를 구성한다. 이 세그먼트는 애플리케이션 계층 메시지를 캡슐화한다. 추가된 정보로는 수신자가 결정하는 오류 검출 비트를 포함한다. 그다음, 세그먼트를 네트워크 계층으로 보내 헤더 정보를 추가하여 네트워크 계층 **다이어그램**을 만든다. 이는 링크 계층으로 전달되어 **프레임**을 만든다. 각 계층에서 패킷은 **헤더 필드**와 **페이로드 필드(Payload field)**라는 두 가지 형태의 필드를 갖는다. 전송 이후에는 캡슐화의 반대과정이 이루어지며 수신자가 정보를 확인하게 되는 것이다.
 
 ---
-### 1.6 Networks under attack: Security
+###1.6 Networks under attack: Security
 **인터넷을 통해 맬웨어(악성코드) 침투 가능**
 1. 봇넷(Botnet): 면역되지 않은 장치들로 구성된 네트워크, DDoS공격 당할 수 있음.
 2. 스파이웨어 맬웨어: keystroke 등을 기록할 수 있어서 해킹 가능
