@@ -10,29 +10,14 @@ comments: true
 
 # 컴퓨터 네트워크 복습
 요즘 알고리즘 문제 풀기나 만들고 싶은 program만들기..토이 프로젝트 등만 하다가 교수님의 조언을 듣고 CS의 코어 과목들을 다시 복습, 정리해보려고 한다. 컴퓨터 네트워크를 시작으로 자료구조, 운영체제, db 등을 정리해나갈 생각이다. 3일에 한 챕터를 정리하는 것을 목표로 시작해보겠다. 본문은 James F. Kurose와 Keith W. Ross의 Computer Networking A Top-Down Approach를 바탕으로 정리한 내용이다.  
-- [컴퓨터 네트워크 복습](#-----------)
-  * [1. Computer Networks and the Internet](#1-computer-networks-and-the-internet)
-    + [ 1.1 What is the Internet?](#--11-what-is-the-internet-)
-      - [1.1.1 Nuts and bolts view(인터넷을 구성하는 기본적인 HW와 SW 요소를 기술)](#111-nuts-and-bolts-view----------------hw--sw--------)
-      - [1.1.2 Service view(분산 app에 서비스를 제공하는 네트워킹 인프라 구조 관점에서 기술)](#112-service-view----app--------------------------------)
-      - [1.1.3 What’s a protocol?](#113-what-s-a-protocol-)
-    + [ 1.2 Network edge](#--12-network-edge)
-      - [1.2.1 Access networks](#121-access-networks)
-      - [1.2.2 physical media](#122-physical-media)
-    + [ 1.3 Network core](#--13-network-core)
-      - [1.3.1 Packet switching](#131-packet-switching)
-      - [1.3.2 Circuit switching](#132-circuit-switching)
-      - [1.3.3 Network of networks](#133-network-of-networks)
-    + [ 1.4 Delay, loss, throughput in networks](#--14-delay--loss--throughput-in-networks)
-      - [1.4.1 패킷 교환과 네트워크에서의 지연](#141------------------)
-      - [1.4.2 큐잉 지연과 패킷 손실](#142-------------)
-      - [1.4.3 종단간 지연](#143-------)
-      - [1.4.4 컴퓨터 네트워크에서의 처리율(Throughput)](#144-----------------throughput-)
-    + [ 1.5 Protocol layers, service models](#--15-protocol-layers--service-models)
-      - [1.5.1 계층구조](#151-----)
-      - [1.5.2 Encapsulation(캡슐화)](#152-encapsulation-----)
-    + [ 1.6 Networks under attack: Security](#--16-networks-under-attack--security)
-    
+- 목차  
+[0.  1.1 What is the Internet?](#-11-What-is-the-Internet?)  
+[1.  1.2 Network edge](#-12-Network-edge)  
+[2.  1.3 Network core](#-13-Network-core)  
+[3.  1.4 Delay, loss, throughput in networks](#-14-Delay,-loss,-throughput-in-networks)  
+[4.  1.5 Protocol layers, service models](#-15-Protocol-layers,-service-models)  
+[5.  1.6 Networks under attack: Security](#-16-Networks-under-attack:-Security)
+
 ---
 ## 1. Computer Networks and the Internet
 ###  1.1 What is the Internet?
