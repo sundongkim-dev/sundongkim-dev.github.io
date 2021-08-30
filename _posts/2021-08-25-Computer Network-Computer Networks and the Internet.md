@@ -22,13 +22,13 @@ comments: true
 ---
 ## 1. Computer Networks and the Internet
 ### 1.1 What is the Internet
-▷ Internet = network of networks(Interconnected ISPs)  
+▷ Internet = Network of Networks(Interconnected ISPs)  
 #### 1.1.1 Nuts and bolts view(인터넷을 구성하는 기본적인 HW와 SW 요소를 기술)  
-모든 장치(Billions of connected computing devices)이자 Hosts이자 **End systems**은 **communication link**와 **packet switch**의 네트워크로 연결된다. Communication link는 도로, packet은 트럭, packet switch는 교차로라고 할 수 있겠다.  
+모든 장치(Billions of connected computing devices)이자 **Hosts**이자 **End systems**은 **communication link**와 **packet switch**의 네트워크로 연결된다. Communication link는 도로, packet은 트럭, packet switch는 교차로라고 할 수 있겠다.  
 * **Communication link**: 동축케이블, 구리선, 광케이블, 라디오 스펙트럼 등 물리 매체  
 * **Packet**: 데이터를 세그먼트로 나누고 각각 헤더를 붙인 정보 패키지  
-* **Packet switch**: 패킷을 받아서 목적지로 전달
-  * 패킷 스위치 중 가장 널리 사용되는 두 가지 종류, 둘 다 최종 목적지 방향으로 패킷을 전달함  
+* **Packet switch**: 패킷을 받아서 **목적지로 전달**
+  * 패킷 스위치 중 가장 널리 사용되는 **두 가지** 종류, 둘 다 최종 목적지 방향으로 패킷을 전달함  
     1. **Router**: network core에서 사용됨  
     2. **Link-layer switch**: 엑세스 네트워크에서 사용됨  
 * **Route**(path): 패킷이 송신 종단 시스템에서 수신 종단 시스템에 도달하는 동안 거쳐 온 일련의 통신 링크와 패킷 스위치들  
@@ -72,13 +72,13 @@ cf) 인터넷에서 패킷이 실제로 거쳐 가는 종단간의 경로를 실
 ---
 #### 1.3.2 Circuit switching
 링크와 스위치의 네트워크를 통해 데이터를 이동시키는 방식에는 회선교환과 패킷교환이라는 두 가지 기본 방식이 있는데, 앞선 1.3.1에선 패킷교환에 대해 살펴보았다.   
-종단 시스템 간에 통신을 제공하기 위해 **경로에 필요한 자원(버퍼, 링크 전송률)** 은 통신 세션 동안에 **확보 또는 예약**된다. 반면, 패킷 교환은 링크 자원을 예약하지 않고 네트워크로 보내지기에 일정 시간 내에 전달하는 것을 보장할 수 없다.
+회선 교환은 종단 시스템 간에 통신을 제공하기 위해 **경로에 필요한 자원(버퍼, 링크 전송률)**들을 통신 세션 동안에 **확보 또는 예약**된다. 반면, 패킷 교환은 링크 자원을 예약하지 않고 네트워크로 보내지기에 일정 시간 내에 전달하는 것을 보장할 수 없다.
 * **FDM**(Frequency-division multiplexing,주파수-분할 다중화)
 : 각 회선은 지속적으로 대역폭의 일부를 얻는다.
 * **TDM**(Time-division multiplexing,시-분할 다중화)
 : 각 회선은 짧은 시간(슬롯) 동안 주기적으로 전체 대역폭을 얻는다. 전송시간은 링크 수와 무관하다.  
 
-**<패킷 교환 vs. 회선 교환>**
+**패킷 교환 vs. 회선 교환**
 * 패킷 교환 옹호자
   1. 전송 용량의 공유에서 더 효율적
   2. 더 간단하고 효율적이며 구현 비용이 적음
@@ -89,16 +89,16 @@ cf) 인터넷에서 패킷이 실제로 거쳐 가는 종단간의 경로를 실
 
 ---
 #### 1.3.3 Network of networks
-모든 종단 시스템이 서로에게 패킷을 보내려면 접속 ISP들이 서로 연결되어야만 한다. 직접 서로 다른 ISP와 연결하는 것은 너무 많은 비용[= O(n<sup>2</sup>)]을 발생한다. 별적인 통신링크를 유지해야 하기 때문이다.  
+모든 종단 시스템이 서로에게 패킷을 보내려면 접속 ISP들이 서로 연결되어야만 한다. 직접 서로 다른 ISP와 연결하는 것은 너무 많은 비용[= O(n<sup>2</sup>)]을 발생한다. 개별적인 통신링크를 유지해야 하기 때문이다.  
 1. **네트워크 구조 1**: 모든 접속 ISP들을 하나의 global transit ISP와 연결한다. 이 때, 접속 ISP가 글로벌 ISP에게 요금을 지불하기에 고객-제공자 관계이다.  
 2. **네트워크 구조 2**: 다중의 global transit ISP가 생겨나 가격,서비스를 비교하며 경쟁한다. 그러나, 글로벌 ISP끼리들은 반드시 연결되어야 한다.  
 3. **네트워크 구조 3**: 접속 ISP > 지방 ISP > 국가 ISP > tier-1 ISP로 이루어진 다중 계층구조
 4. **네트워크 구조 4**: 네트워크 구조3에 (PoP + 멀티홈 + 피어링 + IXP)를 더한 구조  
-    * PoP(Points Of Presence): 제공자의 네트워크 내에 있는 라우터 그룹  
-    * 멀티홈: 모든 ISP는 둘 이상의 제공자 ISP에 연결하도록 선택할 수 있다  
-    * 피어링: 같은 계층에 있는 가까운 ISP들이 서로 직접 연결하여 상위 계층 ISP를 통하지 않고 직접 송수신하며 서로 요금을 지불하지 않는다.  
-    * IXP: 다중의 ISP들이 서로 피어링할 수 있는 만남의 장소  
-5. **네트워크 구조 5**: 네트워크 구조4 + Content-provider network(ex..google,MS,Akamai)
+    * **PoP(Points Of Presence)**: 제공자의 네트워크 내에 있는 라우터 그룹  
+    * **멀티홈**: 모든 ISP는 둘 이상의 제공자 ISP에 연결하도록 선택할 수 있다  
+    * **피어링**: 같은 계층에 있는 가까운 ISP들이 서로 직접 연결하여 상위 계층 ISP를 통하지 않고 직접 송수신하며 서로 요금을 지불하지 않는다.  
+    * **IXP**: 다중의 ISP들이 서로 피어링할 수 있는 만남의 장소  
+5. **네트워크 구조 5**: 네트워크 구조4 + Content-provider network (etc..google,MS,Akamai)
 
 ---
 ### 1.4 Delay, loss, throughput in networks
