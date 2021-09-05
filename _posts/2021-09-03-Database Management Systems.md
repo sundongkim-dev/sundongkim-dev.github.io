@@ -1,10 +1,10 @@
 ---
-published: false
+published: true
 title: '[데이터베이스] Database Management Systems'
 layout: post
 subtitle: 'csReview Database'
 categories: csReview
-tags: Database
+tags: DB
 comments: true
 ---
 
