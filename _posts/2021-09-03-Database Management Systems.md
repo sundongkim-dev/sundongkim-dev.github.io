@@ -48,4 +48,4 @@ DB는 매우 크고 통합된 데이터 모음으로 실제 세상을 모델로 
 ### Ensuring Atomicity
 ### The Log
 ### Structure of a DBMS
-![Structure of a DBMS](https://sundongkim-dev.github.io/assets/img/DBMSstructure.JPG)
+![Structure of a DBMS](https://sundongkim-dev.github.io/assets/img/DBMSstructure.jpg)
