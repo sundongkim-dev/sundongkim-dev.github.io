@@ -1,5 +1,5 @@
 ---
-published: true
+published: false
 title: '[컴퓨터 보안] Computer Networks and the Internet'
 layout: post
 subtitle: 'csReview Computer Network'
@@ -130,3 +130,12 @@ comments: true
   + Event Detection(이벤트 탐지)
   + Security Audit Trail(보안 감사 추적): 시스템 기록과 동작을 독립적으로 조사하고 검토
   + Security Recovery(보안 복구)
+
+### Computer Security Strategy
+1. Specification / Policy
+2. Implementation / Mechanisms
+  1. Detection
+  2. Response
+  3. Recovery
+  4. Prevention
+3. Assurance / Evaluation
