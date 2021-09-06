@@ -1,15 +1,17 @@
 ---
-published: false
+published: true
 title: '[데이터베이스] Database Management Systems'
 layout: post
 subtitle: 'csReview Database'
 categories: csReview
-tags: Database
+tags: DB
 comments: true
 ---
 
-#
+# DB 복습
+DB는 원래 2학년 2학기에 수강해야하는 과목이지만 과제가 너무 어렵다고 하여 미뤄두었던 과목이다. 이번 학기에 수강을 시작하였는데 미리 미리 정리하여 복습해야겠다. 본문은  Ramakrishnan & Gehrke, Database Management Systems, 3rd Ed., 2002를 참고하였다.
 
+---
 ### What is a DBMS?
 DB는 매우 크고 통합된 데이터 모음으로 실제 세상을 모델로 하며 DBMS(DB Management System)는 DB를 저장하고 관리하도록 설계된 소프트웨어 패키지이다. 다음과 같은 크게 5가지 이유 때문에 사람들이 DBMS를 사용한다.
 
@@ -47,4 +49,4 @@ DB는 매우 크고 통합된 데이터 모음으로 실제 세상을 모델로 
 ### Ensuring Atomicity
 ### The Log
 ### Structure of a DBMS
-![Structure of a DBMS](https://sundongkim-dev.github.io/assets/img/DBMSstructure.JPG)
+![Structure of a DBMS](https://sundongkim-dev.github.io/assets/img/DBMSstructure.jpg)
