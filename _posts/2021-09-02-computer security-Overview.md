@@ -1,17 +1,17 @@
 ---
-published: false
-title: '[컴퓨터 보안] Computer Networks and the Internet'
+published: true
+title: '[컴퓨터 보안] Computer Security Overview'
 layout: post
-subtitle: 'csReview Computer Network'
+subtitle: 'csReview Computer Security'
 categories: csReview
-tags: ComputerNetwork
+tags: ComputerSecurity
 comments: true
 ---
 
 # 컴퓨터 보안 복습
 3학년 2학기에 수강하게 된 컴퓨터 보안이라는 과목에 대해 정리해보려 한다. 이 과목은 다른 과목에 비해 내 진로에 있어 중요성이 떨어질 수 있으나 그래도 열심히 정리해보려 한다.  
 
-## Overview
+## Computer Security Overview
 
 ---
 ### The CIA Triad(정보보안의 3대 요소) / Key Security Concepts
