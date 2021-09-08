@@ -1,6 +1,6 @@
 ---
 published: true
-title: '[컴퓨터 보안] Cryptographic Tools'
+title: '[컴퓨터 보안] Cryptographic Tools(1)'
 layout: post
 subtitle: 'csReview Computer Security'
 categories: csReview
@@ -79,8 +79,12 @@ ECB의 단점을 해결한 것으로, 동일한 블록이어도 다른 암호문
   + 한 개라면 Symmetric
   + 서로 다른 Key를 사용한다면 Asymmetric
 3. 얼마만큼을 평문을 처리할 것인가?
-  + Block cipher: 블록 단위로 처리함
-  + Stream cipher: 데이터 스트림을 순차적으로 처리(1 bit씩)
+  + Block cipher
+    + 평문을 블록 단위로 나누어서 암호화하며 블록 단위의 암호문를 생성함
+  + Stream cipher
+    + 데이터 스트림을 순차적으로 처리(일반적으로 1 byte씩 처리)
+    + Encryption Sequence가 길어야 한다. 짧으면 보안에 취약함
+    + 충분히 긴 Key를 사용해야 한다
 
 ### Attacking Symmetric Encryption
 * **Cryptanalytic Attacks**: 알고리즘의 특성을 활용하여 특정 일반 텍스트 또는 사용 중인 키를 추론하며 5 가지 예시가 있다.
@@ -91,5 +95,3 @@ ECB의 단점을 해결한 것으로, 동일한 블록이어도 다른 암호문
   + Chosen ciphertext: 공격자는 가로챈 cipherText의 일부를 이용하여 새로운 cipherText를 만들며, 이를 plainText로 만들어 낸 뒤에 이를 분석하여 사용된 key를 추측한다.
   + Chosen text(=Chosen plaintext + Chosen ciphertext)
 * **Brute-Force Attack**: 가능한 모든 경우의 수를 대입하여 공격하는 방법이다.
-
-### Block Cipher Structure
