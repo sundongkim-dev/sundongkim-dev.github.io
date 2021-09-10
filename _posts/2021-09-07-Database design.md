@@ -39,7 +39,7 @@ DB 접근 권한, 방법
 **Relationship**
 + 두 개 이상의 entity간의 관련성을 말한다.
 + Relationship 또한 Attribute를 지닐 수 있다.
-+ 하나의 Entitiy Set내에서의 Relationship을 **Unary Relationship**, 두 개는 **Binary Relationship**, 세 개는 **Ternary Relationship**이라 한다.
++ **하나**의 Entitiy Set내에서의 Relationship을 **Unary Relationship**, **두 개**는 **Binary Relationship**, **세 개**는 **Ternary Relationship**이라 한다.
 
 **Relationship Set**
 + 비슷한 관계들의 집합이다.
@@ -64,3 +64,27 @@ Unary Relationship에서 한 개체 집합이 여러 역할을 수행할 때, Ro
   + Owner 개체와 Weak Entity는 1-to-Many 관계이다.
   + Weak Entity는 반드시 Total Participation으로 Owner Entity와 관계된다.
   + Owner와 Weak Entity를 잇는 관계집합을 Identifying Relation Set이라 한다.
+
+## Crow's Foot Notation
+![Crow's Foot Notation](https://sundongkim-dev.github.io/assets/img/crowFootNotation.jpg)
+
+## Math Terminology - Relations
+![관계 수식에 따른 표현](https://sundongkim-dev.github.io/assets/img/mathTerminologyRelations.jpg)
+
+---
+## ISA("is a") Hierarchies
+만약 A ISA B라면, 모든 A entity는 B의 Attribute도 직접적으로 갖고 있는 형태이다.
+
+**Generalization(Upward)**: 여러 개체집합들 사이에서 공통되는 Attribute를 찾고, 공통되는 Attribute만으로 구성된 Entity Set(Superclass)을 생성하는 과정  
+**Specialization(Down)**: 어떤 Superclass 개체 집합의 모든 Attribute를 Inherit받고 몇 개의 Attribute를 추가하는 과정
+
+**Constraints in ISA Relation**
+1. **Overlap Constraints(중첩 제약조건)**
+한 개체가 두 개 이상의 SUbclass에 속할 수 있는가? ex) Joe가 Hourly_Emps인 동시에 Contract_Emps인가?
+2. **Covering Constraints(포괄 제약조건)**
+모든 Subclass가 Superclass 개체들을 전부 Cover하는가? ex)모든 Emps가 Hourly이거나 Contract인가?
+
+---
+## Aggregation
+개체 집합과 관계 집합을 포함하는 Relationship를 모형화해야 할 때 사용한다.  
+다른 관계에 참여할 수 있게 Relationship set을 Entity set처럼 여기게 한다.
