@@ -1,6 +1,6 @@
 ---
 published: true
-title: '[데이터베이스] Database Management Systems - Overview'
+title: '[데이터베이스] DB - Overview'
 layout: post
 subtitle: 'csReview Database'
 categories: csReview
