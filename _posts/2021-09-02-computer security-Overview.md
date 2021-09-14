@@ -68,7 +68,7 @@ comments: true
 
 ### Scope of Computer Security
 
-![Scope of Computer Security](https://sundongkim-dev.github.io/assets/img/scopeOfComputerSecurity.jpg)
+![Scope of Computer Security](https://sundongkim-dev.github.io/assets/img/ScopeOfComputerSecurity.JPG)
 
 ### Passive and Active Attacks
 * **Passive Attacks**: 시스템에서 정보를 학습하거나 사용하려고 하지만 시스템 리소스에 영향을 미치지 않는다.
