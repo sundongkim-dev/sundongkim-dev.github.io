@@ -98,3 +98,75 @@ UNIX에선 원래 최대 8글자로 하위 7비트만 모아서 56비트 DES키�
   + Global counters
   + History of member's previous (successful) logins
 + No per-user attack data
+
+### Token-based Authentication
++ Memory cards
+  + 데이터를 저장할 수 있지만 처리하지 않음
+  + 내부 전자 기억을 포함할 수 있음
+  + 물리적 접근을 위해 단독으로 사용될 수 있음
+  + 암호 또는 PIN과 결합할 때 훨씬 강화된 보안을 제공함
+
+  메모리 카드의 단점은 다음과 같습니다.
+  + 특별한 리더기가 필요함
+  + 증표의 손실
+  + 사용자 불만
+
++ Smart cards
+  + 물리적 특성
+    + 내장된 마이크로프로세서를 포함
+    + 은행 카드처럼 생긴 똑똑한 토큰
+  + 인터페이스
+    + 수동 인터페이스는 상호작용을 위한 키패드와 디스플레이를 포함
+    + 전자 인터페이스는 호환 가능한 reader/writer와 통신
+  + 인증 프로토콜
+    + 정적, 동적 암호 생성기 및 challenge-response 세 가지 범주로 분류됨
+
+![Communication Initialization](https://sundongkim-dev.github.io/assets/img/communicationInitialSmartCard.jpg)
+
+### Biometric Authentication
++ 특이한 신체적 특성에 따라 개인 인증 가능
++ 패턴 인식 기반
++ 앞선 PW authentication이나 Token-based authentication과 비교할 때 기술적으로 복잡하고 비싸다
+
++ 사용되는 물리적 특성
+  + 얼굴 특징
+  + 지문, 손금
+  + 망막, 홍채 패턴
+  + 목소리
+
+![Communication Initialization](https://sundongkim-dev.github.io/assets/img/operationOfBiometricSystem.jpg)
+
+![Biometric Measurement Operating Characteristic Curves](https://sundongkim-dev.github.io/assets/img/falseMatchTradeoff.jpg)
+
+### Remote User Authentication
+네트워크, 인터넷 또는 통신 링크를 통한 인증은 더 복잡하며 다음과 같은 **보안 위협**이 있다.
++ **Eavesdropping**, **capturing a password**, **replaying an authentication sequence**
+
+**Password protocol**
+1. 사용자가 원격 호스트에 ID 전송
+2. 호스트가 임의 번호(nonce) 생성
+3. nonce가 사용자에게 반환됨
+4. 호스트가 암호의 해시 코드를 저장함
+5. 암호 해시가 인수 중 하나인 함수
+6. 임의의 번호를 사용하면 사용자의 전송을 캡처한 적으로부터 방어할 수 있음
+
+**Token protocol**
+1. 사용자가 원격 호스트에 ID 전송
+2. 호스트가 임의의 숫자와 식별자를 반환함
+3. 토큰은 정적 패스코드를 저장하거나 일회성 랜덤 패스코드를 생성함
+4. 사용자가 암호를 입력하여 패스코드를 활성화함
+5. 암호가 사용자와 토큰 간에 공유되며 원격 호스트를 포함하지 않음
+
+**Static biometric protocol**
+1. 사용자가 호스트에 ID를 전송
+2. 호스트가 임의 번호와 암호화 식별자로 응답함
+3. 클라이언트 시스템이 사용자 측의 생체 인식 장치를 제어함
+4. 호스트는 수신 메시지의 암호를 해독하고 이를 로컬에 저장된 값과 비교함
+5. 호스트는 수신 디바이스 ID를 호스트 데이터베이스에 등록된 디바이스 목록과 비교하여 인증을 제공함
+
+**Dynamic biometric protocol**
+1. 호스트는 난제로 난수열과 난수를 제공함
+2. 시퀀스 챌린지는 숫자,문자, 단어들의 시퀀스임
+3. 클라이언트 사용자는 biometric siganl를 생성하기 위해 시퀀스를 vocalize하고 타이핑하거나 기록해야 함
+4. 클라이언트 측에서 생체 신호와 난수를 암호화함
+5. 호스트가 메시지를 해독하고 비교를 생성함
