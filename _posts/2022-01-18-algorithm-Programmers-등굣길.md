@@ -22,7 +22,7 @@ comments: true
 
 ### **Map과 Set을 사용해서 푼 코드**
 ---
-```cpp  
+```cpp
 #include <string>
 #include <vector>
 #include <iostream>
