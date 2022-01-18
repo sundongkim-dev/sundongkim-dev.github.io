@@ -19,7 +19,6 @@ comments: true
 
 ### **Map과 Set을 사용해서 푼 코드**
 ---
-
 ```cpp  
 #include <string>
 #include <vector>
@@ -65,5 +64,4 @@ vector<int> solution(vector<string> id_list, vector<string> report, int k) {
     }
     return answer;
 }
-
-'''
+```
