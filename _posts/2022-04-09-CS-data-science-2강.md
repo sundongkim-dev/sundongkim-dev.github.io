@@ -52,9 +52,15 @@ comments: true
 
 데이터 마이닝은 여러 분야가 융합된 것이다. Database 기술, 통계학, 알고리즘, 패턴 인식, 머신 러닝 등 아주 다양한 분야가 관여한다.
 
+전통적인 data analysis가 안되는 이유는?
+- 어마무시한 양의 데이터
+- 매우 높은 차원의 데이터
+- 매우 복잡한 데이터
+- 새롭고 정교한 어플리케이션
+
 ### Data Mining: Classification Schemes
 
-일반적인 분류로는 Descriptive data mining과 predictive data mining으로 나눌 수 있고, 관점이 다르면 분류 또한 달라진다.
+일반적인 분류로는 Descriptive data mining(현재의 데이터가 어떤 상태인지를 요약, 기술)과 predictive data mining(현재의 데이터로 예측)으로 나눌 수 있고, 관점이 다르면 분류 또한 달라진다.
 - Data 관점: 마이닝할 데이터의 종류
 ex) 관계형, 데이터 웨어하우스, 트랜잭션, 스트림, 객체 지향/
 관계형, 능동형, 공간형, 시계열, 텍스트, 멀티미디어,
@@ -73,7 +79,7 @@ ex) 소매, 통신, 은행, 사기 분석, 바이오 데이터 마이닝, 주식
 - Multidimensional concept description: characterization & discrimination
 ex) 건조한 지역 vs 습한 지역
 - Frequent patterns, association, correlation vs causality
-ex) 기저귀 → 맥주[0.5% 75%] (상관성 또는 인과성?)
+ex) 기저귀 → 맥주[0.5% 75%]
 - Classification and Prediction: 설명하고 구별하는 모델(함수)을 구성
 ex) (기후)에 따라 국가 분류 또는 (연비 기준)에 따라 자동차 분류, 알 수 없거나 누락된 숫자 값 예측
 - Cluster analysis: 클래스 레이블을 알 수 없기에 데이터를 그룹화하여 새 클래스를 만든다, 클래스 내 유사성 극대화 및 클래스 간 유사성 최소화
