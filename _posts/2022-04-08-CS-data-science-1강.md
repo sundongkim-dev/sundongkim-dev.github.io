@@ -138,10 +138,12 @@ Frequent pattern mining을 찾아내는 방법은 크게 세 가지가 있는데
 3. DB를 순회하면서 2번에서 생성한 후보들을 검증한다.
 4. frequent set이 더이상 안나오거나, candidate set이 더이상 생성되지 않는다면 종료한다.
 
-매우 간단한 로직이다. 이를 그림으로 살펴보면 아래와 같다. ![Apriori](https://sundongkim-dev.github.io/assets/img/data-science/Apriori.png)  
+매우 간단한 로직이다. 이를 그림으로 살펴보면 아래와 같다.  
+![Apriori](https://sundongkim-dev.github.io/assets/img/data-science/Apriori.png)  
 
 후보를 생성하는 방법은 ~~앞선 그림을 통해 이해하면 더 빠르겠지만~~ 다음과 같다.
 먼저 L<sub>k</sub>에서 self-joining을 해서 후보들을 만들어내고, pruning을 거친다. pruning은 만들어낸 후보의 subset이 frequent하지 않다면 걸러내면 된다.
+
 예를 들어, L<sub>3</sub>={abc,abd,acd,ace,bcd}라면 self-joining을 통해 abcd와 acde를 얻을 수 있는데, acde의 subset인 ade가 L<sub>3</sub>에 존재하지 않기 때문에 frequent하지 않은 것이므로 걸러져서 C<sub>4</sub>이 된다. ~~이후 db를 돌면서 support를 만족하는지 따져주며 검증하면 된다~~
 
 이러한 Apriori에는 몇 가지 문제점이 있다. 일단 길이마다 DB를 scan해야하기 때문에 max length만큼 반복하게 되고, 후보의 수도 어마어마하다는 사실을 앞서 배웠다. 또한 support counting하는 것조차 그 workload가 상당하다.
