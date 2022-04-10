@@ -14,7 +14,7 @@ comments: true
 
 **1. Multiple DB Scans**
 
-a. Partition
+**a. Partition**
 
 이전에 apriori의 단점으로 너무 많은 DB scan을 한다는 점이 있었다. 이를 개선하기 위해 DB를 k 개의 조각으로 나눈다. 이를 partition이라고 하고, 각 partition은 메인 메모리에 올라갈 만큼의 크기여야 한다.
 
@@ -22,7 +22,7 @@ a. Partition
 
 직관적으로 각 파티션에서 local supmin을 만족하지 못하면 frequent pattern이 될 수 없다는 것을 알 수 있다.
 
-b. Sampling for frequent patterns
+**b. Sampling for frequent patterns**
 
 Simple sampling: DB에서 sampling해서 sampled DB(SDB)를 얻고 Apriori를 돌려서 local frequent patern을 찾는다. 이때, minSup은 sample만큼 나눠서 사용한다.
 
@@ -31,17 +31,19 @@ Simple sampling: DB에서 sampling해서 sampled DB(SDB)를 얻고 Apriori를 �
 이를 해결하기 위해 검증을 위한 2번의 스캔을 더 시행한다.
 첫 번째 Scan할 때, S(SDB)와 NB(S에는 없지만 모든 부분집합이 S에 있는 것)에서 frequent itemset을 찾는다. 두 번째 scan에선 missed frequent pattern을 찾아준다.
 
-c. DIC
+**c. DIC**
+
 같은 스캔에서 길이가 다른 itemsets가 후보로 들어있다.
 예를 들어, A와 D가 frequent하다면, AD의 counting이 시작된다. BCD의 모든 길이 2짜리 subset이 frequent하다면 BCD의 counting이 시작된다.
 
 **2. Huge number of candidates**
 
-a. DHP
+**a. DHP**
 
 DB 스캔 한 번 할 때, k-itemsets의 support를 계산하는 동시에 (k+1)-itemsets를 위한 해시 테이블을 만든다. 해시 테이블의 각 row는 hash bucket을 의미하며 해시값이 같은 itemset끼리 같은 hash bucket에 위치하도록해서 개수를 세어주었다. 이때, hash bucket count가 minSup보다 작으면 frequent pattern에서 제외하므로 candidate를 줄이는데 매우 효과적이다.
 
 ### Bottleneck of Frequent-pattern mining
+
 - DB 스캔을 여러 번 하는 것은 시간적 비용이 많이 발생
 - 긴 패턴을 마이닝하는 것은 많은 스캔과 많은 후보 생성이 필요하다
 - 결국 Bottleneck은 후보 생성과 검증이다
