@@ -67,7 +67,7 @@ conditional pattern base 표로 conditional fp-tree를 만든다. p의 모든 co
 
 아래의 그림으로 이해해보자.
 
-![FP tree](https://sundongkim-dev.github.io/assets/img/data-science/FP_tree.png)  
+![FP tree](https://sundongkim-dev.github.io/assets/img/data_science/FP_tree.png)  
 
 이러한 FP-tree 구조의 이점은 무엇일까?
 

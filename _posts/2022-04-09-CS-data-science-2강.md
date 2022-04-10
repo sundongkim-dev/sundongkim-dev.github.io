@@ -25,7 +25,7 @@ comments: true
 
 이제는 데이터가 1초마다 폭발적으로 증가하고 있다. 당장 youtube만 봐도 기가바이트 단위의 영상이 1초에 몇 개나 올라올 지 감도 잡히질 않는다.
 
-결국 데이터의 수집이나 가용성이 중요해졌고 그에 따라 자동화된 데이터 수집 도구나, 데이터베이스 시스템, 웹 등 다양한 도구들이 생겼다. 이러한 데이터의 주요 출처는 비즈니스(웹, 이커머스, 거래, 주식 등), 과학(원격 감지, 생체 정보학, 과학적 시뮬레이션 등), 사회와 사람들(뉴스, 카메라, 유튜브) 등이 있다. 
+결국 데이터의 수집이나 가용성이 중요해졌고 그에 따라 자동화된 데이터 수집 도구나, 데이터베이스 시스템, 웹 등 다양한 도구들이 생겼다. 이러한 데이터의 주요 출처는 비즈니스(웹, 이커머스, 거래, 주식 등), 과학(원격 감지, 생체 정보학, 과학적 시뮬레이션 등), 사회와 사람들(뉴스, 카메라, 유튜브) 등이 있다.
 
 > We are drowning in data, but starving for knowledge!
 
@@ -44,10 +44,10 @@ comments: true
 참고로, 간단한 search나 query processing 혹은 deductive expert systems 같은 경우를 데이터 마이닝이라고 하지는 않는다.
 
 아래는 KDD의 프로세스이다.
-![KDD process](https://sundongkim-dev.github.io/assets/img/data-science/KDD.png)  
+![KDD process](https://sundongkim-dev.github.io/assets/img/data_science/KDD.png)  
 
 아래는 business intelligence의 프로세스이다.
-![Business intelligence](https://sundongkim-dev.github.io/assets/img/data-science/business_intelligence.png)  
+![Business intelligence](https://sundongkim-dev.github.io/assets/img/data_science/business_intelligence.png)  
 
 데이터 마이닝은 여러 분야가 융합된 것이다. Database 기술, 통계학, 알고리즘, 패턴 인식, 머신 러닝 등 아주 다양한 분야가 관여한다.
 
