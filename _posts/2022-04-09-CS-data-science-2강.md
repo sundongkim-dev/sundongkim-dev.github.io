@@ -1,6 +1,6 @@
 ---
 published: true
-title: '[데이터 사이언스] Frequent pattern mining'
+title: '[데이터 사이언스] Introduction'
 layout: post
 subtitle: 'csReview DataScience'
 categories: csReview

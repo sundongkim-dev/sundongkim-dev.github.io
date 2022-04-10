@@ -52,9 +52,9 @@ Frequent pattern이란 데이터셋에서 빈번하게 발생하는 어떤 패�
 
 데이터에서 내재된 특성, 규칙을 찾기 위해 생겨난 것이다. 예를 들어, "어떤 상품이 자주 같이 주문되는가?",
 "컴퓨터를 사고난 다음에 살만한 물건은?", "신약에 민감한 DNA의 종류는?"과 같은 질문들에 답을 할 수 있게 되는 것이다.
-~~맥주와 기저귀를 자주 구매,,아버지가 주로 쇼핑을 하셔서 그런가보다~~
+~~맥주와 기저귀를 자주 같이 구매,,,아버지가 주로 쇼핑을 하셔서 그런가보다~~
 
-이런 것들을 좀 더 그럴듯하게 표현해보면 Basket data analysis, cross-marketing, catalog design,
+이런 frequent pattern들을 분석하면 Basket data analysis, cross-marketing, catalog design,
 sale campaign analysis, web log(click stream) analysis, DNA sequence analysis 등을 해결할 수 있게 된다.
 
 #### 2. 왜 Frequent pattern은 중요한가?  
@@ -71,17 +71,17 @@ sale campaign analysis, web log(click stream) analysis, DNA sequence analysis �
 ### Basic concepts: Frequent patterns & Association rules
 Frequent pattern에 대해서 직관적이지만 모호하게 표현하였는데 자세히 알아보자. 먼저 이를 학습하기 위해 몇 가지 기본이 되는 컨셉을 알아야 한다.
 
-**1. 우선, Association rule을 알기 위해 아래 문장을 분석해보자.**
+**1. Association rule을 알기 위해 아래 문장을 분석해보자.**
 
 > minimum support & confidence를 만족하는 모든 Association rule(X->Y)들을 찾아라.
 
 우선 support와 confidence부터 살펴보자.
 
-support는 `아이템셋 X와 Y를 모두 포함하는 트랜잭션의 수 / 전체 트랜잭션의 수`라고 할 수 있겠다. 그렇기 때문에 X와 Y를 모두 갖고 있는(X U Y) 트랜잭션의 확률이라고 표현할 수 있다. 얼핏 보면 합집합이 아니라 교집합이 맞지 않나라고 생각할 수 있지만 합집합이 맞다. 아이템셋 관점이 아니라 트랜잭션 관점이기 때문이다. 즉, X와 Y가 트랜잭션이 아니라 아이템셋이기 때문이다.
+support는 `아이템셋 X와 Y를 모두 포함하는 트랜잭션의 수 / 전체 트랜잭션의 수`라고 할 수 있겠다. 그렇기 때문에 X와 Y를 모두 갖고 있는(X U Y) 트랜잭션의 확률이라고 표현할 수 있다. 얼핏 보면 합집합이 아니라 교집합이 맞지 않나라고 생각할 수 있지만 합집합이 맞다. 트랜잭션 관점이 아니라 아이템셋관점이기 때문이다. 즉, X와 Y가 트랜잭션이 아니라 아이템셋이기 때문에 그 두 아이템을 모두 포함하는 것이므로 합집합이다.
 
 confidence는 `아이템셋 X, Y를 포함하는 트랜잭션의 수 / 아이템셋 X를 포함하는 트랜잭션의 수`이다.
 
-잘 이해가 안 갈 수 있다. 예시로 한 번 더 살펴보자. 아래와 같은 표가 주어지고,
+잘 이해가 안 갈 수 있다. 예시로 한 번 더 살펴보자. 아래의 표를 보자.
 
 | Transaction-id | Items bought |
 | -------- | :------: |
@@ -138,7 +138,7 @@ Frequent pattern mining을 찾아내는 방법은 크게 세 가지가 있는데
 3. DB를 순회하면서 2번에서 생성한 후보들을 검증한다.
 4. frequent set이 더이상 안나오거나, candidate set이 더이상 생성되지 않는다면 종료한다.
 
-매우 간단한 로직이다. 이를 그림으로 살펴보면 아래와 같다. ![Apriori](https://sundongkim-dev.github.io/assets/img/data-science/apriori.png)  
+매우 간단한 로직이다. 이를 그림으로 살펴보면 아래와 같다. ![Apriori](https://sundongkim-dev.github.io/assets/img/data-science/Apriori.png)  
 
 후보를 생성하는 방법은 ~~앞선 그림을 통해 이해하면 더 빠르겠지만~~ 다음과 같다.
 먼저 L<sub>k</sub>에서 self-joining을 해서 후보들을 만들어내고, pruning을 거친다. pruning은 만들어낸 후보의 subset이 frequent하지 않다면 걸러내면 된다.
@@ -146,9 +146,9 @@ Frequent pattern mining을 찾아내는 방법은 크게 세 가지가 있는데
 
 이러한 Apriori에는 몇 가지 문제점이 있다. 일단 길이마다 DB를 scan해야하기 때문에 max length만큼 반복하게 되고, 후보의 수도 어마어마하다는 사실을 앞서 배웠다. 또한 support counting하는 것조차 그 workload가 상당하다.
 
-그에 따라, 이런 문제들을 개선하는 아이디어도 생겨났다.
-Multiple scans -> scan 횟수 줄이기
-Huge number of candidates -> 후보 줄이기
+그에 따라, 이런 문제들을 개선하는 아이디어도 생겨났다.  
+Multiple scans -> scan 횟수 줄이기  
+Huge number of candidates -> 후보 줄이기  
 Support counting -> 똑똑하게 support 계산하기
 
-다음장에서...
+[다음 장에서...](https://sundongkim-dev.github.io/csreview/2022/04/09/CS-data-science-3%EA%B0%95)
