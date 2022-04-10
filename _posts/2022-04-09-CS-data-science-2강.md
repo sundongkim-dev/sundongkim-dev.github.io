@@ -39,7 +39,7 @@ comments: true
 
 하지만 데이터 마이닝 용어 자체는 약간 이름을 잘못 지었다고도 할 수 있다. 예를 들어 gold mining은 광산에서 금을 캐는 것인데 데이터 마이닝을 여기에 빗대면 데이터에서 데이터를 캐는 이상한 말이 된다. 물론 그 데이터가 유용한 데이터라는 것이 생략되었겠지만 knowledge mining이라고 했으면 더 와닿지 않았을까?
 
-그래서 이런 데이터 마이닝의 다른 이름으로는 knowledge discovery in databases(KDD), knowledge extraction, data/pattern analysis, data archeology, data dredging, information harvesting, business intelligence 등이 있다. ~~적고 보니 뭐이리 많은지..~~
+그래서 이런 데이터 마이닝의 다른 이름으로는 knowledge discovery in databases(KDD), knowledge extraction, data/pattern analysis, data archeology, data dredging, information harvesting, business intelligence 등이 있다. ~~적고 보니 뭐 이리 많은지..~~
 
 참고로, 간단한 search나 query processing 혹은 deductive expert systems 같은 경우를 데이터 마이닝이라고 하지는 않는다.
 
