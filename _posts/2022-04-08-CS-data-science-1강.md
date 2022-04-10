@@ -139,7 +139,7 @@ Frequent pattern mining을 찾아내는 방법은 크게 세 가지가 있는데
 4. frequent set이 더이상 안나오거나, candidate set이 더이상 생성되지 않는다면 종료한다.
 
 매우 간단한 로직이다. 이를 그림으로 살펴보면 아래와 같다.  
-![Apriori](https://sundongkim-dev.github.io/assets/img/data-science/Apriori.png)  
+![Apriori](https://sundongkim-dev.github.io/assets/img/data-science/Apriori.PNG)  
 
 후보를 생성하는 방법은 ~~앞선 그림을 통해 이해하면 더 빠르겠지만~~ 다음과 같다.
 먼저 L<sub>k</sub>에서 self-joining을 해서 후보들을 만들어내고, pruning을 거친다. pruning은 만들어낸 후보의 subset이 frequent하지 않다면 걸러내면 된다.
