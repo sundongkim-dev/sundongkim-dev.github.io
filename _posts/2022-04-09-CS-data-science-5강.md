@@ -1,6 +1,6 @@
 ---
 published: true
-title: '[데이터 사이언스] Classification & Prediction'
+title: '[데이터 사이언스] Classification & Prediction (1)'
 layout: post
 subtitle: 'csReview DataScience Classification Prediction'
 categories: csReview
@@ -201,6 +201,7 @@ Goodness measure가 미리 정해둔 값(threshold)으로 떨어지면 더 이�
 Pruned tree들을 여러 개 만든 후 훈련 데이터셋이 아닌 데이터셋 ~~아마도 evaluation set~~ 으로 정확도가 가장 높은 tree를 고른다.
 
 ### Classification in large databases
+
 **Classification**은 통계학자 및 기계 학습 연구자가 광범위하게 연구하는 고전적인 문제이다. Unknown data를 정확하게 분류하는 것이 목적인데 적절한 속도로 수백만 개의 예제와 수백 개의 속성을 가진 데이터셋을 분류하는 scalability가 중요하다.
 
 그래서 우리는 앞서 배운 decision tree induction을 데이터 마이닝에 사용한다. Decision tree는 다음과 같은 장점들을 지닌다.
