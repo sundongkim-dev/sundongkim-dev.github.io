@@ -87,3 +87,146 @@ Linear regression은 독립변수가 하나였지만 이제는 두 개 이상인
 - Poisson regression
 - Log-linear models
 - Regression trees
+
+### Accuracy and error measure
+
+**1. Classifier and error measure**
+
+**Confusion matrix**
+
+|    | C1 | C2 |
+| -- |:--:|:--:|
+| C1 |True positive|False negative|
+| C2 |False positive|True negative|  
+
+일반적으로 진단해야 하는 질병, 감지해야 하는 사기행각 등을 positive로 둔다. 진양성, 위양성, 진음성, 위음성 헷갈릴 수 있는 데 아래와 같이 생각하면 안 헷갈릴 수 있다.
+
+True/False는 실제 class label과 분류한 결과의 일치 여부를 말하고,  
+Positive/Negative는 분류한 결과가 양성인지 음성인지를 말한다.
+
+다시 말해서, True positive라면 분류기의 결과가 양성이고 그것의 ground-truth도 양성인 경우를 말한다.
+
+아래와 같은 예시를 살펴보자.
+
+| classes |buy_computer = yes|buy_computer = no|total|recognition(%)|
+|:--:|:--:|:--:|:--:|:--:|
+|buy_computer = yes|6954|46|7000|99.34|
+|buy_computer = no|412|2588|3000|86.27|
+|total|7366|2634|100000|95.52|  
+
+분류기 M의 accuracy를 acc(M)이라고 하자. acc(M)의 값은?
+> (6954+2588)/10000 = 0.9542
+
+분류기 M의 Error rate(misclassification rate)는?
+> 1 - acc(M) = 1 - 0.9542 = 0.0458
+
+위와 같이 진양성, 진음성을 이용한 accuracy 측정 방법도 있지만 다른 방법도 있다. 예를 들어 암을 진단하는 상황을 생각해보자. 수치는 위의 표와 동일한 표를 생각해보자.
+
+Sensitivity = t-pos / pos (= recall) // True positive recognition rate
+Specificity = t-neg / neg // True negative recognition rate
+Precision = t-pos / (t-pos + f-pos)
+Accuracy = sensitivity * pos/(pos+neg) + specificity * neg/(pos+neg)
+= t-pos / (pos+neg) + t-neg/(pos+neg) = (t-pos+t-neg)/(pos+neg)
+
+위와 같은 방식으로 accuracy를 계산할 수 있다.
+Sensitivity(recall, 재현율)는 암 걸린 사람들 중에 암에 실제로 걸렸다고 진단한 사람들의 비율이고, specificity는 암에 걸리지 않은 사람들 중에 암에 걸리지 않았다고 진단한 사람들의 비율이며 precision은 암에 걸렸다고 진단한 사람들 중에 진짜 암에 걸린 사람들의 비율이다.
+
+결과적으로 암환자에게 암이 아니라고 예측한 경우는 치명적이다.
+= 그렇기에 recall이 높아야 한다!!
+
+스팸 메일이라고 예측했는데 그 중에 정상 메일이 있는 경우는 치명적이다.
+= 그렇기에 precision이 높아야 한다!!
+
+**2. Predictor Error Measures**
+
+a. Measure predictor accuracy  
+  + 예측값이 실제값(ground truth)보다 얼마나 멀리 떨어져 있는가!  
+
+b. Loss function  
+  + 실제값과 예측된 값의 차이(=에러)를 측정한다.  
+    + Absolute error: |yi-yi'| = 차이 보존하고 싶을 때
+    + Squared error: (yi-yi')<sup>2</sup> = 차이 극대화하고 싶을 때
+
+c. Test error(generalization error)  
+  + 테스트셋의 loss의 평균을 말한다.
+    - Mean absolute error: sum(|yi-yi'|)/d  
+    - Mean squared error: sum((yi-yi')<sup>2</sup>)/d  
+    - Relative absolute error: sum(|yi-yi'|)/sum(|yi-avg(y)|)  
+    - Relative squared error: sum((yi-yi')<sup>2</sup>)/sum((yi-avg(y))<sup>2</sup>)  
+  + Mean squared error는 아웃라이어를 더 크게 측정한다.   
+  + Square-root mean squared error와 square-root relative squared error가 자주 쓰인다. (예측 값과 동일한 크기를 얻기 위해서)
+
+### Evaluating the Accuracy of a Classifier or Predictor  
+
+**a. Holdout Method**
+  - 주어진 데이터를 랜덤하게 training set, test set으로 분리한다.
+  - 랜덤 샘플링: holdout의 변형  
+    + Holdout을 k번 반복한다.  
+    + 정확도는 얻어진 k 개의 평균을 취한다.
+
+**b. Cross Validation**
+  - k-fold라고도 하며, k=10이 자주 쓰인다.
+  - 랜덤하게 데이터를 동일하게 k 개로 나눈다.(서로 교집합 없이)  
+  - i-th iteration에는 D<sub>i</sub>를 테스트셋으로 하고 나머지는 트레이닝셋으로 한다.  
+    + K=10이라면, 10%는 테스트셋, 90%는 트레이닝셋으로 사용하면서 10번을 각각 다른 테스트셋을 선정하여 반복하는 것이다.
+
+**c. Leave-one-out**
+  - 위의 cross-validation의 특별한 케이스로 데이터가 더 적을 때 용이하다.
+  - k-folds를 하는데 k를 데이터의 수 즉, 튜플의 수를 사용한다.
+
+**d. Stratified cross-validation**
+  - Cross-validation의 특별한 케이스로 층이 있게 즉, 각 fold의 클래스 분포가 같아지도록 분배한다.  
+  - 예를 들어, positive=70%, negative=30% 이면, 각 fold의 데이터들도 이 비율을 이루도록 분배한다.  
+
+**e. Bootstrap**
+  - 작은 데이터셋(불충분한 트레이닝 샘플)인 경우 잘 작동한다.   
+  - 전체 데이터셋에서 트레이닝 샘플을 골라낼 때, 한 번 골랐던 샘플도 다시 선택될 수 있도록 한다.  
+    + **.632 bootstrap**: 가장 흔한 bootstrap 방법  
+      - 데이터셋이 d 개의 샘플로 이루어져있으면, d번 샘플되고 한 번 골라졌던 것도 다시 고를 수 있다.  
+      - 전체 데이터에서 마지막까지 뽑히지 않은 것은 테스트셋으로 분류한다.  
+      - 대략 전체 데이터의 63.2%가 트레이닝셋으로 분류되고 36.8%가 테스트셋으로 분류된다. (1- 1/d)<sup>d</sup>는 약 e<sup>-1</sup> = 0.368 이기 때문
+      - 샘플링하는 과정을 k번 반복하며 모델의 정확도는 i=1~k에 대하여   
+      acc(M) = sum(0.632x(model Mi acc of testset) + 0.368x(model Mi acc of trainset))  
+
+
+## Ensemble Methods  
+
+### 1. Concepts  
+- 여러 모델들의 조합으로 정확도를 높인다.  
+- k개의 학습된 모델을 결합하여 개선된 M' 모델을 생성한다.  
+- 잘 알려진 앙상블 메소드  
+  - Bagging: 여러 분류기의 예측값의 평균  
+  - Boosting: 여러 분류기마다 가중치를 매긴 결과    
+  - Ensemble: 다른 종류의 분류기들을 결합   
+
+### 2. Bagging: Bootstrap Aggregation    
+
+- "의사들의 가장 많은 투표를 차지한 진단을 내린다"  
+
+- Training  
+  - bootstrap 방식으로 테스트셋을 정한다.  
+    d개의 튜플을 중복허용해서 d개 뽑는다.  
+  - 각 트레이닝셋마다 분류모델을 학습시킨다.  
+
+- Classification  
+  - 각 분류기 Mi는 예측 클래스를 리턴한다.  
+  - bagged classifier M'는 각 분류기의 결과값을 모아서 가장 많은 클래스를 리턴한다.  
+
+- Prediction  
+  - 테스트튜플의 각 예측값의 평균값을 리턴한다.  
+
+- Accuracy  
+  - 하나의 분류기보다 더 나을 때가 많다.  
+  - 노이즈 데이터에 대해서 상당히 나쁘지 않다.  
+  - prediction, classification에서 개선된 정확도를 보임  
+
+
+### 3. Boosting  
+
+- "이전 진단 기록을 바탕으로 더 정확한 진단을 하는 의사에게 높은 가중치를 주어 진단을 내린다"  
+- 진행 과정  
+  - 각 트레이닝 튜플에 가중치가 할당된다.(처음엔 weight가 모두 같은데 학습해가면서 달라진다.)    
+  - k개의 분류기가 학습된다.  
+  - 분류기 Mi가 학습된 후, Mi+1을 학습시킬 떄에는 이전 Mi에서 잘못 분류된 트레이닝 튜플에 더 큰 가중치를 부여한다.  
+    -> 그럼 더 트레이닝 샘플로 뽑힐 가능성이 높아진다.  
+  - 최종 M'은 가중치(=각 분류기의 정확도)가 반영된 각 분류기의 결과를 결합하여 나타낸다.   
