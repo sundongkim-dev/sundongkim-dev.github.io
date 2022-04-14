@@ -16,6 +16,7 @@ comments: true
 - Classification of data mining systems
 - Top-10 most popular data mining algorithms
 - Major issues in data mining
+- Summary
 
 ---
 
@@ -143,3 +144,11 @@ ex) 추세 및 진화 분석
   + 여러 level의 abstraction
 - Applications and social impacts
   - 특정 도메인과 데이터 보안 이슈
+
+### Summary
+- Data mining: 대용량의 데이터로 부터 interesting한 패턴을 끄집어 내는 것
+- KDD process: DB들로부터 data cleaning, data integration해서 data warehouse 만들고 data selection, transformation해서 task-relevant data 만들고 이에 대해 data mining하면 pattern이 나오고 여기에 interesting measure로 pattern evaluation해서 knowledge를 얻는다.
+- 다양한 DB에 대해 마이닝을 할 수 있다.
+- Characterization, discrimination, association, classification, clustering, outlier and trend analysis
+- 데이터 마이닝 시스템과 아키텍처
+- 데이터 마이닝의 주요 이슈
