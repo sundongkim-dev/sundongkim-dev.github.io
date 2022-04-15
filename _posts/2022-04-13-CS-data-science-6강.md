@@ -1,6 +1,6 @@
 ---
 published: true
-title: '[데이터 사이언스] Classification & Prediction (3)'
+title: '[데이터 사이언스] Classification & Prediction (2)'
 layout: post
 subtitle: 'csReview DataScience Classification Prediction'
 categories: csReview
