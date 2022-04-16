@@ -42,13 +42,13 @@ Simple naive bayesian classifier는 decision tree나 neurl network에 뒤떨어�
 - 조건부 확률(Conditional probability)
   - `P(X|H)`=P(X intersection H) / P(H)  
   - `P(H|X)`=P(X intersection H) / P(X)  
-  - P(X intersection H) = 'P(H|X)' * P(X) = `P(X|H)` * P(H)
+  - P(X intersection H) = `P(H|X)` * P(X) = `P(X|H)` * P(H)
 
 이제 베이즈 정리를 위한 확률적인 표현은 모두 배웠다. 베이즈 정리는 다음과 같다.
 
 `P(H|X) = P(X|H) * P(H) / P(X)`
 
-X 데이터(training)와 사후 확률(posteriori probability) P(X|H)가 주어졌을 때, P(H|X)를 구할 수 있다.
+X 데이터(training)와 사후 확률(posteriori probability) `P(X|H)`가 주어졌을 때, `P(H|X)`를 구할 수 있다.
 
 이는 곧 우도와 같다.
 > Likelihood(우도) = posteriori(사후확률) * prior(사전확률) / evidence
