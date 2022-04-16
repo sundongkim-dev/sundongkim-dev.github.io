@@ -37,16 +37,16 @@ Simple naive bayesian classifier는 decision tree나 neurl network에 뒤떨어�
 
 - P(X)는 X라는 샘플 데이터가 발생할 확률을 말한다.
 
-- P(X|H)는 posteriori probability라고 하며, H라는 가설을 만족할 때, X라는 데이터를 가질 확률을 말한다. X가 컴퓨터를 산다고 할 때, X의 나이가 31~40이고 연봉은 medium일 확률을 예로 들 수 있다.
+- `P(X|H)`는 posteriori probability라고 하며, H라는 가설을 만족할 때, X라는 데이터를 가질 확률을 말한다. X가 컴퓨터를 산다고 할 때, X의 나이가 31~40이고 연봉은 medium일 확률을 예로 들 수 있다.
 
 - 조건부 확률(Conditional probability)
-  - P(X|H)=P(X intersection H) / P(H)  
-  - P(H|X)=P(X intersection H) / P(X)  
-  - P(X intersection H) = P(H|X) * P(X) = P(X|H) * P(H)
+  - `P(X|H)`=P(X intersection H) / P(H)  
+  - `P(H|X)`=P(X intersection H) / P(X)  
+  - P(X intersection H) = 'P(H|X)' * P(X) = `P(X|H)` * P(H)
 
 이제 베이즈 정리를 위한 확률적인 표현은 모두 배웠다. 베이즈 정리는 다음과 같다.
 
-> P(H|X) = P(X|H) * P(H) / P(X)
+`P(H|X) = P(X|H) * P(H) / P(X)`
 
 X 데이터(training)와 사후 확률(posteriori probability) P(X|H)가 주어졌을 때, P(H|X)를 구할 수 있다.
 
