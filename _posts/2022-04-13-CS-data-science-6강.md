@@ -66,13 +66,15 @@ M개의 클래스들이 있다고 가정하자. Classification은 곧 최대 사
 그러나 이 또한, computational cost가 크기 때문에 attribute가 다 독립적이라고 가정하고 계산 해준다.
 
 정리하면,
-> P(X|C<sub>i</sub>) = P(x<sub>1</sub>|C<sub>i</sub>) * P(x<sub>2</sub>|C<sub>i</sub>) * ... * P(x<sub>n</sub>|C<sub>i</sub>)
+`P(X|C<sub>i</sub>) = P(x<sub>1</sub>|C<sub>i</sub>) * P(x<sub>2</sub>|C<sub>i</sub>) * ... * P(x<sub>n</sub>|C<sub>i</sub>)`
 
 로 계산하여 **computation cost를 굉장히 많이 줄일 수 있다.** Class distribution만을 세기 때문이다. 앞서 incremental하다고 했었는데, 새로운 것이 들어오면 계산하고 곱해주면 끝이다.
 
 만약 attribute A<sub>k</sub>가 categorical한 경우, `P(X<sub>k</sub>|C<sub>i</sub>)`는 (Attribute 값이 X<sub>k</sub>인 튜플의 수)/(C<sub>i</sub>에 속하는 튜플 수)와 같다.
 
-혹은 attribute가 continuous-valued인 경우, 평균과 표준편차 값을 가지고 가우시안 분포를 따른다고 보고 `P(X<sub>k</sub>|C<sub>i</sub>)`를 계산한다.  
+혹은 attribute가 continuous-valued인 경우, 가우시안 분포를 따른다고 가정하고 평균과 표준편차 값을 계산하고 `P(X<sub>k</sub>|C<sub>i</sub>)`를 계산한다.  
+
+[확률식 첨부]
 
 cf) 평균 = class C<sub>i</sub>의 평균, 표준편차 = class C<sub>i</sub>의 표준편차  
 
