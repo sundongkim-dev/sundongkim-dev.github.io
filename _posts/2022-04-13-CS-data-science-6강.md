@@ -31,7 +31,7 @@ Simple naive bayesian classifier는 decision tree나 neurl network에 뒤떨어�
 - X를 class label이 알려져 있지 않은 데이터 샘플(evidence)이라고 하자.
 - H는 'X가 class C에 속한다'라는 가설이라고 하자.  
 
-이 때, P(H | X)는 X가 주어졌을 때 H를 만족할 확률이다. 이 값이 가장 높은 클래스로 분류한다.
+이 때, `P(H|X)`는 X가 주어졌을 때 H를 만족할 확률이다. 이 값이 가장 높은 클래스로 분류한다.
 
 - P(H)는 prior probability라고 하며, X와 독립적인 initial probability를 말한다. X가 나이나 연봉과 상관없이 컴퓨터를 살 확률을 예로 들 수 있다.
 
