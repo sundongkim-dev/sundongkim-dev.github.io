@@ -68,7 +68,7 @@ M개의 클래스들이 있다고 가정하자. Classification은 곧 최대 사
 정리하면,
 > P(X|C<sub>i</sub>) = P(x<sub>1</sub>|C<sub>i</sub>) * P(x<sub>2</sub>|C<sub>i</sub>) * ... * P(x<sub>n</sub>|C<sub>i</sub>)
 
-로 계산하여 computation cost를 굉장히 많이 줄일 수 있다. Class distribution만을 세기 때문이다.
+로 계산하여 **computation cost를 굉장히 많이 줄일 수 있다.** Class distribution만을 세기 때문이다. 앞서 incremental하다고 했었는데, 새로운 것이 들어오면 계산하고 곱해주면 끝이다.
 
 만약 attribute A<sub>k</sub>가 categorical한 경우, `P(X<sub>k</sub>|C<sub>i</sub>)`는 (Attribute 값이 X<sub>k</sub>인 튜플의 수)/(C<sub>i</sub>에 속하는 튜플 수)와 같다.
 
