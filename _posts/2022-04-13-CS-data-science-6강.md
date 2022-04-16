@@ -53,7 +53,7 @@ X 데이터(training)와 사후 확률(posteriori probability) P(X|H)가 주어�
 이는 곧 우도와 같다.
 > Likelihood(우도) = posteriori(사후확률) * prior(사전확률) / evidence
 
-모든 클래스 중에서 P(C<sub>i</sub>|X)가 가장 큰 값을 가지는 클래스로 분류한다.  
+모든 클래스 중에서 `P(C<sub>i</sub>|X)`가 가장 큰 값을 가지는 클래스로 분류한다.  
 
 실질적으로 많은 데이터에 대해서 확률을 다 알아야 하니까 computational cost가 많이 든다. 이를 어떻게 해결할 수 있을까?
 
@@ -61,7 +61,7 @@ X 데이터(training)와 사후 확률(posteriori probability) P(X|H)가 주어�
 D를 튜플 및 관련 클래스 레이블의 training set이라고 하고, 각 튜플은 n차원의 attribute를 갖는다.
 > X = (x1, x2, ..., xn)
 
-M개의 클래스들이 있다고 가정하자. Classification은 곧 최대 사후 확률 얻는 것이기에 P(C<sub>i</sub>|X) = P(X|C<sub>i</sub>)*P(C<sub>i</sub>) / P(X)를 튜플마다 구해주어야 하는데, 결국 모두 같은 P(X)를 사용하기에 분자만을 계산하고 이 값이 최대가 되게끔 하는 값을 찾으면 된다.
+M개의 클래스들이 있다고 가정하자. Classification은 곧 최대 사후 확률 얻는 것이기에 `P(C<sub>i</sub>|X) = P(X|C<sub>i</sub>)*P(C<sub>i</sub>) / P(X)`를 튜플마다 구해주어야 하는데, 결국 모두 같은 P(X)를 사용하기에 분자만을 계산하고 이 값이 최대가 되게끔 하는 값을 찾으면 된다.
 
 그러나 이 또한, computational cost가 크기 때문에 attribute가 다 독립적이라고 가정하고 계산 해준다.
 
@@ -70,9 +70,9 @@ M개의 클래스들이 있다고 가정하자. Classification은 곧 최대 사
 
 로 계산하여 computation cost를 굉장히 많이 줄일 수 있다. Class distribution만을 세기 때문이다.
 
-만약 attribute A<sub>k</sub>가 categorical한 경우, P(X<sub>k</sub>|C<sub>i</sub>)는 (Attribute 값이 X<sub>k</sub>인 튜플의 수)/(C<sub>i</sub>에 속하는 튜플 수)와 같다.
+만약 attribute A<sub>k</sub>가 categorical한 경우, `P(X<sub>k</sub>|C<sub>i</sub>)`는 (Attribute 값이 X<sub>k</sub>인 튜플의 수)/(C<sub>i</sub>에 속하는 튜플 수)와 같다.
 
-혹은 attribute가 continuous-valued인 경우, 평균과 표준편차 값을 가지고 가우시안 분포를 따른다고 보고 P(X<sub>k</sub>|C<sub>i</sub>)를 계산한다.  
+혹은 attribute가 continuous-valued인 경우, 평균과 표준편차 값을 가지고 가우시안 분포를 따른다고 보고 `P(X<sub>k</sub>|C<sub>i</sub>)`를 계산한다.  
 
 cf) 평균 = class C<sub>i</sub>의 평균, 표준편차 = class C<sub>i</sub>의 표준편차  
 
