@@ -95,7 +95,7 @@ b. **Evaluating Classification Methods**
 - 가장 높은 information gain을 얻는 test attribute를 선택!!
 - 엔트로피(expected information)  
 
-> p<sub>i</sub> = |C<sub>i,D</sub>|/|D|로 전체 데이터 중 클래스 i에 해당하는 데이터의 수
+**p<sub>i</sub> = |C<sub>i,D</sub>|/|D|로 전체 데이터 중 클래스 i에 해당하는 데이터의 수**
 
 > Entropy = Info(D) = -sum(p<sub>i</sub> * log2(p<sub>i</sub>))  
 
@@ -109,7 +109,7 @@ Information gain 공식을 살펴보자. 아래 식은 A라는 attribute를 기�
 
 Information gain은 분기 이전의 엔트로피에서 분기 이후의 엔트로피를 뺀 값이다. 분기 전의 엔트로피는 앞서 구했고, 분기 후의 값을 구해보자.
 
-> Info<sub>A</sub>(D) = sum(|D<sub>j</sub>| / |(D)| * Info(D<sub>j</sub>))
+**Info<sub>A</sub>(D) = sum(|D<sub>j</sub>| / |(D)| * Info(D<sub>j</sub>))**
 
 A라는 Attribute로 D를 v개의 partition으로 나누었다고 한다면 sum은 j=1부터 v까지의 평균 entropy의 합이다.
 
@@ -144,13 +144,13 @@ Gain Ratio는 Information gain의 attribute value의 수가 많을수록 커지�
 
 Gain(A)는 앞서 information gain에서 다룬 값으로 Info(D)-Info<sub>A</sub>(D)이다.
 
-> SplitInfo<sub>A</sub>(D) = sum(-(|D<sub>j</sub>|/|D|) x log2(|D<sub>j</sub>|/|D|))
+**SplitInfo<sub>A</sub>(D) = sum(-(|D<sub>j</sub>|/|D|) x log2(|D<sub>j</sub>|/|D|))**
 
 공식을 보면 어딘가 익숙하다. Normalization이 떠오르지 않는가? Gain ratio는 information에 대해 normalization을 해준 결과이다. Normalization으로 input data의 편향을 해소해준 것이다. ~~Gain(A)가 쓸데없이 커진다면, 분모에 똑같이 커지는 값으로 나눠준다면 조금은 해소된다!!~~
 
 결과적으로 information gain과 마찬가지로 gain Ratio가 가장 큰 attribute가 선정된다.
 
-이 역시도 만능이 아니다. 불균형이 심한 attribute(더 작은 쪽)를 상대적으로 선택하기 쉬워진다. ~~왜??~~
+이 역시도 만능이 아니다. 불균형이 심한 attribute(더 작은 쪽)를 상대적으로 선택하기 쉬워진다.
 
 **3.Gini Index**
 
@@ -158,7 +158,7 @@ Gain(A)는 앞서 information gain에서 다룬 값으로 Info(D)-Info<sub>A</su
 
 p<sub>j</sub>: class label에 대한 확률   
 
-> gini<sub>A</sub>(D) = (|D<sub>1</sub>|/|D|)gini(D<sub>1</sub>)+(|D<sub>2</sub>|/|D|)gini(D<sub>2</sub>)
+**gini<sub>A</sub>(D) = (|D<sub>1</sub>|/|D|)gini(D<sub>1</sub>)+(|D<sub>2</sub>|/|D|)gini(D<sub>2</sub>)**
 
 위 식에서 attribute A는 binary partition을 가정한다.
 
