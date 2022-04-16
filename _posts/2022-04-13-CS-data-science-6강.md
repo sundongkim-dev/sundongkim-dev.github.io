@@ -78,13 +78,13 @@ M개의 클래스들이 있다고 가정하자. Classification은 곧 최대 사
 
 cf) 평균 = class C<sub>i</sub>의 평균, 표준편차 = class C<sub>i</sub>의 표준편차  
 
-하지만 독립적이라고 생각하고 곱셈으로 확률을 구해주었는데, 중간에 확률이 0인 값이 하나라도 섞여 있다면 다른 값들과는 관계 없이 0이 되어 버린다. 이를 어떻게 해결할 수 있을까?
+하지만 독립적이라고 생각하고 곱셈으로 확률을 구해주었는데, 중간에 확률이 0인 값이 하나라도 섞여 있다면 다른 값들과는 관계 없이 0이 되어 버린다. 그렇기 때문에 Naive bayesian prediction은 조건부 확률이 0이 되지 않는 것을 전제로 한다. 이를 어떻게 해결할 수 있을까?
 
-가장 간단하게 해결하는 방법은 Laplacian correction(or Laplacian estimator)의 아이디어를 차용하는 것이다.
+가장 간단하게 해결하는 방법은 **Laplacian correction**(or Laplacian estimator)의 아이디어를 차용하는 것이다.
 
 모든 attribute의 값마다 1을 더해준다. 해서 어떤 경우에도 확률이 0인 경우가 나오지 않게끔 전처리를 해주는 것이다.
 
-결과적으로 분모에는 attribute의 개수만큼 더해주고, 분자에는 1을 더해주면 된다.
+결과적으로 분모에는 attribute의 개수만큼 더해주고, 분자에는 1을 더해주면 되고 전체적인 확률은 크게 변하지 않는다.
 
 이러한 Naive Bayesian prediction의 장단점은 무엇일까?
 
@@ -113,7 +113,7 @@ Coverage는 rule R로 분류가 가능한 것의 확률이다. 즉, n<sub>covers
 Accuracy는 분류가 가능한 것들 중에서 올바르게 분류될 확률로 n<sub>correct</sub>/n<sub>covers</sub>이다.
 
 만약 2 개 이상의 룰에 해당된다면 **conflict resolution**이 필요하다.
-- Size ordering: antecedent에서 attribute의 개수가 가장 많은 즉, 가장 tough한 rule을 고른다.  
+- Size ordering: antecedent에서 테스트하는 attribute의 개수가 가장 많은 즉, 가장 tough한 rule을 고른다.  
 - Class-based ordering: 클래스마다 빈도수를 계산하거나 잘못 분류된 cost 등으로 결정한다.    
 - Rule-based ordering(decision list): 사전에 기준을 정해서 우선순위를 정한다.    
 
