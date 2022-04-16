@@ -126,7 +126,7 @@ A라는 Attribute로 D를 v개의 partition으로 나누었다고 한다면 sum�
 
 Attribute 값에 따라 증가하는 순서대로 정렬한다. 두 페어 사이의 중간 값들을 split point로 볼 수 있다. 아래 그림을 보면 이해하기 쉽다.
 
-[그림 추가]
+![Split point](https://sundongkim-dev.github.io/assets/img/data_science/split_point.png)
 
 위와 같이 연속적인 값들의 중간 지점들이 곧 split point이다. 각 split point에서의 entropy를 계산해야 한다. 위의 그림에서는 5 개의 split point가 있으므로 5 개의 entropy 값을 얻을 텐데 이 중 제일 적은 값을 갖는 point가 바로 best split point가 된다. 즉, maximum information gain을 얻는 point이다.
 
