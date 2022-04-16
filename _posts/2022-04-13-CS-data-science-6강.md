@@ -17,10 +17,10 @@ comments: true
 ### Bayesian classification: why?
 왜 bayesian classifier를 사용할까? 크게 3 가지 이유가 있다.
 
-**1. Statistical classifier**
+**1. Statistical classifier**  
 통계적인 classifier이기 때문이다. 베이즈 정리를 기반으로 하며 확률론적 예측으로 분류한다.  
 **2. Performance**  
-Simple naive bayesian classifier는 decision tree나 neurl network에 뒤떨어지지 않는 성능을 가진다.
+Simple naive bayesian classifier는 decision tree나 neurl network에 뒤떨어지지 않는 성능을 가진다.  
 **3. Incremental**
 기존 데이터에 추가적인 데이터를 학습시키기 용이하다. 즉, 데이터를 추가한다고 해서 전체 데이터를 다시 학습시킬 필요가 없다. 그저 확률 셈을 다시해서 줄이거나 높이기만 하면 되기 때문이다.
 
@@ -29,9 +29,9 @@ Simple naive bayesian classifier는 decision tree나 neurl network에 뒤떨어�
 베이즈 정리란 무엇인가? 이를 알기 위해선 간단하게 확률과 관련한 표현들을 먼저 알아야 한다.
 
 - X를 class label이 알려져 있지 않은 데이터 샘플(evidence)이라고 하자.
-- H는 'X가 class C에 속한다'라는 가설이라고 하자.
+- H는 'X가 class C에 속한다'라는 가설이라고 하자.  
 
-이 때, P(H|X)는 X가 주어졌을 때 H를 만족할 확률이다. 이 값이 가장 높은 클래스로 분류한다.
+이 때, P(H | X)는 X가 주어졌을 때 H를 만족할 확률이다. 이 값이 가장 높은 클래스로 분류한다.
 
 - P(H)는 prior probability라고 하며, X와 독립적인 initial probability를 말한다. X가 나이나 연봉과 상관없이 컴퓨터를 살 확률을 예로 들 수 있다.
 
