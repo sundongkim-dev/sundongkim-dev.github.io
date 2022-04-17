@@ -73,6 +73,8 @@ b. **Evaluating Classification Methods**
 - Interpretability: 뉴럴 네트워크는 어떻게 그러한 분류 결과가 나왔는지 이유를 잘 말해주지 못하므로 이 특성이 낮다. <-> XAI
 - Decision tree size, compactness of classification rules 등
 
+---
+
 ### Classification by decision tree induction
 
 **1. Algorithm**  
@@ -84,10 +86,12 @@ b. **Evaluating Classification Methods**
 **재귀가 멈추는 경우는?**
 - 해당 노드에서 '모든 샘플이 같은 클래스 라벨에 속하거나'
 - '샘플을 나눌 수 있는 Attribute가 더 이상 존재하지 않는 경우 (더 많은 수의 클래스 라벨로 분류: Majority voting)'
-- '샘플이 없는 경우'
+- '더 이상 샘플이 없는 경우'
 
 **2. Test Attribute Selection**  
 그룹을 나눌 때, 좀 더 클래스 라벨이 비슷한 것끼리(more homogeneous) 잘 나누는 Attribute를 선택한다. 왜 homogeneous한 것이 좋을까? 데이터 분류에 있어서 확신을 갖을 수 있기 때문이다. 이러한 방법에는 statistical한 measure로 information gain, gain ratio, gini index 등이 있다.
+
+---
 
 ### Attribute Selection Measure
 
@@ -97,7 +101,7 @@ b. **Evaluating Classification Methods**
 - 가장 높은 information gain을 얻는 test attribute를 선택!!
 - 엔트로피(expected information)  
 
-**p<sub>i</sub> = |C<sub>i,D</sub>|/|D|로 전체 데이터 중 클래스 i에 해당하는 데이터의 수**
+p<sub>i</sub> = `|C<sub>i,D</sub>|/|D|`로 전체 데이터 중 클래스 i에 해당하는 데이터의 수
 
 > Entropy = Info(D) = -sum(p<sub>i</sub> * log2(p<sub>i</sub>))  
 
