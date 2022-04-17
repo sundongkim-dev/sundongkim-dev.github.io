@@ -174,7 +174,7 @@ Scalable하다는 것은 무엇일까?
 후보를 생성하는 방법은 다음과 같다. 먼저 **L<sub>k</sub>**에서 **self-joining**을 해서 후보들을 만들어내고, pruning을 거친다.
 **Pruning**은 만들어낸 후보의 subset이 frequent하지 않다면 걸러내면 된다.
 
-예를 들어, L<sub>3</sub>={abc,abd,acd,ace,bcd}라면 self-joining을 통해 abcd와 acde를 얻을 수 있는데, acde의 subset인 ade가 L<sub>3</sub>에 존재하지 않기 때문에 frequent하지 않은 것이므로 걸러져서 L<sub>4</sub>={abcd}가 된다.
+위의 그림과는 다른 예를 들면, L<sub>3</sub>={abc,abd,acd,ace,bcd}라면 self-joining을 통해 abcd와 acde를 후보로 얻을 수 있는데, acde의 subset인 ade가 L<sub>3</sub>에 존재하지 않기 때문에 frequent하지 않은 것이므로 걸러져서 C<sub>4</sub>={abcd}가 된다.
 
 Pruning 이후엔 DB를 돌면서 support를 만족하는지 따져주며 검증하면 된다.
 
