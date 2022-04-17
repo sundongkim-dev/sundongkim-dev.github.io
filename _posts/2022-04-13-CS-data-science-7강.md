@@ -124,10 +124,10 @@ Positive/Negative는 분류한 결과가 양성인지 음성인지를 말한다.
 
 위와 같이 진양성, 진음성을 이용한 accuracy 측정 방법도 있지만 다른 방법도 있다. 예를 들어 암을 진단하는 상황을 생각해보자. 수치는 위의 표와 동일한 표를 생각해보자.
 
-**Sensitivity** = t-pos / pos (= recall) // True positive recognition rate  
-**Specificity** = t-neg / neg // True negative recognition rate  
-**Precision** = t-pos / (t-pos + f-pos)  
-**Accuracy** = sensitivity * pos/(pos+neg) + specificity * neg/(pos+neg)  
+**Sensitivity(민감도)** = t-pos / pos (= recall) // True positive recognition rate, 질병이 있는 사람을 얼마나 잘 찾아내는가   
+**Specificity(특이도)** = t-neg / neg // True negative recognition rate, 정상을 얼마나 잘 찾아내는가  
+**Precision(정밀도)** = t-pos / (t-pos + f-pos)  
+**Accuracy(정확도)** = sensitivity * pos/(pos+neg) + specificity * neg/(pos+neg)  
 = t-pos / (pos+neg) + t-neg/(pos+neg) = **(t-pos+t-neg)/(pos+neg)**
 
 위와 같은 방식으로 accuracy를 계산할 수 있다.
