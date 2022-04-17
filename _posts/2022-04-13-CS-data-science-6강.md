@@ -20,9 +20,11 @@ comments: true
 **1. Statistical classifier**  
 통계적인 classifier이기 때문이다. 베이즈 정리를 기반으로 하며 확률론적 예측으로 분류한다.  
 **2. Performance**  
-Simple naive bayesian classifier는 decision tree나 neurl network에 뒤떨어지지 않는 성능을 가진다.  
-**3. Incremental**
+Simple naive bayesian classifier는 decision tree나 neural network에 뒤떨어지지 않는 성능을 가진다.  
+**3. Incremental**  
 기존 데이터에 추가적인 데이터를 학습시키기 용이하다. 즉, 데이터를 추가한다고 해서 전체 데이터를 다시 학습시킬 필요가 없다. 그저 확률 셈을 다시해서 줄이거나 높이기만 하면 되기 때문이다.
+
+---
 
 ### Bayesian Theorem: Basics
 
