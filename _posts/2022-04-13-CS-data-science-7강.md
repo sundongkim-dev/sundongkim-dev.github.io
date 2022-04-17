@@ -64,7 +64,7 @@ Prediction의 주요 방법 중 하나는 **regression**이다. Regression은 �
 
 ![LSM](https://sundongkim-dev.github.io/assets/img/data_science/LSM.png)
 
-cf) 변수위의 바는 평균을 말한다.
+cf) 변수 위의 바는 평균을 말한다.
 
 **2. Multiple linear regression**
 
@@ -114,7 +114,7 @@ Positive/Negative는 분류한 결과가 양성인지 음성인지를 말한다.
 |:--:|:--:|:--:|:--:|:--:|
 |buy_computer = yes|6954|46|7000|99.34|
 |buy_computer = no|412|2588|3000|86.27|
-|total|7366|2634|100000|95.42|  
+|total|7366|2634|10000|95.42|  
 
 분류기 M의 accuracy를 acc(M)이라고 하자. acc(M)의 값은?
 > (6954+2588)/10000 = 0.9542
@@ -124,11 +124,11 @@ Positive/Negative는 분류한 결과가 양성인지 음성인지를 말한다.
 
 위와 같이 진양성, 진음성을 이용한 accuracy 측정 방법도 있지만 다른 방법도 있다. 예를 들어 암을 진단하는 상황을 생각해보자. 수치는 위의 표와 동일한 표를 생각해보자.
 
-Sensitivity = t-pos / pos (= recall) // True positive recognition rate  
-Specificity = t-neg / neg // True negative recognition rate  
-Precision = t-pos / (t-pos + f-pos)  
-Accuracy = sensitivity * pos/(pos+neg) + specificity * neg/(pos+neg)  
-= t-pos / (pos+neg) + t-neg/(pos+neg) = (t-pos+t-neg)/(pos+neg)
+**Sensitivity** = t-pos / pos (= recall) // True positive recognition rate  
+**Specificity** = t-neg / neg // True negative recognition rate  
+**Precision** = t-pos / (t-pos + f-pos)  
+**Accuracy** = sensitivity * pos/(pos+neg) + specificity * neg/(pos+neg)  
+= t-pos / (pos+neg) + t-neg/(pos+neg) = **(t-pos+t-neg)/(pos+neg)**
 
 위와 같은 방식으로 accuracy를 계산할 수 있다.
 Sensitivity(recall, 재현율)는 암 걸린 사람들 중에 암에 실제로 걸렸다고 진단한 사람들의 비율이고, specificity는 암에 걸리지 않은 사람들 중에 암에 걸리지 않았다고 진단한 사람들의 비율이며 precision은 암에 걸렸다고 진단한 사람들 중에 진짜 암에 걸린 사람들의 비율이다.
