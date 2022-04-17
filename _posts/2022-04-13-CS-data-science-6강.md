@@ -55,7 +55,7 @@ X 데이터(training)와 사후 확률(posteriori probability) `P(X|H)`가 주�
 이는 곧 우도와 같다.
 > Likelihood(우도) = posteriori(사후확률) * prior(사전확률) / evidence
 
-모든 클래스 중에서 P(C<sub>i</sub>'|'X)가 가장 큰 값을 가지는 클래스로 분류한다.  
+모든 클래스 중에서 P(C<sub>i</sub>`|`X)가 가장 큰 값을 가지는 클래스로 분류한다.  
 
 실질적으로 많은 데이터에 대해서 확률을 다 알아야 하니까 computational cost가 많이 든다. 이를 어떻게 해결할 수 있을까?
 
