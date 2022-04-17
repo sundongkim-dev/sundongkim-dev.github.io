@@ -164,7 +164,7 @@ Gain(A)는 앞서 information gain에서 다룬 값으로 Info(D)-Info<sub>A</su
 
 p<sub>j</sub>: class label에 대한 확률   
 
-**gini<sub>A</sub>(D) = (|D<sub>1</sub>|/|D|)gini(D<sub>1</sub>)+(|D<sub>2</sub>|/|D|)gini(D<sub>2</sub>)**
+![Gini index](https://sundongkim-dev.github.io/assets/img/data_science/gini_index.png)
 
 위 식에서 attribute A는 binary partition을 가정한다.
 
