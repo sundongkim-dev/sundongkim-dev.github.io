@@ -53,9 +53,11 @@ Simple sampling: DB에서 sampling해서 sampled DB(SDB)를 얻고 Apriori를 �
 **c. DIC(Dynamic Item Counting)**
 
 같은 스캔에서 길이가 다른 itemsets가 후보로 들어있다.
-예를 들어, A와 D가 frequent하다는 것을 알게된 시점에서, 그 즉시 AD의 counting이 시작된다. 또는 BCD의 모든 길이 2짜리 subset이 frequent하다면 BCD의 counting이 시작된다.
+예를 들어, A와 D가 frequent하다는 것을 알게된 시점에서, 그 즉시 AD의 counting이 시작된다. 다르게 표현하자면, BCD의 모든 길이 2짜리 subset이 frequent하다면 BCD의 counting이 시작된다.
 
 결과적으로 알게 된 시점에서 scan이 시작되므로 다른 것을 scan하는 시점에 병렬적으로 새로운 패턴에 대해 scan이 이뤄지므로 scan의 overlap이 생겨서 그 횟수를 많이 줄일 수 있게 된다.
+
+---
 
 **2. Huge number of candidates**
 
@@ -89,19 +91,19 @@ cf) 보통 hash function bucket #는 h({x y}) = ((order of x)*10 + (order of y))
 
 **FP tree**를 기반으로 **짧은 패턴에서 긴 패턴으로** 길이를 늘려간다.
 
-만약 abc가 frequent pattern이고 abc를 갖는 모든 트랜잭션은 DB|abc라고 표현한다.
-만약 d가 DB|abc에서 **local frequent item**이라면 abcd 또한 frequent item이다.
+만약 abc가 frequent pattern이고 abc를 갖는 모든 트랜잭션은 `DB|abc`라고 표현한다.
+만약 d가 `DB|abc`에서 **local frequent item**이라면 abcd 또한 frequent item이다.
 찾는 순서는 아래와 같다.
 
 1. 먼저 DB를 스캔하고, frequent 1-itemset을 찾는다.(길이 1개짜리)
-2. Frequent item의 frequency가 감소하는 순서대로 정렬한다. 이를 f-list라고 한다. 각 트랜잭션 DB를 frquency descending order로 frquent한 것만을 남긴다. 이렇게 불필요한 정보를 지우고 frequent한 것들만을 남기기 위해 sccan을 하게 된다.
-3. 그 후 DB를 다시 스캔해서 FP-tree를 만든다. root는 {}로 비워두고, 각 트랜잭션마다 frequent item을 정렬해서 tree에 이어 붙인다. 이미 동일한 브랜치가 있으면 frequency를 증가시키고 없으면 브랜치를 새로 만들어준다.
+2. Frequent item의 frequency가 감소하는 순서대로 정렬한다. 이를 f-list라고 한다.
+3. 그 후 DB를 다시 스캔해서 FP-tree를 만든다. root는 {}로 비워두고, 각 트랜잭션 DB를 frquency descending order로 frquent한 것만을 남겨서 tree에 이어 붙인다. 이미 동일한 브랜치가 있으면 frequency를 증가시키고 없으면 브랜치를 새로 만들어준다.
 
 cf) Header table을 만들어주어야 하는데, 앞서 구한 f-list를 통해서 만들어준다. 초기에는 frequency를 0으로 초기화해서 만들어준다. 그 후 frequent한 것들만을 남긴 트랜잭션 DB를 돌면서 트리를 성장시킨다. head 포인터도 링크드 리스트로 엮어준다.
 
 결과적으로 FP tree라는 것은 트랜잭션 DB의 아주 compact한 representation이다. 필요한 정보를 다 담고 있으며, descending order를 이용하여 빈번할수록 많이 share하므로 메모리를 많이 아낄 수 있다.
 
-Pattern을 나누어서 따져보자. F-list가 {f,c,a,b,m,p}라면 제일 밑에서부터 p를 포함하는 패턴, m을 포함하지만 p는 포함하지 않는 패턴, b를 포함하지만 m,p를 포함하지 않는 패턴, ..., 패턴 f까지!! 총 6 덩어리의 disjoint한 partition 획득!!
+이제 Pattern을 나누어서 따져보자. F-list가 {f,c,a,b,m,p}라면 제일 밑에서부터 p를 포함하는 패턴, m을 포함하지만 p는 포함하지 않는 패턴, b를 포함하지만 m,p를 포함하지 않는 패턴, ..., 패턴 f까지!! 총 6 덩어리의 disjoint한 partition 획득!!
 
 이후 각 아이템마다 conditional pattern base를 구한다. frequent item header table에서 p의 링크를 따라가고, p의 prefix path를 모두 이어서 p의 conditional pattern base 표를 만든다.
 
@@ -123,7 +125,7 @@ Lossless하게 **frequent pattern mining의 완전한 정보**를 저장한다. 
 
 ### A Special Case: Single Prefix Path in FP-tree
 
-FP-tree T가 single prefix-path p를 갖는다면, 두 부분으로 나누어서 계산하는 것이 빠르다. 그렇게 하지 않는다면 재귀적 호출로 인한 Stack operation이 더디기 때문이다. 결과적으로 single prefix path를 떼어서 하나의 노드로 만들어서(조합 연산으로 모든 frequent pattern 구해줌) 아래 분기 되는 지점의 노드와 concatenation을 해주면 된다.
+FP-tree T가 single prefix-path p를 갖는다면, 두 부분으로 나누어서 계산하는 것이 빠르다. 그렇게 하지 않는다면 재귀적 호출로 인한 Stack operation 때문에 더디기 때문이다. 결과적으로 single prefix path를 떼어서 하나의 노드로 만들어서(조합 연산으로 모든 frequent pattern 구해줌) 아래 분기 되는 지점의 노드와 concatenation을 해주면 된다.
 
 ### Summary of ideas with FP-Growth
 
