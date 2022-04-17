@@ -108,15 +108,14 @@ IF-THEN Rules를 사용해서 분류를 할 수 있다. Knowledge를 IF-THEN rul
 
 Rule R에 대한 평가 기준으로는 coverage와 accuracy가 있다.
 
-Coverage는 rule R로 분류가 가능한 것의 확률이다. 즉, n<sub>covers</sub>/|D|이다.
+Coverage는 rule R로 분류가 가능한 것의 확률이다. 즉, n<sub>covers</sub> / |D| 이다.
 
 Accuracy는 분류가 가능한 것들 중에서 올바르게 분류될 확률로 n<sub>correct</sub>/n<sub>covers</sub>이다.
 
 만약 2 개 이상의 룰에 해당된다면 **conflict resolution**이 필요하다.
-- Size ordering: antecedent에서 테스트하는 attribute의 개수가 가장 많은 즉, 가장 tough한 rule을 고른다.  
-- Class-based ordering: 클래스마다 빈도수를 계산하거나 잘못 분류된 cost 등으로 결정한다.    
-- Rule-based ordering(decision list): 사전에 기준을 정해서 우선순위를 정한다.    
-
+- Size ordering: Rule의 antecedent에서 테스트하는 attribute의 개수가 가장 많은 즉, 가장 tough한 rule을 고른다.  
+- Class-based ordering: Rule의 consequent를 보고 판단한다. Misclassification cost per class(각 class의 정확성을 보고, 더 정확성이 높은 rule의 consequent를 따른다.) 혹은 decreasing order of prevalence(frequency, class의 개수 순으로 내림차순하여 개수가 많은 것을 따른다)가 있다.
+- Rule-based ordering(decision list): Domain expert가 사전에 기준을 정해서 우선순위를 정한다.    
 
 ## Associative Classification  
 
