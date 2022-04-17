@@ -173,7 +173,7 @@ Gini index도 마찬가지로 변화량이 제일 큰 것을 선택한다.
 > Reduction in impurity:
 delta gini(A) = gini(D)-gini<sub>A</sub>(D)
 
-결과적으로 가장 'reduction in impurity(heterogeneity)'가 큰 attribute를 선택한다. 결국 가장 작은 gini<sub>A</sub>(D)값을 선택해야 한다.
+결과적으로 가장 `reduction in impurity(heterogeneity)`가 큰 attribute를 선택한다. 결국 가장 작은 gini<sub>A</sub>(D)값을 선택해야 한다.
 
 Binary partition인 경우 모든 split point 중에서 가장 gini<sub>A</sub>(D)가 작은 값의 지점을 고려해야 한다.
 
