@@ -197,13 +197,13 @@ Decision tree에서 이러한 overfitting을 어떻게 피해갈 수 있을까?
 
 기본적으로 tree 생성, 연장을 조기에 종료하는 방식이다.
 
-Goodness measure가 미리 정해둔 값(threshold)으로 떨어지면 더 이상 브랜치를 생성하지 않는 방법이다.
+Goodness measure가 미리 정해둔 값(threshold)으로 떨어지면 더 이상 브랜치를 생성하지 않는 방법이다. 예를 들어, information gain의 정도가 미미하다면 트리의 성장을 멈추는 것이다.
 
 그러나, 적절한 threshold를 정하기가 어려운 한계가 있다.
 
 **b. Postpruning**
 
-기본적으로 만들어진 decision tree에서 브랜치를 지우는 작업이다.
+기본적으로 만들어진 decision tree("fully grown tree")에서 브랜치를 지우는 작업이다.
 
 Pruned tree들을 여러 개 만든 후 훈련 데이터셋이 아닌 데이터셋 ~~아마도 evaluation set~~ 으로 정확도가 가장 높은 tree를 고른다.
 
@@ -214,7 +214,7 @@ Pruned tree들을 여러 개 만든 후 훈련 데이터셋이 아닌 데이터�
 그래서 우리는 앞서 배운 decision tree induction을 데이터 마이닝에 사용한다. Decision tree는 다음과 같은 장점들을 지닌다.
 
 1. 상대적으로 **학습 속도**가 다른 classification method들에 비해 빠르다.
-2. 간단하고 **쉽게 이해**할 수 있는 classification rule로 변환 가능하다.
-cf) Rule의 개수는 root에서 leaf까지경로의 개수이며, 여러 노드를 거쳐서 분류할 때 각각 attribute와 그 값의 쌍은 교집합으로 연결된다. 튜플은 단 하나의 path만 지나쳐서 서로 배타적이고 exhaustive하다(Rule conflict가 발생하지 않는다, 무조건 분류함).
+2. 간단하고 **쉽게 이해**할 수 있는 classification rule로 변환 가능하다.  
+cf) Rule의 개수는 root에서 leaf까지 경로의 개수이며, 여러 노드를 거쳐서 분류할 때 각각 attribute와 그 값의 쌍은 교집합으로 연결된다. 튜플은 단 하나의 path만 지나쳐서 서로 배타적이고 exhaustive하다(Rule conflict가 발생하지 않는다, 무조건 분류함).
 3. DB(disk, ssd)에 있는 데이터를 sql query로 접근할 수 있다.
 4. 다른 classification 방법들에 비해 정확도가 썩 나쁘지 않다.
