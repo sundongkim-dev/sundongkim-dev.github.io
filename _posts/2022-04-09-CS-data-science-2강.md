@@ -52,20 +52,20 @@ comments: true
 
 그렇다면 데이터 마이닝은 무엇인가?
 
-데이터 마이닝은 쉽게 말하면 **데이터로 부터 지식이나 흥미로운 패턴**을 발굴하는 것이다. "사소하지 않고(non-trivial), 숨겨져 있고(implicit), 이전에 알려지지 않은(previously unknown) 동시에 잠재적으로 유용한 것(potentailly useful)"을 **흥미로운 것(interesting)**으로 정의할 수 있겠다.
+데이터 마이닝은 쉽게 말하면 **데이터로 부터 지식이나 흥미로운 패턴**을 발굴하는 것이다. `"사소하지 않고(non-trivial), 숨겨져 있고(implicit), 이전에 알려지지 않은(previously unknown) 동시에 잠재적으로 유용한 것(potentailly useful)"`을 **흥미로운 것(interesting)**으로 정의할 수 있겠다.
 
-하지만 데이터 마이닝 용어 자체는 약간 이름을 잘못 지었다고도 할 수 있다. 예를 들어 gold mining은 광산에서 금을 캐는 것인데 데이터 마이닝을 여기에 빗대면 데이터에서 데이터를 캐는 이상한 말이 된다. 물론 그 데이터가 유용한 데이터라는 것이 생략되었겠지만 knowledge mining이라고 했으면 더 와닿지 않았을까?
+하지만 데이터 마이닝 용어 자체는 약간 이름을 잘못 지었다고도 할 수 있다. 예를 들어 gold mining은 광산에서 금을 캐는 것인데 데이터 마이닝을 여기에 빗대면 데이터에서 데이터를 캐는 이상한 말이 된다. 물론 그 데이터가 유용한 데이터이다라는 것이 생략되었겠지만 `knowledge mining`이라고 했으면 더 와닿지 않았을까?
 
 그래서 이런 데이터 마이닝의 다른 이름으로는 knowledge discovery in databases(KDD), knowledge extraction, data/pattern analysis, data archeology, data dredging, information harvesting, business intelligence 등이 있다. ~~적고 보니 뭐 이리 많은지..~~
 
-참고로, 간단한 search나 query processing 혹은 (deductive)expert systems(explicit한 정보와 룰이 주어져있을 때 이를 통해 단순한 정보를 추출하는 과정) 같은 경우를 데이터 마이닝이라고 하지는 않는다.
+참고로, 간단한 search나 query processing 혹은 deductive expert systems(explicit한 정보와 룰이 주어져있을 때 이를 통해 단순한 정보를 추출하는 과정) 같은 경우를 데이터 마이닝이라고 하지는 않는다.
 
 아래는 **KDD의 프로세스**이다.
 ![KDD process](https://sundongkim-dev.github.io/assets/img/data_science/KDD.png)  
-1) Data cleaning: 데이터 마이닝의 질을 높이기 위해 noise, missing data 문제를 해결  
-2) 여러 데이터베이스를 통합(Data integration)하고 이 때 발생하는 일관성과 같은 문제를 해결한다. 그 결과물이 data warehouse(DB의 DB, DB의 스냅샷, non-dynamic)이다.  
-3) Data warehouse에서 해당 작업과 관련된 데이터를 선택한다. 해당 작업을 풀기 위해 필요한 데이터만을 선택한 것으로 이러한 데이터를 Task-relevant Data라고 한다.  
-4) 데이터 마이닝을 거쳐서 나온 것 중에서 pattern evaluation을 통해 knowledge를 추출한다.  
+1) **Data cleaning**: 데이터 마이닝의 질을 높이기 위해 noise, missing data 문제를 해결  
+2) 여러 데이터베이스를 통합(**Data integration**)하고 이 때 발생하는 일관성과 같은 문제를 해결한다. 그 결과물이 data warehouse(DB의 DB, DB의 스냅샷, non-dynamic)이다.  
+3) Data warehouse에서 해당 작업과 관련된 데이터를 선택한다. 해당 작업을 풀기 위해 필요한 데이터만을 선택한 것으로 이러한 데이터를 **Task-relevant Data**라고 한다.  
+4) **데이터 마이닝을 거쳐서** 나온 것 중에서 **pattern evaluation**을 통해 **knowledge를 추출**한다.  
 
 아래는 **business intelligence의 프로세스**이다.
 ![Business intelligence](https://sundongkim-dev.github.io/assets/img/data_science/business_intelligence.png)  
