@@ -69,6 +69,14 @@ comments: true
 
 아래는 **business intelligence의 프로세스**이다.
 ![Business intelligence](https://sundongkim-dev.github.io/assets/img/data_science/business_intelligence.png)  
+DBA(DB administrator)가 data sources를 관리하고 Data 전처리 및 통합, Data warehouse를 구축하기도 하며 Data exploration 또한 한다.  
+Data Analyst 또한 data exploration(통계적인 요약, 쿼리, 리포트)에 관여를 한다. Data analyst는 여기서 얻은 정보를 바탕으로 data mining을 통해 knowledge를 끄집어낸다.  
+위에서 얻은 knowledge를 Visualization하는 기술이 필요한데 이를 business analyst가 관여한다.  
+결과적으로 이를 보고 end user가 의사결정을 내리게 된다.
+
+---
+
+### Data Mining: Confluence of Multiple Disciplines
 
 데이터 마이닝은 여러 분야가 융합된 것이다. Database 기술, 통계학, 알고리즘, 패턴 인식, 머신 러닝 등 아주 다양한 분야가 관여한다.
 
@@ -80,13 +88,12 @@ comments: true
 
 ### Data Mining: Classification Schemes
 
-일반적인 분류로는 Descriptive data mining(현재의 데이터가 어떤 상태인지를 요약, 기술)과 predictive data mining(현재의 데이터로 새로운 데이터 예측)으로 나눌 수 있고, 관점이 다르면 분류 또한 달라진다.
+일반적인 분류로는 **Descriptive data mining**(현재의 데이터가 어떤 상태인지를 요약, 기술)과 **predictive data mining**(현재의 데이터로 새로운 데이터 예측)으로 나눌 수 있고, 관점이 다르면 분류 또한 달라진다.
 
 **Data mining의 분류 관점**  
 - **Data 관점**: 마이닝할 데이터의 종류
 ex) 관계형, 데이터 웨어하우스, 트랜잭션, 스트림, 객체 지향/
-관계형, 능동형, 공간형, 시계열, 텍스트, 멀티미디어,
-이기종, 레거시, WWW
+관계형, 능동형, 공간형, 시계열, 텍스트, 멀티미디어, WWW  
 - **knowledge 관점**: 검색할 지식의 종류
 ex) Characterization, 식별, 연관성, 분류, 클러스터링,
 추세/경향, 특이치 분석 등
@@ -97,6 +104,8 @@ ex) 데이터베이스 지향, 데이터 웨어하우스(OLAP), 머신 러닝, �
 ex) 소매, 통신, 은행, 사기 분석, 바이오 데이터 마이닝, 주식
 시장 분석, 텍스트 마이닝, 웹 마이닝 등
 
+---
+
 ### Data for mining
 
 - DB-oriented 데이터셋과 어플리케이션(DB 기준)
@@ -105,6 +114,8 @@ ex) 소매, 통신, 은행, 사기 분석, 바이오 데이터 마이닝, 주식
   + Time-series data, Object-relation DB
   + Spatial data
   + Text DB 등
+
+---
 
 ### Functionalities for data mining
 
@@ -116,9 +127,11 @@ ex) 기저귀 → 맥주[0.5% 75%] -> Association
 ex) (기후)에 따라 국가 분류 또는 (연비 기준)에 따라 자동차 분류, 알 수 없거나 누락된 숫자 값 예측
 - **Cluster analysis**: 클래스 레이블을 알 수 없기에 데이터를 그룹화하여 새 클래스를 만든다, 클래스 내 유사성 극대화 및 클래스 간 유사성 최소화
 - **Outlier analysis**
-Outlier: 일반적인 틀(전체적인 경향)을 준수하지 않는 데이터 object, Noise인가 exception인가? 부정 행위 탐지, 희귀 사건 분석에 유용
+Outlier: 전체적인 경향을 준수하지 않는 데이터 object, Noise인가 exception인가? 부정 행위 탐지, 희귀 사건 분석에 유용
 - **Trend and evolution analysis**
 ex) 추세 및 진화 분석
+
+---
 
 ### Top-10 most popular data mining algorithms
 1. C4.5
@@ -132,20 +145,24 @@ ex) 추세 및 진화 분석
 7. Naive Bayes
 10. CART
 
+---
+
 ### Major issues in data mining
 - Mining methodology
   + 다른 종류의 knowledge를 다양한 데이터 타입에서 마이닝 ex) bio, stream, web
-  + 성능 문제: Efficiency, Effectiveness, scalability
+  + 성능 문제: Efficiency(얼마나 효율적인가, 일을 효율적으로 처리), Effectiveness(얼마나 효과적인가, 효과적인 무언가를 달성), scalability
   + Pattern evaluation: 어떤 것이 interesting한가
   + Background knowledge를 이용해서 도출
-  + Noise와 incomplete data 핸들링
-  + 병렬적, 분산 컴퓨팅, incremental mining(추가 데이터 결과와 기존 결과 합치기, 추가 데이터와 통합)
+  + Noise와 incomplete data 처리
+  + 병렬적, 분산 컴퓨팅, incremental mining(추가 데이터 결과와 기존 결과 합치기, 추가 데이터와의 통합)
 - User interaction
   + Data mining query languages
   + Visualization
   + 여러 level의 abstraction
 - Applications and social impacts
   - 특정 도메인과 데이터 보안 이슈
+
+---
 
 ### Summary
 - Data mining: 대용량의 데이터로 부터 interesting한 패턴을 끄집어 내는 것
