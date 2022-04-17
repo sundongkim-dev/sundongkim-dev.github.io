@@ -33,6 +33,8 @@ Lazy method는 많은 eager method와 달리 단일 가설을 사용하지 않�
 
 예시로는 K-nearest neighbobr approach가 있다. KNN 알고리즘으로도 익숙한 그것이다.
 
+---
+
 ### K-Nearest Neighbor Algorithm
 
 모든 instance들(n 개의 attribute 소유)은 n차원 공간에 대응된다. 거리는 그 공간에서 정의된다. 그래서 테스트 샘플이 주어지면 거리가 가장 가까운 k개의 샘플을 가져오고 그 중에서 다수의 class label를 따라간다.
@@ -45,6 +47,8 @@ Lazy method는 많은 eager method와 달리 단일 가설을 사용하지 않�
 
 Dist function을 잘 선정하고, 필요한 attribute만으로 분류를 할 때 잘 작동한다.
 
+---
+
 ### What is Prediction?
 
 Numerical prediction은 classification과 비슷하다. 모델을 만들고 그 모델로 input의 continuous value를 예측하는 점에서 말이다. 그러나 classification하고는 다르다.
@@ -52,6 +56,8 @@ Numerical prediction은 classification과 비슷하다. 모델을 만들고 그 
 Classification은 categorical class label을 예측하는 반면 prediction은 continuous-valued function 모델을 이용하여 continuous space의 값을 예측하기 때문이다.
 
 Prediction의 주요 방법 중 하나는 **regression**이다. Regression은 한 개 이상의 predictor variables(예측 변수, 독립 변수 등)와 response variable(종속 변수) 사이의 관계를 모델링하는 것이다.
+
+---
 
 ### Regression analysis
 
@@ -89,6 +95,8 @@ Linear regression은 독립변수가 하나였지만 이제는 두 개 이상인
 - Poisson regression
 - Log-linear models
 - Regression trees
+
+---
 
 ### Accuracy and error measure
 
@@ -158,6 +166,8 @@ c. Test error(generalization error)
   + Mean squared error는 아웃라이어를 더 크게 측정한다.   
   + Square-root mean squared error와 square-root relative squared error가 자주 쓰인다. (예측 값과 동일한 크기를 얻기 위해서, square와 root 상쇄되어 자연스러운 결과 얻음)
 
+---
+
 ### Evaluating the Accuracy of a Classifier or Predictor  
 
 **a. Holdout Method**
@@ -191,6 +201,8 @@ c. Test error(generalization error)
       - 샘플링하는 과정을 k번 반복하며 모델의 정확도는 i=1~k에 대하여   
       acc(M) = sum(0.632 * acc(M<sub>i</sub>)<sub>test_set</sub> + 0.368 * acc(M<sub>i</sub>)<sub>train_set</sub>))
 
+---
+
 ### Ensemble Methods  
 
 여러 모델들의 조합으로 정확도를 높이는 방식이다. k 개의 학습된 모델들을 결합해서 개선된 모델 M*을 만든다.
@@ -202,7 +214,7 @@ c. Test error(generalization error)
 
 등이 있다.
 
-**a. Bagging: Bootstrap Aggregation**
+#### **a. Bagging: Bootstrap Aggregation**
 
 여러 분류기의 예측값의 평균, 가장 많은 값을을 내는 것으로 의사들에게 진찰을 받는 상황을 생각해 볼 수 있다. 본인이 심각한 병에 걸렸다면 여러 명의를 찾아다며 진료를 받을텐데 여러 의사들이 입을 모아 이야기한 것을 믿지 않을텐가
 
@@ -221,7 +233,7 @@ Bagged classifier M*는 각 분류기의 결과값을 모아서 그 중 가장 �
 **Accuracy**
 일반적으로 단일 분류기보다 더 좋을 때가 많다. Noise data에 대해 robust해서 나쁘지 않다. Prediction에 있어서 개선된 정확도를 보인다.
 
-**b. Boosting**
+#### **b. Boosting**
 여러 분류기마다 가중치를 매긴 결과이다. 앞선 의사의 예시를 여기서도 적용해보자. 명의도 명의대로 실력 차이가 있을 것이고 아무래도 더 명성이 높은 의사의 말을 신뢰할 것이다.
 
 Boosting은 과거 진단 기록을 바탕으로 더 정확한 진단을 하는 의사에게 높은 가중치를 주어 진단을 결정하게 한다. 구현에 있어서는 실제로 높은 값을 주는 것은 아니고 틀린 분류를한 분류기에게 높은 가중치를 주는 식이다.
