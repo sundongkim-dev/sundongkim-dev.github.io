@@ -117,7 +117,7 @@ Information gain은 분기 이전의 엔트로피에서 분기 이후의 엔트�
 
 ![Info gain](https://sundongkim-dev.github.io/assets/img/data_science/info_gain.png)
 
-A라는 Attribute로 D를 v개의 partition으로 나누었다고 한다면 sum은 j=1부터 v까지의 평균 entropy의 합이다.
+A라는 Attribute로 D를 v개의 partition으로 나누었다고 한다면 sum은 j=1부터 v까지의 average weighted한 entropy의 합이다.
 
 이제 각 성분이 무엇이고 어떻게 계산되는 지를 알게 되었다. 그렇게 구한 information gain이 큰 값을 택해야 할까 작은 값을 택해야 할까?
 
@@ -130,7 +130,7 @@ A라는 Attribute로 D를 v개의 partition으로 나누었다고 한다면 sum�
 
 > Attribute 값을 이산적으로 변환하고 split point를 결정해야 한다.
 
-Attribute 값에 따라 증가하는 순서대로 정렬한다. 두 페어 사이의 중간 값들을 split point로 볼 수 있다. 아래 그림을 보면 이해하기 쉽다.
+Attribute 값에 따라 증가하는 순서대로 정렬한다. 두 value 사이의 중간 값들을 split point로 볼 수 있다. 아래 그림을 보면 이해하기 쉽다.
 
 ![Split point](https://sundongkim-dev.github.io/assets/img/data_science/split_point.png)
 
@@ -150,7 +150,7 @@ Gain Ratio는 Information gain의 attribute value의 수가 많을수록 커지�
 
 Gain(A)는 앞서 information gain에서 다룬 값으로 Info(D)-Info<sub>A</sub>(D)이다.
 
-**SplitInfo<sub>A</sub>(D) = sum(-(|D<sub>j</sub>|/|D|) x log2(|D<sub>j</sub>|/|D|))**
+![Split info](https://sundongkim-dev.github.io/assets/img/data_science/split_info.png)
 
 공식을 보면 어딘가 익숙하다. Normalization이 떠오르지 않는가? Gain ratio는 information에 대해 normalization을 해준 결과이다. Normalization으로 input data의 편향을 해소해준 것이다. ~~Gain(A)가 쓸데없이 커진다면, 분모에 똑같이 커지는 값으로 나눠준다면 조금은 해소된다!!~~
 
