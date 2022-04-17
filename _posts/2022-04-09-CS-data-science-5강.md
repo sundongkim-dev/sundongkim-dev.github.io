@@ -45,14 +45,16 @@ Classification은 두 가지 step으로 이루어져 있다.
 
 Credit approval(은행에서 신용 측정), target marketing(백화점같은 곳에서 고객 타겟팅), medical diagnosis, fraud detection 등에 활용된다.
 
+---
+
 ### Supervised vs. Unsupervised Learning
 
 - Supervised Learning(classification): 트레이닝셋은 class label을 포함하며 이를 학습시켜 새로운 데이터를 분류한다.
 - Unsupervised Learning(clustering): 트레이닝셋의 class label이 주어지지않고 데이터의 클러스터를 형성한다.
 
-### Issues regarding classification and prediction
+---
 
-**1. Issues**
+### Issues regarding classification and prediction
 
 a. **Data Preparation**  
 - Data cleaing: noise나 missing value 처리
