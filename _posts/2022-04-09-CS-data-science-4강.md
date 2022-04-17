@@ -131,21 +131,25 @@ ex) 3개의 predicate라면, 3 또는 4번의 스캔
 
 #### **d. Mining interesting correlation patterns**
 
-기존의 support나 confidence는 corrleation을 나타내기 좋은 도구가 아니다. 예를 들어, 전체 학생의 75%가 시리얼을 먹는데 농구를 하면 시리얼을 먹는다[40%, 66.7%]라는 rule은 잘못된 rule이다. confidence가 75%보다 작은 66.7%이기 때문이다. 농구를 하지 않으면 시리얼을 먹지 않는다[20%, 33.3%]가 훨씬 의미 있는 룰이다.
+기존의 support나 confidence는 corrleation을 나타내기 좋은 도구가 아니다. 예를 들어, 전체 학생의 75%가 시리얼을 먹는데 농구를 하면 시리얼을 먹는다[40%, 66.7%]라는 rule은 의미가 없는 rule이다. confidence가 75%보다 작은 66.7%이기 때문이다. 그렇기 때문에 농구를 하지 않으면 시리얼을 먹지 않는다[20%, 33.3%]가 훨씬 의미 있는 룰이다. 결국 support와 confidence로는 역설적인 상황이 발생하기 때문에 다른 measure가 필요하게 되었다.
 
-그렇기 때문에 corrleation을 잘 나타내기 좋은 도구로 lift, cosine, all_conf라는 것들이 있다. 그러나 강의 중엔 Lift만 다루었다.
+Corrleation을 잘 나타내기 좋은 도구로 lift, cosine, all_conf라는 것들이 있다. 그러나 강의 중엔 Lift만 다루었다.
 
 **Lift**  
 > lift = P(AUB) / P(A)*P(B)
 
 1을 기준으로 1보다 크면 양의 상관관계이고 낮으면 음의 상관관계를 갖는다.
 
+---
+
 ### Constraint-based(Query-Directed) association mining
 
 Database에 있는 모든 pattern을 찾는 것은 비현실적이다. 패턴은 너무 많기 때문에 사용자가 원하는 방향으로 mining을 진행할 수 있어야 한다. 그러려면 data mining은 interactive한 process를 가져야하며 소통에 필요한 언어인 query language가 필요한 것이다.
 
-User flexibility : 무엇을 mining 할지 constraints를 준다.
+User flexibility : 무엇을 mining 할지 constraints를 준다.  
 System optimization : 효율적으로 mining 하기 위해서 constraints를 파악한다.
+
+---
 
 ### Constraints in Data Mining
 - Knowledge type constraint: classification, association, clustering etc.
@@ -157,6 +161,8 @@ ex) 상점에서 함께 팔린 물건의 쌍을 찾아라!
 
 - Interestingness constraint: min support, min confidence에 대한 constraint 제시
 
+---
+
 ### Constrained Mining vs Other Operations
 - Constrained Mining vs Constrained-based search
 
@@ -167,6 +173,8 @@ ex) 상점에서 함께 팔린 물건의 쌍을 찾아라!
 두 방법은 해당 조건에 맞는 모든 답을 찾는 것이지만 전자는 숨겨져 있는 patterns를 찾는 것이고, 후자는 tuples을 찾는 것이다.
 
 Constrained mining은 query processing에서 pushing selections와 유사한 철학을 공유한다. Query processing에서는 constraint와 같은 조건을 만족하지 않는 것들은 일찍이 털어낸다. 점점 처리해야 할 데이터가 줄어들어서 매우 효율적이다.
+
+---
 
 ### Anti-Monotonicity in Constraint Pushing
 
@@ -198,10 +206,14 @@ Succinctness의 장점은 transaction database를 보지 않아도 itemset S가 
 최적화: 만약 C가 succinct하면 C는 pre-counting pushable 하다.
 candidate-generation time에 basic elements가 포함되어있는지만 확인하면 해당 constraint를 만족하는지 확인할 수 있기 때문이다.
 
+---
+
 ### Converting "Tough" Constraints
 tough constraints를 anti-monotone이나 monotone으로 바꾼다.
 
 예시로, avg(S.profit)>=25와 같은 tough constraint를 item을 정렬함으로써 anti-monotone하게 바꾼다. <a,f,g,d,b,h,c,e>로 정렬했고, afb가 C를 위반하면 afbh도 위반할 것이다. ~~항상 뒤에 것만 추가해줄 수 있다: 정렬한 이유!!~~
+
+---
 
 ### Frequent-pattern mining: Summary
 - Frequent pattern mining - an important task in data mining
