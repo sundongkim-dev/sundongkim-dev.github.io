@@ -10,15 +10,17 @@ comments: true
 
 Frequent pattern이 너무 많아서 그 대신 max pattern이나 closed pattern과 같은 좀 더 엄격한 룰을 적용한 패턴을 마이닝하는 것이 보완책으로 제안되었다.
 
+---
+
 ### MaxMiner: Mining Max-patterns
 
-Max pattern은 더 늘릴 게 없는 frequent pattern이다. 즉 frequent super pattern이 없는 상태를 말한다.
+Max pattern은 더 늘릴 게 없는 frequent pattern이다. 즉, **frequent super pattern이 없는 상태**를 말한다.
 
-Apriroi 알고리즘을 기반으로, max pattern만을 효과적으로 구하기 위한 방법으로 MaxMiner가 제시되었다.
+Apriori 알고리즘을 기반으로, max pattern만을 효과적으로 구하기 위한 방법으로 MaxMiner가 제시되었다.
 
-첫 번째 scan에서 frequent item들을 찾고 오름차순(frequency 기준)으로 정렬한다. ex) A, B, C, D, E -> E가 제일 빈번함
+**첫 번째 scan**에서 frequent item들을 찾고 오름차순(frequency 기준)으로 정렬한다. ex) A, B, C, D, E 순이라면, E가 제일 빈번함
 
-두 번째 scan에서 2-itemsets와 potential max-patterns의 support를 구한다. 만들 때, ascending order로 정렬한 순서를 지켜서 생성해주어야 한다. 위의 예시에서 BC는 있어도 CB는 없다!! Ascending order를 지켜서 생성할 때마다 해당 아이템으로 만들 수 있는 max-pattern의 후보(potential max-pattern)를 추가한다.
+**두 번째 scan**에서 2-itemsets와 potential max-patterns의 support를 구한다. 만들 때, ascending order로 정렬한 순서를 지켜서 생성해주어야 한다. 위의 예시에서 BC는 있어도 CB는 없다!! Ascending order를 지켜서 생성할 때마다 해당 아이템으로 만들 수 있는 max-pattern의 후보(potential max-pattern)를 추가한다.
 
 Ascending order를 지켜서 생성하고 potential max-pattern을 추가해준다고 했는데 어떻게 이뤄질까? Set-enumeration tree를 이용하면 된다!! Frequency 순서대로 진행하며 만들 수 있는 pattern을 계속 만들다가 마지막 leaf node에 위치한 것이 potential max pattern이 되는 것이다.
 
@@ -26,11 +28,15 @@ Ascending order를 지켜서 생성하고 potential max-pattern을 추가해준�
 
 ex) {BC, BD, BE}라면 potential max-patterns는 BCDE 이런식으로 구해서 만약 BCDE가 frequent하다면, 그의 부분집합도 모두 freqeunt하다. 즉, BCD, BDE, CDE를 검증할 필요가 없어진다. 또한, AC가 frequent하지 않다면, ABC는 검증할 필요가 없어진다.
 
+결과적으로 이후의 단계에서 많은 후보를 줄일 수 있게 된다.
+
+---
+
 ### CLOSET: Mining Closed-patterns
 
-Closed pattern은 frequent pattern인 동시에 그와 같은 support를 갖는 super pattern이 없는 것이다. CLOSET은 FP-tree를 사용해서 frequent pattern을 찾는다.
+Closed pattern은 frequent pattern인 동시에 **그와 같은 support를 갖는 super pattern**이 없는 것이다. CLOSET은 FP-tree를 사용해서 frequent pattern을 찾는다.
 
-F-list를 그대로 사용하는데 이는 descending order라는 것을 알고 있다. 마찬가지로 divide and conquer로 flist의 제일 작은 frequency부터 패턴을 따져주면 된다.
+F-list를 그대로 사용하는데 이는 descending order라는 것을 알고 있다. 마찬가지로 divide and conquer로 f-list의 제일 작은 frequency부터 패턴을 따져주면 된다.
 
 Closed pattern을 찾는 naive한 approach는 모든 frequent itemset을 찾고 그들의 superset과 support가 같은 것은 다 drop하면 된다. 이런 방식은 cost가 좀 있기 때문에 다른 방식을 찾아보아야 한다!!
 
@@ -74,11 +80,13 @@ I1 intersection I2 = {T100, T400, T800, T900}.. 이런식으로 계산해서 2-i
 
 장점으로는 (k+1)-itemsets의 support를 계산하기 위해 database를 스캔하지 않아도 된다. TID-set이 자체로 support value를 지니고 있기 때문이다. 하지만 intersection에 많은 시간과 공간이 필요하다. 이를 해결하기 위해 diffset technique를 이용한다. 두 아이템셋이 등장하는 transaction id를 비교하여 차집합만 저장한다.
 
+---
+
 ### Mining various kinds of association rules
 
-**a. Mining multilevel association**
+**a. Mining multi-level association**
 
-아이템들은 주로 **계층**을 형성한다!! 계층이 **낮을 수록 낮은 support value를 사용**하는 것이 좋다. 예를 들어, Milk라는 아이템이 있고 2% milk, skim milk라는 하위 계층의 milk가 있다면 당연히 하위 계층에 낮은 support value를 적용하는 것이 당연해보인다. 그게 reduced support라고 하고 그렇지 않고 똑같이 적용하는 것이 uniform support이다. uniform support는 계층이 낮을수록 association rule에 포함되기 힘들고, 높을수록 포함되기 쉬워진다.
+아이템들은 주로 **계층**을 형성한다!! 계층이 **낮을 수록 낮은 support value를 사용**하는 것이 좋다. 예를 들어, Milk라는 아이템이 있고 2% milk, skim milk라는 하위 계층의 milk가 있다면 당연히 하위 계층에 낮은 support value를 적용하는 것이 당연해보인다. 그게 `reduced support`라고 하고 그렇지 않고 똑같이 적용하는 것이 `uniform support`이다. uniform support는 계층이 낮을수록 association rule에 포함되기 힘들고, 높을수록 포함되기 쉬워진다.
 
 **Redundancy Filtering**  
 어떤 rule들은 ancestor가 있기 때문에 중복되는 경우가 있다.
@@ -90,7 +98,7 @@ I1 intersection I2 = {T100, T400, T800, T900}.. 이런식으로 계산해서 2-i
 
 Descendent rule은 descendent의 support가 ancestor의 support값과 비교하여 **기대하는 값**과 비슷하고, descendent의 confidence값이 ancestor의 confidence 와 비슷할 때, 'redundant' 하다고 한다.
 
-**b. Mining multidimensional association**
+**b. Mining multi-dimensional association**
 
 - Single-dimensional rules: 하나의 dimension이나 predicate를 갖는다.  
 ex) buys(X, "milk") => buys(X, "bread"): milk->bread
@@ -102,7 +110,7 @@ ex) buys(X, "milk") => buys(X, "bread"): milk->bread
   + Hybrid-dimension association rules(repeated predicates)  
   ex) age(X, "19-25") ^ buys(X, "popcorn") => buys(X, "coke")
 
-> age(X, "19-25") ^ occupation(X, "student") => buys(X, "coke")
+`age(X, "19-25") ^ occupation(X, "student") => buys(X, "coke")`
 
 **Attribute Types**  
 위의 "19-25", "student", "coke"들이 attribute에 해당된다.
