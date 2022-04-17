@@ -78,7 +78,7 @@ M개의 클래스들이 있다고 가정하자. Classification은 곧 최대 사
 
 혹은 attribute가 continuous-valued인 경우, 가우시안 분포를 따른다고 가정하고 평균과 표준편차 값을 계산하고 `P(X<sub>k</sub>|C<sub>i</sub>)`를 계산한다.  
 
-[확률식 첨부]
+![Naive bayesian classifier](https://sundongkim-dev.github.io/assets/img/data_science/naive_bayes_classifier.png)
 
 cf) 평균 = class C<sub>i</sub>의 평균, 표준편차 = class C<sub>i</sub>의 표준편차  
 
