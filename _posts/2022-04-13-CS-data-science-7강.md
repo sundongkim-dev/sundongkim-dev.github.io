@@ -29,7 +29,7 @@ comments: true
 
 다른 말로 instance-based learning, lazy evaluation이라고도 한다. 훈련 데이터셋을 그냥 저장해두고 테스트 튜플이 주어질 때까지 기다린다. 그렇기에 학습할 때는 시간이 적게 걸리지만 예측할 때 더 많이 걸린다.
 
-Lazy method는 많은 eager method와 달리 단일 가설을 사용하지 않고 더 많은 local linear function들을 이용함으로써 풍부한 hypothesis space를 사용한다.
+Lazy method는 많은 eager method와 달리 단일 가설을 사용하지 않고 많은 local function들이 합쳐진 복잡한 hypothesis space를 사용한다.
 
 예시로는 K-nearest neighbobr approach가 있다. KNN 알고리즘으로도 익숙한 그것이다.
 
@@ -37,10 +37,13 @@ Lazy method는 많은 eager method와 달리 단일 가설을 사용하지 않�
 
 모든 instance들(n 개의 attribute 소유)은 n차원 공간에 대응된다. 거리는 그 공간에서 정의된다. 그래서 테스트 샘플이 주어지면 거리가 가장 가까운 k개의 샘플을 가져오고 그 중에서 다수의 class label를 따라간다.
 
-
-[그림]
+![KNN](https://sundongkim-dev.github.io/assets/img/data_science/knn.png)
 
 위 그림에서 k는 5이고 X<sub>q</sub>의 class label은 -가 될 것이다.
+
+이외에도, weighted voting을 할 수도 있다. 거리의 역수를 weight으로 해서 weighted count를 해서 구할 수 있다. 그래서 위의 예제에서 보면, 다수는 -지만 weighted voting을 통해서 class label은 +로 선택될 수 있다.
+
+Dist function을 잘 선정하고, 필요한 attribute만으로 분류를 할 때 잘 작동한다.
 
 ### What is Prediction?
 
@@ -59,10 +62,7 @@ Prediction의 주요 방법 중 하나는 **regression**이다. Regression은 �
 
 트레이닝 데이터로 가장 잘 맞는 직선을 찾는 것이다. 즉 x의 계수와 w<sub>0</sub>을 찾아야 한다. 찾는 방법으로는 least square method가 있다. 최소제곱법인데 말 그대로 실제값과 함수값의 차이의 제곱이 최소가 되도록 하는 w<sub>0</sub>와 w<sub>1</sub>을 찾으면 된다.
 
-[수식 그림]
->
-w1=sum((xi-avg(x))x(yi-avg(y)))/sum((xi-avg(x))^2)
-w0=avg(y)-w1xavg(x)
+![Set enumeration tree](https://sundongkim-dev.github.io/assets/img/data_science/LSM.png)
 
 **2. Multiple linear regression**
 
