@@ -119,7 +119,7 @@ Accuracy는 분류가 가능한 것들 중에서 올바르게 분류될 확률�
 
 ## Associative Classification  
 
-Association rule들은 classification을 하기 위해 생성되고 분석된다. Frequent pattern들과 class label 사이의 association이 strong한 것을 찾는다.
+Association rule들은 classification을 하기 위해 생성되고 분석된다. Frequent pattern(conjunctions of attribute-value pairs)들과 class label 사이의 association이 strong한 것을 찾는다.
 
 > P<sub>1</sub> ^ P<sub>2</sub> ^ ... ^ P<sub>i</sub> -> "A<sub>class</sub>=C"(conf, sup)  
 
@@ -128,3 +128,5 @@ Association rule들은 classification을 하기 위해 생성되고 분석된다
 많은 attribute 중에서 가장 높은 association을 가진 것을 탐색한다. Decision tree와 비교해보면 decision tree는 한 번에 하나의 attribute만 고려하고 rule이 exclusive하지만 associative classification은 rule이 exclusive하지 않아서 하나 이상의 rule에 해당되고 그에 따라 일부 제약 조건을 극복할 수 있다.
 
 또한 많은 연구에서 associative classification은 C4.5와 같은 전통적인 분류 방법보다 더 정확하다고 알려져 있다.
+
+정확도는 높지만, conf와 sup의 threshold를 높이면 cover가 되지 않는 rule이 많이 나올 수 있다. 또한 생성된 rule들은 disjoint하지 않을수도 있다.

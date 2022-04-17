@@ -209,6 +209,6 @@ Pruned tree들을 여러 개 만든 후 훈련 데이터셋이 아닌 데이터�
 
 1. 상대적으로 **학습 속도**가 다른 classification method들에 비해 빠르다.
 2. 간단하고 **쉽게 이해**할 수 있는 classification rule로 변환 가능하다.
-cf) Rule의 개수는 root에서 leaf까지경로의 개수이며, 여러 노드를 거쳐서 분류할 때 각각 attribute와 그 값의 쌍은 교집합으로 연결된다. 튜플은 단 하나의 path만 지나쳐서 서로 배타적이고 철저하다.
+cf) Rule의 개수는 root에서 leaf까지경로의 개수이며, 여러 노드를 거쳐서 분류할 때 각각 attribute와 그 값의 쌍은 교집합으로 연결된다. 튜플은 단 하나의 path만 지나쳐서 서로 배타적이고 exhaustive하다(Rule conflict가 발생하지 않는다, 무조건 분류함).
 3. DB(disk, ssd)에 있는 데이터를 sql query로 접근할 수 있다.
 4. 다른 classification 방법들에 비해 정확도가 썩 나쁘지 않다.
