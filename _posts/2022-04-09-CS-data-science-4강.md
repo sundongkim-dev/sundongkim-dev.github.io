@@ -184,21 +184,21 @@ Constraint 일찍 처리하고 싶다!! 어떻게!?!
 
 itemset S가 constraint에 성립하지 않으면 S의 superset도 constraint에 성립하지 않는다.
 
-> sum(S.Price) <= v 는 anti-monotone
-sum(S.Price) >= v 는 not anti-monotone
-range(S.profit)<=15 is anti-monotone (range는 두 값의 차이를 말한다)
+> sum(S.Price) <= v 는 anti-monotone  
+sum(S.Price) >= v 는 not anti-monotone  
+range(S.profit)<=15 is anti-monotone (range는 두 값의 차이를 말한다)  
 
 - **Monotonicity**: 만족하면 앞으로도 만족한다.
 
 itemset S가 constraint에 성립하면 S의 superset도 constraint에 성립한다.
 
-> sum(S.Price)>=v is monotone
-min(S.Price)<=v is monotone
-range(S.profit)>=15 is monotone
+> sum(S.Price)>=v is monotone  
+min(S.Price)<=v is monotone  
+range(S.profit)>=15 is monotone  
 
 - **Succinctness**: Itemset A1이 constraint C를 만족하면, C를 만족하는 어떤 집합 S는 A1에 기반해서 간단히 계산해서 구해질 수 있다. 이 때, 이러한 constraint를 succinct하다고 한다.
 
-> min(S.Price)<=v is succinct
+> min(S.Price)<=v is succinct  
 sum(S.Price)>=v is not succinct
 
 Succinctness의 장점은 transaction database를 보지 않아도 itemset S가 어떤 item들을 선택했는지에 따라 constraint C를 만족하는지를 결정할 수 있다.
