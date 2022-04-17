@@ -65,18 +65,18 @@ X 데이터(training)와 사후 확률(posteriori probability) `P(X|H)`가 주�
 D를 튜플 및 관련 클래스 레이블의 training set이라고 하고, 각 튜플은 n차원의 attribute를 갖는다.
 > X = (x1, x2, ..., xn)
 
-M개의 클래스들이 있다고 가정하자. Classification은 곧 최대 사후 확률 얻는 것이기에 `P(C<sub>i</sub>|X) = P(X|C<sub>i</sub>)*P(C<sub>i</sub>) / P(X)`를 튜플마다 구해주어야 하는데, 결국 모두 같은 P(X)를 사용하기에 분자만을 계산하고 이 값이 최대가 되게끔 하는 값을 찾으면 된다.
+M개의 클래스들이 있다고 가정하자. Classification은 곧 최대 사후 확률 얻는 것이기에 P(C<sub>i</sub>`|`X) = P(X`|`C<sub>i</sub>)*P(C<sub>i</sub>) / P(X)를 튜플마다 구해주어야 하는데, 결국 모두 같은 P(X)를 사용하기에 분자만을 계산하고 이 값이 최대가 되게끔 하는 값을 찾으면 된다.
 
 그러나 이 또한, computational cost가 크기 때문에 attribute가 다 독립적이라고 가정하고 계산 해준다.
 
 정리하면,
-`P(X|C<sub>i</sub>) = P(x<sub>1</sub>|C<sub>i</sub>) * P(x<sub>2</sub>|C<sub>i</sub>) * ... * P(x<sub>n</sub>|C<sub>i</sub>)`
+P(X`|`C<sub>i</sub>) = P(x<sub>1</sub>`|`C<sub>i</sub>) * P(x<sub>2</sub>`|`C<sub>i</sub>) * ... * P(x<sub>n</sub>`|`C<sub>i</sub>)
 
 로 계산하여 **computation cost를 굉장히 많이 줄일 수 있다.** Class distribution만을 세기 때문이다. 앞서 incremental하다고 했었는데, 새로운 것이 들어오면 계산하고 곱해주면 끝이다.
 
-만약 attribute A<sub>k</sub>가 categorical한 경우, `P(X<sub>k</sub>|C<sub>i</sub>)`는 (Attribute 값이 X<sub>k</sub>인 튜플의 수)/(C<sub>i</sub>에 속하는 튜플 수)와 같다.
+만약 attribute A<sub>k</sub>가 categorical한 경우, P(X<sub>k</sub>`|`C<sub>i</sub>)는 (Attribute 값이 X<sub>k</sub>인 튜플의 수)/(C<sub>i</sub>에 속하는 튜플 수)와 같다.
 
-혹은 attribute가 continuous-valued인 경우, 가우시안 분포를 따른다고 가정하고 평균과 표준편차 값을 계산하고 `P(X<sub>k</sub>|C<sub>i</sub>)`를 계산한다.  
+혹은 attribute가 continuous-valued인 경우, 가우시안 분포를 따른다고 가정하고 평균과 표준편차 값을 계산하고 P(X<sub>k</sub>`|`C<sub>i</sub>)를 계산한다.  
 
 ![Naive bayesian classifier](https://sundongkim-dev.github.io/assets/img/data_science/naive_bayes_classifier.png)
 
