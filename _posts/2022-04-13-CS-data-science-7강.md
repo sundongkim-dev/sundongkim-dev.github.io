@@ -62,7 +62,9 @@ Prediction의 주요 방법 중 하나는 **regression**이다. Regression은 �
 
 트레이닝 데이터로 가장 잘 맞는 직선을 찾는 것이다. 즉 x의 계수와 w<sub>0</sub>을 찾아야 한다. 찾는 방법으로는 least square method가 있다. 최소제곱법인데 말 그대로 실제값과 함수값의 차이의 제곱이 최소가 되도록 하는 w<sub>0</sub>와 w<sub>1</sub>을 찾으면 된다.
 
-![Set enumeration tree](https://sundongkim-dev.github.io/assets/img/data_science/LSM.png)
+![LSM](https://sundongkim-dev.github.io/assets/img/data_science/LSM.png)
+
+cf) 변수위의 바는 평균을 말한다.
 
 **2. Multiple linear regression**
 
@@ -82,7 +84,7 @@ Linear regression은 독립변수가 하나였지만 이제는 두 개 이상인
 
 위와 같은 nonlinear한 식의 경우 x제곱과 x세제곱을 각각 x<sub>2</sub>, x<sub>3</sub>으로 치환해서 풀 수 있다.
 
-**4. 다른 regression 방법들**
+4. 다른 regression 방법들
 - Generalized linear model
 - Poisson regression
 - Log-linear models
@@ -94,10 +96,10 @@ Linear regression은 독립변수가 하나였지만 이제는 두 개 이상인
 
 **Confusion matrix**
 
-|    | C1 | C2 |
+|    | C1(classified: positive) | C2(classified: negative) |
 | -- |:--:|:--:|
-| C1 |True positive|False negative|
-| C2 |False positive|True negative|  
+| C1(ground truth: True) |True positive|False negative|
+| C2(ground truth: False) |False positive|True negative|  
 
 일반적으로 진단해야 하는 질병, 감지해야 하는 사기행각 등을 positive로 둔다. 진양성, 위양성, 진음성, 위음성 헷갈릴 수 있는 데 아래와 같이 생각하면 안 헷갈릴 수 있다.
 
@@ -112,7 +114,7 @@ Positive/Negative는 분류한 결과가 양성인지 음성인지를 말한다.
 |:--:|:--:|:--:|:--:|:--:|
 |buy_computer = yes|6954|46|7000|99.34|
 |buy_computer = no|412|2588|3000|86.27|
-|total|7366|2634|100000|95.52|  
+|total|7366|2634|100000|95.42|  
 
 분류기 M의 accuracy를 acc(M)이라고 하자. acc(M)의 값은?
 > (6954+2588)/10000 = 0.9542
@@ -122,10 +124,10 @@ Positive/Negative는 분류한 결과가 양성인지 음성인지를 말한다.
 
 위와 같이 진양성, 진음성을 이용한 accuracy 측정 방법도 있지만 다른 방법도 있다. 예를 들어 암을 진단하는 상황을 생각해보자. 수치는 위의 표와 동일한 표를 생각해보자.
 
-Sensitivity = t-pos / pos (= recall) // True positive recognition rate
-Specificity = t-neg / neg // True negative recognition rate
-Precision = t-pos / (t-pos + f-pos)
-Accuracy = sensitivity * pos/(pos+neg) + specificity * neg/(pos+neg)
+Sensitivity = t-pos / pos (= recall) // True positive recognition rate  
+Specificity = t-neg / neg // True negative recognition rate  
+Precision = t-pos / (t-pos + f-pos)  
+Accuracy = sensitivity * pos/(pos+neg) + specificity * neg/(pos+neg)  
 = t-pos / (pos+neg) + t-neg/(pos+neg) = (t-pos+t-neg)/(pos+neg)
 
 위와 같은 방식으로 accuracy를 계산할 수 있다.
