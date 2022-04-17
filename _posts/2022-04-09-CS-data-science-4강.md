@@ -84,7 +84,7 @@ I1 intersection I2 = {T100, T400, T800, T900}.. 이런식으로 계산해서 2-i
 
 ### Mining various kinds of association rules
 
-**a. Mining multi-level association**
+#### **a. Mining multi-level association**
 
 아이템들은 주로 **계층**을 형성한다!! 계층이 **낮을 수록 낮은 support value를 사용**하는 것이 좋다. 예를 들어, Milk라는 아이템이 있고 2% milk, skim milk라는 하위 계층의 milk가 있다면 당연히 하위 계층에 낮은 support value를 적용하는 것이 당연해보인다. 그게 `reduced support`라고 하고 그렇지 않고 똑같이 적용하는 것이 `uniform support`이다. uniform support는 계층이 낮을수록 association rule에 포함되기 힘들고, 높을수록 포함되기 쉬워진다.
 
@@ -98,7 +98,7 @@ I1 intersection I2 = {T100, T400, T800, T900}.. 이런식으로 계산해서 2-i
 
 Descendent rule은 descendent의 support가 ancestor의 support값과 비교하여 **기대하는 값**과 비슷하고, descendent의 confidence값이 ancestor의 confidence 와 비슷할 때, 'redundant' 하다고 한다.
 
-**b. Mining multi-dimensional association**
+#### **b. Mining multi-dimensional association**
 
 - Single-dimensional rules: 하나의 dimension이나 predicate를 갖는다.  
 ex) buys(X, "milk") => buys(X, "bread"): milk->bread
@@ -117,7 +117,7 @@ ex) buys(X, "milk") => buys(X, "bread"): milk->bread
 - Categorical Attributes: value가 유한한 양수이고 value 사이에 **순서가 없다**.
 - Quantitative Attributes: Numeric이며 value 사이에 암시된 순서가 있으며, 이산화하거나 클러스터링 작업이 필요한데 실수형으로 하면 데이터 마이닝을 하기 쉽지 않기 때문이다. 결국 Range에 더 많이 걸리게 하기 위해서이다.
 
-**c. Mining quantitative association**
+#### **c. Mining quantitative association**
 
 1. **Static discretization** based on predefined concept hierarchies(data cube methods): Numeric values는 concept hierarchy를 이용하여 range(categorical value 처럼)로 바꾸고, k-predicate sets는 k 또는 k+1의 table scan이 필요하다.  
 ex) 3개의 predicate라면, 3 또는 4번의 스캔
@@ -129,7 +129,7 @@ ex) 3개의 predicate라면, 3 또는 4번의 스캔
 
 3. Clustering: distance-based association
 
-**d. Mining interesting correlation patterns**
+#### **d. Mining interesting correlation patterns**
 
 기존의 support나 confidence는 corrleation을 나타내기 좋은 도구가 아니다. 예를 들어, 전체 학생의 75%가 시리얼을 먹는데 농구를 하면 시리얼을 먹는다[40%, 66.7%]라는 rule은 잘못된 rule이다. confidence가 75%보다 작은 66.7%이기 때문이다. 농구를 하지 않으면 시리얼을 먹지 않는다[20%, 33.3%]가 훨씬 의미 있는 룰이다.
 
