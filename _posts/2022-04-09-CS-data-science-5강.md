@@ -166,7 +166,7 @@ p<sub>j</sub>: class label에 대한 확률
 
 ![Gini index](https://sundongkim-dev.github.io/assets/img/data_science/gini_index.png)
 
-위 식에서 attribute A는 binary partition을 가정한다.
+위 식에서 attribute A는 binary partition을 가정한다. 즉, 하나의 attribute가 여러 개의 value를 지닌다면 binary split을 해야 한다.
 
 Gini index도 마찬가지로 변화량이 제일 큰 것을 선택한다.
 
@@ -177,7 +177,7 @@ delta gini(A) = gini(D)-gini<sub>A</sub>(D)
 
 Binary partition인 경우 모든 split point 중에서 가장 gini<sub>A</sub>(D)가 작은 값의 지점을 고려해야 한다.
 
-예시로, 어떤 attribute의 값이 low, medium, high가 있으면 low, medium/high로 나누거나, low/medium,high로 나눈다.
+예시로, 어떤 attribute의 값이 low, medium, high가 있으면 low, medium/high로 나누거나, low/medium,high, low,high/medium로 나눈다.
 
 그렇기 때문에 partition이 균등하게 이루어지는 attribute를 선호한다.
 
