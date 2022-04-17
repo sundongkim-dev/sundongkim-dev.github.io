@@ -125,6 +125,8 @@ ex) 3개의 predicate라면, 3 또는 4번의 스캔
 2. **Dynamic discretization** based on data distribution: **2D quantitative association rules**: A<sub>quan1</sub> ^ A<sub>quan2</sub> => A<sub>cat</sub>  (Meta rule)  
 각 셀에 속해 있는 수가 confidence, support가 threshold보다 높아야 한다.
 
+![Dynamic discretization](https://sundongkim-dev.github.io/assets/img/dynamic_discretization.png)
+
 3. Clustering: distance-based association
 
 **d. Mining interesting correlation patterns**
