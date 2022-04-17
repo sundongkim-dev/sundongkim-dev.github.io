@@ -36,15 +36,19 @@ comments: true
 
 Simple sampling: DB에서 sampling해서 sampled DB(SDB)를 얻고 Apriori를 돌려서 local frequent patern을 찾는다. 이때, minSup은 sample만큼 나눠서 사용한다. 위에서 배운 파티션처럼 메모리의 올라올 수 있는 양이어야 한다. 그래야 부가적인 DB scan이 없을 것이기 때문이다.
 
-하지만 위의 simple sampling은 **local frequent pattern이 실제로 frequent pattern이 아닐 수 있고 global frequent pattern을 놓쳤을 수 있는 문제**가 있다.
-~~가짜를 진짜로 오인할 수 있고 진짜를 놓칠 수 있다!!~~
+하지만 위의 simple sampling은 **local frequent pattern이 실제로 frequent pattern이 아닐 수 있고 global frequent pattern을 놓쳤을 수 있는 문제**가 있다. 즉, SDB에서 찾은 frequent pattern이 전체 DB에서 봤을 때 frequent pattern이 아닐 수 있고, 진짜 frequent pattern이지만 SDB에 속해 있지 않아서 못 찾을 수도 있다.
+
+가짜를 진짜로 오인할 수 있고 진짜를 놓칠 수 있다!!
 
 이를 해결하기 위해 검증을 위한 2번의 스캔을 더 시행한다.
-샘플링해서 나온 결과를 frequent pattern이라고 생각하지 말고 candidate라고 생각하고 접근하자. 그 candidate 집합을 S라고 하자면, 그 S를 진짜 frequent한 지 아닌지를 확인해야 한다.
+
+샘플링해서 나온 결과를 frequent pattern이라고 생각하지 말고 **candidate라고 생각하고 접근**하자. 그 candidate 집합을 S라고 하자면, 그 S를 진짜 frequent한 지 아닌지를 확인해야 한다.
 
 근데 이때, S에서 발견된 pattern뿐만 아니라 그들에 대한 negative borders를 마찬가지로 확인해주어야 한다. S의 Negative borders는 S에는 없지만 모든 부분집합이 S에 있는 것을 말한다.
 
 결과적으로 첫 번째 Scan할 때, S(SDB)와 NB(S에는 없지만 모든 부분집합이 S에 있는 것)에서 frequent itemset을 찾는다. 두 번째 scan에선 missed frequent pattern을 찾아준다. NB에서 frequent itemset이 나와 S와 조합해서 frequent pattern을 이룰 가능성이 있기 때문에 그들을 찾아주는 것이다.
+
+하지만 그렇다고 할지라도 전체 DB에서 sampling을 한 것이고 전체 DB를 다 훑어보지 않았기 때문에 global frequent itemset을 놓쳤을 수 있다. 그러나, 메인 메모리에 올라올 수 있는 크기라면 매우 빠르게 패턴들을 찾을 수 있다.
 
 **c. DIC(Dynamic Item Counting)**
 
