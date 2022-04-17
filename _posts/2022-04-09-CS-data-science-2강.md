@@ -126,7 +126,7 @@ ex) 기저귀 → 맥주[0.5% 75%] -> Association
 - **Classification and Prediction**: 설명하고 구별하는 모델(함수)을 구성
 ex) (기후)에 따라 국가 분류 또는 (연비 기준)에 따라 자동차 분류, 알 수 없거나 누락된 숫자 값 예측
 - **Cluster analysis**: 클래스 레이블을 알 수 없기에 데이터를 그룹화하여 새 클래스를 만든다, 클래스 내 유사성 극대화 및 클래스 간 유사성 최소화
-- **Outlier analysis**
+- **Outlier analysis**  
 Outlier: 전체적인 경향을 준수하지 않는 데이터 object, Noise인가 exception인가? 부정 행위 탐지, 희귀 사건 분석에 유용
 - **Trend and evolution analysis**
 ex) 추세 및 진화 분석
