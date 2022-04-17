@@ -101,11 +101,11 @@ b. **Evaluating Classification Methods**
 - 가장 높은 information gain을 얻는 test attribute를 선택!!
 - 엔트로피(expected information)  
 
-p<sub>i</sub> = `|C<sub>i,D</sub>|/|D|`로 전체 데이터 중 클래스 i에 해당하는 데이터의 수
+![Entropy](https://sundongkim-dev.github.io/assets/img/data_science/entropy.png)
 
-> Entropy = Info(D) = -sum(p<sub>i</sub> * log2(p<sub>i</sub>))  
+p<sub>i</sub>는 전체 데이터 중 클래스 i에 해당하는 데이터의 수이다.
 
-모든 클래스 라벨마다 전체 튜플 중 그 클래스 라벨의 확률(pi)을 대입하여 값을 구한다. 더 다양할수록(more heterogeneous) 큰 엔트로피(expected information) 값을 갖는다.
+모든 클래스 라벨마다 전체 튜플 중 그 클래스 라벨의 확률(p<sub>i</sub>)을 대입하여 값을 구한다. 더 다양할수록(more heterogeneous) 큰 엔트로피(expected information) 값을 갖는다.
 
 엔트로피는 다른 말로 얼마나 복잡한가, 얼마나 다양한가, 얼마나 놀라운가 등으로 바꾸어 생각해볼 수 있다. 정의가 헷갈린다면 위의 기준들을 떠올려보자.
 
@@ -115,7 +115,7 @@ Information gain 공식을 살펴보자. 아래 식은 A라는 attribute를 기�
 
 Information gain은 분기 이전의 엔트로피에서 분기 이후의 엔트로피를 뺀 값이다. 분기 전의 엔트로피는 앞서 구했고, 분기 후의 값을 구해보자.
 
-**Info<sub>A</sub>(D) = sum(|D<sub>j</sub>| / |(D)| * Info(D<sub>j</sub>))**
+![Info gain](https://sundongkim-dev.github.io/assets/img/data_science/info_gain.png)
 
 A라는 Attribute로 D를 v개의 partition으로 나누었다고 한다면 sum은 j=1부터 v까지의 평균 entropy의 합이다.
 
