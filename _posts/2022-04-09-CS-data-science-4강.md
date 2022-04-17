@@ -211,7 +211,9 @@ candidate-generation time에 basic elements가 포함되어있는지만 확인�
 ### Converting "Tough" Constraints
 tough constraints를 anti-monotone이나 monotone으로 바꾼다.
 
-예시로, avg(S.profit)>=25와 같은 tough constraint를 item을 정렬함으로써 anti-monotone하게 바꾼다. <a,f,g,d,b,h,c,e>로 정렬했고, afb가 C를 위반하면 afbh도 위반할 것이다. ~~항상 뒤에 것만 추가해줄 수 있다: 정렬한 이유!!~~
+예시로, avg(S.profit)>=25와 같은 tough constraint를 item을 정렬함으로써 anti-monotone하게 바꾼다. <a,f,g,d,b,h,c,e>로 정렬했고, afb의 profit의 합의 평균이 25보다 작다면 afbh도 작을 것이다.
+
+~~항상 뒤에 것만 추가해줄 수 있다: 정렬한 이유를 유념하자!!~~
 
 ---
 
