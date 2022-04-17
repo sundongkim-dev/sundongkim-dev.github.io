@@ -154,14 +154,14 @@ a. Measure predictor accuracy
 
 b. Loss function  
   + 실제값과 예측된 값의 차이(=에러)를 측정한다.  
-    + Absolute error: |yi-yi'| = 차이 보존하고 싶을 때
+    + Absolute error: `|`yi-yi'`|` = 차이 보존하고 싶을 때
     + Squared error: (yi-yi')<sup>2</sup> = 하나라도 크게 틀리면 페널티를 많이 주고 싶을 때
 
 c. Test error(generalization error)  
   + 테스트셋의 loss의 평균을 말한다.
-    - Mean absolute error: sum(|yi-yi'|)/d  
+    - Mean absolute error: sum(`|`yi-yi'`|`)/d  
     - Mean squared error: sum((yi-yi')<sup>2</sup>)/d  
-    - Relative absolute error: sum(|yi-yi'|)/sum(|yi-avg(y)|)  
+    - Relative absolute error: sum(`|`yi-yi'`|`)/sum(`|`yi-avg(y)`|`)  
     - Relative squared error: sum((yi-yi')<sup>2</sup>)/sum((yi-avg(y))<sup>2</sup>)  
   + Mean squared error는 아웃라이어를 더 크게 측정한다.   
   + Square-root mean squared error와 square-root relative squared error가 자주 쓰인다. (예측 값과 동일한 크기를 얻기 위해서, square와 root 상쇄되어 자연스러운 결과 얻음)
