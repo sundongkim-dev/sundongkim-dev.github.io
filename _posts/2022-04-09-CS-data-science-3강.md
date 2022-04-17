@@ -20,13 +20,17 @@ comments: true
 
 이전에 apriori의 단점으로 너무 많은 DB scan을 한다는 점이 있었다. 이를 개선하기 위해 DB를 k 개의 조각으로 나눈다. 이를 partition이라고 하고, 각 **partition은 메인 메모리에 올라갈 만큼의 크기**여야 한다.
 
-각 파티션마다 **local frequent pattern**을 찾아야 한다. 단, local sup<sub>min</sub>은 **sup<sub>min</sub> / k**이다. 왜 그럴까?
+각 파티션마다 **local frequent pattern**을 찾아야 한다.
 
-예를 들어, minimum support가 100이고 4 개의 파티션으로 나눴다면 local minimum support가 25이상인 것을 후보로 가져와야 한다. 이는 당연한 논리인 것이 minimum support를 만족하려면 어느 한 파티션에서라도 해당 패턴의 locl support가 25 이상인 부분이 있을 것이다. 그렇기 때문에 후보로 첫 번째 스캔에서 얻는 것이다. 이 때의 패턴을 local frequent pattern이라고 한다. 하지만 local frequent pattern이라고 해서 global frequent pattern일까?
+단, local sup<sub>min</sub>은 **sup<sub>min</sub> / k**이다.
 
-아니다. 위의 예시를 이어서 설명해보면 하나의 파티션에서 25번 나왔다면 후보로 채택될텐데 다른 파티션에서 각각 24번씩 나왔다면 97번으로 minimum support인 100을 만족하지 않기 때문이다.
+왜 그럴까?
 
-그렇기 때문에 DB scan을 하며 global한 frequent pattern을 만든다. 이렇게 총 2회만 스캔을 하면 된다. 위와 같은 방식을 적용하면, frequent patteern을 놓칠 리는 만무하다.
+예를 들어, minimum support가 100이고 4 개의 파티션으로 나눴다면 local minimum support가 25 이상인 것을 후보로 가져와야 한다. 이는 당연한 논리인 것이 minimum support를 만족하려면 어느 한 파티션에서라도 해당 패턴의 local support가 25 이상인 부분이 있을 것이다. 이 때의 패턴을 **local frequent pattern**이라고 한다. 하지만 local frequent pattern이라고 해서 global frequent pattern일까?
+
+아니다!!!! 위의 예시를 이어서 설명해보면 하나의 파티션에서 25번 나왔다면 후보로 채택될텐데 다른 파티션에서 각각 24번씩 나왔다면 97(=25+24+24+24)번으로 minimum support인 100을 만족하지 않기 때문이다.
+
+그렇기 때문에 DB scan을 하며 global한 frequent pattern을 만든다. 이렇게 총 2회만 스캔을 하면 된다. 위와 같은 방식을 적용하면, **frequent patteern을 놓칠 리는 만무하다.**
 
 **b. Sampling for frequent patterns**
 
