@@ -147,7 +147,7 @@ a. Measure predictor accuracy
 b. Loss function  
   + 실제값과 예측된 값의 차이(=에러)를 측정한다.  
     + Absolute error: |yi-yi'| = 차이 보존하고 싶을 때
-    + Squared error: (yi-yi')<sup>2</sup> = 차이 극대화하고 싶을 때
+    + Squared error: (yi-yi')<sup>2</sup> = 하나라도 크게 틀리면 페널티를 많이 주고 싶을 때
 
 c. Test error(generalization error)  
   + 테스트셋의 loss의 평균을 말한다.
@@ -156,7 +156,7 @@ c. Test error(generalization error)
     - Relative absolute error: sum(|yi-yi'|)/sum(|yi-avg(y)|)  
     - Relative squared error: sum((yi-yi')<sup>2</sup>)/sum((yi-avg(y))<sup>2</sup>)  
   + Mean squared error는 아웃라이어를 더 크게 측정한다.   
-  + Square-root mean squared error와 square-root relative squared error가 자주 쓰인다. (예측 값과 동일한 크기를 얻기 위해서)
+  + Square-root mean squared error와 square-root relative squared error가 자주 쓰인다. (예측 값과 동일한 크기를 얻기 위해서, square와 root 상쇄되어 자연스러운 결과 얻음)
 
 ### Evaluating the Accuracy of a Classifier or Predictor  
 
@@ -165,6 +165,7 @@ c. Test error(generalization error)
   - 랜덤 샘플링: holdout의 변형  
     + Holdout을 k번 반복한다.  
     + 정확도는 얻어진 k 개의 평균을 취한다.
+  - 데이터가 적다면 쓰기 어렵다. 데이터의 1/3이나 학습에 사용하지 못하기 때문이다.
 
 **b. Cross Validation**
   - k-fold라고도 하며, k=10이 자주 쓰인다.
@@ -188,7 +189,7 @@ c. Test error(generalization error)
       - 전체 데이터에서 마지막까지 뽑히지 않은 것은 테스트셋으로 분류한다.  
       - 대략 전체 데이터의 63.2%가 트레이닝셋으로 분류되고 36.8%가 테스트셋으로 분류된다. (1- 1/d)<sup>d</sup>는 약 e<sup>-1</sup> = 0.368 이기 때문
       - 샘플링하는 과정을 k번 반복하며 모델의 정확도는 i=1~k에 대하여   
-      acc(M) = sum(0.632 * acc(M<sub>i</sub>)<sub>test_set<sub> + 0.368 * acc(M<sub>i</sub>)<sub>train_set<sub>))
+      acc(M) = sum(0.632 * acc(M<sub>i</sub>)<sub>test_set</sub> + 0.368 * acc(M<sub>i</sub>)<sub>train_set</sub>))
 
 ### Ensemble Methods  
 
@@ -197,13 +198,13 @@ c. Test error(generalization error)
 유명한 ensemble 기법으로는
 1. Bagging: 분류기의 예측 평균
 2. Boosting: 분류기의 가중 투표
-3. Ensemble: 다른 종류의 분류기 결합
+3. Ensemble(좁은 의미): 다른 종류의 분류기 결합
 
 등이 있다.
 
 **a. Bagging: Bootstrap Aggregation**
 
-여러 분류기의 예측값의 평균을을 내는 것으로 의사들에게 진찰을 받는 상황을 생각해 볼 수 있다. 본인이 심각한 병에 걸렸다면 여러 명의를 찾아다며 진료를 받을텐데 여러 의사들이 입을 모아 이야기한 것을 믿지 않을텐가
+여러 분류기의 예측값의 평균, 가장 많은 값을을 내는 것으로 의사들에게 진찰을 받는 상황을 생각해 볼 수 있다. 본인이 심각한 병에 걸렸다면 여러 명의를 찾아다며 진료를 받을텐데 여러 의사들이 입을 모아 이야기한 것을 믿지 않을텐가
 
 결국 "의사들의 가장 많은 투표를 차지한 진단으로 결정한다"로 생각할 수 있다.
 
@@ -213,7 +214,6 @@ Bootstrap 방식으로 트레닝셋을 정한다.(D개의 튜플들 중 중복�
 그렇게 만들어진 트레이닝 셋마다 각각 분류모델을 만들고 각 분류기 M<sub>i</sub>는 unkown 샘플 x에 대해서 class prediction을 한다.
 
 Bagged classifier M*는 각 분류기의 결과값을 모아서 그 중 가장 많이 표를 받은 클래스를 리턴한다.  
-[이게 왜 averaging...?]
 
 **Prediction**
 주어진 테스트 튜플에 대한 각 예측값의 평균을 취하여 연속값 예측에 적용할 수 있다.  
@@ -224,10 +224,10 @@ Bagged classifier M*는 각 분류기의 결과값을 모아서 그 중 가장 �
 **b. Boosting**
 여러 분류기마다 가중치를 매긴 결과이다. 앞선 의사의 예시를 여기서도 적용해보자. 명의도 명의대로 실력 차이가 있을 것이고 아무래도 더 명성이 높은 의사의 말을 신뢰할 것이다.
 
-Boosting은 과거 진단 기록을 바탕으로 더 정확한 진단을 하는 의사에게 높은 가중치를 주어 진단을 결정하게 한다.
+Boosting은 과거 진단 기록을 바탕으로 더 정확한 진단을 하는 의사에게 높은 가중치를 주어 진단을 결정하게 한다. 구현에 있어서는 실제로 높은 값을 주는 것은 아니고 틀린 분류를한 분류기에게 높은 가중치를 주는 식이다.
 
 각 트레이닝 튜플에 가중치가 할당된다. 처음에는 가중치가 모두 같지만 이는 parameter이다.(학습하며 값이 변함)
 
-k 개의 분류기가 반복적으로 학습한다. 분류기 M<sub>i</sub>가 학습된 후, M<sub>i+1</sub>을 학습시킬 때에는 이전 분류기에서 잘못 분류된 트레이닝 튜플에 더 큰 가중치를 부여함으로써 트레이닝 샘플로 뽑힐 가능성을 높여준다. 결국 가중치를 높여서 새로운 분류기가 더 관심을 갖는다고 보면 된다.
+k 개의 분류기가 반복적으로 학습한다. 분류기 M<sub>i</sub>가 학습된 후, M<sub>i+1</sub>을 학습시킬 때에는 이전 분류기에서 잘못 분류된 트레이닝 튜플에 더 큰 가중치를 부여함으로써 트레이닝 샘플로 뽑힐 가능성을 높여준다. 결국 가중치를 높여서 점점 여러 모델에 반영되게 한다.
 
-최종 모델 M*은 각 분류기의 결과를 결합하며 각 분류기의 가중치는 정확도의 함수이다.
+최종 모델 M*은 각 분류기의 결과를 결합한 것이다. 새로운 데이터를 분류해야한다면 각 분류기의 결과는 가중치이고 그 값을 합산해서 비교하여 큰 값으로 분류한다.
