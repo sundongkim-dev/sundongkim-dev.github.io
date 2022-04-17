@@ -10,6 +10,8 @@ comments: true
 
 이전에 Apriori에 대해 살펴보았는데 Apriori의 문제점을 개선하는 것들을 소개하고 특정 상황에서는 더 좋은 알고리즘인 FP Growth에 대해 알아보자.
 
+---
+
 ### Improving Apriori algorithm
 
 **1. Multiple DB Scans**
@@ -63,6 +65,8 @@ DB 스캔 한 번 할 때, k-itemsets의 support를 계산하는 **동시**에 (
 
 cf) 보통 hash function bucket #는 h({x y}) = ((order of x)*10 + (order of y)) mod 7로 결정된다.
 
+---
+
 ### Bottleneck of Frequent-pattern mining
 
 - DB 스캔을 여러 번 하는 것은 시간적 비용이 많이 발생
@@ -70,6 +74,8 @@ cf) 보통 hash function bucket #는 h({x y}) = ((order of x)*10 + (order of y))
 - 결국 Bottleneck은 후보 생성과 검증(수많은 스캔 요구)이다
 
 후보 생성을 안 할수는 없을까? 그렇게 나온 것이 FP-Growth이다.
+
+---
 
 ### FP-Growth: Mining frequent patterns without candidate generation
 
@@ -104,6 +110,8 @@ conditional pattern base 표로 conditional fp-tree를 만든다. p의 모든 co
 Lossless하게 **frequent pattern mining의 완전한 정보**를 저장한다. 즉, 모든 frequent pattern을 포함한다. 또한 긴 패턴을 자르지 않고 fp-tree의 형태로 저장하기 때문에 complete하다.
 
 불필요한 정보들을 지워주었고, 빈도가 더 높은 아이템일수록 더 잘 공유되기 때문에(frequency descending order이기 때문) 불필요한 정보들이 중복되지 않는다. 그렇기 때문에 original DB보다 항상 작고, Connect-4 DB같은 것은 1/100으로 압축된다고 한다. 이렇게 작게 압축하면 메인 메모리에 한번에 올릴 수 있다는 이점이 있고 이를 통해 disk i/o cost를 확 낮출 수 있게 되는 것이다.
+
+---
 
 ### A Special Case: Single Prefix Path in FP-tree
 
