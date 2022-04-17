@@ -55,9 +55,11 @@ X 데이터(training)와 사후 확률(posteriori probability) `P(X|H)`가 주�
 이는 곧 우도와 같다.
 > Likelihood(우도) = posteriori(사후확률) * prior(사전확률) / evidence
 
-모든 클래스 중에서 P(C<sub>i</sub>|X)가 가장 큰 값을 가지는 클래스로 분류한다.  
+모든 클래스 중에서 P(C<sub>i</sub>'|'X)가 가장 큰 값을 가지는 클래스로 분류한다.  
 
 실질적으로 많은 데이터에 대해서 확률을 다 알아야 하니까 computational cost가 많이 든다. 이를 어떻게 해결할 수 있을까?
+
+---
 
 ### Naive Bayesian Classifier
 D를 튜플 및 관련 클래스 레이블의 training set이라고 하고, 각 튜플은 n차원의 attribute를 갖는다.
@@ -103,6 +105,7 @@ cf) 평균 = class C<sub>i</sub>의 평균, 표준편차 = class C<sub>i</sub>�
 이러한 attribute간의 의존성을 어떻게 해결할 수 있을까?
 > Bayesian Belief Networks
 
+---
 
 ### Rule-based classification  
 
@@ -119,7 +122,9 @@ Accuracy는 분류가 가능한 것들 중에서 올바르게 분류될 확률�
 - Class-based ordering: Rule의 consequent를 보고 판단한다. Misclassification cost per class(각 class의 정확성을 보고, 더 정확성이 높은 rule의 consequent를 따른다.) 혹은 decreasing order of prevalence(frequency, class의 개수 순으로 내림차순하여 개수가 많은 것을 따른다)가 있다.
 - Rule-based ordering(decision list): Domain expert가 사전에 기준을 정해서 우선순위를 정한다.    
 
-## Associative Classification  
+---
+
+### Associative Classification  
 
 Association rule들은 classification을 하기 위해 생성되고 분석된다. Frequent pattern(conjunctions of attribute-value pairs)들과 class label 사이의 association이 strong한 것을 찾는다.
 
