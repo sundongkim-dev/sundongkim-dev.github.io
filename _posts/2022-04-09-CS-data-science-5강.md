@@ -31,26 +31,29 @@ Categorical class labels(discrete or nominal)를 예측한다. Class label을 �
 Classification은 두 가지 step으로 이루어져 있다.
 
 1. Model Construction
-  + 모델을 사용하여 알려지지 않은 샘플을 분류
-  + 훈련 데이터로 튜플/샘플의 속성이 클래스를 결정하는 방법을 설명
-  + Classification rules, decision trees, networks or mathematical formulae
+  + 목표: 모델을 사용하여 class label이 알려지지 않은 샘플을 분류
+  + 훈련 데이터: tuple/sample들의 집합으로 모델 생성에 사용된다.
+    + Tuple/Sample: <attr-1, attr-2, ..., attr-n, class label>
+    + 다 class label이 있다고 가정한다.
+  + 모델: 훈련 데이터로 튜플/샘플의 속성이 클래스를 결정하는 방법을 설명
+    + Classification rules, decision trees, networks or mathematical formulae
 
 2. Accuracy Evaluation
   + 테스트 셋(트레이닝 데이터와 유사하게 클래스 라벨을 가진다)을 이용해서 모델의 정확도를 평가
-  + 훈련 데이터와는 독립적이어야 과적합이 발생하지 않는다
+  + 훈련 데이터와는 독립적이지 않다면 과적합이 발생할 여지가 크다
   + 모델을 통해 나온 결과와 실제 클래스 라벨을 비교하여 정확도를 계산
 
 **2. Prediction**  
 연속적인 값을 가진 함수의 모델을 구성하고 이를 이용하여 모르거나 잃어버린 값을 예측한다. 즉, real value를 예측하는 것이다.
 
-Credit approval(은행에서 신용 측정), target marketing(백화점같은 곳에서 고객 타겟팅), medical diagnosis, fraud detection 등에 활용된다.
+Classification이나 Prediction은 Credit approval(은행에서 신용 측정), target marketing(백화점같은 곳에서 고객 타겟팅), medical diagnosis, fraud detection 등에 활용된다.
 
 ---
 
 ### Supervised vs. Unsupervised Learning
 
-- Supervised Learning(classification): 트레이닝셋은 class label을 포함하며 이를 학습시켜 새로운 데이터를 분류한다.
-- Unsupervised Learning(clustering): 트레이닝셋의 class label이 주어지지않고 데이터의 클러스터를 형성한다.
+- Supervised Learning(classification): 트레이닝 셋은 class label을 포함하며 이를 학습시켜 새로운 데이터를 분류한다.
+- Unsupervised Learning(clustering): 트레이닝 셋의 class label이 주어지지 않고 데이터의 클러스터를 형성한다.
 
 ---
 
