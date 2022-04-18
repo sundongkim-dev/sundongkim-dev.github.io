@@ -166,9 +166,9 @@ ex) 상점에서 함께 팔린 물건의 쌍을 찾아라!
 ---
 
 ### Constrained Mining vs Other Operations
-- Constrained Mining vs Constrained-based search
+- Constrained Mining vs Constraint-based search
 
-두 방법의 목표는 search space를 줄이는 것이다. 다만, constrained mining은 constraints를 만족하는 모든 패턴을 찾고, constrained-based search는 constraints를 만족하는 하나의, 일부의 답을 찾기만 하면 된다.
+두 방법의 목표는 search space를 줄이는 것이다. 다만, constrained mining은 constraints를 만족하는 모든 패턴을 찾고, constraint-based search는 constraints를 만족하는 하나의, 일부의 답을 찾기만 하면 된다.
 
 - Constrained Mining vs query processing in DBMS
 
@@ -178,13 +178,13 @@ Constrained mining은 query processing에서 pushing selections와 유사한 철
 
 ---
 
-### Anti-Monotonicity in Constraint Pushing
+### Anti-Monotonicity, Monotonicity, Succinctness for Constraint Pushing
 
 Constraint 일찍 처리하고 싶다!! 어떻게!?!
 
 - **Anti-monotonicity**: 만족하지 못하면 앞으로도 만족하지 못한다.
 
-itemset S가 constraint에 성립하지 않으면 S의 superset도 constraint에 성립하지 않는다.
+어떤 itemset S가 constraint에 성립하지 않으면 S의 superset도 constraint에 성립하지 않는다.
 
 > sum(S.Price) <= v 는 anti-monotone  
 sum(S.Price) >= v 는 not anti-monotone  
@@ -192,20 +192,20 @@ range(S.profit)<=15 is anti-monotone (range는 두 값의 차이를 말한다)
 
 - **Monotonicity**: 만족하면 앞으로도 만족한다.
 
-itemset S가 constraint에 성립하면 S의 superset도 constraint에 성립한다.
+어떤 itemset S가 constraint에 성립하면 S의 superset도 constraint에 성립한다.
 
 > sum(S.Price)>=v is monotone  
 min(S.Price)<=v is monotone  
 range(S.profit)>=15 is monotone  
 
-- **Succinctness**: Itemset A1이 constraint C를 만족하면, C를 만족하는 어떤 집합 S는 A1에 기반해서 간단히 계산해서 구해질 수 있다. 이 때, 이러한 constraint를 succinct하다고 한다.
+- **Succinctness**: Itemset A1이 constraint C를 만족하고, constraint C를 만족하는 모든 itemset S를 A1에 기반해서 간단히 계산해서 구할 수 있을 때, 이러한 constraint를 succinct하다고 한다.
 
 > min(S.Price)<=v is succinct  
 sum(S.Price)>=v is not succinct
 
 Succinctness의 장점은 transaction database를 보지 않아도 itemset S가 어떤 item들을 선택했는지에 따라 constraint C를 만족하는지를 결정할 수 있다.
 
-최적화: 만약 C가 succinct하면 C는 pre-counting pushable 하다.
+최적화: 만약 C가 succinct하면 C는 **pre-counting pushable** 하다.
 candidate-generation time에 basic elements가 포함되어있는지만 확인하면 해당 constraint를 만족하는지 확인할 수 있기 때문이다.
 
 ---
@@ -213,7 +213,7 @@ candidate-generation time에 basic elements가 포함되어있는지만 확인�
 ### Converting "Tough" Constraints
 tough constraints를 anti-monotone이나 monotone으로 바꾼다.
 
-예시로, avg(S.profit)>=25와 같은 tough constraint를 item을 정렬함으로써 anti-monotone하게 바꾼다. <a,f,g,d,b,h,c,e>로 정렬했고, afb의 profit의 합의 평균이 25보다 작다면 afbh도 작을 것이다.
+예시로, avg(S.profit)>=25와 같은 tough constraint는 item을 정렬함으로써 anti-monotone하게 바꾼다. Itemset을 <a,f,g,d,b,h,c,e>로 정렬했고, afb의 profit의 합의 평균이 25보다 작다면 afbh도 작을 것이다.
 
 ~~항상 뒤에 것만 추가해줄 수 있다: 정렬한 이유를 유념하자!!~~
 
