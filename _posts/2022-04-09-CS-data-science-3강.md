@@ -34,7 +34,7 @@ comments: true
 
 **b. Sampling for frequent patterns**
 
-Simple sampling: DB에서 sampling해서 sampled DB(SDB)를 얻고 Apriori를 돌려서 local frequent patern을 찾는다. 이때, minSup은 sample만큼 나눠서 사용한다. 위에서 배운 파티션처럼 메모리의 올라올 수 있는 양이어야 한다. 그래야 부가적인 DB scan이 없을 것이기 때문이다.
+Simple sampling: DB에서 sampling해서 sampled DB(SDB)를 얻고 Apriori를 돌려서 local frequent patern을 찾는다. 이때, minSup은 sample만큼 나눠서 사용한다. 위에서 배운 파티션처럼 메모리에 올라올 수 있는 양이어야 한다. 그래야 부가적인 DB scan이 없을 것이기 때문이다.
 
 하지만 위의 simple sampling은 **local frequent pattern이 실제로 frequent pattern이 아닐 수 있고 global frequent pattern을 놓쳤을 수 있는 문제**가 있다. 즉, SDB에서 찾은 frequent pattern이 전체 DB에서 봤을 때 frequent pattern이 아닐 수 있고, 진짜 frequent pattern이지만 SDB에 속해 있지 않아서 못 찾을 수도 있다.
 
@@ -67,7 +67,7 @@ Simple sampling: DB에서 sampling해서 sampled DB(SDB)를 얻고 Apriori를 �
 
 > 해싱을 사용한다!! Itemset이 key인 해시 테이블 이용!!
 
-DB 스캔 한 번 할 때, k-itemsets의 support를 계산하는 **동시**에 (k+1)-itemsets를 위한 **해시 테이블**을 만든다. 해시 테이블의 각 row는 hash bucket을 의미하며 해시값이 같은 itemset끼리 같은 hash bucket에 위치하도록해서 개수를 세어주었다. 이 때, 개수는 해당 hash bucket에 위치하는 itemset의 count의 합이다.
+DB 스캔 한 번 할 때, k-itemsets의 support를 계산하는 **동시**에 (k+1)-itemsets를 위한 **해시 테이블**을 만든다. 해시 테이블의 각 row는 hash bucket을 의미하며 해시값이 같은 itemset끼리 같은 hash bucket에 위치하도록해서 개수를 세어주었다. 이 때, 개수는 해당 hash bucket에 위치하는 itemset들의 count의 합이다.
 
 즉, 해당 hash bucket의 아이템셋의 count를 다 합쳤음에도 minSup보다 작다는 것은 결코 frequent pattern일 수 없기 때문에 제외한다.
 
@@ -101,7 +101,7 @@ cf) 보통 hash function bucket #는 h({x y}) = ((order of x)*10 + (order of y))
 
 cf) Header table을 만들어주어야 하는데, 앞서 구한 f-list를 통해서 만들어준다. 초기에는 frequency를 0으로 초기화해서 만들어준다. 그 후 frequent한 것들만을 남긴 트랜잭션 DB를 돌면서 트리를 성장시킨다. head 포인터도 링크드 리스트로 엮어준다.
 
-결과적으로 FP tree라는 것은 트랜잭션 DB의 아주 compact한 representation이다. 필요한 정보를 다 담고 있으며, descending order를 이용하여 빈번할수록 많이 share하므로 메모리를 많이 아낄 수 있다.
+결과적으로 FP tree라는 것은 트랜잭션 DB의 아주 compact한 representation이다. 필요한 정보를 다 담고 있으며, descending order를 이용하여 빈번할수록 브랜치를 많이 share하므로 메모리를 많이 아낄 수 있다.
 
 이제 Pattern을 나누어서 따져보자. F-list가 {f,c,a,b,m,p}라면 제일 밑에서부터 p를 포함하는 패턴, m을 포함하지만 p는 포함하지 않는 패턴, b를 포함하지만 m,p를 포함하지 않는 패턴, ..., 패턴 f까지!! 총 6 덩어리의 disjoint한 partition 획득!!
 

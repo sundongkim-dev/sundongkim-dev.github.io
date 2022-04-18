@@ -34,7 +34,7 @@ Classification은 두 가지 step으로 이루어져 있다.
   + 목표: 모델을 사용하여 class label이 알려지지 않은 샘플을 분류
   + 훈련 데이터: tuple/sample들의 집합으로 모델 생성에 사용된다.
     + Tuple/Sample: <attr-1, attr-2, ..., attr-n, class label>
-    + 다 class label이 있다고 가정한다.
+    + 모든 데이터가 class label이 있다고 가정한다.  
   + 모델: 훈련 데이터로 튜플/샘플의 속성이 클래스를 결정하는 방법을 설명
     + Classification rules, decision trees, networks or mathematical formulae
 

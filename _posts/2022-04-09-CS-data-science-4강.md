@@ -22,7 +22,7 @@ Apriori 알고리즘을 기반으로, max pattern만을 효과적으로 구하�
 
 **두 번째 scan**에서 2-itemsets와 potential max-patterns의 support를 구한다. 만들 때, ascending order로 정렬한 순서를 지켜서 생성해주어야 한다. 위의 예시에서 BC는 있어도 CB는 없다!! Ascending order를 지켜서 생성할 때마다 해당 아이템으로 만들 수 있는 max-pattern의 후보(potential max-pattern)를 추가한다.
 
-Ascending order를 지켜서 생성하고 potential max-pattern을 추가해준다고 했는데 어떻게 이뤄질까? Set-enumeration tree를 이용하면 된다!! Frequency 순서대로 진행하며 만들 수 있는 pattern을 계속 만들다가 마지막 leaf node에 위치한 것이 potential max pattern이 되는 것이다.
+Ascending order를 지켜서 생성하고 potential max-pattern을 추가해준다고 했는데 어떻게 이뤄질까? **Set-enumeration tree**를 이용하면 된다!! Frequency 순서대로 진행하며 만들 수 있는 pattern을 계속 만들다가 마지막 leaf node에 위치한 것이 potential max pattern이 되는 것이다.
 
 ![Set enumeration tree](https://sundongkim-dev.github.io/assets/img/data_science/set-enumeration_tree.png)
 
@@ -133,7 +133,7 @@ ex) 3개의 predicate라면, 3 또는 4번의 스캔
 
 ### Mining interesting correlation pattern
 
-기존의 support나 confidence는 corrleation을 나타내기 좋은 도구가 아니다. 예를 들어, 전체 학생의 75%가 시리얼을 먹는데 농구를 하면 시리얼을 먹는다[40%, 66.7%]라는 rule은 의미가 없는 rule이다. confidence가 75%보다 작은 66.7%이기 때문이다. 그렇기 때문에 농구를 하지 않으면 시리얼을 먹지 않는다[20%, 33.3%]가 훨씬 의미 있는 룰이다. 결국 support와 confidence로는 역설적인 상황이 발생하기 때문에 다른 measure가 필요하게 되었다.
+기존의 support나 confidence는 correlation을 나타내기 좋은 도구가 아니다. 예를 들어, 전체 학생의 75%가 시리얼을 먹는데 농구를 하면 시리얼을 먹는다[40%, 66.7%]라는 rule은 의미가 없는 rule이다. confidence가 75%보다 작은 66.7%이기 때문이다. 그렇기 때문에 농구를 하지 않으면 시리얼을 먹지 않는다[20%, 33.3%]가 훨씬 의미 있는 룰이다. 결국 support와 confidence로는 역설적인 상황이 발생하기 때문에 다른 measure가 필요하게 되었다.
 
 Corrleation을 잘 나타내기 좋은 도구로 lift, cosine, all_conf라는 것들이 있다. 그러나 강의 중엔 Lift만 다루었다.
 
