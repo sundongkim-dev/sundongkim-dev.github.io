@@ -64,7 +64,7 @@ comments: true
 ![KDD process](https://sundongkim-dev.github.io/assets/img/data_science/KDD.png)  
 1) **Data cleaning**: 데이터 마이닝의 질을 높이기 위해 noise, missing data 문제를 해결  
 2) 여러 데이터베이스를 통합(**Data integration**)하고 이 때 발생하는 일관성과 같은 문제를 해결한다. 그 결과물이 data warehouse(DB의 DB, DB의 스냅샷, non-dynamic)이다.  
-3) Data warehouse에서 해당 작업과 관련된 데이터를 선택한다. 해당 작업을 풀기 위해 필요한 데이터만을 선택한 것으로 이러한 데이터를 **Task-relevant Data**라고 한다.  
+3) Data warehouse에서 해당 작업과 관련된 데이터를 선택한다. 해당 작업을 풀기 위해 필요한 데이터만을 선택(**data selection**)한 것으로 이러한 데이터를 **Task-relevant Data**라고 한다.  
 4) **데이터 마이닝을 거쳐서** 나온 것 중에서 **pattern evaluation**을 통해 **knowledge를 추출**한다.  
 
 아래는 **business intelligence의 프로세스**이다.
