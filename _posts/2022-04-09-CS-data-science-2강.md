@@ -38,7 +38,7 @@ comments: true
 3. Computational science(1950s~1990s): 시뮬레이션을 통해 복잡한 수학적 모델을 풀 수 있게 되며 시간을 많이 절약할 수 있게 됨
 4. Data science(1990~현재): 엄청난 양의 데이터가 등장하면서 이를 잘 관리하고 저장하며 새로운 지식을 얻는 것이 중요해짐
 
-**Evolution of Database Technology**
+**Evolution of Database Technology**  
 1960s : 데이터가 많이 없으니 '데이터 수집', '데이터베이스 생성', IMS and network DBMS  
 1970s : 관계형 데이터 모델, 관계형 DBMS 구현  
 1980s : 관계형 데이터 베이스에서 확장된 관계형 DBMS, 응용 중심 DBMS(공간 데이터베이스 등)  
