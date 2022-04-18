@@ -72,7 +72,7 @@ b. **Evaluating Classification Methods**
   + 모델 생성 시간(training time)
   + 실제 이용할 때 걸리는 시간(classification, prediction time)
 - Robustness: 노이즈나 비어있는 값이 있더라도 모델이 잘 견뎌야 함
-- Scalability: 메인 메모리를 넘는 디스크에 있는 많은 데이터에 대한 효율성
+- Scalability: 용량이 메인 메모리를 넘는, 디스크에 있는 많은 데이터에 대한 효율성
 - Interpretability: 뉴럴 네트워크는 어떻게 그러한 분류 결과가 나왔는지 이유를 잘 말해주지 못하므로 이 특성이 낮다. <-> XAI
 - Decision tree size, compactness of classification rules 등
 
@@ -81,7 +81,7 @@ b. **Evaluating Classification Methods**
 ### Classification by decision tree induction
 
 **1. Algorithm**  
-- greedy algorithm으로 top-down, recursive, divide-and-conquer 방식으로 decision tree를 구성한다.
+- greedy algorithm으로 `top-down`, `recursive`, `divide-and-conquer` 방식으로 decision tree를 구성한다.
 - 처음에 모든 트레이닝 샘플이 루트 노드에 있다.
 - Attribute는 categorical 하다고 가정한다. 연속적인 값이라면 범위 나누어서 분할해서 categorize한다.
 - 샘플들은 정해진 test attributes에 따라 재귀적으로 나누어진다.
@@ -92,7 +92,11 @@ b. **Evaluating Classification Methods**
 - '더 이상 샘플이 없는 경우'
 
 **2. Test Attribute Selection**  
-그룹을 나눌 때, 좀 더 클래스 라벨이 비슷한 것끼리(more homogeneous) 잘 나누는 Attribute를 선택한다. 왜 homogeneous한 것이 좋을까? 데이터 분류에 있어서 확신을 갖을 수 있기 때문이다. 이러한 방법에는 statistical한 measure로 information gain, gain ratio, gini index 등이 있다.
+그룹을 나눌 때, 좀 더 클래스 라벨이 비슷한 것끼리(more homogeneous) 잘 나누는 Attribute를 선택한다.
+
+왜 homogeneous한 것이 좋을까?
+
+데이터 분류에 있어서 확신을 갖을 수 있기 때문이다. 이러한 방법에는 statistical한 measure로 `information gain`, `gain ratio`, `gini index` 등이 있다.
 
 ---
 
