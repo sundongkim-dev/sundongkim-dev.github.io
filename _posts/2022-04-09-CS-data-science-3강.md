@@ -61,7 +61,7 @@ Simple sampling: DB에서 sampling해서 sampled DB(SDB)를 얻고 Apriori를 �
 
 **2. Huge number of candidates**
 
-**a. DHP: Reduce the Number of Candidates**
+**a. DHP(Direct Hash and Pruning): Reduce the Number of Candidates**
 
 1만 개의 itemset이 있다면 1-itemset의 후보는 10000개이고 모두 frequent하다면 2-itemset의 후보는 10000*10000인 1억 개가 될 것이다. 하지만 아이템이 1만 개인 상황은 결코 아이템이 많은 상황이 아니다. 몇십만 개의 아이템이 일반적인 경우일 텐데 그러면 벌써 100억이 넘고 시작하는 것이다. 이러한 후보의 수를 어떻게 줄일 수 있을까?
 
