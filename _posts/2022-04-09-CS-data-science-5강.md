@@ -161,7 +161,7 @@ Gain(A)는 앞서 information gain에서 다룬 값으로 Info(D)-Info<sub>A</su
 
 ![Split info](https://sundongkim-dev.github.io/assets/img/data_science/split_info.png)
 
-공식을 보면 어딘가 익숙하다. Normalization이 떠오르지 않는가? Gain ratio는 information에 대해 normalization을 해준 결과이다. Normalization으로 input data의 편향을 해소해준 것이다. ~~Gain(A)가 쓸데없이 커진다면, 분모에 똑같이 커지는 값으로 나눠준다면 조금은 해소된다!!~~
+공식을 보면 어딘가 익숙하다. Normalization이 떠오르지 않는가? Gain ratio는 information gain에 대해 normalization을 해준 결과이다. Normalization으로 input data의 편향을 해소해준 것이다. ~~Gain(A)가 쓸데없이 커진다면, 분모에 똑같이 커지는 값으로 나눠준다면 조금은 해소된다!!~~
 
 결과적으로 information gain과 마찬가지로 gain Ratio가 가장 큰 attribute가 선정된다.
 
@@ -173,18 +173,21 @@ Gain(A)는 앞서 information gain에서 다룬 값으로 Info(D)-Info<sub>A</su
 
 p<sub>j</sub>: class label에 대한 확률   
 
+N개의 class label에 대하여 gini index를 계산하는 공식이 바로 위 식이다.
+
+
 ![Gini index](https://sundongkim-dev.github.io/assets/img/data_science/gini_index.png)
 
-위 식에서 attribute A는 binary partition을 가정한다. 즉, 하나의 attribute가 여러 개의 value를 지닌다면 binary split을 해야 한다.
+위 식에서 attribute A는 binary partition을 가정한다. 즉, 하나의 attribute가 여러 개의 value를 지닌다면 binary split을 해야 한다. 그렇게 해서 binary로 나눈 attribute set들에 대해 각각 gini index를 구하고 그 값의 weighted average를 구해서 각각 더해주면 된다.
 
 Gini index도 마찬가지로 변화량이 제일 큰 것을 선택한다.
 
 > Reduction in impurity:
 delta gini(A) = gini(D)-gini<sub>A</sub>(D)
 
-결과적으로 가장 `reduction in impurity(heterogeneity)`가 큰 attribute를 선택한다. 결국 가장 작은 gini<sub>A</sub>(D)값을 선택해야 한다.
+결과적으로 가장 `reduction in impurity(heterogeneity)`가 큰 attribute를 선택한다. 결국 가장 작은 gini<sub>A</sub>(D)값을 선택해야 한다.(= delta gini(A)값이 가장 큰 경우)
 
-Binary partition인 경우 모든 split point 중에서 가장 gini<sub>A</sub>(D)가 작은 값의 지점을 고려해야 한다.
+Gini index는 binary partition을 가정하므로 split point 중에서 가장 gini<sub>A</sub>(D)가 작은 값의 지점을 고려해야 한다.
 
 예시로, 어떤 attribute의 값이 low, medium, high가 있으면 low, medium/high로 나누거나, low/medium,high, low,high/medium로 나눈다.
 
