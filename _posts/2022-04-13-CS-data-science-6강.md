@@ -22,7 +22,7 @@ comments: true
 **2. Performance**  
 Simple naive bayesian classifier는 decision tree나 neural network에 뒤떨어지지 않는 성능을 가진다.  
 **3. Incremental**  
-기존 데이터에 추가적인 데이터를 학습시키기 용이하다. 즉, 데이터를 추가한다고 해서 전체 데이터를 다시 학습시킬 필요가 없다. 그저 확률 셈을 다시해서 줄이거나 높이기만 하면 되기 때문이다.
+기존 데이터에 추가적인 데이터를 학습시키기 용이하다. 즉, 데이터를 추가한다고 해서 전체 데이터를 다시 학습시킬 필요가 없다. 그저 확률 셈(확률 테이블 수정)을 다시해서 줄이거나 높이기만 하면 되기 때문이다.
 
 ---
 
@@ -35,9 +35,9 @@ Simple naive bayesian classifier는 decision tree나 neural network에 뒤떨어
 
 이 때, `P(H|X)`는 X가 주어졌을 때 H를 만족할 확률이다. 이 값이 가장 높은 클래스로 분류한다.
 
-- P(H)는 prior probability라고 하며, X와 독립적인 initial probability를 말한다. X가 나이나 연봉과 상관없이 컴퓨터를 살 확률을 예로 들 수 있다.
+- P(H)는 prior probability라고 하며, X와 독립적인 initial probability를 말한다. X가 주어지기 전의 가설을 만족할 확률로, X가 age나 income(다른 attribute)과 상관없이 컴퓨터를 살 확률(class label)을 예로 들 수 있다.
 
-- P(X)는 X라는 샘플 데이터가 발생할 확률을 말한다.
+- P(X)는 X라는 샘플 데이터가 전체 데이터에서 발생할 확률을 말한다.
 
 - `P(X|H)`는 posteriori probability라고 하며, H라는 가설을 만족할 때, X라는 데이터를 가질 확률을 말한다. X가 컴퓨터를 산다고 할 때, X의 나이가 31~40이고 연봉은 medium일 확률을 예로 들 수 있다.
 
@@ -109,13 +109,13 @@ cf) 평균 = class C<sub>i</sub>의 평균, 표준편차 = class C<sub>i</sub>�
 
 ### Rule-based classification  
 
-IF-THEN Rules를 사용해서 분류를 할 수 있다. Knowledge를 IF-THEN rule을 사용해서 표현한다. IF 부분은 rule antecedent/precondition이라고 하고, Then 부분은 rule consequent라고 한다.
+IF-THEN Rules를 사용해서 분류를 할 수 있다. Knowledge를 IF-THEN rule을 사용해서 표현한다. IF 부분은 **rule antecedent/precondition**이라고 하고, Then 부분은 **rule consequent**라고 한다.
 
 Rule R에 대한 평가 기준으로는 coverage와 accuracy가 있다.
 
-Coverage는 rule R로 분류가 가능한 것의 확률이다. 즉, n<sub>covers</sub> / `|D|` 이다.
+**Coverage**는 `rule R로 분류가 가능한 것의 확률`이다. 즉, n<sub>covers</sub> / `|D|` 이다.
 
-Accuracy는 분류가 가능한 것들 중에서 올바르게 분류될 확률로 n<sub>correct</sub> / n<sub>covers</sub>이다.
+**Accuracy**는 분류가 가능한 것들 중에서 `올바르게 분류될 확률`로 n<sub>correct</sub> / n<sub>covers</sub>이다.
 
 만약 2 개 이상의 룰에 해당된다면 **conflict resolution**이 필요하다.
 - Size ordering: Rule의 antecedent에서 테스트하는 attribute의 개수가 가장 많은 즉, 가장 tough한 rule을 고른다.  
