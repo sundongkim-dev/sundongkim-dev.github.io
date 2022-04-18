@@ -117,7 +117,7 @@ A와 D를 동시에 갖는 트랜잭션은 3개이고 그들 중 A를 포함하�
 
 Frequent pattern은 개념도 단순하고 찾으면 좋겠지만... Frequent pattern에 문제점이 있다. 만약 길이가 매우 긴 **frequent pattern**이 있다고 하자. 그 패턴의 **sub-pattern 역시 frequent pattern**이다. 결국 이러한 sub-patterns를 모두 고려해야 하는데, 이는 **computational cost가 매우 커지는 원인**이 된다.
 
-만약 frequent pattern의 길이가 100이라면 <sub>100</sub>C<sub>1</sub> + ... + <sub>100</sub>C<sub>100</sub>까지 모두 더한 값의 가짓수를 검토해야 하는데, 이는 2<sup>100</sup>-1 만큼이나 된다. 약 1.27*10<sup>30</sup>만큼이다.
+만약 frequent pattern의 길이가 100이라면 <sub>100</sub>C<sub>1</sub> + ... + <sub>100</sub>C<sub>100</sub>까지 모두 더한 값이 패턴의 개수가 되는데, 이는 2<sup>100</sup>-1 만큼이나 된다. 약 1.27*10<sup>30</sup>만큼이다.
 
 그래서 frequent pattern에 redundant한 것이 너무 많으니 **closed pattern**과 **max pattern**을 구하게 된다.
 아직은 잘 모르지만, 딱봐도 가짓수가 더 적은, 더 strict한 룰을 가지지 않겠는가!
