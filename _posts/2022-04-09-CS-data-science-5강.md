@@ -112,7 +112,9 @@ b. **Evaluating Classification Methods**
 
 p<sub>i</sub>는 전체 데이터 중 클래스 i에 해당하는 데이터의 수이다.
 
-모든 클래스 라벨마다 전체 튜플 중 그 클래스 라벨의 확률(p<sub>i</sub>)을 대입하여 값을 구한다. 더 다양할수록(more heterogeneous) 큰 엔트로피(expected information) 값을 갖는다.
+모든 class label의 value마다 전체 튜플 중 그 class label의 확률(p<sub>i</sub>)을 대입하여 값을 구한다. 위 식에서는 class label의 value의 종류가 m개인 경우이다.
+
+더 다양할수록(more heterogeneous) 큰 엔트로피(expected information) 값을 갖는다.
 
 엔트로피는 다른 말로 얼마나 복잡한가, 얼마나 다양한가, 얼마나 놀라운가 등으로 바꾸어 생각해볼 수 있다. 정의가 헷갈린다면 위의 기준들을 떠올려보자.
 
@@ -124,7 +126,7 @@ Information gain은 분기 이전의 엔트로피에서 분기 이후의 엔트�
 
 ![Info gain](https://sundongkim-dev.github.io/assets/img/data_science/info_gain.png)
 
-A라는 Attribute로 D를 v개의 partition으로 나누었다고 한다면 sum은 j=1부터 v까지의 average weighted한 entropy의 합이다.
+A라는 Attribute로 D를 v개(attribute value의 종류가 v 가지)의 partition으로 나누었다고 한다면 sum은 j=1부터 v까지의 weighted average한 entropy의 합이다.
 
 이제 각 성분이 무엇이고 어떻게 계산되는 지를 알게 되었다. 그렇게 구한 information gain이 큰 값을 택해야 할까 작은 값을 택해야 할까?
 
@@ -149,7 +151,7 @@ Information gain은 마냥 좋은 measure가 아니다. 이는 값이 많은 att
 
 이러한 문제를 해결하고자 gain ratio라는 방법이 제시되었다.
 
-**2.Gain Ratio(C4.5에 쓰임)**
+**2. Gain Ratio(C4.5에 사용됨)**
 
 Gain Ratio는 Information gain의 attribute value의 수가 많을수록 커지는 경향을 해결하고자 한다. 아래는 gain ratio의 공식이다.
 
@@ -165,7 +167,7 @@ Gain(A)는 앞서 information gain에서 다룬 값으로 Info(D)-Info<sub>A</su
 
 이 역시도 만능이 아니다. 불균형이 심한 attribute(더 작은 쪽)를 상대적으로 선택하기 쉬워진다.
 
-**3.Gini Index**
+**3. Gini Index(CART에 사용됨)**
 
 > gini(D) = 1-sum(p<sub>j</sub><sup>2</sup>)
 
