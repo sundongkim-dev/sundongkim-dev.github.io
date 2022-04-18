@@ -136,4 +136,4 @@ Association rule들은 classification을 하기 위해 생성되고 분석된다
 
 또한 많은 연구에서 associative classification은 C4.5와 같은 전통적인 분류 방법보다 더 정확하다고 알려져 있다.
 
-정확도는 높지만, conf와 sup의 threshold를 높이면 cover가 되지 않는 rule이 많이 나올 수 있다. 또한 생성된 rule들은 disjoint하지 않을수도 있다.
+정확도는 높지만, conf와 sup의 threshold를 높이면 cover가 되지 않는 rule이 많이 나올 수 있다. 또한 생성된 rule들은 disjoint하지 않을 수도 있다.
