@@ -129,7 +129,9 @@ ex) 3개의 predicate라면, 3 또는 4번의 스캔
 
 **3.** Clustering: distance-based association
 
-#### **d. Mining interesting correlation patterns**
+---
+
+### Mining interesting correlation pattern
 
 기존의 support나 confidence는 corrleation을 나타내기 좋은 도구가 아니다. 예를 들어, 전체 학생의 75%가 시리얼을 먹는데 농구를 하면 시리얼을 먹는다[40%, 66.7%]라는 rule은 의미가 없는 rule이다. confidence가 75%보다 작은 66.7%이기 때문이다. 그렇기 때문에 농구를 하지 않으면 시리얼을 먹지 않는다[20%, 33.3%]가 훨씬 의미 있는 룰이다. 결국 support와 confidence로는 역설적인 상황이 발생하기 때문에 다른 measure가 필요하게 되었다.
 

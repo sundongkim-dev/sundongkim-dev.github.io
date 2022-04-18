@@ -125,12 +125,12 @@ Lossless하게 **frequent pattern mining의 완전한 정보**를 저장한다. 
 
 ### A Special Case: Single Prefix Path in FP-tree
 
-FP-tree T가 single prefix-path p를 갖는다면, 두 부분으로 나누어서 계산하는 것이 빠르다. 그렇게 하지 않는다면 재귀적 호출로 인한 Stack operation 때문에 더디기 때문이다. 결과적으로 single prefix path를 떼어서 하나의 노드로 만들어서(조합 연산으로 모든 frequent pattern 구해줌) 아래 분기 되는 지점의 노드와 concatenation을 해주면 된다.
+(Conditional) FP-tree T가 single prefix-path p를 공유한다면, 분기 되는 부분과 두 부분으로 나누어서 계산하는 것이 빠르다. 그렇게 하지 않는다면 재귀적 호출로 인한 Stack operation 때문에 더디기 때문이다. 결과적으로 single prefix path를 떼어서 하나의 노드로 만들어서(조합 연산으로 모든 frequent pattern 구해줌) 아래 분기 되는 지점의 노드와 concatenation을 해주면 된다.
 
 ### Summary of ideas with FP-Growth
 
 새로운 frequent item을 더하면서 길이를 재귀적으로 늘려나간다. 각 frequent item마다 conditional pattern-base를 만들고 그의 conditional FP-tree를 만들어준다. 그 안에서 또 conditional pattern-base를 만드는 식으로 계속 반복한다.  
-Conditional pattern base와 conditional FP-tree를 만들고 이를 반복하여 FP-tree가 empty이거나 single path만을 포함할 때까지 진행한다.
+Conditional pattern base와 conditional FP-tree를 만들고 이를 반복하여 새로 만들어지는 FP-tree가 empty이거나 single path만을 포함할 때까지 진행한다.
 
 ### FP-Growth vs. Apriori: Scalability with the support threshold
 
