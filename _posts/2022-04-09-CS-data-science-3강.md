@@ -30,7 +30,7 @@ comments: true
 
 아니다!!!! 위의 예시를 이어서 설명해보면 하나의 파티션에서 25번 나왔다면 후보로 채택될텐데 다른 파티션에서 각각 24번씩 나왔다면 97(=25+24+24+24)번으로 minimum support인 100을 만족하지 않기 때문이다.
 
-그렇기 때문에 DB scan을 하며 global한 frequent pattern을 만든다. 이렇게 총 2회만 스캔을 하면 된다. 위와 같은 방식을 적용하면, **frequent patteern을 놓칠 리는 만무하다.**
+그렇기 때문에 DB scan을 하며 global한 frequent pattern을 만든다. 이렇게 총 2회만 스캔을 하면 된다. 위와 같은 방식을 적용하면, **global frequent pattern을 놓칠 리는 만무하다.**
 
 **b. Sampling for frequent patterns**
 
