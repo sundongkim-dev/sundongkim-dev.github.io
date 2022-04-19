@@ -169,7 +169,7 @@ c. Test error(generalization error)
 
 **a. Holdout Method**
   - 주어진 데이터를 랜덤하게 training set, test set으로 분리한다.
-  - 랜덤 샘플링: holdout의 변형  
+  - Random subsampling: holdout의 변형  
     + Holdout을 k번 반복한다.  
     + 정확도는 얻어진 k 개의 평균을 취한다.
   - 데이터가 적다면 쓰기 어렵다. 데이터의 1/3이나 학습에 사용하지 못하기 때문이다.
@@ -179,6 +179,8 @@ c. Test error(generalization error)
   - 랜덤하게 데이터를 동일하게 k 개로 나눈다.(서로 교집합 없이)  
   - i-th iteration에는 D<sub>i</sub>를 테스트셋으로 하고 나머지는 트레이닝셋으로 한다.  
     + K=10이라면, 10%는 테스트셋, 90%는 트레이닝셋으로 사용하면서 10번을 각각 다른 테스트셋을 선정하여 반복하는 것이다.
+  - Accuracy는 결국 k 개의 테스트 결과의 평균이 된다.
+  - Holdout과 달리 모델을 만들 때 데이터를 더 많이 사용한다. 그렇기 때문에 더 적은 데이터에서 사용하기 좋다.
 
 **c. Leave-one-out**
   - 위의 cross-validation의 특별한 케이스로 데이터가 더 적을 때 용이하다.
@@ -187,6 +189,7 @@ c. Test error(generalization error)
 **d. Stratified cross-validation**
   - Cross-validation의 특별한 케이스로 층이 있게 즉, 각 fold의 클래스 분포가 같아지도록 분배한다.  
   - 예를 들어, positive=70%, negative=30% 이면, 각 fold의 데이터들도 이 비율을 이루도록 분배한다.  
+  - 데이터가 한 곳으로 몰리는 현상을 방지한다.
 
 **e. Bootstrap**
   - 작은 데이터셋(불충분한 트레이닝 샘플)인 경우 잘 작동한다.   
@@ -196,7 +199,7 @@ c. Test error(generalization error)
       - 전체 데이터에서 마지막까지 뽑히지 않은 것은 테스트셋으로 분류한다.  
       - 대략 전체 데이터의 63.2%가 트레이닝셋으로 분류되고 36.8%가 테스트셋으로 분류된다. (1- 1/d)<sup>d</sup>는 약 e<sup>-1</sup> = 0.368 이기 때문
       - 샘플링하는 과정을 k번 반복하며 모델의 정확도는 i=1~k에 대하여   
-      acc(M) = sum(0.632 * acc(M<sub>i</sub>)<sub>test_set</sub> + 0.368 * acc(M<sub>i</sub>)<sub>train_set</sub>))
+      acc(M) = 1/k * sum(0.632 * acc(M<sub>i</sub>)<sub>test_set</sub> + 0.368 * acc(M<sub>i</sub>)<sub>train_set</sub>))
 
 ---
 
@@ -239,4 +242,8 @@ Boosting은 과거 진단 기록을 바탕으로 더 정확한 진단을 하는 
 
 k 개의 분류기가 반복적으로 학습한다. 분류기 M<sub>i</sub>가 학습된 후, M<sub>i+1</sub>을 학습시킬 때에는 이전 분류기에서 잘못 분류된 트레이닝 튜플에 더 큰 가중치를 부여함으로써 트레이닝 샘플로 뽑힐 가능성을 높여준다. 결국 가중치를 높여서 점점 여러 모델에 반영되게 한다.
 
-최종 모델 M*은 각 분류기의 결과를 결합한 것이다. 새로운 데이터를 분류해야한다면 각 분류기의 결과는 가중치이고 그 값을 합산해서 비교하여 큰 값으로 분류한다.
+최종 모델 M*은 각 분류기의 결과를 결합한 것이다.
+
+새로운 데이터를 어떻게 분류하는가?
+
+k 개의 분류기의 결과는 가중치이고 그 값이 가장 큰 값의 class label로 분류된다.
