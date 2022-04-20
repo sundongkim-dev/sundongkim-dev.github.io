@@ -134,7 +134,7 @@ Positive/Negative는 분류한 결과가 양성인지 음성인지를 말한다.
 
 **Sensitivity(민감도)** = t-pos / pos (= recall) // True positive recognition rate, 질병이 있는 사람을 얼마나 잘 찾아내는가   
 **Specificity(특이도)** = t-neg / neg // True negative recognition rate, 정상을 얼마나 잘 찾아내는가  
-**Precision(정밀도)** = t-pos / (t-pos + f-pos) // 양성이라고 판단한 것 중에 진짜 양성의 비율
+**Precision(정밀도)** = t-pos / (t-pos + f-pos) // 양성이라고 판단한 것 중에 진짜 양성의 비율  
 **Accuracy(정확도)** = sensitivity * pos/(pos+neg) + specificity * neg/(pos+neg)  
 = t-pos / (pos+neg) + t-neg/(pos+neg) = **(t-pos+t-neg)/(pos+neg)**
 
