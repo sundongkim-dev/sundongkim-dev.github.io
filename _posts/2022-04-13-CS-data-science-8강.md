@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 title: '[데이터 사이언스] Recommendation Systems: Concepts, Techniques, and Applications'
 layout: post
 subtitle: 'csReview DataScience Recommendation Systems'
