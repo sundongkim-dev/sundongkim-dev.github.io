@@ -192,7 +192,7 @@ Median = 21 + ((1597-950)/(1500))x29 = 21 + 18763/1500
   - **Variance and standard deviation**
     - Variance: 평균에서 각각의 값이 얼마나 떨어져 있는가를 제곱으로 나타낸 것을 말한다.
     - Sample: s, Population: sigma
-    - Sample(s)의 Variance(Algebraic, scalable computation): 편차 제곱의 평균인데 통계적으론 n이 아닌 n-1로 나눈다.
+    - Sample(s)의 Variance(Algebraic, scalable computation): 편차 제곱의 평균인데 통계적으론 n이 아닌 n-1로 나눈다. [자세한 내용은 여기서!!!](https://m.blog.naver.com/sw4r/221021838997)
     - 전체 데이터(N)의 variance
     - Standard deviation: 평균에서 각각의 값이 얼마나 떨어져 있는가를 나타내는 값으로, 값이 작다면 매우 촘촘한 것이고 크다면 널리 떨어져 있는 것을 뜻한다. s또는 시그마(variance의 루트)로 표현
 
