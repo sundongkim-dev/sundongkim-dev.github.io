@@ -13,7 +13,6 @@ comments: true
 - Basic Statistical Descriptions of Data
 - Data visualization
 - Measuring Data Similarity and Dissimilarity
-- Summary
 
 ---
 
@@ -235,10 +234,128 @@ x축은 값, y축은 빈도를 나타내는 막대 형태의 그래프로 data d
   - 히스토그램은 넓이가 그 값을 나타낸다. 즉, 가로를 신경써야 한다.
   - Bar chart는 histogram의 special case이다.
 
+**3. Quantile plot**  
+기본적으로, 모든 데이터를 표시한다. User로 하여금 전체적인 경향이나 경향에 어긋나는 케이스들을 확인하기 쉽게 한다. f-value를 0, 0.25, 0.5, 0.75, 1.00에 눈금을 만들어서 quantile 정보를 알게한다. 이 때, 데이터 X<sub>i</sub>는 오름차순으로 정렬하고 그에 따른 f는 0~1의 값으로 100%에 곱해서 값의 위치를 구할 수 있다.
 
-**3. Quantile plot**
-x값과 f를 한 쌍으로 표기하는 방식으로 이때 f는 100 f<sub>i</sub>%는 <= x<sub>i</sub>이라는 것을 의미한다.
 **4. Quantile-quantile(q-q) plot**
-한 분포의 quantiles와 이에 대응하는 다른 분포의 quantiles를 표기한다.
-**5. Scatter plot**
-각 값 쌍은 한 쌍의 좌표이며 평면에 점으로 표현된다.
+한 분포의 quantiles와 이에 대응하는 다른 분포의 quantiles를 표기한다. 예를 들어, branch1, branch2(각각 다른 분포의 attribute)가 있으면 branch1 축의 40~120 값의 분포에 대해 branch2는 어떻게 분포하는지 점으로 표기한다. 아래의 그림을 보면 이해하기 쉽다.
+![QQ Plot](https://sundongkim-dev.github.io/assets/img/data_science/qq_plot.png)
+
+
+**5. Scatter plot**  
+각 값 쌍은 한 쌍의 좌표이며 평면에 점으로 표현된다. 점, 특이치 등의 군집을 확인할 수 있는 이변량 데이터를 한눈에 보여준다. 또 이를 바탕으로, positively & negatively correlated data인지를 확인할 수 있다. 당연히 아무런 correlation이 없는 경우도 있다.
+
+---
+## Measuring Data Similarity and Dissimilarity  
+
+### Similarity and Dissimilarity  
+
+- Similarity  
+  - 두 data objects가 얼마나 비슷한지 수치로 나타내는 것  
+  - 두 objects가 비슷할수록 더 값이 크다.  
+  - 주로 0,1 사이의 값을 갖게끔 한다.  
+
+- Dissimilarity  
+  - 두 data objects가 얼마나 다른지 수치로 나타내는 것  
+  - 두 objects가 비슷할수록 더 값이 작다.  
+  - 같은 object인 경우 0값을 갖는다.  
+  - 예로, 거리를 들 수 있다.
+  - 상황에 따라 upper limit이 다르게 설정된다.  
+
+- Proximity  
+  - similarity나 dissimilarity를 둘 다 나타낸다.  
+
+### Data matrix and Dissimilarity matrix  
+
+- Data matrix  
+  - n개의 데이터마다 가지는 p개의 attribute들을 나타낸다.  
+  - 한 row가 하나의 데이터를 나타내며 전체 row는 전체 데이터 샘플을 나타낸다.  
+  - column별로 애트리뷰트의 값이 저장되어있는 행렬이다.  
+  - Two modes: 한 차원은 sample, 다른 한 차원은 attribute를 나타낸다.  
+![Data matrix](https://sundongkim-dev.github.io/assets/img/data_science/Data_matrix.png)
+
+- Dissimilarity matrix  
+  - n개의 데이터가 있으나 pair마다 distance를 저장한다.  
+  - Symmetric하기 때문에 triangular matrix이다.  
+  - Asymmetric할 때에는 사용하지 않는다.
+  - single mode: 두 차원 모두 object를 나타낸다.  
+![Dissimilarity matrix](https://sundongkim-dev.github.io/assets/img/data_science/Dissimilarity_matrix.png)
+
+### Proximity Measure  
+
+**1. For Nominal Attributes**
+Binary attribute의 일반화로 2 개 이상의 상태를 갖는 attribute에 대해선 2 가지 방법이 있다.
+- Method 1: Simple matching    
+![Simple matching](https://sundongkim-dev.github.io/assets/img/data_science/Simple_matching.png)
+- Method 2: 많은 수의 Binary attribute들을 사용  
+  - 각 M개의 nominal state에 대해서 binary attribute를 생성한다.
+  - 예를 들어, yellow이면 1이고 나머지 red, blue, green은 0으로 나타낸다.
+
+**2. For Binary Attributes**
+Binary attribute를 위해서 contingency table을 만든다.  
+![Contingency table](https://sundongkim-dev.github.io/assets/img/data_science/contingency_table_for_binary.png)
+
+- **Symmetric binary variables**를 위한 **distance** measure  
+![Symmetric binary](https://sundongkim-dev.github.io/assets/img/data_science/Symmetric_binary.png)
+- **Asymmetric binary variables**를 위한 **distance** measure  
+![Asymmetric binary](https://sundongkim-dev.github.io/assets/img/data_science/Asymmetric_binary.png)
+- **Asymmetric binary variables**의 **similarity**를 측정하는 도구로 Jaccard coefficient가 있다.
+![Jaccard coefficient](https://sundongkim-dev.github.io/assets/img/data_science/jaccard_coefficient.png)
+
+요약하자면, 대칭인 것은 다 더해서 값이 서로 다른 것의 비율을 구하고 비대칭인 것은 둘 다 0인 것을 제외하고 서로 다른 것의 비율을 구하는 것이다.
+
+
+### Standardizing Numeric Data
+- Z-score
+  - z = (X-뮤)/std
+  - X: Standardized할 raw score
+  - 뮤: 전체 데이터의 평균
+  - std: 표준편차
+  - raw score와 평균의 거리를 표준편차의 단위로 측정한 것이다.
+  - 음수이면 평균 아래이고, 양수이면 평균 위이다.
+- 다른 방법으로 **mean absolute deviation**을 계산하는 방법이 있다.  
+![Mean absolute deviation](https://sundongkim-dev.github.io/assets/img/data_science/mean_absolute_deviation.png)  
+  - Outlier가 존재할 때, Mean absolute deviation을 사용하면 standard deviation을 사용할 때보다 더 robust하다.
+
+### Distance on Numeric Data: Minkowski Distance
+
+- Minkowski distance(L-h norm)
+  - Distance를 구하는 방식으로, 다음 식을 따른다.  
+![Minkowski Distance](https://sundongkim-dev.github.io/assets/img/data_science/minkowski_dist.png)  
+  - 다음 3 가지 Properties가 있다.
+    - i와 j가 같지 않다면 항상 0보다 크다. (Positive definiteness)
+    - i에서 j까지의 거리와 j에서 i까지의 거리가 같다. (Symmetry)
+    - i에서 j까지의 거리는 i에서 k까지의 거리와 k에서 j까지의 거리보다 항상 작거나 같다. (Triangle Inequality)
+    - 위 3 가지 properties를 만족하는 distance를 metric이라고 한다.
+
+- Special Cases of Minkowski Distance
+  - h=1일 경우: Manhattan distance
+  - h=2일 경우: Euclidean distance
+  - h=max(무한대)일 경우: Supremum distance(차이가 가장 큰 값)
+
+### Ordinal Attributes  
+- 순서가 중요한 attribute이다. ex) rank
+- Interval-scaled로 바꿔 생각한다.
+  - x<sub>if</sub>를 rank로 값을 바꾼다.
+  - 값을 0~사이의 범위로 매핑한다.
+  ![Interval scaled](https://sundongkim-dev.github.io/assets/img/data_science/interval_scaled.png)  
+  - r<sub>if</sub>는 값의 rank이다.
+  - M<sub>f</sub>는 highest rank의 값이다.
+  - 위 방식으로 dissimilarity를 계산한다
+
+### Attributes of Mixed Type
+DB가 다양한 attribute type들을 가질 것이다. ex) Nominal, symmetric binary, asymmetric binary, numeric, ordinal ...
+
+이 때에는 weighted formula를 사용한다.
+![Weighted formula](https://sundongkim-dev.github.io/assets/img/data_science/weighted_formula.png)  
+- f가 binary, nominal인 경우: x<sub>if</sub>=x<sub>jf</sub>라면 d<sub>ij</sub><sup>(f)</sup>=0, 서로 다르면 1이다.
+- f가 numeric인 경우, normalized distance를 사용한다.
+- f가 ordinal인 경우, 위에서 처럼 rank를 게산하고 z<sub>if</sub>를 계산한다.
+
+### Cosine Similarity
+Document마다 각 단어의 빈도수(term-frequency)를 기록한 행렬이 있다고 하자. 하나의 Document가 다른 document의 두 배라면 similarity는 비슷해야 하는데, Euclidean으로 계산하면 값이 너무 커지는데 이를 해결하기 위해 cosine similarity를 사용한다.
+
+d1과 d2 2 개의 벡터(Term-frequency vectors)가 있다고 하자.
+그럼, cosine similarity는 (d1과 d2의 내적)/||d1||x||d2||로 계산할 수 있다.
+
+> cos(d<sub>1</sub>, d<sub>2</sub>) = (d<sub>1</sub> dot d<sub>2</sub>) / (||d<sub>1</sub>||*||d<sub>2</sub>||)
