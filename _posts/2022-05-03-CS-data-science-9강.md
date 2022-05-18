@@ -237,7 +237,7 @@ x축은 값, y축은 빈도를 나타내는 막대 형태의 그래프로 data d
 **3. Quantile plot**  
 기본적으로, 모든 데이터를 표시한다. User로 하여금 전체적인 경향이나 경향에 어긋나는 케이스들을 확인하기 쉽게 한다. f-value를 0, 0.25, 0.5, 0.75, 1.00에 눈금을 만들어서 quantile 정보를 알게한다. 이 때, 데이터 X<sub>i</sub>는 오름차순으로 정렬하고 그에 따른 f는 0~1의 값으로 100%에 곱해서 값의 위치를 구할 수 있다.
 
-**4. Quantile-quantile(q-q) plot**
+**4. Quantile-quantile(q-q) plot**  
 한 분포의 quantiles와 이에 대응하는 다른 분포의 quantiles를 표기한다. 예를 들어, branch1, branch2(각각 다른 분포의 attribute)가 있으면 branch1 축의 40~120 값의 분포에 대해 branch2는 어떻게 분포하는지 점으로 표기한다. 아래의 그림을 보면 이해하기 쉽다.
 ![QQ Plot](https://sundongkim-dev.github.io/assets/img/data_science/qq_plot.png)
 
@@ -283,7 +283,7 @@ x축은 값, y축은 빈도를 나타내는 막대 형태의 그래프로 data d
 
 ### Proximity Measure  
 
-**1. For Nominal Attributes**
+**1. For Nominal Attributes**  
 Binary attribute의 일반화로 2 개 이상의 상태를 갖는 attribute에 대해선 2 가지 방법이 있다.
 - Method 1: Simple matching    
 ![Simple matching](https://sundongkim-dev.github.io/assets/img/data_science/Simple_matching.png)
@@ -291,7 +291,7 @@ Binary attribute의 일반화로 2 개 이상의 상태를 갖는 attribute에 �
   - 각 M개의 nominal state에 대해서 binary attribute를 생성한다.
   - 예를 들어, yellow이면 1이고 나머지 red, blue, green은 0으로 나타낸다.
 
-**2. For Binary Attributes**
+**2. For Binary Attributes**  
 Binary attribute를 위해서 contingency table을 만든다.  
 ![Contingency table](https://sundongkim-dev.github.io/assets/img/data_science/contingency_table_for_binary.png)
 
@@ -358,4 +358,4 @@ Document마다 각 단어의 빈도수(term-frequency)를 기록한 행렬이 �
 d1과 d2 2 개의 벡터(Term-frequency vectors)가 있다고 하자.
 그럼, cosine similarity는 (d1과 d2의 내적)/||d1||x||d2||로 계산할 수 있다.
 
-> cos(d<sub>1</sub>, d<sub>2</sub>) = (d<sub>1</sub> dot d<sub>2</sub>) / (||d<sub>1</sub>||*||d<sub>2</sub>||)
+![Weighted formula](https://sundongkim-dev.github.io/assets/img/data_science/cosineSimilarity.png)  
