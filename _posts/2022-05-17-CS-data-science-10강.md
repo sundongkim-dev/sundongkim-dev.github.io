@@ -108,7 +108,6 @@ Data mining에서 clustering의 **Requirements**는 아래와 같은 것들이 �
   - K-means: 각 cluster는 cluster의 centroid로 표현된다.
   - K-medoids or PAM(Partition around medoids): 각 cluster는 cluster의 object 중 하나로 표현된다.  
 
-
 ### 2. The K-Means Clustering Method  
 
 K값이 주어졌을 때 다음과 같이 진행된다.
@@ -134,12 +133,100 @@ K-Means method의 문제점으로 outlier에 너무 민감한 점을 꼽을 수 
 
 이 때문에 K-Medoids라는 방식이 나왔는데, cluster 내 object의 평균값(centroid)을 기준점으로 삼는 대신에 cluster 내 가장 중앙에 위치한 object(medoid)를 사용할 수 있다.
 
+### 3. The K-Medoids Clustering Method
+
+K-Medoids clustering method로는 다음 3 가지 방식이 있다.
+1. PAM(Partitioning Around Medoids)
+2. CLARA(Clustering Large Applications)
+3. CLARANS: Randomized sampling
+
+#### PAM(Partitioning Around Medoids)
+1) 실제 object를 cluster의 대표값으로 선정하는데, k 개의 object를 임의로 선택한다.  
+2) 선택된 object(seed)를 i, 선택되지 않은 object를 h라고 할 때, swapping cost TC<sub>ih</sub>을 각 pair i,h에 대해 계산한다.  
+3) 만약 TC<sub>ih</sub>이 음수라면 i는 h로 바뀌고 선택되지 않은 object들은 가장 가까운 object로 할당된다.  
+4) 위 과정을 변화가 없을 때까지 반복하는 것이 알고리즘이다.
+
+선택되지 않은 각각의 object j마다 i 대신 h를 medoid로 했을 때 j가 속하는 medoid까지와의 거리 d(j,h)와 기존에 할당되어있던 j의 medoid까지의 거리 d(j,i)의 차를 구하고 이들의 합이 total swapping cost이다. 아래 그림은 i가 original seed이고, h는 새로운 seed, t는 다른 seed, j는 seed가 아닌 점이다.  
+![PAM 1](https://sundongkim-dev.github.io/assets/img/data_science/PAM_1.png)
+
+만약 object j의 medoid가 i가 h로 바뀌는 것에 상관없이 동일하다면 해당 cost는 0이 된다.  
+![PAM 2](https://sundongkim-dev.github.io/assets/img/data_science/PAM_2.png)
+
+이러한 PAM은 k-means보다 **noise나 outlier에 robust하다는 장점**(medoid는 mean이 아닌 median과 닮아서)이 있지만 **크기가 큰 데이터셋에는 잘 작동하지 않는다**. n은 data의 수, k는 cluster의 수, i는 iteration의 수라고 할 때 시간 복잡도는 O(i * k * (n-k)<sup>2</sup>)라고 표현할 수 있다.
+
+이로 인해 CLARA라는 sampling based method를 사용하게 되었다.
+
+#### CLARA(Clustering Large Applications)
+
+데이터셋에서 여러 샘플들을 뽑아내고 각 샘플마다 PAM을 적용하여 클러스터 결과를 가져오는 방식으로 샘플링 덕분에 더 큰 데이터셋을 처리할 수 있게 되었다.
+
+그러나 샘플 크기에 따라 효율성이 달라지며(샘플 크기가 너무 작으면 성능이 좋지 않다), 샘플이 편향되어 있다면 그 결과를 잘 뽑아도 전체 데이터셋 기준으로 보면 "good" clustering이라고 볼 수 없다. 결국, 샘플을 잘 뽑지 않으면 좋은 클러스터링을 할 수 없게 되는 것이다.
 
 ---
 ## Hierarchical Methods
 
+Clustering을 하는 기준으로 distance matrix를 사용한다. 앞선 k 어쩌구들처럼 k값을 정해줄 필요는 없지만, 종료 조건이 필요하다. 크게 두 가지 방식이 있다. Bottom-up과 Top-down 방식인데, 각각 agglomerative(AGNES), divisive(DIANA)라고 한다.
+
+#### 1. AGNES(Agglomerative Nesting)
+
+Single-link method와 dissimilarity matrix를 사용한다. Single link method는 앞서 배웠듯, minimum distance가 가장 작은 즉, 가장 유사도가 높은 클러스터끼리 혹은 가장 dissimilarity가 낮은 노드끼리 merge하는 방식이다. Go on in a non descending fahsion..? 결국엔 모든 노드가 같은 cluster에 속하게 된다.
+
+처음 묶을 때 가능한 가짓수를 파악해야 하는데, n(n-1)/2가지의 조합을 살펴봐야 한다.
+
+어떻게 cluster가 merge되는지 한눈에 쉽게 보기 위해 만든 것이 dendrogram이다. 클러스터가 merge되는 순서를 보여주며 특정 레벨에서 자르면 연결된 각 구성요소가 클러스터가 된다.
+
+#### 2. DIANA(Divisive Analysis)
+
+앞서 소개한 AGENS과 반대 방향으로, 결국 각 노드가 하나의 cluster가 되는 꼴이다. 초기엔 주어진 모든 n 개의 object들로 이루어진 cluster가 있다. 각 step마다 제일 큰 cluster가 두 개로 나눠진다. 즉, n 개의 object라면 n-1 개의 step이 필요한 것이다.
+
+처음 나눌 때 2<sup>n-1</sup>-1가지의 조합을 살펴보아야 한다. 앞서 배운 AGNES보다 상당히 큰 수이다. 결국, 모든 가짓수를 살펴보는 것은 너무 많으므로 이를 최대한 줄여야 하는데 다음과 같은 방법을 사용한다.
+
+1. 다른 모든 object와 average dissimilarity가 가장 큰 object를 찾고 이를 통해 새로운 cluster를 만드는데, 이를 splinter group이라고 하자.
+2. splinter group 바깥의 각 object i마다, D<sub>i</sub>를 계산한다.   
+D<sub>i</sub> = [average d(i,j) which j not in splinter group] - [average d(i,j), which j in splinter group]
+3. D<sub>i</sub>가 가장 큰 object h를 찾고, 만약 D<sub>h</sub>가 양수라면 h는 splinter group에 가까운 것이므로 splinter group에 포함시킨다.
+4. 2번과 3번을 D<sub>h</sub>가 음수가 나올때까지 반복하고 음수가 나오면 그 전까지 분리된 그룹을 바탕으로 두 개의 클러스터로 나눈다.
+5. 가장 큰 diameter를 갖는 cluster를 선택(diameter가 가장 크다는 것은 그 클러스터 안의 임의의 두 개는 가장 큰 dissimilarity를 갖는다는 것이다)하고 1번부터 다시 시작한다.  
+6. 모든 클러스터가 하나의 object만을 갖을 때까지 1~5번을 반복한다.
+
+### Advanced Hierarchical Clustering Methods
+
+Agglomerative clustering method의 주요 문제점으로 많은 object들을 다루기 어렵다는 점이 있다. 즉, 시간 복잡도가 O(n<sup>2</sup>)으로 매우 높다.
+
+Distance-based clustering으로 이를 개선한 방식들이 있는데 다음 3 가지가 있다.
+
+1. BIRCH
+2. ROCK
+3. CHAMELEON
+
+#### 1. BIRCH
+
+CF(Clustering Feature) 트리를 점진적으로 구성한다. 다단계 clustering을 위한 계층적 데이터 구조이다.   
+Phase 1: DB를 스캔하고 in-memory CF tree를 구성한다.
+Phase 2: 임의의 clustering algorithm으로 CF tree의 leaf node들을 구성한다.  
+
+한 번의 스캔으로 양호한 clustering을 찾고(scales linearly), 몇 번의 추가 스캔으로 품질을 향상 시킬 수 있지만, numeric data만을 처리할 수 있으며 data record 순서에 민감하다.
+
+Clustering Feature는 (N, LS, SS)로 이루어져있는데, N은 data point의 개수이고, LS는 dataset의 (각 좌표계끼리) 모든 합이고, SS는 dataset의 제곱의 합이다. 마찬가지로 각 좌표계끼리의 제곱이다.
+
+LS를 N으로 나눈다면 centroid를 구할 수 있고, SS를 N(N-1)로 나누고 제곱근을 취하면 diameter를 구할 수 있다. 결국 clustering feature는 cluster에 대한 통계적 요약이며 cluster에 대한 중요한 측정값들을 기록하고 storage를 효율적으로 활용할 수 있게 한다.
+
+CF tree는 hierarchical clustering을 위한 clustering feature를 저장하는 height-balanced tree이다. Leaf node가 아닌 노드는 자식이 있으며 자식들의 총 CF를 저장한다. 이러한 CF 트리에는 두 개의 파라미터가 있는데, branching factor와 threshold이다. Branching factor는 최대 자식 수를 명시하며, threshold는 leaf node에 저장되는 최대 diameter를 말한다.
+
+1) DB를 scan하여 CF tree를 구성한다.  
+2) 초기에 첫번째 object를 추가하면 1개의 cf가 생긴다. (이때 n=1, linear=값 자신, square=자신의 제곱)  
+3) 여기서 하나 더 추가하면 n=2가 된다. 계속 반복하여 diameter가 threshold를 넘으면 split하여 또 다른 cf를 만든다.  
+4) cf를 계속 만들어가다가 branching factor를 넘으면 2개의 leaf node로 균형을 유지하며 분리한다.  
+5) 리프노드 만들고 또 넘치면 나누는 식으로 반복한다.
+
+이 때, 임의의 클러스터링 알고리즘을 사용하여 리프노드를 clustering한다.
+
+#### 2. ROCK
+#### 3. CHAMELEON
+
 ---
 ## Density-Based Methods
+
 
 ---
 ## Outlier Analysis
