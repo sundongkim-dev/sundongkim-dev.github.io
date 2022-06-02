@@ -256,10 +256,52 @@ Dynamic model에 기반해서 similarity를 측정한다. 두 클러스터는 in
 
 기본적으로 두 개의 parameter가 존재한다. Eps와 MinPts인데, Eps는 maximum radius를 말하고 MinPts는 최소 object의 수를 말한다. 즉, Eps를 반지름으로 하는 원이 클러스터의 범위가 되며, 그 안에는 MinPts 이상의 object가 존재하는 것이다.
 
-여기서 알아야하는 개념으로 directly density reachable을 알아야 한다. 점 p가 점 q로부터 density reachable하다면, p는 N<sub>Eps</sub>q(N<sub>Eps</sub>(p): {q belongs to D | dist(p,q) <= Eps})에 해당하고, core point condition을 만족한다. Core point condition은 |N<sub>Eps<sub>(q)| >= MinPts로 density-reachable은 symmetric하지 않다. 예를 들어, p가 q의 neighbor에 속하고 q의 neighbor의 수가 MinPts 이상이라면 그 반대는 성립하지 않는 것이다.
+여기서 알아야하는 개념으로 directly density-reachable을 알아야 한다. 점 p가 점 q로부터 directly density-reachable하다면, p는 N<sub>Eps</sub>q(N<sub>Eps</sub>(p): {q belongs to D | dist(p,q) <= Eps})에 해당하고, core point condition을 만족한다. Core point condition은 |N<sub>Eps<sub>(q)| >= MinPts로 directly density-reachable은 symmetric하지 않다. 예를 들어, p가 q의 neighbor에 속하고 q의 neighbor의 수가 MinPts 이상이라면 그 반대는 성립하지 않는 것이다.
 
+어떤 점 p가 점 q로부터 density-reachable하다면
 
+어떤 점 p가 점 q로부터 density-connected하다면 점 p와 q로부터 density-reachable한 점 o가 있다는 것이다.
 
+### DBSCAN: Density Based Spatial Clustering of Applications with Noise
+
+Density-based 알고리즘이며, 클러스터는 density-connected points의 최대 집합으로 정의된다. 노이즈가 섞여 있는 공간 데이터베이스에서 클러스터를 찾는다.
+
+알고리즘은 다음과 같다. 임의로 점 p를 고르고, p에서 density-reachable한 점을 모두 찾는다(Eps와 MinPts를 만족하는). 만약 p가 core point라면 클러스터가 만들어지고, 그렇지 않으면 border point로 다른 점에서 다시 탐색을 시작한다. 모든 point들을 방문할 때까지 반복한다. 결과적으로, Eps와 MinPts와 같은 파라미터에 따라 클러스터가 다르게 만들어진다.
+
+### OPTICS: Ordering Points To Identify the Clustering Structure
+
+Cluster-Ordering Method로 말 그대로 점들을 ordering하는 것에서 시작한다. Density-based clustering 구조를 사용해서 DB에서 special한 object의 순서를 생성한다.
+
+- Core distance(of o): object가 core point가 되도록 하는 거리  
+- Reachability Distance(of p from o):
+  + r(p, o) = max(core-distance(o), d(o,p))
+  + Ex) r(p1, o) = 2.8cm, r(p2, o) = 4cm
+
+시작점 하나를 정하여 그래프에 표기하고 reachablity distance가 아직 정의되지 않은 상태이니까 undefined로 한다. core distance를 기반으로 다른 모든 점의 reachable distance를 갱신한다. 가장 가까운 점을 두번째 점으로 하여 그래프 두번째에 표기하고 다시 두번째를 중심으로 reachable distance를 갱신하고 가장 가까운 점을 세번째 점으로 고른다. 이런식으로 계속 반복하면 Eps를 대략 정할 수 있게 되며 이를 기준으로 잘라내면 각각 클러스터가 된다.
 
 ---
-## Outlier Analysis
+## Outlier Analysis  
+
+### What is Outlier Discovery?
+
+Outlier란 다른 데이터와 매우 다른 object들을 말한다. 매우 큰 데이터 집합에서 outlier를 정의하고 찾는 것이 주된 문제이다. 이를 통한 응용 프로그램으로는 신용카드 부정행위 감지, 의료 분석 등이 있다.
+
+### Outlier Discovery: Statistical Approaches  
+
+데이터 집합을 생성하는 기본 분포 모형(ex: 정규 분포)을 가정하고 불일치 테스트를 데이터 분포, 분포 모수(평균, 분산), 예상되는 outlier의 개수 등에 따라 사용한다.
+
+단점으로는 대부분의 테스트는 단일 attribute에 대한 것(실제는 많은 attribute를 갖고 있음)으로, 많은 경우에 데이터의 분포를 알 수 없다.
+
+### Outlier Discovery: Distance-Based Approach  
+
+통계적 방법에 의해 생기는 limitations에 대응하기 위해 도입되었다. 데이터 분포를 모른채 하는 다차원 분석이 필요한 것이다.
+
+Distance-based outlier(DB(p, D)-outlier): 모든 페어에 대해 거리를 계산하고 p% 이상 점 o에서 D거리 이상 떨어져 있으면 o는 outlier이다.
+
+Distance-based outlier를 마이닝하는 알고리즘으로는 index-based, nested-loop, cell-based algorithm들이 있다.
+
+### Density-based Local Outlier Detection  
+
+Distance-based는 global distance distribution을 기반으로 하므로 uniform하게 분포하지 않으면 힘들다. 그래서 이를 개선하기 위해 local outlier를 사용한다.
+
+DB(p,D)-outlier 방법을 사용하면 D값을 설정해야 하는데 각 클러스터마다 떨어진 거리가 다르면 힘들어지므로 제안된 방식이다.
