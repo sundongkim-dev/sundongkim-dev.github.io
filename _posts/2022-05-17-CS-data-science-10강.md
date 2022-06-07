@@ -8,7 +8,7 @@ tags: DataScience
 comments: true
 ---
 
-### Chapter 2. Getting to know your data
+### Chapter 7. Cluster Analysis
 - What is Cluster Analysis?
 - Types of Data in Cluster Analysis
 - A categorization of Major Clustering
@@ -36,13 +36,13 @@ Cluster analysis는 unsupervised learning의 한 종류로 학습 시 데이터�
 
 결국 clustering의 결과의 quality는 **similarity measure**와 **method**로 결정된다. Clustering method의 quality는 숨겨진 패턴을 발견하는 능력에 의해 결정된다.
 
-Similarity measure는 similarity와 Dissimilarity metric을 알아야 한다. Similarity는 distance function으로 d(i,j)로 표현하곤 한다. 변수 타입(interval-scaled, boolean, categorical, ordinal ratio, vector variables)에 다라 다르고 충분히 유사하다 혹은 충분히 좋다를 정의하기란 매우 주관적이다. 가중치는 attribute마다 다른 가중치를 가져야 한다.
+Similarity measure는 similarity와 Dissimilarity metric을 알아야 한다. Similarity는 distance function으로 d(i,j)로 표현하곤 한다. 변수 타입(interval-scaled, boolean, categorical, ordinal ratio, vector variables)에 따라 다르고 "충분히 유사하다" 혹은 "충분히 좋다"를 정의하기란 매우 주관적이다. 가중치는 attribute마다 다른 가중치를 가질 수 있다.
 
 Data mining에서 clustering의 **Requirements**는 아래와 같은 것들이 있다.
 - 서로 다른 타입의 attribute들을 처리할 수 있어야 한다.
-- 새로운 데이터가 추가될 때마다 잘 처리할 수 있어야 한다.
-- 임의의 모양의 cluster를 발견한다.
-- 파라미터를 정하는 것은 힘들기 때문에 최소의 파라미터 개수를 필요로 해야 한다.(???)
+- 새로운 데이터가 추가되거나 기존의 데이터가 지워지더라도 잘 동작할 수 있어야 한다.
+- 임의의 모양의 cluster를 발견할 수 있어야 한다.
+- 파라미터를 정하는 것은 힘들기 때문에 최소의 파라미터 개수를 필요로 해야 한다.
 - Noise와 outlier를 처리할 수 있어야 한다.
 - 입력 순서와 상관없이 동일한 결과를 출력해야 한다.
 - 높은 차원을 갖는 attribute를 처리할 수 있어야 한다.(???)
@@ -77,21 +77,21 @@ Data mining에서 clustering의 **Requirements**는 아래와 같은 것들이 �
 - Radius: cluster의 모든 object에서 centroid까지 거리 제곱의 평균의 루트값  
   ![Radius](https://sundongkim-dev.github.io/assets/img/data_science/radius.png)
 
-- Diameter: 모든 오브젝트 페어들의 거리 제곱의 평균의 루트값  
+- Diameter: 모든 오브젝트 쌍들의 거리 제곱의 평균의 루트값  
   ![Diameter](https://sundongkim-dev.github.io/assets/img/data_science/diameter.png)
 
-클러스타 간의 거리를 계산하는 일반적인 대안으로 여러 가지 방식이 있다.
-1. Single link: 한 클러스터의 원소와 다른 클러스터의 원소 사이의 최소 거리  
+클러스터 간의 거리를 계산하는 일반적인 대안으로 여러 가지 방식이 있다.
+1. Single link: 모든 가능한 쌍에 대해, 한 클러스터의 원소와 다른 클러스터의 원소 사이의 최소 거리  
     - dis(K<sub>i</sub>, K<sub>j</sub>) = min(t<sub>ip</sub>, t<sub>jq</sub>)  
 
-2. Complete link: 한 클러스터의 원소와 다른 클러스터의 원소 사이의 최대 거리  
+2. Complete link: 모든 가능한 쌍에 대해, 한 클러스터의 원소와 다른 클러스터의 원소 사이의 최대 거리  
     - dis(K<sub>i</sub>, K<sub>j</sub>) = max(t<sub>ip</sub>, t<sub>jq</sub>)
 
-3. Average: 한 클러스터와 다른 클러스터 각각에서 원소를 하나씩 뽑은 모든 페어에 대해서 거리를 구한 후 평균을 구한 것  
+3. Average: 한 클러스터와 다른 클러스터 각각에서 원소를 하나씩 뽑은 모든 쌍에 대해서 거리를 구한 후 평균을 구한 것  
   - dis(K<sub>i</sub>, K<sub>j</sub>) = avg(t<sub>ip</sub>, t<sub>jq</sub>)
 
 4. Centroid: 두 클러스터의 centroid 사이의 거리!  
-  - centroid는 실제 object가 아니라 위치를 나타낸다.
+  - centroid는 **실제 object가 아니라 위치**를 나타낸다.
   - dis(K<sub>i</sub>, K<sub>j</sub>) = dis(C<sub>i</sub>, C<sub>j</sub>)
 
 5. Medoid: 두 클러스터의 medoid 사이의 거리!  
@@ -102,7 +102,7 @@ Data mining에서 clustering의 **Requirements**는 아래와 같은 것들이 �
 
 ### 1. Basic Concept  
 
-- Database D에서 n개의 objects를 k개의 클러스터로 나누는 것으로 클러스터를 대표하는 값과 그 클러스터의 모든 objects 까지 거리의 제곱의 합이 최소가 되도록 한다.   
+- Database D에서 n개의 objects를 k개의 클러스터로 나누는 것으로 클러스터를 대표하는 값과 그 클러스터의 모든 objects 까지 거리의 제곱의 합이 최소가 되도록 한다. 아래의 함수가 goodness function으로 이 값이 최소가 될수록 좋다고 할 수 있다.  
 ![Partitioning method](https://sundongkim-dev.github.io/assets/img/data_science/partitioning_method.png)
 - 모든 파티션을 다 살펴보면 global optimal을 찾을 수 있겠지만 heuristic methods를 사용한다.   
   - K-means: 각 cluster는 cluster의 centroid로 표현된다.
@@ -116,7 +116,7 @@ K값이 주어졌을 때 다음과 같이 진행된다.
 - 각 objects를 가장 가까운 seed point(centroid)의 클러스터로 다시 포함시킨다.  
 - 다시 centroid값을 계산으로 돌아가는 과정을 반복하여 클러스터가 바뀌지 않을 때까지 진행한다.  
 
-K-means는 상대적으로 효율적이다. 시간복잡도가 O(n*k*t)이다. n은 object의 수이며 k는 cluster의 수이고 t는 반복 횟수이다. 일반적으로 n이 다른 두 수보다 매우 크다. PAM(=O(k*(n-k)<sup>2</sup>)), CLARA(O(ks<sup>2</sup>+k(n-k)))와 비교해보면 상대적으로 효율적임을 알 수 있다.
+K-means는 상대적으로 효율적이다. 시간복잡도가 O(n * k * t)이다. n은 object의 수이며 k는 cluster의 수이고 t는 반복 횟수이다. 일반적으로 n이 다른 두 수보다 매우 크다. 그렇기에 K-means는 거의 linear하다고 볼 수 있다. PAM(=O(k*(n-k)<sup>2</sup>)), CLARA(O(ks<sup>2</sup>+k(n-k)))와 비교해보면 상대적으로 효율적임을 알 수 있다.
 
 하지만 종종 local optimum으로 빠진다는 문제가 있다. 또한 categorical data인 경우는 적용할 수 없다. Mean을 define할 수 있어야하기 때문이다. 결과적으로 numerical attribute와 같은 타입에 적용 가능하다. 또한 사전에 k 값을 정해주어야 하는데 까다로울 수 있으며 noise와 outlier를 잘 처리하지 못한다는 단점이 있다. Non-convex shape일 때 cluster를 발견하는 것은 적절하지 않다.
 
@@ -169,7 +169,9 @@ Clustering을 하는 기준으로 distance matrix를 사용한다. 앞선 k 어�
 
 #### 1. AGNES(Agglomerative Nesting)
 
-Single-link method와 dissimilarity matrix를 사용한다. Single link method는 앞서 배웠듯, minimum distance가 가장 작은 즉, 가장 유사도가 높은 클러스터끼리 혹은 가장 dissimilarity가 낮은 노드끼리 merge하는 방식이다. Go on in a non descending fahsion..? 결국엔 모든 노드가 같은 cluster에 속하게 된다.
+Single-link method와 dissimilarity matrix를 사용한다. Single link method는 앞서 배웠듯, 모든 가능한 쌍에 대한 minimum distance 즉, 가장 유사도가 높은 클러스터끼리 혹은 가장 dissimilarity가 낮은 노드끼리 merge하는 방식이다.
+
+계속 merge해나가므로 총 거리 cost는 non-descending하다. 결국엔 모든 노드가 같은 cluster에 속하게 된다.
 
 처음 묶을 때 가능한 가짓수를 파악해야 하는데, n(n-1)/2가지의 조합을 살펴봐야 한다.
 
@@ -256,7 +258,7 @@ Dynamic model에 기반해서 similarity를 측정한다. 두 클러스터는 in
 
 기본적으로 두 개의 parameter가 존재한다. Eps와 MinPts인데, Eps는 maximum radius를 말하고 MinPts는 최소 object의 수를 말한다. 즉, Eps를 반지름으로 하는 원이 클러스터의 범위가 되며, 그 안에는 MinPts 이상의 object가 존재하는 것이다.
 
-여기서 알아야하는 개념으로 directly density-reachable을 알아야 한다. 점 p가 점 q로부터 directly density-reachable하다면, p는 N<sub>Eps</sub>q(N<sub>Eps</sub>(p): {q belongs to D | dist(p,q) <= Eps})에 해당하고, core point condition을 만족한다. Core point condition은 |N<sub>Eps<sub>(q)| >= MinPts로 directly density-reachable은 symmetric하지 않다. 예를 들어, p가 q의 neighbor에 속하고 q의 neighbor의 수가 MinPts 이상이라면 그 반대는 성립하지 않는 것이다.
+여기서 알아야하는 개념으로 directly density-reachable을 알아야 한다. 점 p가 점 q로부터 directly density-reachable하다면, p는 N<sub>Eps</sub>q(N<sub>Eps</sub>(p): {q belongs to D | dist(p,q) <= Eps})에 해당하고, core point condition을 만족한다. Core point condition은 |N<sub>Eps</sub>(q)| >= MinPts로 directly density-reachable은 symmetric하지 않다. 예를 들어, p가 q의 neighbor에 속하고 q의 neighbor의 수가 MinPts 이상이라면 그 반대는 성립하지 않는 것이다.
 
 어떤 점 p가 점 q로부터 density-reachable하다면
 
