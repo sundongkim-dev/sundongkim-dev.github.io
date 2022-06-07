@@ -47,10 +47,12 @@ Data는 application에 따라서 매우 다양하게 생겼다.
   - Image data  
   - Video data  
 
+위와 같이 실제로 data의 생김새와 특성은 매우 다양하며 그에 걸맞는 알고리즘들이 필요하다.
+
 ### Important Characteristics of Data  
 
 - Dimensionality  
-  - Curse of dimensionality(차원의 저주): dimension이 너무 커지면 발생하는 문제로, 차원이 작을 때는 잘 작동하다가 차원이 높아지면 잘 작동하지 않는다. 예시로, 1차원 상에서는 거리 차이가 큰 것이 고차원에서는 차이가 별로 나지 않는 상황을 생각해 볼 수 있다.
+  - Curse of dimensionality(차원의 저주): dimension이 너무 커지면 발생하는 문제로, 차원이 작을 때는 잘 작동하다가 차원이 높아지면 잘 작동하지 않는다. 예시로, 1차원 상에서는 거리 차이가 제일 작은 쌍과 큰 쌍이 있다고 하자. 이 때의 거리 차이는 크겠지만 고차원에서는 그 두 쌍의 차이가 별로 나지 않는 상황을 생각해 볼 수 있다.
 
 - Sparsity  
   - 데이터가 많이 비어있는 상태(희소 행렬)
@@ -60,7 +62,7 @@ Data는 application에 따라서 매우 다양하게 생겼다.
   - Resolution에 따라 pattern이 상이한 상황
 
 - Distribution  
-  - Centrality, Dispersion  
+  - Centrality(중심성), Dispersion(중심으로부터 얼마나 퍼져있는가)  
 
 ### Data Objects  
 
@@ -70,8 +72,8 @@ Data는 application에 따라서 매우 다양하게 생겼다.
   - University database: 학생, 교수, 강의
 - **Tuples**, **samples**, examples, instances, data points, objects라고도 한다.
 - Data objects들은 Attribute들로 이루어져있다.    
-- DB **rows** -> **data objects**
-- DB **Columns** -> **attributes**
+- DB에서의 **rows** -> **data objects**
+- DB에서의 **Columns** -> **attributes**
 
 
 ### Attributes & Attribute Types
@@ -86,6 +88,7 @@ ex) customer _ID, name, address
     - 값이 유한하다.
       - ex) Hair_color={black, blond, brown, grey, red, white}와 같이 유한한 상태로 제한된 attribute  
     - 결혼 여부, 직업, 신분증 번호, 우편 번호 등이 nominal에 해당한다.
+    - Attribute간의 우열을 가릴 수 없다.
 
   - **Binary**: 2 가지 상태(0 또는 1)만 가지는 nominal attribute의 특별한 케이스  
     - Symmetric binary: 두 가지 값이 중요도가 같고 대등한 경우 ex) gender  
@@ -94,38 +97,40 @@ ex) customer _ID, name, address
 
   - **Ordinal**  
     - 값들이 중요한 순서를 갖고 있다. (Ranking)  
-    - 값을 구분할 수는 있지만 연속된 값들이 얼마나 차이가 있는 지 그 **Magnitude**를 알 수 없다.  
+    - 값을 구분할 수는 있지만(우열이 존재) 연속된 값들이 얼마나 차이가 있는 지 그 **Magnitude**는 정의되어 있지 않다.  
     - Size={small, medium, large}, Grades={A0, A+, B0, B+...}, Army rankings
+    - 학점의 경우 그 숫자 자체에서의 Magnitude가 아니라 예를 들어, A+맞은 학생이 B+맞은 학생보다 얼마나 잘하는 지를 모른 다는 것이 아니다.
 
   - **Numeric**  
     - 양이 있는 attribute(Quantity: Integer or real-valued)
     - **Interval-scaled**   
-      - 앞선 ordinal attribute와 달리 equal-sized units, 값들의 차이를 알 수 있음 ex) 섭씨, 화씨 온도, 달력 날짜  
+      - 값들의 순서가 있다.
+      - 앞선 ordinal attribute와 달리 equal-sized units(magnitude가 일정하다), 값들의 차이를 알 수 있음 ex) 섭씨, 화씨 온도, 달력 날짜  
       - 진정한 의미의 zero-point가 존재하지 않는다. 0도는 온도가 없는 것이 아님을 예로 들 수 있다.   
 
     - **Ratio-scaled**
       - 진정한 zero-point가 존재한다.(없음을 의미하는 zero가 정의되어 있음)
-      - 임의의 값 사이에 규모가 얼마나 차이나는지 알 수 있다. ex) 6kg은 3kg의 2배
+      - 임의의 값 사이에 규모가 얼마나 차이나는지 알 수 있다. 즉 배수가 의미있다. ex) 6kg은 3kg의 2배
       - ex) 켈빈온도, 길이, 개수, 돈
 
-    - **Discrete** vs **Continuous** Attributes  
+  - **Discrete** vs **Continuous** Attributes  
 
-      - **Discrete Attribute**  
-        - 유한하고 셀 수 있는 값들, 가끔 정수 변수로 표현
-          - 우편번호, 단어 수 등  
-        - Binary attribute는 discrete attributes의 특별한 케이스  
+    - **Discrete Attribute**  
+      - 유한하고 셀 수 있는 값들, 가끔 정수 변수로 표현
+        - 우편번호, 단어 수 등  
+      - Binary attribute는 discrete attributes의 특별한 케이스  
 
-      - **Continuous Attribute**  
-        - Attribute 값으로 실수값을 가진다. ex) 온도, 높이, 무게
-        - 실제로, 실제 값은 한정된 자릿수를 사용해서만 측정되고 표현될 수 있다.
-        - 연속형 속성은 일반적으로 부동 소수점 변수로 표현된다.
+    - **Continuous Attribute**  
+      - Attribute 값으로 실수값을 가진다. 즉, 무한하다 ex) 온도, 높이, 무게
+      - 실제로, 실제 값은 한정된 자릿수를 사용해서만 측정되고 표현될 수 있다.
+      - 연속형 속성은 일반적으로 부동 소수점 변수로 표현된다.
 
 ---
 ## Basic Statistical Descriptions of Data
 
 데이터의 기본적인 통계에 대해 왜 알아야할까?
 
-데이터를 잘 이해하기 위해, 즉 중심적인 경향, 그 중심으로 부터 데이터가 얼마나 퍼져있는 지 등을 알 수 있기 때문이다. 이를 대략 알고 있다면 알고리즘을 올바르게 적용할 수 있다.
+데이터를 잘 이해하기 위해, 즉 중심적인 경향, 그 중심으로부터 데이터가 얼마나 퍼져있는 지 등을 알 수 있기 때문이다. 이를 대략 알고 있다면 알고리즘을 올바르게 적용할 수 있다.
 
 데이터 분산의 특성으로는 median, max, min, quartiles(4분위수), outliers, variance 등이 있다.
 
@@ -143,7 +148,8 @@ ex) customer _ID, name, address
 Mean은 Outlier에 영향을 많이 받는다는 단점이 있어 Median이라는 척도가 생겼다.
 
 - **Median**   
-  - 홀수개의 데이터인 경우 가장 가운데 값, 짝수개의 데이터인 경우 가운데 두 값의 평균을 말한다.  
+  - 정렬이 되어 있다는 전제하에, 홀수개의 데이터인 경우 가장 가운데 값, 짝수개의 데이터인 경우 가운데 두 값의 평균을 말한다.  
+  - Outlier에 robust하다는 장점이 있다.
   - 새로운 값이 들어온다면, 매번 들어올 때마다 정렬 후 구할 수 있기 때문에 overhead가 있다. 때문에, 이를 동적으로 처리해야하는데 그 방법으로 data를 그룹화(histogram)해서 interpolation으로 추정하는 방법(uniform하게 분포한다고 가정) 사용한다.
   - 처음에 구간을 나누고 도중에 새로운 데이터가 들어오면 그 데이터가 해당하는 구간의 frequency를 올려준다.
   - Median = L<sub>1</sub>(구간의 시작지점) + ((n/2-sum(이전 freq))/(median frequency)) x width  
@@ -213,9 +219,9 @@ Outlier가 있는 예시는 아래와 같은 그림이 있다.
 ### Properties of Normal Distribution Curve  
 - The normal (distribution) curve
   - 뮤: mean, 시그마: 표준편차
-  - 뮤-시그마 to 뮤+시그마: 68%를 포함한다.  
-  - 뮤-2시그마 to 뮤+2시그마: 95%를 포함한다.  
-  - 뮤-3시그마 to 뮤+3시그마: 99.7%를 포함한다.  
+  - 뮤-시그마 to 뮤+시그마: 전체 데이터의 68%를 포함한다.  
+  - 뮤-2시그마 to 뮤+2시그마: 전체 데이터의 95%를 포함한다.  
+  - 뮤-3시그마 to 뮤+3시그마: 전체 데이터의 99.7%를 포함한다.  
 
 ---
 ## Data Visualization  
