@@ -241,15 +241,15 @@ x축은 값, y축은 빈도를 나타내는 막대 형태의 그래프로 data d
   - Bar chart는 histogram의 special case이다.
 
 **3. Quantile plot**  
-기본적으로, 모든 데이터를 표시한다. User로 하여금 전체적인 경향이나 경향에 어긋나는 케이스들을 확인하기 쉽게 한다. f-value를 0, 0.25, 0.5, 0.75, 1.00에 눈금을 만들어서 quantile 정보를 알게한다. 이 때, 데이터 X<sub>i</sub>는 오름차순으로 정렬하고 그에 따른 f는 0~1의 값으로 100%에 곱해서 값의 위치를 구할 수 있다.
+기본적으로, 하나의 attribute에 대해 모든 데이터를 표시한다. User로 하여금 전체적인 경향이나 경향에 어긋나는 케이스들을 확인하기 쉽게 한다. f-value를 0, 0.25, 0.5, 0.75, 1.00에 눈금을 만들어서 quantile 정보를 알게한다. 이 때, 데이터 X<sub>i</sub>는 오름차순으로 정렬하고 그에 따른 f는 0~1의 값으로 100%에 곱해서 값의 위치를 구할 수 있다.
 
 **4. Quantile-quantile(q-q) plot**  
-한 분포의 quantiles와 이에 대응하는 다른 분포의 quantiles를 표기한다. 예를 들어, branch1, branch2(각각 다른 분포의 attribute)가 있으면 branch1 축의 40~120 값의 분포에 대해 branch2는 어떻게 분포하는지 점으로 표기한다. 아래의 그림을 보면 이해하기 쉽다.
+다른 두 데이터 셋을 같은 attribute에 대해 비교할 때 사용한다. 한 분포의 quantiles와 이에 대응하는 다른 분포의 quantiles를 표기한다. 예를 들어, branch1, branch2(각각 다른 분포의 attribute)가 있으면 branch1 축의 40~120 값의 분포에 대해 branch2는 어떻게 분포하는지 점으로 표기한다. 아래의 그림을 보면 이해하기 쉽다.
 ![QQ Plot](https://sundongkim-dev.github.io/assets/img/data_science/qq_plot.png)
 
 
 **5. Scatter plot**  
-각 값 쌍은 한 쌍의 좌표이며 평면에 점으로 표현된다. 점, 특이치 등의 군집을 확인할 수 있는 이변량 데이터를 한눈에 보여준다. 또 이를 바탕으로, positively & negatively correlated data인지를 확인할 수 있다. 당연히 아무런 correlation이 없는 경우도 있다.
+하나의 데이터셋에서 서로 다른 2 개의 attribute에 대해 관계를 알고 싶을 때 사용한다. 각 값 쌍은 한 쌍의 좌표이며 평면에 점으로 표현된다. 점, 특이치 등의 군집을 확인할 수 있는 이변량 데이터를 한눈에 보여준다. 또 이를 바탕으로, positively & negatively correlated data인지를 확인할 수 있다. 당연히 아무런 correlation이 없는 경우도 있다.
 
 ---
 ## Measuring Data Similarity and Dissimilarity  
@@ -264,7 +264,7 @@ x축은 값, y축은 빈도를 나타내는 막대 형태의 그래프로 data d
 - Dissimilarity  
   - 두 data objects가 얼마나 다른지 수치로 나타내는 것  
   - 두 objects가 비슷할수록 더 값이 작다.  
-  - 같은 object인 경우 0값을 갖는다.  
+  - 같은 object인 경우 0값을 갖는다. 즉, minimum dissimilarity는 주로 0이다.
   - 예로, 거리를 들 수 있다.
   - 상황에 따라 upper limit이 다르게 설정된다.  
 
@@ -293,19 +293,20 @@ x축은 값, y축은 빈도를 나타내는 막대 형태의 그래프로 data d
 Binary attribute의 일반화로 2 개 이상의 상태를 갖는 attribute에 대해선 2 가지 방법이 있다.
 - Method 1: Simple matching    
 ![Simple matching](https://sundongkim-dev.github.io/assets/img/data_science/Simple_matching.png)
-- Method 2: 많은 수의 Binary attribute들을 사용  
+- Method 2: 여러 개의 Binary attribute들을 사용  
   - 각 M개의 nominal state에 대해서 binary attribute를 생성한다.
   - 예를 들어, yellow이면 1이고 나머지 red, blue, green은 0으로 나타낸다.
 
 **2. For Binary Attributes**  
 Binary attribute를 위해서 contingency table을 만든다.  
-![Contingency table](https://sundongkim-dev.github.io/assets/img/data_science/contingency_table_for_binary.png)
+![Contingency table](https://sundongkim-dev.github.io/assets/img/data_science/contingency_table_for_binary.png)  
+Object i와 j에 대한 표이다. Binary attribute일 때, 둘 다 1인 data가 q개이고 나머지도 그런 식으로 해석하면 된다.
 
 - **Symmetric binary variables**를 위한 **distance** measure  
 ![Symmetric binary](https://sundongkim-dev.github.io/assets/img/data_science/Symmetric_binary.png)
 - **Asymmetric binary variables**를 위한 **distance** measure  
 ![Asymmetric binary](https://sundongkim-dev.github.io/assets/img/data_science/Asymmetric_binary.png)
-- **Asymmetric binary variables**의 **similarity**를 측정하는 도구로 Jaccard coefficient가 있다.
+- **Asymmetric binary variables**의 **similarity**를 측정하는 도구로 Jaccard coefficient가 있다. 그냥 1 - d(i,j)를 하면 된다.
 ![Jaccard coefficient](https://sundongkim-dev.github.io/assets/img/data_science/jaccard_coefficient.png)
 
 요약하자면, 대칭인 것은 다 더해서 값이 서로 다른 것의 비율을 구하고 비대칭인 것은 둘 다 0인 것을 제외하고 서로 다른 것의 비율을 구하는 것이다.
@@ -339,11 +340,11 @@ Binary attribute를 위해서 contingency table을 만든다.
   - h=2일 경우: Euclidean distance
   - h=max(무한대)일 경우: Supremum distance(차이가 가장 큰 값)
 
-### Ordinal Attributes  
+### Ordinal Variables  
 - 순서가 중요한 attribute이다. ex) rank
 - Interval-scaled로 바꿔 생각한다.
   - x<sub>if</sub>를 rank로 값을 바꾼다.
-  - 값을 0~사이의 범위로 매핑한다.
+  - 값을 0~1사이의 범위로 매핑한다.
   ![Interval scaled](https://sundongkim-dev.github.io/assets/img/data_science/interval_scaled.png)  
   - r<sub>if</sub>는 값의 rank이다.
   - M<sub>f</sub>는 highest rank의 값이다.
