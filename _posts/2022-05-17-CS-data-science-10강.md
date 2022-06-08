@@ -227,9 +227,12 @@ CF tree는 hierarchical clustering을 위한 clustering feature를 저장하는 
 
 거리 기반이 아닌, link라는 개념을 사용하여 similarity와 proximity를 측정한다. Jaccard coefficient와 같은 categorical data에 대한 고전적인 measure는 잘 작동하지 않을 수 있다.
 
-Jaccard coefficient를 기반으로한 similarity function으론 아래와 같은 공식이 있다.  
-[그림]  
-예시로, T<sub>1</sub>={a,b,c}이고 T<sub>2</sub>={c,d,e}라면 similarity는 0.2이다. 이러한 jaccard coefficient의 문제점으로 intra class간의 similarity가 inter class간의 similarity보다 높은 경우가 발생할 수 있다.
+먼저, Jaccard coefficient를 기반으로 한 similarity function으론 아래와 같은 공식이 있다.  
+![JC based similarity](https://sundongkim-dev.github.io/assets/img/data_science/JC_based_similarity.png)    
+
+예시로, T<sub>1</sub>={a,b,c}이고 T<sub>2</sub>={c,d,e}라면 similarity는 0.2이다.
+
+이러한 jaccard coefficient의 문제점으로 intra class간의 similarity가 inter class간의 similarity보다 높은 경우가 발생할 수 있다.
 
 Link란 common neighbor들의 수이다. 두 페어의 Jaccard coefficient가 0.5를 넘으면 common neighbor로 본다.
 
@@ -239,26 +242,35 @@ Link란 common neighbor들의 수이다. 두 페어의 Jaccard coefficient가 0.
 
 #### 3. CHAMELEON: Hierarchical Clustering Using Dynamic Modeling
 
-Dynamic model에 기반해서 similarity를 측정한다. 두 클러스터는 interconnectivity와 closeness(proximity)가 높은 경우에만 병합된다. 내부의 interconnectivity와 closeness보다 interconnectivity, closeness가 큰 클러스터끼리 합치는 것이다.
+Dynamic model에 기반해서 similarity를 측정한다. Bottom-up 방식으로 두 클러스터는 interconnectivity와 closeness(proximity)가 높은 경우에만 병합된다.
+
+높은 경우란 언제를 말하는 걸까? 바로 두 클러스터를 다시 각각 두 조각으로 쪼개서 interconnectivity와 closeness를 구하고 그것보다 큰 경우를 말하는 것이다.
+
+내부의 interconnectivity와 closeness보다 interconnectivity, closeness가 큰 클러스터끼리 합치는 것이다.
 
 우선, k-nearest neighbor 그래프를 먼저 그린다. 이 때, 노드는 object를 의미하고, 간선은 k-nearest neighbor의 link를 뜻하며, weight은 similarity가 된다.
 
-2-phase 알고리즘으로 graph partitioning algorithm(작은 클러스터들로 클러스팅)과 agglomerative hierarchical clustering algorithm(하위 클러스터를 반복적으로 결합하여 실제 클러스터를 찾음)을 사용한다.
+2-phase 알고리즘으로 graph partitioning algorithm(작은 클러스터들을 생성)과 agglomerative hierarchical clustering algorithm(하위 클러스터를 반복적으로 결합하여 실제 클러스터를 찾음)을 사용한다.
 
 - Partitioning
-  - METIS라는 방법을 사용해서 edge의 수를 최소화한다. 결과적으로는 그래프를 거의 같은 사이즈의 서브 그래프로 나누는 것이다.
-- Relative interconnectivity
-
-- Relative closeness
+  - METIS라는 방법을 사용해서 잘리는 edge의 수와 edge의 weight을 최소화하는 방향으로 자른다. 또한, 그래프를 거의 같은 사이즈의 서브 그래프로 나누는 것이다.
+- Relative interconnectivity  
+![Relative_interconnectivity](https://sundongkim-dev.github.io/assets/img/data_science/Relative_interconnectivity.png)  
+- Relative closeness  
+![Relative_closeness](https://sundongkim-dev.github.io/assets/img/data_science/Relative_closeness.png)
 
 ---
 ## Density-Based Methods
 
 거리만으로 클러스팅하지 않고, density를 기반으로 클러스터링하는 것을 말한다. 주요 특징으로는, 임의의 모양의 클러스터를 찾을 수 있고 noise를 처리할 수 있으며, 한 번의 스캔만으로도 효율적으로 동작한다. 또한 종료 조건으로 density parameters들이 필요하다. DBSCAN, OPTICS, CLIQUE 등의 알고리즘들이 있다.
 
-기본적으로 두 개의 parameter가 존재한다. Eps와 MinPts인데, Eps는 maximum radius를 말하고 MinPts는 최소 object의 수를 말한다. 즉, Eps를 반지름으로 하는 원이 클러스터의 범위가 되며, 그 안에는 MinPts 이상의 object가 존재하는 것이다.
+기본적으로 두 개의 parameter가 존재한다. Eps와 MinPts인데, Eps는 maximum radius를 말하고 MinPts는 포함해야하는 최소 object의 수를 말한다. 즉, Eps를 반지름으로 하는 원이 클러스터의 범위가 되며, 그 안에는 MinPts 이상의 object가 존재하는 것이다.
 
-여기서 알아야하는 개념으로 directly density-reachable을 알아야 한다. 점 p가 점 q로부터 directly density-reachable하다면, p는 N<sub>Eps</sub>q(N<sub>Eps</sub>(p): {q belongs to D | dist(p,q) <= Eps})에 해당하고, core point condition을 만족한다. Core point condition은 |N<sub>Eps</sub>(q)| >= MinPts로 directly density-reachable은 symmetric하지 않다. 예를 들어, p가 q의 neighbor에 속하고 q의 neighbor의 수가 MinPts 이상이라면 그 반대는 성립하지 않는 것이다.
+여기서 알아야하는 개념으로 directly density-reachable을 알아야 한다.
+
+점 p가 점 q로부터 directly density-reachable하다면, p는 N<sub>Eps</sub>q(N<sub>Eps</sub>(p): {q belongs to D | dist(p,q) <= Eps})에 해당하고, core point condition을 만족한다. 
+
+Core point condition은 |N<sub>Eps</sub>(q)| >= MinPts로 directly density-reachable은 symmetric하지 않다. 예를 들어, p가 q의 neighbor에 속하고 q의 neighbor의 수가 MinPts 이상이라면 그 반대는 성립하지 않는 것이다.
 
 어떤 점 p가 점 q로부터 density-reachable하다면
 
