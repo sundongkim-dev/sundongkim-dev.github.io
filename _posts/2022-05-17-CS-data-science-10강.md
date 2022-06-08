@@ -268,21 +268,25 @@ Dynamic model에 기반해서 similarity를 측정한다. Bottom-up 방식으로
 
 N<sub>Eps</sub>(p)라는 표현을 알아야 한다. 이는 점 p와 거리가 Eps 이하인 q들의 집합을 말한다.
 
-여기서 알아야하는 개념으로 directly density-reachable을 알아야 한다.
+여기서 알아야하는 개념으로 directly density-reachable이 있다.
 
-점 p가 점 q로부터 directly density-reachable하다면, p는 N<sub>Eps</sub>(q)에 해당하고, core point condition을 만족한다.
+점 p가 점 q로부터 directly density-reachable하다면, 주어진 Eps와 MinPts 하에서, p는 N<sub>Eps</sub>(q)에 해당하고, core point condition을 만족해야 한다.
 
-Core point condition은 |N<sub>Eps</sub>(q)| >= MinPts로 directly density-reachable은 symmetric하지 않다. 예를 들어, p가 q의 neighbor에 속하고 q의 neighbor의 수가 MinPts 이상이라면 그 반대는 성립하지 않는 것이다.
+Core point condition은 N<sub>Eps</sub>(q) >= MinPts로 결국 neighbors의 수가 MinPts 이상인 경우를 말한다.  
 
-어떤 점 p가 점 q로부터 density-reachable하다면
+Directly density-reachable은 symmetric하지 않다. 예를 들어, p가 q의 neighbor에 속하고 q의 neighbor의 수가 MinPts 이상이라면 그 반대는 성립하지 않는 것이다.
 
-어떤 점 p가 점 q로부터 density-connected하다면 점 p와 q로부터 density-reachable한 점 o가 있다는 것이다.
+어떤 점 p가 점 q로부터 density-reachable하다면, 주어진 Eps와 MinPts 하에서, p<sub>1</sub>부터 p<sub>n</sub>까지 chain이 있다는 것이다. 이 chain은 p<sub>1</sub>은 q, p<sub>n</sub>은 p이고 p<sub>i+1</sub>은 p<sub>i</sub>으로부터 directly density-reachable하다는 것을 의미한다.
+
+어떤 점 p가 점 q로부터 density-connected하다면, 주어진 Eps와 MinPts 하에서, 점 p와 q로부터 density-reachable한 점 o가 있다는 것이다.
 
 ### DBSCAN: Density Based Spatial Clustering of Applications with Noise
 
 Density-based 알고리즘이며, 클러스터는 density-connected points의 최대 집합으로 정의된다. 노이즈가 섞여 있는 공간 데이터베이스에서 클러스터를 찾는다.
 
 알고리즘은 다음과 같다. 임의로 점 p를 고르고, p에서 density-reachable한 점을 모두 찾는다(Eps와 MinPts를 만족하는). 만약 p가 core point라면 클러스터가 만들어지고, 그렇지 않으면 border point로 다른 점에서 다시 탐색을 시작한다. 모든 point들을 방문할 때까지 반복한다. 결과적으로, Eps와 MinPts와 같은 파라미터에 따라 클러스터가 다르게 만들어진다.
+
+DBSCAN의 문제는 파라미터에 너무 sensitive하다는 것이다. 이를 어떻게 극복할 수 있을까?
 
 ### OPTICS: Ordering Points To Identify the Clustering Structure
 
