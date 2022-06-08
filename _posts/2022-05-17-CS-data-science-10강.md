@@ -266,9 +266,11 @@ Dynamic model에 기반해서 similarity를 측정한다. Bottom-up 방식으로
 
 기본적으로 두 개의 parameter가 존재한다. Eps와 MinPts인데, Eps는 maximum radius를 말하고 MinPts는 포함해야하는 최소 object의 수를 말한다. 즉, Eps를 반지름으로 하는 원이 클러스터의 범위가 되며, 그 안에는 MinPts 이상의 object가 존재하는 것이다.
 
+N<sub>Eps</sub>(p)라는 표현을 알아야 한다. 이는 점 p와 거리가 Eps 이하인 q들의 집합을 말한다.
+
 여기서 알아야하는 개념으로 directly density-reachable을 알아야 한다.
 
-점 p가 점 q로부터 directly density-reachable하다면, p는 N<sub>Eps</sub>q(N<sub>Eps</sub>(p): {q belongs to D | dist(p,q) <= Eps})에 해당하고, core point condition을 만족한다. 
+점 p가 점 q로부터 directly density-reachable하다면, p는 N<sub>Eps</sub>(q)에 해당하고, core point condition을 만족한다.
 
 Core point condition은 |N<sub>Eps</sub>(q)| >= MinPts로 directly density-reachable은 symmetric하지 않다. 예를 들어, p가 q의 neighbor에 속하고 q의 neighbor의 수가 MinPts 이상이라면 그 반대는 성립하지 않는 것이다.
 
