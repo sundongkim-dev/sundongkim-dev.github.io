@@ -102,14 +102,74 @@ Hub score는 해당 페이지의 out-link neighbor들의 authority score들의 �
 
 ### PageRank: Capturing Page Popularity
 
-자주 인용되는 페이지는 일반적으로 더 중요하다고 볼 수 있다. PageRank는 기본적으로 citation counting이지만 그저 counting하는 것 이상의 효과를 보인다. "Indirect citations"를 고려하는데 이는 많이 인용된 paper가 인용하는 것은 더 큰 의미가 있다는 것을 뜻한다. 또한, 모든 page의 인용 횟수가 0이 아닌 것으로 가정한다.
+자주 인용되는 페이지는 일반적으로 더 중요하다고 볼 수 있다. PageRank는 기본적으로 citation counting이지만 그저 counting하는 것 이상의 효과를 보인다. "Indirect citations"를 고려하는데 이는 많이 인용된 paper가 인용하는 것은 더 큰 의미가 있다는 것을 뜻한다. 또한, 모든 page의 인용 횟수가 0이 아닌 것으로 가정(smoothing of citation)한다.
 
-결과적으로, pageRank는 "random surfing"으로 해석될 수 있다.
+결과적으로, pageRank는 "random surfing"으로 해석될 수 있다. ~~왜??~~
 
+**1. Indirect Citation**  
+"중요한(important)" 페이지는 다른 많은 페이지들이 참조하는 것을 말하며 특히 많은 중요한 페이지들이 참조한다면 더욱 중요한 것이다.
 
+**2. Calculate importance score (authority score)**  
+처음에는 모든 페이지에 같은 스코어(e.g. 1)를 할당한다. 각 페이지마다, out-link를 따라서 그 이웃들에게 해당 페이지의 스코어를 분할해서 전달한다. 이 때, 해당 페이지의 점수가 변하지는 않는다. 그렇게 전달 받은 점수들은 in-link를 통해 각 페이지에 전해질 것이며 그를 모두 더한다. 위 과정이 수렴이 될 때까지 반복하면 importance score가 정해진다.
 
+하지만 위와 같은 simple한 version은 2 가지 문제가 발생한다. Dangling nodes와 Cyclic citation이다. Dangling nodes는 어떤 페이지가 out-link가 없고 그 페이지로 in-link들이 구성되어 있다면, 그 페이지로 점수가 몰려서 결국 다른 페이지는 점수를 잃는 현상이다. Cyclic citation은 일련의 페이지들이 cycle을 형성해서 점수가 안빠져나가고 계속 서로 더해주어서 점수가 무한이 되는 것을 말한다.
 
+이를 어떻게 해결할 수 있을까?
 
+먼저 dangling nodes 부터 살펴보자. Out-link가 없는 페이지는 해당 iteration에서 모든 노드의 문서들에게 균등하게 분할해서 점수를 나눠주는 형식으로 처리하면 된다.
 
+Cyclic citation의 경우 alpha의 확률로는 똑같이 진행하고 (1-alpha)의 확률로 모든 노드에게 균등하게 분할하는 방식으로 처리해서 해결하였다.
 
-###
+이렇게 경로와 상관없이 랜덤하게 흩뿌려주는 과정 때문에 random surfing이라는 말이 붙었다.
+
+**3. Random Surfer**  
+말 그대로 웹을 랜덤하게 서핑하는 것이다. 랜덤한 페이지로 jump하는 것을 말하며 다른말로 restart surfing이라고도 한다. 어떤 임의의 페이지에서도 alpha의 확률로 link를 랜덤하게 선택해서 진행하고(=random walk), (1-alpha)의 확률로 랜덤한 페이지로(=restart) 간다.
+
+이를 수식으로 표현하면 아래와 같다.  
+![pageRank](https://sundongkim-dev.github.io/assets/img/data_science/pageRank.png)    
+위 식에서는 random walk에 (1-alpha)가 곱해져있는데 딱히 상관없다. 결국, random walk는 dangling nodes 문제를 해결했고, restart는 cyclic citation을 해결한 셈이다.
+
+### Link-Based Object Classification (LBC)
+
+앞에서는 object의 attribute로 예측했었는데, 이제는 그 뿐 아니라 그의 link와 그 link로 이루어진 object의 attribute까지 고려하는 것이 LBC이다.
+
+예로,  
+- Web: 페이지에 나타나는 단어, 페이지 간의 링크, HTML 태그 등을 기준으로 웹 페이지의 카테고리를 예측
+- Citation: 단어 발생, 인용, 공동 인용을 기반으로 논문의 주제를 예측
+- Epidemics: 감염환자의 특성에 따라 질병 유형 예측
+
+결과적으로, 하나의 attribute만으로 판단하기 보다 여러 것을 복합적으로 보고 판단하는 것이 더 정확도가 높을 것이라는 것이 idea이다.
+
+### Group Detection
+
+그래프에 있는 노드들을 클러스터화하는 것이다. 앞서 배운 클러스터링과 비슷한 task이다.
+
+Methods
+- Hierarchical clustering
+- Blockmodeling of SNA
+- Spectral graph partitioning
+- Stochastic blockmodeling
+- Multi-relational clustering
+
+Community 안에서 Edge들이 충분하고 community 간의 edge들이 별로 없다면 쉽게 할 수 있겠지만 그렇지 않은 경우 어렵다.
+
+### Link Cardinality Estimation
+어떤 object를 가리키는 link의 수를 예측하는 것이다.
+
+또는, 특정 object에서 경로를 따라 도달한 object 수를 예측하는 것일 수도 있다.
+
+### Link Prediction
+두 개의 object 사이에 link가 존재할 것인가에 대해 예측하는 것이다.  
+
+### Subgraph Discovery
+
+- Find characteristic subgraphs
+  + 그래프 기반 데이터 마이닝에 초점
+- Application
+  + Biology: 단백질 구조 발견
+  + Communications: 합법 vs 불법적 그룹
+  + Chemistry: 화학적 substructure 발견
+- Method
+  + Subgraph pattern mining
+- Graph classification
+  + 서브그래프 패턴 분석에 따른 분류
