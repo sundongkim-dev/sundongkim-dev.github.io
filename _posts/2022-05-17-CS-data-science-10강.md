@@ -308,13 +308,11 @@ Outlier란 다른 데이터와 매우 다른 object들을 말한다. 매우 큰 
 
 ### Outlier Discovery: Statistical Approaches  
 
-데이터 집합을 생성하는 기본 분포 모형(ex: 정규 분포)을 가정하고 불일치 테스트를 데이터 분포, 분포 모수(평균, 분산), 예상되는 outlier의 개수 등에 따라 사용한다.
-
-단점으로는 대부분의 테스트는 단일 attribute에 대한 것(실제는 많은 attribute를 갖고 있음)으로, 많은 경우에 데이터의 분포를 알 수 없다.
+데이터 집합을 생성하는 기본 분포 모형(ex: 정규 분포)을 가정하고 데이터 분포, 분포 모수(평균, 분산), 예상되는 outlier의 개수 등에 따라 불일치 테스트(discordancy test)를 한다. 이렇게하면 쉽겠지만 대부분의 테스트는 단일 attribute에 대한 것(실제는 많은 attribute를 갖고 있음)으로, 많은 경우에 데이터의 분포를 알 수 없다. 결과적으로 데이터의 분포를 잘 모른채로 할 수 있어야 한다.
 
 ### Outlier Discovery: Distance-Based Approach  
 
-통계적 방법에 의해 생기는 limitations에 대응하기 위해 도입되었다. 데이터 분포를 모른채 하는 다차원 분석이 필요한 것이다.
+통계적 방법에 의해 생기는 limitations에 대응하기 위해 도입되었다. 데이터 분포를 모른채 하는 다차원 분석이 필요한 것이다. 이를 극복하기 위한 방법이 바로 distance-based approach이다.
 
 Distance-based outlier(DB(p, D)-outlier): 모든 페어에 대해 거리를 계산하고 p% 이상 점 o에서 D거리 이상 떨어져 있으면 o는 outlier이다.
 
@@ -322,6 +320,6 @@ Distance-based outlier를 마이닝하는 알고리즘으로는 index-based, nes
 
 ### Density-based Local Outlier Detection  
 
-Distance-based는 global distance distribution을 기반으로 하므로 uniform하게 분포하지 않으면 힘들다. 그래서 이를 개선하기 위해 local outlier를 사용한다.
+Distance-based는 global distance distribution을 기반으로 하므로 데이터가 uniform하게 분포하지 않으면 힘들다. 그래서 이를 개선하기 위해 local outlier를 사용한다.
 
 DB(p,D)-outlier 방법을 사용하면 D값을 설정해야 하는데 각 클러스터마다 떨어진 거리가 다르면 힘들어지므로 제안된 방식이다.
