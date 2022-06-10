@@ -25,30 +25,31 @@ Cluster Analysis는 무엇일까? 먼저 cluster가 뭔지 살펴보자. Cluster
 
 이러한 cluster를 분석한다는 것은 즉, 데이터의 특성을 바탕으로 데이터 간의 유사도를 구하는 것이다. 유사도를 구해서 비슷한 data object들끼리 묶어주기 위함이다.
 
-Cluster analysis는 unsupervised learning의 한 종류로 학습 시 데이터에 정의된 클래스가 없다. 이는 데이터 분포에 대한 insight를 얻을 수 있는 stand-alone tool이며 다른 알고리즘을 위한 전처리 과정에 해당된다.
+Cluster analysis는 unsupervised learning의 한 종류로 학습 시 데이터에 정의된 클래스가 없다. 이는 데이터 분포에 대한 insight를 얻을 수 있는 stand-alone tool이며 주로 다른 알고리즘을 위한 전처리 과정에 해당된다.
 
 사용 예시로는 Spatial Data analysis, Economic Science(like market research), WWW(Cluster documents, weblog data), Image processing & pattern recognition 등이 있다. 이외에도 marketing, land use, insurance, city-planning이 있다.
 
 ---
 ## Quality and Requirements of Clustering
 
-"Good" clustering method로는 높은 quality의 cluster를 제공하는데, 서로 다른 클래스 간에 낮은 유사도 혹은 하나의 클래스 안에서 높은 유사도를 보이는 것을 말한다.
+"Good" clustering method는 높은 quality의 cluster를 제공하는데, 서로 다른 클래스 간에 낮은 유사도 혹은 하나의 클래스 안에서 높은 유사도를 보이는 것을 말한다.
 
 결국 clustering의 결과의 quality는 **similarity measure**와 **method**로 결정된다. Clustering method의 quality는 숨겨진 패턴을 발견하는 능력에 의해 결정된다.
 
-Similarity measure는 similarity와 Dissimilarity metric을 알아야 한다. Similarity는 distance function으로 d(i,j)로 표현하곤 한다. 변수 타입(interval-scaled, boolean, categorical, ordinal ratio, vector variables)에 따라 다르고 "충분히 유사하다" 혹은 "충분히 좋다"를 정의하기란 매우 주관적이다. 가중치는 attribute마다 다른 가중치를 가질 수 있다.
+Clustering의 quality를 측정하려면 similarity/dissimilarity metric을 알아야 한다. Similarity는 distance function으로 d(i,j)로 표현하곤 한다. 변수 타입(interval-scaled, boolean, categorical, ordinal ratio, vector variables)에 따라 다르고 "충분히 유사하다" 혹은 "충분히 좋다"를 정의하기란 매우 주관적이다. 가중치는 attribute마다 다른 가중치를 가질 수 있다.
 
 Data mining에서 clustering의 **Requirements**는 아래와 같은 것들이 있다.
 - 서로 다른 타입의 attribute들을 처리할 수 있어야 한다.
 - 새로운 데이터가 추가되거나 기존의 데이터가 지워지더라도 잘 동작할 수 있어야 한다.
 - 임의의 모양의 cluster를 발견할 수 있어야 한다.
-- 파라미터를 정하는 것은 힘들기 때문에 최소의 파라미터 개수를 필요로 해야 한다.
+- 파라미터를 정하는 데에 domain knowledge가 많이 필요해서는 안된다.
 - Noise와 outlier를 처리할 수 있어야 한다.
 - 입력 순서와 상관없이 동일한 결과를 출력해야 한다.
-- 높은 차원을 갖는 attribute를 처리할 수 있어야 한다.(???)
+- 높은 차원을 갖는(많은 attribute를 갖는) 데이터들도 처리할 수 있어야 한다.
 - Scalability
 - Incorporation of user-specified constraints
 
+---
 ## A Categorization of Major Clustering Methods  
 
 ### 1. Major Clustering Approaches  
@@ -65,7 +66,7 @@ Data mining에서 clustering의 **Requirements**는 아래와 같은 것들이 �
   - 밀도함수를 기반으로 클러스터를 형성한다.   
   - Typical methods: DBSCAN, OPTICS    
 
-### 2. Centroid, Radius, and Diameter of a cluster  
+### 2. Centroid, Radius, and Diameter of a cluster (For numerical data)
 
 클러스터 내에서 centroid, radius, diameter의 정의!!
 
@@ -98,11 +99,12 @@ Data mining에서 clustering의 **Requirements**는 아래와 같은 것들이 �
   - dis(K<sub>i</sub>, K<sub>j</sub>)=dis(M<sub>i</sub>, M<sub>j</sub>)  
   - Medoid: 클러스터에서 가장 가운데에 위치한 실제 object   
 
+---
 ## Partitioning Methods  
 
 ### 1. Basic Concept  
 
-- Database D에서 n개의 objects를 k개의 클러스터로 나누는 것으로 클러스터를 대표하는 값과 그 클러스터의 모든 objects 까지 거리의 제곱의 합이 최소가 되도록 한다. 아래의 함수가 goodness function으로 이 값이 최소가 될수록 좋다고 할 수 있다.  
+- Database D에서 n개의 objects를 k개의 클러스터로 나누는 것으로, 클러스터를 대표하는 값과 그 클러스터의 모든 objects 까지 거리의 제곱의 합이 최소가 되도록 한다. 아래의 함수가 goodness function으로 이 값이 최소가 될수록 좋다고 할 수 있다.  
 ![Partitioning method](https://sundongkim-dev.github.io/assets/img/data_science/partitioning_method.png)
 - 모든 파티션을 다 살펴보면 global optimal을 찾을 수 있겠지만 heuristic methods를 사용한다.   
   - K-means: 각 cluster는 cluster의 centroid로 표현된다.
@@ -118,13 +120,13 @@ K값이 주어졌을 때 다음과 같이 진행된다.
 
 K-means는 상대적으로 효율적이다. 시간복잡도가 O(n * k * t)이다. n은 object의 수이며 k는 cluster의 수이고 t는 반복 횟수이다. 일반적으로 n이 다른 두 수보다 매우 크다. 그렇기에 K-means는 거의 linear하다고 볼 수 있다. PAM(=O(k*(n-k)<sup>2</sup>)), CLARA(O(ks<sup>2</sup>+k(n-k)))와 비교해보면 상대적으로 효율적임을 알 수 있다.
 
-하지만 종종 local optimum으로 빠진다는 문제가 있다. 또한 categorical data인 경우는 적용할 수 없다. Mean을 define할 수 있어야하기 때문이다. 결과적으로 numerical attribute와 같은 타입에 적용 가능하다. 또한 사전에 k 값을 정해주어야 하는데 까다로울 수 있으며 noise와 outlier를 잘 처리하지 못한다는 단점이 있다. Non-convex shape일 때 cluster를 발견하는 것은 적절하지 않다.
+하지만 종종 local optimum으로 빠진다는 문제가 있다(모든 object 기준에서 계산하는게 아닌 초기에 정한 seed로부터 계산되기 때문). 또한 categorical data인 경우는 적용할 수 없다. Mean을 정의할 수 있어야 하기 때문이다. 결과적으로 numerical attribute와 같은 타입에 적용 가능하다. 또한 사전에 k 값을 정해주어야 하는데 까다로울 수 있으며 noise와 outlier를 잘 처리하지 못한다는 단점이 있다. Non-convex shape인 cluster를 발견하기에 적절하지 않다. Centroid를 중심으로 cluster를 만들어나가기 때문이다.
 
 이러한 K-Means method의 변형으로 2 가지가 있다. 앞서 categorical data를 처리하지 못하니까 이를 해결하고자 k-modes가 나왔다. Centroid 대신에 modes(최빈값)을 사용한다.
 - X, Y: m 개의 categorical attribute를 갖는 object들
 - Dissimilarity d(X, Y): # of total mismatches
-- Mode는 해당 object와의 mismatch 수의 합이 가장 작은 벡터이다.
-- Attribute마다 가장 자주 발생하는 object가 차지하는 값을 가져온다.
+- Mode는 해당 object와의 mismatch 수의 합이 가장 작은 object(벡터)이다.
+- X라는 cluster를 구한다면, Attribute마다 가장 자주 발생하는 값을 가져온다.
 - frequency-based method을 사용하여 cluster의 mode를 갱신한다.
 
 일반적으로 데이터는 categorical과 numerical data가 섞여있으므로 k-prototype method를 사용한다.
@@ -204,7 +206,7 @@ Distance-based clustering으로 이를 개선한 방식들이 있는데 다음 3
 #### 1. BIRCH
 
 CF(Clustering Feature) 트리를 점진적으로 구성한다. 다단계 clustering을 위한 계층적 데이터 구조이다.   
-Phase 1: DB를 스캔하고 in-memory CF tree를 구성한다.
+Phase 1: DB를 스캔하고 in-memory CF tree를 구성한다.  
 Phase 2: 임의의 clustering algorithm으로 CF tree의 leaf node들을 구성한다.  
 
 한 번의 스캔으로 양호한 clustering을 찾고(scales linearly), 몇 번의 추가 스캔으로 품질을 향상 시킬 수 있지만, numeric data만을 처리할 수 있으며 data record 순서에 민감하다.
