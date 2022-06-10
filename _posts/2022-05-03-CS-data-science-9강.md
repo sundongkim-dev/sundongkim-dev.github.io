@@ -151,7 +151,7 @@ Mean은 Outlier에 영향을 많이 받는다는 단점이 있어 Median이라�
 - **Median**   
   - 정렬이 되어 있다는 전제하에, 홀수개의 데이터인 경우 가장 가운데 값, 짝수개의 데이터인 경우 가운데 두 값의 평균을 말한다.  
   - Outlier에 robust하다는 장점이 있다.
-  - 새로운 값이 들어온다면, 매번 들어올 때마다 정렬 후 구할 수 있기 때문에 overhead가 있다. 때문에, 이를 동적으로 처리해야하는데 그 방법으로 data를 그룹화(histogram)해서 interpolation으로 추정하는 방법(uniform하게 분포한다고 가정) 사용한다.
+  - 새로운 값이 들어온다면, 매번 들어올 때마다 정렬 후 구할 수 있기 때문에 overhead가 있다. 때문에, 이를 동적으로 처리해야하는데 그 방법으로 data를 그룹화(histogram)해서 interpolation으로 추정하는 방법(구간 안에서 uniform하게 분포한다고 가정)을 사용한다.
   - 처음에 구간을 나누고 도중에 새로운 데이터가 들어오면 그 데이터가 해당하는 구간의 frequency를 올려준다.
   - Median = L<sub>1</sub>(구간의 시작지점) + ((n/2-sum(이전 freq))/(median frequency)) x width  
 
@@ -190,7 +190,7 @@ Median = 21 + ((1597-950)/(1500))x29 = 21 + 18763/1500
 
 - **Measurement**
   - **Quartiles**: Q<sub>1</sub>(25<sup>th</sup> percentile), Q<sub>3</sub>(75<sup>th</sup> percentile)를 의미하고 Q<sub>2</sub>(50<sup>th</sup> percentile = median) Q<sub>4</sub>(100<sup>th</sup> percentile = max)
-  - **Inter-quartile range(IQR)**: IQR = Q<sub>3</sub>-Q<sub>1</sub>, 이 차이가 작으면 데이터가 조밀하게 분포한 것이고 크다면 넓게 분포한 것을 뜻한다.
+  - **Inter-quartile range(IQR)**: IQR = Q<sub>3</sub>-Q<sub>1</sub>, 이 차이가 작으면 데이터가 조밀하게 분포한 것이고 크다면 넓게 분포한 것을 뜻한다. 해당 구간에 전체 데이터의 50%가 속한 것이기 때문이다.
   - **Five number summary**: min, Q<sub>1</sub>, median, Q<sub>3</sub>, max
   - **Boxplot**: Five number summary를 시각화 한 것이다.
   - **Outlier**: 주로 값이 1.5 x IQR보다 작거나 큰 값
@@ -200,7 +200,7 @@ Median = 21 + ((1597-950)/(1500))x29 = 21 + 18763/1500
     - Sample: s, Population: sigma
     - Sample(s)의 Variance(Algebraic, scalable computation): 편차 제곱의 평균인데 통계적으론 n이 아닌 n-1로 나눈다. [자세한 내용은 여기서!!!](https://m.blog.naver.com/sw4r/221021838997)
     - 전체 데이터(N)의 variance
-    - Standard deviation: 평균에서 각각의 값이 얼마나 떨어져 있는가를 나타내는 값으로, 값이 작다면 매우 촘촘한 것이고 크다면 널리 떨어져 있는 것을 뜻한다. s또는 시그마(variance의 루트)로 표현
+    - Standard deviation: 평균에서 각각의 값이 얼마나 떨어져 있는가를 나타내는 값으로, 값이 작다면 매우 촘촘한 것이고 크다면 널리 떨어져 있는 것을 뜻한다. s 또는 시그마(variance의 루트)로 표현
 
 - **Boxplot Analysis**  
   - **Five-number summary**(minimum, Q1, median, Q3, Maximum)
@@ -242,7 +242,7 @@ x축은 값, y축은 빈도를 나타내는 막대 형태의 그래프로 data d
   - Bar chart는 histogram의 special case이다.
 
 **3. Quantile plot**  
-기본적으로, 하나의 attribute에 대해 모든 데이터를 표시한다. User로 하여금 전체적인 경향이나 경향에 어긋나는 케이스들을 확인하기 쉽게 한다. f-value를 0, 0.25, 0.5, 0.75, 1.00에 눈금을 만들어서 quantile 정보를 알게한다. 이 때, 데이터 X<sub>i</sub>는 오름차순으로 정렬하고 그에 따른 f는 0~1의 값으로 100%에 곱해서 값의 위치를 구할 수 있다.
+기본적으로, 하나의 attribute에 대해 모든 데이터를 표시한다. User로 하여금 전체적인 경향이나 경향에 어긋나는 케이스들을 확인하기 쉽게 한다. f-value를 0, 0.25, 0.5, 0.75, 1.00에 눈금을 만들어서 quantile 정보를 알게한다. 이 때, 데이터 X<sub>i</sub>는 **오름차순으로 정렬**하고 그에 따른 f는 0~1의 값으로 100%에 곱해서 값의 위치를 구할 수 있다.
 
 **4. Quantile-quantile(q-q) plot**  
 다른 두 데이터 셋을 같은 attribute에 대해 비교할 때 사용한다. 한 분포의 quantiles와 이에 대응하는 다른 분포의 quantiles를 표기한다. 예를 들어, branch1, branch2(각각 다른 분포의 attribute)가 있으면 branch1 축의 40~120 값의 분포에 대해 branch2는 어떻게 분포하는지 점으로 표기한다. 아래의 그림을 보면 이해하기 쉽다.
@@ -260,7 +260,7 @@ x축은 값, y축은 빈도를 나타내는 막대 형태의 그래프로 data d
 - Similarity  
   - 두 data objects가 얼마나 비슷한지 수치로 나타내는 것  
   - 두 objects가 비슷할수록 더 값이 크다.  
-  - 주로 0,1 사이의 값을 갖게끔 한다.  
+  - 주로 0~1 사이의 값을 갖게끔 한다.  
 
 - Dissimilarity  
   - 두 data objects가 얼마나 다른지 수치로 나타내는 것  
@@ -282,10 +282,10 @@ x축은 값, y축은 빈도를 나타내는 막대 형태의 그래프로 data d
 ![Data matrix](https://sundongkim-dev.github.io/assets/img/data_science/Data_matrix.png)
 
 - Dissimilarity matrix  
-  - n개의 데이터가 있으나 pair마다 distance를 저장한다.  
+  - n개의 데이터가 있으나 pair마다 distance만을 저장한다.  
   - Symmetric하기 때문에 triangular matrix이다.  
-  - Asymmetric할 때에는 사용하지 않는다.
-  - single mode: 두 차원 모두 object를 나타낸다.  
+  - Asymmetric할 때에는 사용하지 않는다.(순서가 바뀌어도 거리가 일정해야 함)
+  - Single mode: 두 차원 모두 object를 나타낸다.  
 ![Dissimilarity matrix](https://sundongkim-dev.github.io/assets/img/data_science/Dissimilarity_matrix.png)
 
 ### Proximity Measure  
@@ -331,15 +331,15 @@ Object i와 j에 대한 표이다. Binary attribute일 때, 둘 다 1인 data가
   - Distance를 구하는 방식으로, 다음 식을 따른다.  
 ![Minkowski Distance](https://sundongkim-dev.github.io/assets/img/data_science/minkowski_dist.png)  
   - 다음 3 가지 Properties가 있다.
-    - i와 j가 같지 않다면 항상 0보다 크다. (Positive definiteness)
-    - i에서 j까지의 거리와 j에서 i까지의 거리가 같다. (Symmetry)
-    - i에서 j까지의 거리는 i에서 k까지의 거리와 k에서 j까지의 거리보다 항상 작거나 같다. (Triangle Inequality)
+    - i와 j가 같지 않다면 항상 0보다 크다. (**Positive definiteness**)
+    - i에서 j까지의 거리와 j에서 i까지의 거리가 같다. (**Symmetry**)
+    - i에서 j까지의 거리는 i에서 k까지의 거리와 k에서 j까지의 거리보다 항상 작거나 같다. (**Triangle Inequality**)
     - 위 3 가지 properties를 만족하는 distance를 metric이라고 한다.
 
 - Special Cases of Minkowski Distance
-  - h=1일 경우: Manhattan distance
-  - h=2일 경우: Euclidean distance
-  - h=max(무한대)일 경우: Supremum distance(차이가 가장 큰 값)
+  - h=1일 경우: **Manhattan distance**
+  - h=2일 경우: **Euclidean distance**
+  - h=max(무한대)일 경우: **Supremum distance**(벡터 안의 어느 성분끼리든 차이가 가장 큰 값)
 
 ### Ordinal Variables  
 - 순서가 중요한 attribute이다. ex) rank
