@@ -85,7 +85,7 @@ ex) customer _ID, name, address
 
 - **Attribute Types**
   - **Nominal**: 카테고리, 상태, 어떤 것의 이름 등
-    - 값이 유한하다.
+    - 값의 수, 가짓수가 유한하다.
       - ex) Hair_color={black, blond, brown, grey, red, white}와 같이 유한한 상태로 제한된 attribute  
     - 결혼 여부, 직업, 신분증 번호, 우편 번호 등이 nominal에 해당한다.
     - Attribute간의 우열을 가릴 수 없다.
@@ -99,7 +99,7 @@ ex) customer _ID, name, address
     - 값들이 중요한 순서를 갖고 있다. (Ranking)  
     - 값을 구분할 수는 있지만(우열이 존재) 연속된 값들이 얼마나 차이가 있는 지 그 **Magnitude**는 정의되어 있지 않다.  
     - Size={small, medium, large}, Grades={A0, A+, B0, B+...}, Army rankings
-    - 학점의 경우 그 숫자 자체에서의 Magnitude가 아니라 예를 들어, A+맞은 학생이 B+맞은 학생보다 얼마나 잘하는 지를 모른 다는 것이 아니다.
+    - 학점의 경우 그 숫자 자체에서의 Magnitude가 아니라 예를 들어, A+맞은 학생이 B+맞은 학생보다 얼마나 잘하는 지를 모른 다는 것이다. ~~4.5만점 기준으로 1.0만큼 잘하는 게 아니지 않은가!!~~
 
   - **Numeric**  
     - 양이 있는 attribute(Quantity: Integer or real-valued)
@@ -107,6 +107,7 @@ ex) customer _ID, name, address
       - 값들의 순서가 있다.
       - 앞선 ordinal attribute와 달리 equal-sized units(magnitude가 일정하다), 값들의 차이를 알 수 있음 ex) 섭씨, 화씨 온도, 달력 날짜  
       - 진정한 의미의 zero-point가 존재하지 않는다. 0도는 온도가 없는 것이 아님을 예로 들 수 있다.   
+      - 결과적으로, ratio-scaled는 아니다. "10 ℃가 20 ℃보다 10 ℃ 더 높다"라고 말할 수는 있지만 절대 영점이 없으므로 "10 ℃가 20 ℃보다 2배 더 높다"라고는 말하지 못한다
 
     - **Ratio-scaled**
       - 진정한 zero-point가 존재한다.(없음을 의미하는 zero가 정의되어 있음)
@@ -130,7 +131,7 @@ ex) customer _ID, name, address
 
 데이터의 기본적인 통계에 대해 왜 알아야할까?
 
-데이터를 잘 이해하기 위해, 즉 중심적인 경향, 그 중심으로부터 데이터가 얼마나 퍼져있는 지 등을 알 수 있기 때문이다. 이를 대략 알고 있다면 알고리즘을 올바르게 적용할 수 있다.
+데이터를 보다 잘 이해하기 위해서이다. 예로, 중심적인 경향과 그 중심으로부터 데이터가 얼마나 퍼져있는 지 등을 알 수 있기 때문이다. 이를 대략 알고 있다면 알고리즘을 올바르게 적용할 수 있다.
 
 데이터 분산의 특성으로는 median, max, min, quartiles(4분위수), outliers, variance 등이 있다.
 
