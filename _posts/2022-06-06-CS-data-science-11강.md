@@ -23,9 +23,9 @@ comments: true
 
 Data quality를 측정에 관해 다양한 차원의 관점들이 있다.
 1. Accuracy: 얼마나 정확한가?
-2. Completeness: 얼마나 데이터가 완전한가?
-3. Consistency:
-4. Timeliness:
+2. Completeness: 얼마나 데이터가 완전한가?(결측치 없고 다 사용가능한가)
+3. Consistency: 데이터가 일관적인가? (나이와 생년의 불일치 등)
+4. Timeliness: 얼마나 최근의 정보를 갖고 있는가?
 5. Believability: 데이터를 얼마나 신뢰할 수 있는가?
 6. Interpretability: 데이터를 얼마나 쉽게 이해할 수 있는가?
 
@@ -42,13 +42,19 @@ Data quality를 측정에 관해 다양한 차원의 관점들이 있다.
   + Normalization
   + Concept hierarchy generation
 
+---
 ### Data Cleaning
+
+- Incomplete
+- Noisy
+- Inconsistent
+- Intentional
 
 #### Incomplete(Missing) Data
 
 데이터가 항상 사용 가능한 것은 아니다. 즉, 데이터에는 결측치들이 많이 있다.
 
-결측치는 장비의 오작동일수도 있고, 다른 기록된 데이터와 일치하지 않아서일수도 있고, 입력하는 시점에 별로 중요하지 않은 것으로 간주되어서 입력되지 않을수도 있고 데이터의 변경이나 기록 등을 등록하지 않을 수도 있다. 위와 같이 여러 이유들로 결측치는 존재하고 이러한 결측치들을 유추해야 한다.
+결측치는 장비의 오작동일수도 있고, 다른 기록된 데이터와 일치하지 않아서일수도 있고, 입력하는 시점에 별로 중요하지 않은 것으로 간주되어서 입력되지 않았을수도 있고 데이터의 변경이나 기록 등을 등록하지 않을 수도 있다. 위와 같이 여러 이유들로 결측치는 존재하고 이러한 결측치들을 유추해야 한다.
 
 이러한 결측치들은 어떻게 다뤄야할까?
 
