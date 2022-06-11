@@ -101,14 +101,14 @@ Chi-square 값을 위 식에 따라 구해보자.
 #### Correlation Analysis (Numeric Data)
 
 앞선 방식은 nominal data일 경우고, Numeric data일 경우 계산 방법은 다르다. 이 때, correlation coefficient(Pearson's product moment coefficient)를 사용하는데 식은 아래와 같다.  
-![Pearson's coefficient](https://sundongkim-dev.github.io/assets/img/data_science/pearson's_coefficient.png)  
+![Pearson's coefficient](https://sundongkim-dev.github.io/assets/img/data_science/Pearson's_coefficient.PNG)  
 n은 tuple의 개수이고, sum(a<sub>i</sub>b<sub>i</sub>)은 AB의 외적의 합을 말한다.
 
 Correlation coefficient가 양수라면 A와 B는 양의 상관관계가 있으며 값이 클수록 더 강한 상관관계이다. 0이라면 independent이고 음수라면 음의 상관관계를 갖는다.
 
 #### Covariance(Numeric Data)
 
-![covariance](https://sundongkim-dev.github.io/assets/img/data_science/covariance.png)  
+![covariance](https://sundongkim-dev.github.io/assets/img/data_science/covariance.PNG)  
 Covariance는 correlation과 비슷하다. 이 때, A 바와 B 바는 앞선 correlation에선 평균이었지만 여기서는 기댓값의 평균이다.
 
 Covariance가 양의 값을 갖는다면, A와 B 모두 기댓값보다 큰 값을 갖는 경향이 있고, 음의 값을 갖는다면 그 반대이다. 즉, A가 기댓값보다 큰 값을 갖는다면 B값은 기댓값보다 작은 값을 갖는다. 이 역시 0이라면 independent하다.
@@ -229,11 +229,11 @@ Methods
 
 #### Normalization
 **1. Min-max normalization**: to [new_min<sub>A</sub>, new_max<sub>A</sub>]    
-![min_max](https://sundongkim-dev.github.io/assets/img/data_science/min_max.png)  
+![min_max](https://sundongkim-dev.github.io/assets/img/data_science/min_max.PNG)  
 **2. Z-score normalization**  
-![z_score](https://sundongkim-dev.github.io/assets/img/data_science/z_score.png)  
+![z_score](https://sundongkim-dev.github.io/assets/img/data_science/z_score.PNG)  
 **3. Normalization by decimal scaling**  
-![decimal](https://sundongkim-dev.github.io/assets/img/data_science/decimal.png)  
+![decimal](https://sundongkim-dev.github.io/assets/img/data_science/decimal.PNG)  
 이 때, j는 MAX(v')<1을 만족하는 가장 작은 정수
 
 #### Discretization
