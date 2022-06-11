@@ -230,7 +230,7 @@ CF tree는 hierarchical clustering을 위한 clustering feature를 저장하는 
 거리 기반이 아닌, link라는 개념을 사용하여 similarity와 proximity를 측정한다. Jaccard coefficient와 같은 categorical data에 대한 고전적인 measure는 잘 작동하지 않을 수 있다.
 
 먼저, Jaccard coefficient를 기반으로 한 similarity function으론 아래와 같은 공식이 있다.  
-![JC based similarity](https://sundongkim-dev.github.io/assets/img/data_science/JC_based_similarity.png)    
+![JC based similarity](https://sundongkim-dev.github.io/assets/img/data_science/jaccard_coefficient_based_similarity.png)    
 
 예시로, T<sub>1</sub>={a,b,c}이고 T<sub>2</sub>={c,d,e}라면 similarity는 0.2이다.
 
