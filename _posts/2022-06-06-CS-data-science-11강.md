@@ -88,20 +88,20 @@ Data cleaning이 필요한 다른 문제들론 중복 record나 inconsistent dat
 
 science fiction을 좋아하는 것과 체스를 하는 것이 서로 상관관계가 있다는 것을 알고 싶다고 하자.
 
-![Chi-square](https://sundongkim-dev.github.io/assets/img/data_science/Chi-square.png)  
+![Chi-square](https://sundongkim-dev.github.io/assets/img/data_science/chi_square.png)  
 이는 Chi-square test라는 것을 통해 알 수 있다. X<sup>2</sup>값이 클수록, 변수들이 더욱 서로 상관이 있다는 것이다. 이 값에 가장 많은 기여를 하는 부분은 실제값과 예측 값이 매우 다른 항이다.
 
 상관관계는 인과관계와 다르다. 병원의 수와 자동차 절도 건수는 상관관계가 있고, 두 개 모두 인구와 인과관계가 있다.
 
 Chi-square 값을 위 식에 따라 구해보자.  
-![Chi-square calc](https://sundongkim-dev.github.io/assets/img/data_science/Chi-square_calculation.png)
+![Chi-square calc](https://sundongkim-dev.github.io/assets/img/data_science/chi_square_calculation.png)
 
 결과값이 507.93으로 sf를 좋아하는 것과 체스를 하는 것에 상관관계가 있음을 알 수 있다. (기준값이 있고 이를 충족해야 한다)
 
 #### Correlation Analysis (Numeric Data)
 
 앞선 방식은 nominal data일 경우고, Numeric data일 경우 계산 방법은 다르다. 이 때, correlation coefficient(Pearson's product moment coefficient)를 사용하는데 식은 아래와 같다.  
-![Pearson's coefficient](https://sundongkim-dev.github.io/assets/img/data_science/Pearson's_coefficient.png)  
+![Pearson's coefficient](https://sundongkim-dev.github.io/assets/img/data_science/pearson's_coefficient.png)  
 n은 tuple의 개수이고, sum(a<sub>i</sub>b<sub>i</sub>)은 AB의 외적의 합을 말한다.
 
 Correlation coefficient가 양수라면 A와 B는 양의 상관관계가 있으며 값이 클수록 더 강한 상관관계이다. 0이라면 independent이고 음수라면 음의 상관관계를 갖는다.
