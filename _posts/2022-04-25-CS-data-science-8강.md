@@ -38,16 +38,16 @@ comments: true
 
 Recommendation system은 다음 4 가지의 approach로 분류할 수 있다.
 
-1. Content-based approach: 활성 사용자의 즐겨찾기 항목과 내용이 유사한 항목 추천
-2. **Collaborative filtering(CF) approach**: 활성 사용자와 유사한 이웃에 의해 높게 평가된 항목 추천
-3. Trust-based approach: 사용자 간의 신뢰 관계에 따라 항목 추천
-4. Hybrid approach: 위의 접근방식을 조합하여 아이템 추천
+1. Content-based approach: 활성 사용자의 즐겨찾기 항목과 내용이 유사한 항목 추천  
+2. **Collaborative filtering(CF) approach**: 활성 사용자와 유사한 이웃에 의해 높게 평가된 항목 추천  
+3. Trust-based approach: 사용자 간의 신뢰 관계에 따라 항목 추천  
+4. Hybrid approach: 위의 접근방식을 조합하여 아이템 추천  
 
 위 4 가지 중 우리는 CF approach에 집중할 것이다. 순서는 다음과 같다.
 
-1단계: 활성 사용자 c와 유사한 사용자(이웃) 그룹 찾기
-2단계: item s에대한 c의 rating을 r<sub>c,s</sub>이라고 하면 이를 예측해야 한다. 이 때, c의 이웃들이 해당 item s에 준 rating을 기반으로 예측한다.
-3단계: Rating이 높은 순서대로 소수의 item을 추천한다.
+1단계: 활성 사용자 c와 유사한 사용자(이웃) 그룹 찾기  
+2단계: item s에대한 c의 rating을 r<sub>c,s</sub>이라고 하면 이를 예측해야 한다. 이 때, c의 이웃들이 해당 item s에 준 rating을 기반으로 예측한다.  
+3단계: Rating이 높은 순서대로 소수의 item을 추천한다.  
 
 결과적으로, 각 유저들과 아이템 사이의 rating matrix가 곧 input data이다. 아래 그림을 보자.
 ![Rating matrix](https://sundongkim-dev.github.io/assets/img/data_science/Rating_matrix.png)
