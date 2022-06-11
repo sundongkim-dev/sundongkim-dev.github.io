@@ -92,7 +92,7 @@ Data cleaning이 필요한 다른 문제들론 중복 record나 inconsistent dat
 |Not like science fiction|50(210)|1000(840)|1050|
 |Sum (col)|300|1200|1500|
 
-science fiction을 좋아하는 것과 체스를 하는 것이 서로 상관관계가 있다는 것을 알고 싶다고 하자.
+science fiction을 좋아하는 것과 체스를 하는 것이 서로 상관관계가 있는지를 알고 싶다고 하자.
 
 ![Chi-square](https://sundongkim-dev.github.io/assets/img/data_science/chi_square.png)  
 이는 Chi-square test라는 것을 통해 알 수 있다. X<sup>2</sup>값이 클수록, 변수들이 더욱 서로 상관이 있다는 것이다. 이 값에 가장 많은 기여를 하는 부분은 실제값과 예측 값이 매우 다른 항이다.
