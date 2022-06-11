@@ -175,7 +175,7 @@ Wavelet이란 공간 효율적인 함수 계층적 분해를 위한 수학적 �
 
 - Irrelevant attributes: 학생의 gpa를 예측하는 데 id는 중요하지 않다!!
 
-d개의 attribute가 있다면 2<sup>d</sup>개의 가능한 조합이 있다. 개수가 너무 많으므로 heuristic하게 정해야 하는데, 3 가지 방법이 있다.
+d개의 attribute가 있다면 2<sup>d</sup>-1개의 가능한 조합이 있다. 개수가 너무 많으므로 heuristic하게 정해야 하는데, 3 가지 방법이 있다.
 
 1. Significance test를 통해 고르기
 2. Best step-wise feature selection: 제일 좋은 attribute 택하고, 차례로 구하기
@@ -219,7 +219,7 @@ d개의 attribute가 있다면 2<sup>d</sup>개의 가능한 조합이 있다. �
 1. Simple random sampling
 2. Sampling without replacement: 중복 없이 샘플링
 3. Sampling with replacement: 중복 있이 샘플링
-4. Stratified sampling: skewed data를 핸들링하기 위함, 균등하게 샘플링
+4. Stratified sampling: skewed data를 핸들링하기 위함, distribution 반영하여 균등하게 샘플링
 
 #### Data Compression
 
