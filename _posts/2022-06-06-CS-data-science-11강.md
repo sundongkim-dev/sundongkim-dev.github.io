@@ -262,5 +262,5 @@ A와 B가 속성의 가장 낮은 값과 가장 높은 값인 경우, 간격의 
 범위를 N개의 구간으로 나누는데, 각 구간은 거의 동일한 수의 표본을 포함한다. 데이터 확장에 좋다.
 
 + Partition into equal-frequency(equi-depth) bins
-+ Smoothing by bin means
-+ Smoothing by bin boundaries
++ Smoothing by bin means(평균으로 바꾸기)
++ Smoothing by bin boundaries(각 끝값 기준으로 값 바꾸기)
