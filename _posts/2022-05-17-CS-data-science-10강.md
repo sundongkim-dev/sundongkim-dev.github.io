@@ -257,9 +257,9 @@ Dynamic model에 기반해서 similarity를 측정한다. Bottom-up 방식으로
 - Partitioning
   - METIS라는 방법을 사용해서 잘리는 edge의 수와 edge의 weight을 최소화하는 방향으로 자른다. 또한, 그래프를 거의 같은 사이즈의 서브 그래프로 나누는 것이다.
 - Relative interconnectivity  
-![Relative_interconnectivity](https://sundongkim-dev.github.io/assets/img/data_science/Relative_interconnectivity.png)  
+![Relative_interconnectivity](https://sundongkim-dev.github.io/assets/img/data_science/relative_interconnectivity.png)  
 - Relative closeness  
-![Relative_closeness](https://sundongkim-dev.github.io/assets/img/data_science/Relative_closeness.png)
+![Relative_closeness](https://sundongkim-dev.github.io/assets/img/data_science/relative_closeness.png)
 
 ---
 ## Density-Based Methods
