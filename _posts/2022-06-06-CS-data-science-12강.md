@@ -127,7 +127,7 @@ Cyclic citation의 경우 alpha의 확률로는 똑같이 진행하고 (1-alpha)
 말 그대로 웹을 랜덤하게 서핑하는 것이다. 랜덤한 페이지로 jump하는 것을 말하며 다른말로 restart surfing이라고도 한다. 어떤 임의의 페이지에서도 alpha의 확률로 link를 랜덤하게 선택해서 진행하고(=random walk), (1-alpha)의 확률로 랜덤한 페이지로(=restart) 간다.
 
 이를 수식으로 표현하면 아래와 같다.  
-![pageRank](https://sundongkim-dev.github.io/assets/img/data_science/pageRank.png)    
+![pageRank](https://sundongkim-dev.github.io/assets/img/data_science/pageRank.PNG)    
 위 식에서는 random walk에 (1-alpha)가 곱해져있는데 딱히 상관없다. 결국, random walk는 dangling nodes 문제를 해결했고, restart는 cyclic citation을 해결한 셈이다.
 
 ### Link-Based Object Classification (LBC)
