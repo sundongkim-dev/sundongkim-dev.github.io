@@ -76,7 +76,7 @@ Data cleaning이 필요한 다른 문제들론 중복 record나 inconsistent dat
 
 여러 소스로부터 데이터들을 일관된 저장소에 결합하는 것을 말한다. 이때 스키마 통합도 이루어진다(서로 다른 소스의 메타데이터 통합).
 
-또한 Entity identification problem이 발생한다. 데이터 값 충돌 감지 및 해결이 필요하다. 동일한 실제 entity에 대해 다른 소스로부터 attribute의 값이 다르다. 이는 다른 표현, 척도 등을 사용해서 일어날 수 있다.
+또한 Entity identification problem이 발생한다. 이는 다른 데이터 소스에서 실제로는 같은 entity가 있는 지를 확인하는 문제이다. 나아가, 다른 소스로부터 얻은 동일한 실제 entity에 대해 attribute의 값이 다를 수 있다. ~~실제로는 같은 것이지만..~~  또는, 다른 표현이나 척도 등을 사용해서 일어날 수 있다. 때문에, 데이터 값 충돌 감지 및 해결이 필요하다.
 
 여러 DB를 통합하는 과정에서 redundant data가 종종 생겨난다. 같은 attribute나 object가 다른 db에서 다른 이름을 갖고 있을 수 있고(object identification), 어떤 attribute가 다른 테이블의 attribute로부터 "derived"되었을 수 있다.(Derivable data, ex. 생일날과 나이)
 
