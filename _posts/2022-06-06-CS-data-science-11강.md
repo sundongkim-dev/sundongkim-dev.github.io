@@ -150,6 +150,13 @@ Dimensionality reduction은 위와 같은 "차원의 저주"를 피할 수 있�
 Wavelet이란 공간 효율적인 함수 계층적 분해를 위한 수학적 도구이다. 원어를 번역하다보니 말이 너무 어려운데 결국 공간을 효율적으로 쓰겠다는 말이다.
 
 만약 데이터 S가 [2, 2, 0, 2, 3, 5, 4, 4]로 이루어져있다면 이를 압축하겠다는 것이다.
+![Wavelet Decomposition](https://sundongkim-dev.github.io/assets/img/data_science/wavelet_decomposition.png)
+위 표를 보자. 우선 값을 2개씩 묶어서 평균을 구해준다. 이 때, detail coefficient는 왼쪽으로 갈땐 +, 오른쪽으로 갈땐 -를 적용해줘야한다. 즉, 2,1,4,4에서 4를 보자. 4에서 +(-1)을 해주면 3이고 -(-1)을 해주면 5이다. 그렇게 앞선 값을 복원할 수 있다. 똑같이 8개의 숫자를 8개로 변형했는데 압축은 어디서 일어날까?
+
+![Error tree](https://sundongkim-dev.github.io/assets/img/data_science/error_tree.png)
+결국, 어느 level 까지 취할 것인가가 compression의 범위가 된다. 연산 상에서 마지막에 가까울수록, 즉 위의 error tree 기준으로 위 쪽에 있을수록 더 중요한 표현이 되는 것이다.
+
+
 
 **2. Principal Component Analysis (PCA)**
 
