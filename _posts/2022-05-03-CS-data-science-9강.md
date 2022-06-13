@@ -102,7 +102,8 @@ ex) customer _ID, name, address
     - 학점의 경우 그 숫자 자체에서의 Magnitude가 아니라 예를 들어, A+맞은 학생이 B+맞은 학생보다 얼마나 잘하는 지를 모른 다는 것이다. ~~4.5만점 기준으로 1.0만큼 잘하는 게 아니지 않은가!!~~
 
   - **Numeric**  
-    - 양이 있는 attribute(Quantity: Integer or real-valued)
+    - Quantity
+      - 양이 있는 attribute(Integer or real-valued)
     - **Interval-scaled**   
       - 값들에 순서가 있다.
       - 앞선 ordinal attribute와 달리 equal-sized units(magnitude가 일정하다), 값들의 차이를 알 수 있음 ex) 섭씨, 화씨 온도, 달력 날짜  
@@ -133,11 +134,11 @@ ex) customer _ID, name, address
 
 데이터를 보다 잘 이해하기 위해서이다. 예로, 중심적인 경향과 그 중심으로부터 데이터가 얼마나 퍼져있는 지 등을 알 수 있기 때문이다. 이를 대략 알고 있다면 알고리즘을 올바르게 적용할 수 있다.
 
-데이터 분산의 특성으로는 median, max, min, quartiles(4분위수), outliers, variance 등이 있다.
+**데이터 분산**의 **특성**으로는 **median, max, min, quartiles(4분위수), outliers, variance** 등이 있다.
 
 ### Measuring the Central tendency  
 
-데이터의 중심적인 경향을 나타내는 것으로 mean, median, mode가 있다.
+데이터의 중심적인 경향을 나타내는 것으로 **mean, median, mode**가 있다.
 
 - **Mean**(Algebraic measure)
   - Sample의 mean: (샘플인 x의 합) / (x의 개수)  
