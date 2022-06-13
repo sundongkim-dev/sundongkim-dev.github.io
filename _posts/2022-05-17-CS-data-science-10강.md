@@ -82,13 +82,14 @@ Data mining에서 clustering의 **Requirements**는 아래와 같은 것들이 �
   ![Diameter](https://sundongkim-dev.github.io/assets/img/data_science/diameter.png)
 
 클러스터 간의 거리를 계산하는 일반적인 대안으로 여러 가지 방식이 있다.
-1. Single link: 모든 가능한 쌍에 대해, 한 클러스터의 원소와 다른 클러스터의 원소 사이의 최소 거리  
+
+1. Single link: **모든 가능한 쌍에 대해**, 한 클러스터의 원소와 다른 클러스터의 원소 사이의 최소 거리  
     - dis(K<sub>i</sub>, K<sub>j</sub>) = min(t<sub>ip</sub>, t<sub>jq</sub>)  
 
-2. Complete link: 모든 가능한 쌍에 대해, 한 클러스터의 원소와 다른 클러스터의 원소 사이의 최대 거리  
+2. Complete link: **모든 가능한 쌍에 대해**, 한 클러스터의 원소와 다른 클러스터의 원소 사이의 최대 거리  
     - dis(K<sub>i</sub>, K<sub>j</sub>) = max(t<sub>ip</sub>, t<sub>jq</sub>)
 
-3. Average: 한 클러스터와 다른 클러스터 각각에서 원소를 하나씩 뽑은 모든 쌍에 대해서 거리를 구한 후 평균을 구한 것  
+3. Average: **한 클러스터와 다른 클러스터 각각에서** 원소를 하나씩 뽑은 모든 쌍에 대해서 거리를 구한 후 평균을 구한 것  
   - dis(K<sub>i</sub>, K<sub>j</sub>) = avg(t<sub>ip</sub>, t<sub>jq</sub>)
 
 4. Centroid: 두 클러스터의 centroid 사이의 거리!  
@@ -97,7 +98,7 @@ Data mining에서 clustering의 **Requirements**는 아래와 같은 것들이 �
 
 5. Medoid: 두 클러스터의 medoid 사이의 거리!  
   - dis(K<sub>i</sub>, K<sub>j</sub>)=dis(M<sub>i</sub>, M<sub>j</sub>)  
-  - Medoid: 클러스터에서 가장 가운데에 위치한 실제 object   
+  - Medoid: 클러스터에서 가장 가운데에 위치한 **실제 object**   
 
 ---
 ## Partitioning Methods  
