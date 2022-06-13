@@ -273,20 +273,20 @@ IC는 edge cut의 수로 판단했다면, RC는 edge cut의 weight으로 판단�
 ---
 ## Density-Based Methods
 
-거리만으로 클러스팅하지 않고, density를 기반으로 클러스터링하는 것을 말한다. 주요 특징으로는, 임의의 모양의 클러스터를 찾을 수 있고 noise를 처리할 수 있으며, 한 번의 스캔만으로도 효율적으로 동작한다. 또한 종료 조건으로 density parameters들이 필요하다. DBSCAN, OPTICS, CLIQUE 등의 알고리즘들이 있다.
+거리만으로 클러스팅하지 않고, **density를 기반으로 클러스터링**하는 것을 말한다. 주요 특징으로는, **임의의 모양의 클러스터를 찾을 수 있고 noise를 처리할 수 있으며, 한 번의 스캔만으로도 효율적으로 동작**한다. 또한 종료 조건으로 density parameters들이 필요하다. **DBSCAN, OPTICS**, CLIQUE 등의 알고리즘들이 있다.
 
-기본적으로 두 개의 parameter가 존재한다. Eps와 MinPts인데, Eps는 maximum radius를 말하고 MinPts는 포함해야하는 최소 object의 수를 말한다. 즉, Eps를 반지름으로 하는 원이 클러스터의 범위가 되며, 그 안에는 MinPts 이상의 object가 존재하는 것이다.
+기본적으로 두 개의 parameter가 존재한다. **Eps**와 **MinPts**인데, Eps는 **maximum radius**를 말하고 MinPts는 **포함해야하는 최소 object의 수**를 말한다. 즉, Eps를 반지름으로 하는 원이 클러스터의 범위가 되며, 그 안에는 MinPts 이상의 object가 존재하는 것이다.
 
-N<sub>Eps</sub>(p)라는 표현을 알아야 한다. 이는 점 p와 거리가 Eps 이하인 q들(점들)의 집합을 말한다.
+**N<sub>Eps</sub>(p)**라는 표현을 알아야 한다. 이는 **점 p와 거리가 Eps 이하인 q들(점들)의 집합**을 말한다.
 
 여기서 알아야하는 개념으로 **directly density-reachable**이 있다.
 
 **1. Directly density-reachable**
-점 p가 점 q로부터 directly density-reachable하다면, 주어진 Eps와 MinPts 하에서, p는 N<sub>Eps</sub>(q)에 해당하고, core point condition을 만족해야 한다.
+점 p가 점 q로부터 directly density-reachable하다면, 주어진 Eps와 MinPts 하에서, **p는 N<sub>Eps</sub>(q)에 해당**하고, **core point condition을 만족**해야 한다.
 
-**Core point condition**은 N<sub>Eps</sub>(q) >= MinPts로 결국 neighbors의 수가 MinPts 이상인 경우를 말한다.  
+**Core point condition**은 **N<sub>Eps</sub>(q) >= MinPts**로 결국 neighbors의 수가 MinPts 이상인 경우를 말한다.  
 
-Directly density-reachable은 symmetric하지 않다. 예를 들어, p가 q의 neighbor에 속하고 q의 neighbor의 수가 MinPts 이상이라도 그 반대는 성립하지 않을 수 있는 것이다.
+Directly density-reachable은 **symmetric하지 않다**. 예를 들어, p가 q의 neighbor에 속하고 q의 neighbor의 수가 MinPts 이상이라도 그 반대는 성립하지 않을 수 있는 것이다.
 
 **2. Density-reachable**
 어떤 점 p가 점 q로부터 density-reachable하다면, 주어진 Eps와 MinPts 하에서, p<sub>1</sub>부터 p<sub>n</sub>까지 chain이 있다는 것이다. 이 chain은 p<sub>1</sub>은 q, p<sub>n</sub>은 p이고 p<sub>i+1</sub>은 p<sub>i</sub>으로부터 directly density-reachable하다는 것을 의미한다.
