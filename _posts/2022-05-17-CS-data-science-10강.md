@@ -292,7 +292,7 @@ Directly density-reachable은 **symmetric하지 않다**. 예를 들어, p가 q�
 어떤 점 p가 점 q로부터 density-reachable하다면, 주어진 Eps와 MinPts 하에서, p<sub>1</sub>부터 p<sub>n</sub>까지 chain이 있다는 것이다. 이 chain은 p<sub>1</sub>은 q, p<sub>n</sub>은 p이고 p<sub>i+1</sub>은 p<sub>i</sub>으로부터 directly density-reachable하다는 것을 의미한다.
 
 **3. Density-connected**
-어떤 점 p가 점 q로부터 density-connected하다면, 주어진 Eps와 MinPts 하에서, 점 p와 q로부터 density-reachable한 점 o가 있다는 것이다.
+어떤 점 p가 점 q로부터 density-connected하다면, 주어진 Eps와 MinPts 하에서, 어떤 점 o가 있는데 점 p와 q가 동시에 점 o로부터 density reachable한 것이다.
 
 ### DBSCAN: Density Based Spatial Clustering of Applications with Noise
 
