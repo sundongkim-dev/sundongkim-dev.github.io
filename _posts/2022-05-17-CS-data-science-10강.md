@@ -267,6 +267,9 @@ Link란 **common neighbor들의 수**이다. 두 페어의 **Jaccard coefficient
 - Relative closeness  
 ![relative_closeness](https://sundongkim-dev.github.io/assets/img/data_science/relativeCloseness.png)  
 IC는 edge cut의 수로 판단했다면, RC는 edge cut의 weight으로 판단하는 것이다. 두 클러스터의 size를 고려하여 weighted average를 하고 이 값과 새로 합쳐질 클러스터의 closeness가 얼마나 큰 가(=edge cut의 weight의 합이 얼마나 큰 가)를 나타낸 것이다.
+
+몇 개의 클러스터를 만들 것인가는 미리 입력값으로 주어야 한다. 그것이 곧 종료 조건이 된다.
+
 ---
 ## Density-Based Methods
 
