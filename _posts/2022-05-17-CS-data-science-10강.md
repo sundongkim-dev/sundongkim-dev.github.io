@@ -246,13 +246,13 @@ Link란 **common neighbor들의 수**이다. 두 페어의 **Jaccard coefficient
 
 #### 3. CHAMELEON: Hierarchical Clustering Using Dynamic Modeling
 
-**Dynamic model**에 기반해서 similarity를 측정한다. Bottom-up 방식으로 두 클러스터는 **interconnectivity와 closeness(proximity)가 높은 경우**에만 병합된다.
+**Dynamic model**에 기반해서 similarity를 측정한다. Bottom-up 방식으로 두 클러스터는 **interconnectivity와 closeness(proximity)가 충분히 높은 경우**에만 병합된다.
 
-높은 경우란 언제를 말하는 걸까? 바로 **두 클러스터를 다시 각각 두 조각으로 쪼개서 interconnectivity와 closeness를 구하고 그것보다 큰 경우**를 말하는 것이다.
+충분히 높은 경우란 언제를 말하는 걸까? 바로 **두 클러스터를 다시 각각 두 조각으로 쪼개서 interconnectivity와 closeness를 구하고 그것보다 큰 경우**를 말하는 것이다.
 
 내부의 interconnectivity와 closeness보다 interconnectivity, closeness가 큰 클러스터끼리 합치는 것이다.
 
-우선, k-nearest neighbor 그래프를 먼저 그린다. 이 때, 노드는 object를 의미하고, 간선은 k-nearest neighbor의 link를 뜻하며, weight은 similarity가 된다.
+우선, **k-nearest neighbor 그래프를 먼저 만든다**. 이 때, 노드는 object를 의미하고, 간선은 k-nearest neighbor의 link를 뜻하며, weight은 similarity가 된다.
 
 2-phase 알고리즘으로 graph partitioning algorithm(작은 클러스터들을 생성)과 agglomerative hierarchical clustering algorithm(하위 클러스터를 반복적으로 결합하여 실제 클러스터를 찾음)을 사용한다.
 
