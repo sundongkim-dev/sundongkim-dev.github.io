@@ -298,7 +298,11 @@ Directly density-reachable은 **symmetric하지 않다**. 예를 들어, p가 q�
 
 Density-based 알고리즘이며, 클러스터는 density-connected points의 최대 집합으로 정의된다. 노이즈가 섞여 있는 공간 데이터베이스에서 클러스터를 찾는다.
 
-알고리즘은 다음과 같다. 임의로 점 p를 고르고, p에서 density-reachable한 점을 모두 찾는다. 만약 p가 core point라면 클러스터가 만들어지고, 그렇지 않으면 border point로 다른 점에서 다시 탐색을 시작한다. 모든 point들을 방문할 때까지 반복한다. 결과적으로, Eps와 MinPts와 같은 파라미터에 따라 클러스터가 다르게 만들어진다.
+알고리즘은 다음과 같다.
+
+1) 임의로 점 p를 고르고, p로부터 density-reachable한 점들을 모두 찾는다.
+2) 만약 p가 core point라면 클러스터가 만들어지고, 그렇지 않으면 border point로 다른 점에서 다시 탐색을 시작한다.
+3) 모든 point들을 방문할 때까지 반복한다. 결과적으로, Eps와 MinPts와 같은 파라미터에 따라 클러스터가 다르게 만들어진다.
 
 DBSCAN의 문제는 **파라미터에 너무 sensitive**하다는 것이다. 이를 어떻게 극복할 수 있을까? OPTICS..!
 
@@ -321,13 +325,13 @@ Outlier란 다른 데이터와 매우 다른 object들을 말한다. 매우 큰 
 
 ### Outlier Discovery: Statistical Approaches  
 
-데이터 집합을 생성하는 기본 분포 모형(ex: 정규 분포)을 가정하고 데이터 분포, 분포 모수(평균, 분산), 예상되는 outlier의 개수 등에 따라 불일치 테스트(discordancy test)를 한다. 이렇게하면 쉽겠지만 대부분의 테스트는 단일 attribute에 대한 것(실제는 많은 attribute를 갖고 있음)으로, 많은 경우에 데이터의 분포를 알 수 없다. 결과적으로 데이터의 분포를 잘 모른채로 할 수 있어야 한다.
+데이터 집합을 생성하는 기본 분포 모형(ex: 정규 분포)을 가정하고 데이터 분포, 분포 모수(평균, 분산), 예상되는 outlier의 개수 등에 따라 불일치 테스트(discordancy test)를 한다. 이렇게 하면 쉽겠지만 대부분의 테스트는 **단일 attribute에 대한 것**(실제는 많은 attribute를 갖고 있음)으로, **많은 경우에 데이터의 분포를 알 수 없다**. 결과적으로 **데이터의 분포를 잘 모른채로 할 수 있어야 한다**.
 
 ### Outlier Discovery: Distance-Based Approach  
 
-통계적 방법에 의해 생기는 limitations에 대응하기 위해 도입되었다. 데이터 분포를 모른채 하는 다차원 분석이 필요한 것이다. 이를 극복하기 위한 방법이 바로 distance-based approach이다.
+통계적 방법에 의해 생기는 limitations에 대응하기 위해 도입되었다. 데이터 분포를 모른채로 하는 다차원 분석이 필요한 것이다. 이를 극복하기 위한 방법이 바로 **distance-based approach**이다.
 
-Distance-based outlier(DB(p, D)-outlier): 모든 페어에 대해 거리를 계산하고 p% 이상 점 o에서 D거리 이상 떨어져 있으면 o는 outlier이다.
+Distance-based outlier(DB(p, D)-outlier): 모든 페어에 대해 거리를 계산하고 p% 이상 점 o에서 D 거리 이상 떨어져 있으면 o는 outlier이다.
 
 Distance-based outlier를 마이닝하는 알고리즘으로는 index-based, nested-loop, cell-based algorithm들이 있다.
 
