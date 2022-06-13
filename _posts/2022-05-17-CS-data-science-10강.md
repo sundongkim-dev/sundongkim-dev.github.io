@@ -248,16 +248,17 @@ Link란 **common neighbor들의 수**이다. 두 페어의 **Jaccard coefficient
 
 **Dynamic model**에 기반해서 similarity를 측정한다. Bottom-up 방식으로 두 클러스터는 **interconnectivity와 closeness(proximity)가 충분히 높은 경우**에만 병합된다.
 
-충분히 높은 경우란 언제를 말하는 걸까? 바로 **두 클러스터를 다시 각각 두 조각으로 쪼개서 interconnectivity와 closeness를 구하고 그것보다 큰 경우**를 말하는 것이다.
+충분히 높은 경우란 언제를 말하는 걸까? 바로 **두 클러스터를 다시 각각 두 조각으로 쪼개서 interconnectivity와 closeness를 구하고 그것들보다 상대적으로 큰 경우**를 말하는 것이다.
 
 내부의 interconnectivity와 closeness보다 interconnectivity, closeness가 큰 클러스터끼리 합치는 것이다.
 
-우선, **k-nearest neighbor 그래프를 먼저 만든다**. 이 때, 노드는 object를 의미하고, 간선은 k-nearest neighbor의 link를 뜻하며, weight은 similarity가 된다.
+우선, 전체 데이터에 대해 **k-nearest neighbor 그래프를 먼저 만든다**. 이 때, 노드는 각각의 object를 의미하고, 간선은 k-nearest neighbor의 link(가장 가까운 k개의 object들을 잇는다)를 뜻하며, weight은 similarity가 된다.
 
-2-phase 알고리즘으로 graph partitioning algorithm(작은 클러스터들을 생성)과 agglomerative hierarchical clustering algorithm(하위 클러스터를 반복적으로 결합하여 실제 클러스터를 찾음)을 사용한다.
+2-phase 알고리즘으로 **graph partitioning algorithm(작은 클러스터들을 생성)**과 **agglomerative hierarchical clustering algorithm(하위 클러스터를 반복적으로 결합하여 실제 클러스터를 찾음)**을 사용한다.
 
-- Partitioning
-  - METIS라는 방법을 사용해서 잘리는 edge의 수와 edge의 weight을 최소화하는 방향으로 자른다. 또한, 그래프를 거의 같은 사이즈의 서브 그래프로 나누는 것이다.
+- **Partitioning**
+  - **METIS**라는 방법을 사용해서 **잘리는 edge의 수**와 **그 edge에 붙어있는 weight**을 **최소화하는 방향**으로 자른다. 또한, 그래프를 **거의 같은 사이즈의 서브 그래프로 나누는 것**이다.
+  - 이를 반복하여 작은 클러스터들을 만든다.
 - Relative interconnectivity  
 ![relative_interconnectivity](https://sundongkim-dev.github.io/assets/img/data_science/relativeInterconnectivity.png)    
 - Relative closeness  
