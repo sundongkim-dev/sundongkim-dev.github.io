@@ -45,8 +45,8 @@ Data quality를 측정에 관해 다양한 차원의 관점들이 있다.
 ---
 ### Data Cleaning
 
-- Incomplete
-- Noisy
+- **Incomplete**
+- **Noisy**
 - Inconsistent
 - Intentional
 
@@ -58,11 +58,11 @@ Data quality를 측정에 관해 다양한 차원의 관점들이 있다.
 
 이러한 결측치들은 어떻게 다뤄야할까?
 
-일반적으로 무시한다. 분류 task 시에 class label이 누락되었다면 일반적으로 결측치는 무시한다. 그러나 이런 결측치가 많다면 효과적이지 않다.
+일반적으로 무시한다. 분류 task 시에 class label이 누락되었다면 **일반적으로 결측치는 무시한다**. 그러나 이런 결측치가 많다면 당연히 성능이 좋지 않다.
 
 또는 수동적으로 결측치들을 채운다. 이는 매우 힘들고 현실적으로 불가능한 방법이다.
 
-자동으로 이들을 채우는 방법들이 있다. 예를 들어, "unknown"이라는 새로운 label을 만들어서 채우던가, attribute의 mean으로 대체하거나, 동일한 class에 대해 같은 attribute의 mean으로 대체하는 방법 등이 있다. 가장 가능성이 있는 방법으론, 베이지안 공식이나 decision tree등을 사용하여 추론을 하는 방법이 있다.
+자동으로 이들을 채우는 방법들이 있다. 예를 들어, "unknown"이라는 새로운 label을 만들어서 채우던가, **attribute의 mean**으로 대체하거나, **동일한 class에 대해 같은 attribute의 mean**으로 대체하는 방법 등이 있다. 가장 가능성이 있는 방법으론, 베이지안 공식이나 decision tree등을 사용하여 추론을 하는 방법이 있다.
 
 #### Noisy Data
 
@@ -76,11 +76,11 @@ Data cleaning이 필요한 다른 문제들론 중복 record나 inconsistent dat
 
 여러 소스로부터 데이터들을 일관된 저장소에 결합하는 것을 말한다. 이때 스키마 통합도 이루어진다(서로 다른 소스의 메타데이터 통합).
 
-또한 Entity identification problem이 발생한다. 이는 다른 데이터 소스에서 실제로는 같은 entity가 있는 지를 확인하는 문제이다. 나아가, 다른 소스로부터 얻은 동일한 실제 entity에 대해 attribute의 값이 다를 수 있다. ~~실제로는 같은 것이지만..~~  또는, 다른 표현이나 척도 등을 사용해서 일어날 수 있다. 때문에, 데이터 값 충돌 감지 및 해결이 필요하다.
+또한 **Entity identification problem이 발생**한다. 이는 다른 데이터 소스에서 실제로는 같은 entity가 있는 지를 확인하는 문제이다. 나아가, 다른 소스로부터 얻은 동일한 실제 entity에 대해 attribute의 값이 다를 수 있다. ~~실제로는 같은 것이지만..~~  또는, 다른 표현이나 척도 등을 사용해서 일어날 수 있다. 때문에, 데이터 값 충돌 감지 및 해결이 필요하다.
 
-여러 DB를 통합하는 과정에서 redundant data가 종종 생겨난다. 같은 attribute나 object가 다른 db에서 다른 이름을 갖고 있을 수 있고(object identification), 어떤 attribute가 다른 테이블의 attribute로부터 "derived"되었을 수 있다.(Derivable data, ex. 생일날과 나이)
+여러 DB를 통합하는 과정에서 **redundant data**가 종종 생겨난다. 같은 attribute나 object가 다른 db에서 다른 이름을 갖고 있을 수 있고(object identification), 어떤 attribute가 다른 테이블의 attribute로부터 "derived"되었을 수 있다.(Derivable data, ex. 생일날과 나이)
 
-이러한 redundant attribute들은 correlation analysis나 covariance analysis를 통해 찾아낼 수 있다.
+이러한 redundant attribute들은 **correlation analysis나 covariance analysis**를 통해 찾아낼 수 있다.
 
 결과적으로 integration을 조심스럽게 해야 이러한 redundancy나 inconsistency를 최소화할 수 있으며 mining 속도와 quality를 개선할 수 있다.
 
@@ -128,10 +128,10 @@ Covariance가 양의 값을 갖는다면, A와 B 모두 기댓값보다 큰 값�
 
 Data reduction을 하는 방법에는
 + Dimensionality reduction: 중요하지 않은 attribute 제거
-  + Wavelet transforms, PCA(Principal Components Analysis)
+  + **Wavelet transforms**, **PCA(Principal Components Analysis)**
   + Feature subset selection, feature creation
 + Numerosity reduction
-  + Regression
+  + **Regression**
   + Histograms, clustering, sampling
 + Data compression  
 
@@ -147,23 +147,21 @@ Dimensionality reduction은 위와 같은 "차원의 저주"를 피할 수 있�
 
 **1. Wavelet Transformation(Decomposition)**
 
-Wavelet이란 공간 효율적인 함수 계층적 분해를 위한 수학적 도구이다. 원어를 번역하다보니 말이 너무 어려운데 결국 공간을 효율적으로 쓰겠다는 말이다.
+Wavelet이란 공간 효율적인 함수 계층적 분해를 위한 수학적 도구이다. 원어를 번역하다보니 말이 너무 어려운데 결국 **공간을 효율적**으로 쓰겠다는 말이다.
 
 만약 데이터 S가 [2, 2, 0, 2, 3, 5, 4, 4]로 이루어져있다면 이를 압축하겠다는 것이다.
 ![Wavelet Decomposition](https://sundongkim-dev.github.io/assets/img/data_science/wavelet_decomposition.png)
 위 표를 보자. 우선 값을 2개씩 묶어서 평균을 구해준다. 이 때, detail coefficient는 왼쪽으로 갈땐 +, 오른쪽으로 갈땐 -를 적용해줘야한다. 즉, 2,1,4,4에서 4를 보자. 4에서 +(-1)을 해주면 3이고 -(-1)을 해주면 5이다. 그렇게 앞선 값을 복원할 수 있다. 똑같이 8개의 숫자를 8개로 변형했는데 압축은 어디서 일어날까?
 
 ![Error tree](https://sundongkim-dev.github.io/assets/img/data_science/error_tree.png)
-결국, 어느 level 까지 취할 것인가가 compression의 범위가 된다. 연산 상에서 마지막에 가까울수록, 즉 위의 error tree 기준으로 위 쪽에 있을수록 더 중요한 표현이 되는 것이다.
-
-
+결국, **어느 level 까지 취할 것인가가 compression의 범위**가 된다. 연산 상에서 마지막에 가까울수록, 즉 위의 **error tree 기준으로 위 쪽에 있을수록 더 중요한 표현**이 되는 것이다.
 
 **2. Principal Component Analysis (PCA)**
 
-데이터들을 더 작은 차원으로 projection하는 것으로 데이터의 차원을 감소시킨다. n개의 n차원 data vector들이 있을 때, n 이하인 k 개의 orthogonal vector(PC)들을 찾는다. 이들이 데이터를 작은 차원으로 표현하기 적절하기 때문이다.
+데이터들을 **더 작은 차원으로 projection하는 것으로 데이터의 차원을 감소**시킨다. n개의 n차원 data vector들이 있을 때, n 이하인 k 개의 orthogonal vector(PC)들을 찾는다. 이들이 데이터를 작은 차원으로 표현하기 적절하기 때문이다.
 
-1. input data를 normalize한다: 각 attribute들을 같은 range로 제한
-2. k orthonormal (unit) vector들 계산한다: principal components
+1. input data를 **normalize**한다: 각 attribute들을 같은 range로 제한
+2. k orthonormal (unit) vector들 계산한다: principal components 얻기
 3. 중요한 순서대로 PC들을 정렬한다.
 4. 중요하지 않은 것들을 우선적으로 지우면 그만큼 차원을 축소할 수 있다.
 
@@ -183,14 +181,14 @@ d개의 attribute가 있다면 2<sup>d</sup>-1개의 가능한 조합이 있다.
 
 #### Numerosity Reduction
 
-더 작은 형태의 데이터 표현을 선택하여 데이터 볼륨을 감소하는 것으로 크게 보면 parametric method와 non-parametric method가 있다.
+더 작은 형태의 데이터 표현을 선택하여 데이터 볼륨을 감소하는 것으로 크게 보면 **parametric method**와 **non-parametric method**가 있다.
 
-+ Parametric methods(ex. regression)
++ **Parametric methods**(ex. regression)
   + 데이터가 어떤 모델에 fit한다고 가정
   + 모델의 파라미터 추정
   + 파라미터만 저장
   + 가능성 있는 outlier 제외하고 데이터 버리기
-+ Non-parametric methods
++ **Non-parametric methods**
   + 어느 모델도 가정하지 않음
   + Histograms, clustering, sampling 등
 
@@ -234,11 +232,14 @@ d개의 attribute가 있다면 2<sup>d</sup>-1개의 가능한 조합이 있다.
 지정된 attribute의 전체 값 집합을 새로운 replacement 값 집합에 매핑합니다. 각 이전 값을 새 값 중 하나로 식별해야 한다.
 
 Methods  
-1. Normalization: 더 작고 지정된 범위에 포함되도록 척도화됨
-  + min-max normalization
-  + z-score normalization
-  + normalization by decimal scaling
-2. Discretization: Concept hierarchy climbing
+1. **Normalization**: 더 작고 지정된 범위에 포함되도록 척도화됨
+  + **min-max normalization**
+  + **z-score normalization**
+  + **normalization by decimal scaling**
+2. **Discretization**: Concept hierarchy climbing
+  + **Binning**
+    + Equal-width(distance) partitioning
+    + Equal-depth(frequency) partitioning
 
 #### Normalization
 **1. Min-max normalization**: to [new_min<sub>A</sub>, new_max<sub>A</sub>]    
@@ -247,7 +248,7 @@ Methods
 ![z_score](https://sundongkim-dev.github.io/assets/img/data_science/z_score.PNG)  
 **3. Normalization by decimal scaling**  
 ![decimal](https://sundongkim-dev.github.io/assets/img/data_science/decimal.PNG)  
-이 때, j는 MAX(v')<1을 만족하는 가장 작은 정수
+이 때, j는 MAX(abs(v')) < 1을 만족하는 가장 작은 정수
 
 #### Discretization
 
@@ -263,4 +264,4 @@ A와 B가 속성의 가장 낮은 값과 가장 높은 값인 경우, 간격의 
 
 + Partition into equal-frequency(equi-depth) bins
 + Smoothing by bin means(평균으로 바꾸기)
-+ Smoothing by bin boundaries(각 끝값 기준으로 값 바꾸기)
++ Smoothing by bin boundaries(각 끝값에 가까운 값으로 바꾸기)
