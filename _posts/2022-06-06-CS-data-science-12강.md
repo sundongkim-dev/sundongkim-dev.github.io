@@ -114,7 +114,9 @@ Hub score는 해당 페이지의 **out-link neighbor들의 authority score들의
 "중요한(important)" 페이지는 다른 많은 페이지들이 참조하는 것을 말하며 특히 많은 중요한 페이지들이 참조한다면 더욱 중요한 것이다.
 
 **2. Calculate importance score (authority score)**  
-처음에는 모든 페이지에 같은 스코어(e.g. 1)를 할당한다. 각 페이지마다, out-link를 따라서 그 이웃들에게 해당 페이지의 스코어를 분할해서 전달한다. 이 때, 해당 페이지의 점수가 변하지는 않는다. 그렇게 전달 받은 점수들은 in-link를 통해 각 페이지에 전해질 것이며 그를 모두 더한다. 위 과정이 수렴이 될 때까지 반복하면 importance score가 정해진다.
+처음에는 모든 페이지에 같은 스코어(e.g. 1)를 할당한다.(=smoothing of citation)
+
+각 페이지마다, out-link를 따라서 그 이웃들에게 해당 페이지의 스코어를 분할해서 전달한다. 이 때, 해당 페이지의 점수가 변하지는 않는다. 그렇게 전달 받은 점수들은 in-link를 통해 각 페이지에 전해질 것이며 그를 모두 더한다. 위 과정이 수렴이 될 때까지 반복하면 importance score가 정해진다.
 
 하지만 위와 같은 simple한 version은 2 가지 문제가 발생한다. Dangling nodes와 Cyclic citation이다. Dangling nodes는 어떤 페이지가 out-link가 없고 그 페이지로 in-link들이 구성되어 있다면, 그 페이지로 점수가 몰려서 결국 다른 페이지는 점수를 잃는 현상이다. Cyclic citation은 일련의 페이지들이 cycle을 형성해서 점수가 안빠져나가고 계속 서로 더해주어서 점수가 무한이 되는 것을 말한다.
 
