@@ -143,7 +143,7 @@ K-Medoids clustering method로는 다음 2 가지 방식이 있다.
 2. CLARA(Clustering Large Applications)
 
 #### PAM(Partitioning Around Medoids)
-1) 실제 object를 cluster의 대표값으로 선정하는데, k 개의 object를 임의로 선택한다.  
+1) **실제 object를 cluster의 대표값으로 선정**하는데, k 개의 object를 임의로 선택한다.  
 2) 선택된 object(seed)를 i, 선택되지 않은 object를 h라고 할 때, swapping cost TC<sub>ih</sub>을 각 pair i,h에 대해 계산한다.  
 3) 만약 TC<sub>ih</sub>이 음수라면 i는 h로 바뀌고 선택되지 않은 object들은 가장 가까운 object로 할당된다.  
 4) 위 과정을 변화가 없을 때까지 반복하는 것이 알고리즘이다.
@@ -167,7 +167,7 @@ K-Medoids clustering method로는 다음 2 가지 방식이 있다.
 ---
 ## Hierarchical Methods
 
-Clustering을 하는 기준으로 distance matrix를 사용한다. 앞선 k 어쩌구들처럼 k값을 정해줄 필요는 없지만, 종료 조건이 필요하다. 크게 두 가지 방식이 있다. Bottom-up과 Top-down 방식인데, 각각 agglomerative(AGNES), divisive(DIANA)라고 한다.
+Clustering을 하는 기준으로 distance matrix를 사용한다. 앞선 k 어쩌구들처럼 **k값을 정해줄 필요는 없지만, 종료 조건이 필요하다**. 크게 두 가지 방식이 있다. Bottom-up과 Top-down 방식인데, 각각 agglomerative(AGNES), divisive(DIANA)라고 한다.
 
 #### 1. AGNES(Agglomerative Nesting)
 
@@ -195,13 +195,13 @@ D<sub>i</sub> = [average d(i,j) which j not in splinter group] - [average d(i,j)
 
 ### Advanced Hierarchical Clustering Methods
 
-Agglomerative clustering method의 주요 문제점으로 많은 object들을 다루기 어렵다는 점이 있다. 즉, 시간 복잡도가 O(n<sup>2</sup>)으로 매우 높다.
+Agglomerative clustering method의 주요 문제점으로 많은 object들을 다루기 어렵다는 점이 있다. 시간 복잡도가 O(n<sup>2</sup>)으로 매우 높기 때문이다.
 
-Distance-based clustering으로 이를 개선한 방식들이 있는데 다음 3 가지가 있다.
+**Distance-based clustering**으로 이를 개선한 방식들이 있는데 다음 3 가지가 있다.
 
-1. BIRCH
-2. ROCK
-3. CHAMELEON
+1. **BIRCH**
+2. **ROCK**
+3. **CHAMELEON**
 
 #### 1. BIRCH
 
