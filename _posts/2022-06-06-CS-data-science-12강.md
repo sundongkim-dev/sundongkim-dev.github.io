@@ -114,32 +114,41 @@ Hub score는 해당 페이지의 **out-link neighbor들의 authority score들의
 "중요한(important)" 페이지는 다른 많은 페이지들이 참조하는 것을 말하며 **특히 많은 중요한 페이지들이 참조한다면 더욱 중요한 것**이다. Counting만 고려하는 것이 아니라 간접적인 정보도 활용하는 것이다.
 
 **2. Calculate importance score (authority score)**  
+앞선 HITS와 달리 PageRank에서는 authority score로 authority score를 구한다. 즉, importance score를 구한다.
+
 처음에는 모든 페이지에 같은 스코어(e.g. 1)를 할당한다.(=smoothing of citation)
 
 각 페이지마다, out-link를 따라서 그 이웃들에게 해당 페이지의 스코어를 분할해서 전달한다. 이 때, 해당 페이지의 점수가 변하지는 않는다. 그렇게 전달 받은 점수들은 in-link를 통해 각 페이지에 전해질 것이며 그를 모두 더한다. 위 과정이 수렴이 될 때까지 반복하면 importance score가 정해진다.
 
 하지만 위와 같은 simple한 version은 2 가지 문제가 발생한다. **Dangling nodes**와 **Cyclic citation**이다.
 
-**Dangling nodes**는 어떤 페이지가 out-link가 없고 그 페이지로 **in-link들만**이 구성되어 있다면, 그 페이지로 점수가 고여서 결국 다른 페이지는 상대적으로 점수를 잃는 현상이다.
+**Dangling nodes**는 어떤 페이지가 out-link가 없고 그 페이지로 **in-link들만**이 구성되어 있다면, 그 페이지로 점수가 계속 전해져서 결국 그에 연결된 다른 페이지들은 점수를 잃는 현상이다.
 
-**Cyclic citation**은 일련의 페이지들이 cycle을 형성해서 점수가 안 빠져나가고 계속 서로 더해주어서 점수가 무한이 되는 것을 말한다.
+**Cyclic citation**은 일련의 페이지들이 cycle을 형성해서 점수가 안 빠져나가고 고이게 된다. 계속 더해주어서 점수가 무한이 되는 것을 말한다.
 
 이를 어떻게 해결할 수 있을까?
 
-먼저 dangling nodes 부터 살펴보자. Out-link가 없는 페이지는 해당 iteration에서 **모든 노드의 문서들에게 균등하게 분할**해서 점수를 나눠주는 형식으로 처리하면 된다.
+먼저 dangling nodes 부터 살펴보자. Out-link가 없는 페이지는 해당 iteration에서 **다른 모든 노드의 문서들에게 점수를 균등하게 분할**해서 나눠주는 형식으로 처리하면 해결할 수 있다.
 
-Cyclic citation의 경우 alpha의 확률로는 똑같이 진행하고 (1-alpha)의 확률로 **모든 노드에게 균등하게 분할하는 방식**으로 처리해서 해결하였다.
-
-
+Cyclic citation의 경우 **alpha의 확률로는 똑같이 out-link**를 따라 진행하고 (1-alpha)의 확률로 **다른 모든 노드에게 균등하게 점수를 분할하는 방식**으로 처리해서 해결하였다.
 
 **3. Random Surfer**  
-말 그대로 웹을 랜덤하게 서핑하는 것이다. 랜덤한 페이지로 jump하는 것을 말하며 다른말로 **restart surfing**이라고도 한다. 어떤 임의의 페이지에서도 alpha의 확률로 link를 랜덤하게 선택해서 진행하고(=random walk), (1-alpha)의 확률로 랜덤한 페이지로 간다.(=restart)
+말 그대로 웹을 랜덤하게 서핑하는 것이다. 기본적으로, 현재 연결된 링크들 중 랜덤하게 골라서 서핑하는 것이다.
+
+또는. 랜덤한 페이지로 jump하는 것을 말하며 다른말로 **restart surfing**이라고도 한다.
+
+어떤 임의의 페이지에서 alpha의 확률로 out-link를 랜덤하게 선택해서 진행하고(=random walk, dangling node들에 대해서는 다른 노드들로의 edge를 만들어주고 random walk을 진행한다), (1-alpha)의 확률로 랜덤한 페이지로 간다.(=restart)
 
 이렇게 경로와 상관없이 랜덤하게 흩뿌려주는 과정 때문에 random surfing이라는 말이 붙었다.
 
 이를 수식으로 표현하면 아래와 같다.  
+
 ![pageRank](https://sundongkim-dev.github.io/assets/img/data_science/pageRank.PNG)    
-위 식에서는 random walk에 (1-alpha)가 곱해져 있는데 딱히 상관없다. 결국, random walk는 dangling nodes 문제를 해결했고, restart는 cyclic citation을 해결한 셈이다.
+
+초기의 r<sub>0</sub>은 전부 1을 할당해도 되고, 1/n값으로 할당해도 된다. 같은 값으로 초기화만 하면 된다.
+위 식에서는 random walk에 (1-alpha)가 곱해져 있는데 딱히 상관없다. r<sub>i</sub>와 r<sub>i+1</sub>의 차이가 미미할 때까지, 즉 수렴할때까지 반복하면 된다.
+
+결국, random walk는 dangling nodes 문제를 해결했고, restart는 cyclic citation을 해결한 셈이다.
 
 ### Link-Based Object Classification (LBC)
 
