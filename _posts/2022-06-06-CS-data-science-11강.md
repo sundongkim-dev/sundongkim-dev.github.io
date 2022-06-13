@@ -257,7 +257,7 @@ Continuous attribute의 범위를 interval로 나누는 것을 말한다. Label�
 **Simple Discretization: Binning**
 1. Equal-width(distance) partitioning  
 범위를 동일한 크기의 N개 구간으로 나눈다.(=uniform grid)  
-A와 B가 속성의 가장 낮은 값과 가장 높은 값인 경우, 간격의 폭은 W = (B – A)/N이 된다. 가장 간단한 방법이라 몇 가지 문제가 있다. Outlier가 presentation을 지배할 수 있으며 치우친 데이터가 제대로 처리되지 않는다.
+A와 B가 어떤 attribute의 가장 낮은 값과 가장 높은 값인 경우, 간격의 폭은 W = (B – A)/N이 된다. 가장 간단한 방법이라 몇 가지 문제가 있다. Outlier가 presentation을 지배할 수 있으며 치우친 데이터가 제대로 처리되지 않는다.
 
 2. Equal-depth(frequency) partitioning  
 범위를 N개의 구간으로 나누는데, 각 구간은 거의 동일한 수의 표본을 포함한다. 데이터 확장에 좋다.
