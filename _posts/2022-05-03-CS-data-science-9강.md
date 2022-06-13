@@ -24,25 +24,25 @@ comments: true
 
 Data는 application에 따라서 매우 다양하게 생겼다.
 
-- Record(Real-world entity에 대응)  
+- **Record**(Real-world entity에 대응)  
   - Attribute 값들로 이루어져 있는 **row**  
   - Relational records / Data matrix
     - Text documents: term-frequency vector
   - Transaction data  
 
-- Graph and network
+- **Graph and network**
   - Node는 real-world entity, edge는 relationship
   - Social or information networks(유저가 node, 친구관계가 edge)  
   - World Wide Web(웹페이지가 node, 하이퍼링크가 edge)  
   - Molecular Structures(분자가 node, 분자 간의 관계가 edge)  
 
-- Ordered(순서가 중요!!)  
+- **Ordered**(순서가 중요!!)  
   - Video data: sequence of images  
   - Temporal data: time-series  
   - Sequential data: transaction sequences  
   - Genetic sequence data  
 
-- Spatial, Image and Multimedia  
+- **Spatial, Image and Multimedia**  
   - Spatial data: maps  
   - Image data  
   - Video data  
@@ -51,17 +51,17 @@ Data는 application에 따라서 매우 다양하게 생겼다.
 
 ### Important Characteristics of Data  
 
-- Dimensionality  
+- **Dimensionality**  
   - Curse of dimensionality(차원의 저주): dimension이 너무 커지면 발생하는 문제로, 차원이 작을 때는 잘 작동하다가 차원이 높아지면 잘 작동하지 않는다. 예시로, 1차원 상에서는 거리 차이가 제일 작은 쌍과 큰 쌍이 있다고 하자. 이 때의 거리 차이는 크겠지만 고차원에서는 그 두 쌍의 차이가 별로 나지 않는 상황을 생각해 볼 수 있다.
 
-- Sparsity  
+- **Sparsity**  
   - 데이터가 많이 비어있는 상태(희소 행렬)
   - density가 낮으면(sparse하면) 데이터를 분석하기 어렵다.  
 
-- Resolution  
+- **Resolution**  
   - Resolution에 따라 pattern이 상이한 상황
 
-- Distribution  
+- **Distribution**  
   - Centrality(중심성), Dispersion(중심으로부터 얼마나 퍼져있는가)  
 
 ### Data Objects  
