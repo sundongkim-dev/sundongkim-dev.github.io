@@ -32,21 +32,21 @@ Cluster analysis는 unsupervised learning의 한 종류로 학습 시 데이터�
 ---
 ## Quality and Requirements of Clustering
 
-"Good" clustering method는 높은 quality의 cluster를 제공하는데, 서로 다른 클래스 간에 낮은 유사도 혹은 하나의 클래스 안에서 높은 유사도를 보이는 것을 말한다.
+"Good" clustering method는 높은 quality의 cluster를 제공하는데, 서로 다른 클래스 간에 낮은 유사도(low inter-class similarity) 혹은 하나의 클래스 안에서 높은 유사도(high intra-class similarity)를 보이는 것을 말한다.
 
 결국 clustering의 결과의 quality는 **similarity measure**와 **method**로 결정된다. Clustering method의 quality는 숨겨진 패턴을 발견하는 능력에 의해 결정된다.
 
 Clustering의 quality를 측정하려면 similarity/dissimilarity metric을 알아야 한다. Similarity는 distance function으로 d(i,j)로 표현하곤 한다. 변수 타입(interval-scaled, boolean, categorical, ordinal ratio, vector variables)에 따라 다르고 "충분히 유사하다" 혹은 "충분히 좋다"를 정의하기란 매우 주관적이다. 가중치는 attribute마다 다른 가중치를 가질 수 있다.
 
 Data mining에서 clustering의 **Requirements**는 아래와 같은 것들이 있다.
-- 서로 다른 타입의 attribute들을 처리할 수 있어야 한다.
-- 새로운 데이터가 추가되거나 기존의 데이터가 지워지더라도 잘 동작할 수 있어야 한다.
-- 임의의 모양의 cluster를 발견할 수 있어야 한다.
-- 파라미터를 정하는 데에 domain knowledge가 많이 필요해서는 안된다.
-- Noise와 outlier를 처리할 수 있어야 한다.
-- 입력 순서와 상관없이 동일한 결과를 출력해야 한다.
-- 높은 차원을 갖는(많은 attribute를 갖는) 데이터들도 처리할 수 있어야 한다.
-- Scalability
+- **서로 다른 타입의 attribute들을 처리**할 수 있어야 한다.
+- 새로운 데이터가 추가되거나 기존의 데이터가 지워지더라도 잘 동작할 수 있어야 한다. (**= Dynamic**)
+- **임의의 모양의 cluster**를 발견할 수 있어야 한다.
+- 파라미터를 정하는 데에 **domain knowledge가 많이 필요해서는 안된다**.
+- **Noise와 outlier를 처리**할 수 있어야 한다.
+- **입력 순서와 상관없이 동일한 결과**를 출력해야 한다.
+- **높은 차원을 갖는(많은 attribute를 갖는) 데이터들도 처리**할 수 있어야 한다.
+- **Scalability**
 - Incorporation of user-specified constraints
 
 ---
