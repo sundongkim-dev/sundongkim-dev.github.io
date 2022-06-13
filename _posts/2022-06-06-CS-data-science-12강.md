@@ -83,26 +83,28 @@ Link들은 object간의 관계나 상호작용을 표현한다. 이러한 것들
 
 ### What is a link in link mining?
 
-링크란 데이터 간의 관계로 link를 가지는 network에는 두 가지 종류가 있다. **Homogeneous**와 **heterogeneous**로 나눌 수 있는데, Homogeneous는 단일 object type과 단일 link type을 갖으며, 단일 모델이다. 예로 친구 네트워크(사람과 친구관계만 있음)나 linked Web page들의 집합인 WWW를 들 수 있다.
+링크란 데이터 간의 관계로 link를 가지는 network에는 **Homogeneous**와 **heterogeneous**로 두 가지 종류가 있다.
+
+Homogeneous는 단일 object type과 단일 link type을 갖으며, 단일 모델이다. 예로 친구 네트워크(사람과 친구관계만 있음)나 linked Web page들의 집합인 WWW를 들 수 있다.
 
 Heterogeneous는 다중 object type과 link type을 갖으며, 예로 medical network(환자, 의사, 질병, 치료)나 bibliographic network(출판물, 저자, 발표 장소)을 들 수 있다.
 
 ---
 ### Link-Based Object Ranking(LBR)
 
-LBR은 그래프의 링크 구조를 잘 분석하여 그래프 내의 object 집합의 순서를 중요도에 따라 지정하거나 우선순위를 지정하는 것이다. 이를 통해 단일 object type과 단일 link type을 갖는 그래프에 집중하는 것이다. 예로, web Information analysis를 들 수 있는데, HITS나 PageRank가 전형적인 LBR 접근 방식이다.
+LBR은 그래프의 **링크 구조를 잘 분석**하여 **그래프 내의 object 집합의 순서를 중요도에 따라 지정하거나 우선순위를 지정**하는 것이다. 이를 통해 **단일 object type과 단일 link type을 갖는 그래프에 집중**하는 것이다. 예로, web Information analysis를 들 수 있는데, **HITS**나 **PageRank**가 전형적인 LBR 접근 방식이다.
 
 #### HITS: Capturing Authorities & Hubs
 
-하이퍼링크는 일종의 참조를 말하는데, 많은 페이지들에 의해 참조되는 페이지를 "good Authorities"라고 하며, 많은 페이지들을 가리키는 페이지를 "good hubs"라고 한다.
+하이퍼링크는 일종의 참조를 말하는데, **많은 페이지들에 의해 참조되는 페이지**를 "good Authorities"라고 하며, 또한 **많은 페이지들을 가리키는 페이지**를 "good hubs"라고 한다.
 
-HITS의 key idea는 "good Authorities"는 "good hubs"들이 가리킬 것이고, "good hubs"는 "good Authorities"들을 가리킬 것이라는 것이다. 즉 서로 어떤 게 더 좋은 hub이고 authority인지를 비교하여 알 수 있다.
+HITS의 key idea는 "good Authorities"는 "good hubs"들이 가리킬 것이고, "good hubs"는 "good Authorities"들을 가리킬 것이라는 것이다. 즉, 좋은 hub가 가리키면 좋은 authority가 되는 것이고, 좋은 authority들을 가리키면 좋은 hub가 되는 것이다. 이 관계는 결국 상호 강화하는 관계이다(=iterative mutual reinforcement).
 
-각 페이지(d<sub>i</sub>)는 두 가지 score를 갖는다. Hub score(=h(d<sub>i</sub>))와 Authority score(=a(d<sub>i</sub>))이다.
+각 페이지(d<sub>i</sub>)는 **두 가지 score**를 갖는다. **Hub score**(=h(d<sub>i</sub>))와 **Authority score**(=a(d<sub>i</sub>))이다.
 
-Hub score는 해당 페이지의 out-link neighbor들의 authority score들의 합이고, authority score는 반대로 해당 페이지의 in-link neighbor들의 hub score들의 합이다.
+Hub score는 해당 페이지의 **out-link neighbor들의 authority score들의 합**이고, authority score는 반대로 해당 페이지의 **in-link neighbor들의 hub score들의 합**이다.
 
-초기값은 hub score, authority score 모두 1로 초기화하고, hub score부터 계산해준다. 이후, authority score를 계산하고 두 값 모두 normalize를 해준다. Normalize는 각각의 score들의 제곱의 합이 1이 되게 만든다. 이를 수렴할때까지 반복해주면 된다.
+초기값은 hub score, authority score **모두 1로 초기화**하고, **hub score부터 계산**해준다. 이후, authority score를 계산하고 두 값 모두 normalize를 해준다. Normalize는 각각의 score들의 제곱의 합이 1이 되게 만든다. 이를 수렴할때까지 반복해주면 된다.
 
 #### PageRank: Capturing Page Popularity
 
