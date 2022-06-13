@@ -337,6 +337,6 @@ Distance-based outlier를 마이닝하는 알고리즘으로는 index-based, nes
 
 ### Density-based Local Outlier Detection  
 
-Distance-based는 global distance distribution을 기반으로 하므로 데이터가 uniform하게 분포하지 않으면 힘들다. 그래서 이를 개선하기 위해 local outlier를 사용한다.
+Distance-based는 global distance distribution을 기반으로 하므로 **데이터가 uniform하게 분포하지 않으면 힘들다**. 그래서 이를 개선하기 위해 **local outlier를 사용**한다.
 
 DB(p,D)-outlier 방법을 사용하면 D값을 설정해야 하는데 각 클러스터마다 떨어진 거리가 다르면 힘들어지므로 제안된 방식이다.
