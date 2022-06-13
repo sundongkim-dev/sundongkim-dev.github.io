@@ -71,14 +71,14 @@ Data는 application에 따라서 매우 다양하게 생겼다.
   - Medical database: 환자, 처방현황
   - University database: 학생, 교수, 강의
 - **Tuples**, **samples**, examples, instances, data points, objects라고도 한다.
-- Data objects들은 Attribute들로 이루어져있다.    
+- Data objects들은 **Attribute들로 이루어져있다**.    
 - DB에서의 **rows** -> **data objects**
 - DB에서의 **Columns** -> **attributes**
 
 
 ### Attributes & Attribute Types
 
-특정 데이터 오브젝트의 특징을 설명하는 특성으로 dimensions, features, variables라고도 한다.
+특정 데이터 오브젝트의 특징을 설명하는 특성으로 **dimensions, features, variables**라고도 한다.
 
 데이터 객체의 특성 또는 특징을 나타내는 data field이다.  
 ex) customer _ID, name, address
@@ -88,30 +88,30 @@ ex) customer _ID, name, address
     - 값의 수, 가짓수가 유한하다.
       - ex) Hair_color={black, blond, brown, grey, red, white}와 같이 유한한 상태로 제한된 attribute  
     - 결혼 여부, 직업, 신분증 번호, 우편 번호 등이 nominal에 해당한다.
-    - Attribute간의 우열을 가릴 수 없다.
+    - **Attribute간의 우열을 가릴 수 없다**.
 
   - **Binary**: 2 가지 상태(0 또는 1)만 가지는 nominal attribute의 특별한 케이스  
-    - Symmetric binary: 두 가지 값이 중요도가 같고 대등한 경우 ex) gender  
+    - Symmetric binary: 두 가지 값이 **중요도가 같고 대등**한 경우 ex) gender  
     - Asymmetric binary: 중요도가 동등하지 않은 경우 ex) medical test(양성 vs. 음성)
-      - 중요한 결과에 1을 할당(HIV 양성이면 1, 음성이면 0)
+      - **중요한 결과에 1을 할당**(HIV 양성이면 1, 음성이면 0)
 
   - **Ordinal**  
-    - 값들이 중요한 순서를 갖고 있다. (Ranking)  
-    - 값을 구분할 수는 있지만(우열이 존재) 연속된 값들이 얼마나 차이가 있는 지 그 **Magnitude**는 정의되어 있지 않다.  
+    - 값들이 **중요한 순서**를 갖고 있다. (Ranking)  
+    - 값을 구분할 수는 있지만(**우열이 존재**) 연속된 값들이 얼마나 차이가 있는 지 그 **Magnitude**는 정의되어 있지 않다.  
     - Size={small, medium, large}, Grades={A0, A+, B0, B+...}, Army rankings
     - 학점의 경우 그 숫자 자체에서의 Magnitude가 아니라 예를 들어, A+맞은 학생이 B+맞은 학생보다 얼마나 잘하는 지를 모른 다는 것이다. ~~4.5만점 기준으로 1.0만큼 잘하는 게 아니지 않은가!!~~
 
   - **Numeric**  
     - 양이 있는 attribute(Quantity: Integer or real-valued)
     - **Interval-scaled**   
-      - 값들의 순서가 있다.
+      - 값들에 순서가 있다.
       - 앞선 ordinal attribute와 달리 equal-sized units(magnitude가 일정하다), 값들의 차이를 알 수 있음 ex) 섭씨, 화씨 온도, 달력 날짜  
       - 진정한 의미의 zero-point가 존재하지 않는다. 0도는 온도가 없는 것이 아님을 예로 들 수 있다.   
       - 결과적으로, ratio-scaled는 아니다. "10 ℃가 20 ℃보다 10 ℃ 더 높다"라고 말할 수는 있지만 절대 영점이 없으므로 "10 ℃가 20 ℃보다 2배 더 높다"라고는 말하지 못한다
 
     - **Ratio-scaled**
-      - 진정한 zero-point가 존재한다.(없음을 의미하는 zero가 정의되어 있음)
-      - 임의의 값 사이에 규모가 얼마나 차이나는지 알 수 있다. 즉 배수가 의미있다. ex) 6kg은 3kg의 2배
+      - **진정한 zero-point**가 존재한다.(없음을 의미하는 zero가 정의되어 있음)
+      - 임의의 값 사이에 규모가 얼마나 차이나는지 알 수 있다. 즉 **배수가 의미**있다. ex) 6kg은 3kg의 2배
       - ex) 켈빈온도, 길이, 개수, 돈
 
   - **Discrete** vs **Continuous** Attributes  
