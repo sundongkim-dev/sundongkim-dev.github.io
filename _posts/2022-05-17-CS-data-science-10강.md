@@ -54,31 +54,31 @@ Data mining에서 clustering의 **Requirements**는 아래와 같은 것들이 �
 
 ### 1. Major Clustering Approaches  
 
-- Paritioning approach  
+- **Paritioning approach**  
   - 다양한 파티션을 구성하고 몇 가지 기준에 따라 평가한다.   
   - Typical methods: k-means, k-medoids, CLARANS  
 
-- Hierarchical approach  
+- **Hierarchical approach**  
   - 어떤 기준으로 계층적으로 데이터를 분리한다.   
   - Typical methods: Diana, Agnes, BIRCH, ROCK, CHAMELEON    
 
-- Density-based approach  
+- **Density-based approach**  
   - 밀도함수를 기반으로 클러스터를 형성한다.   
   - Typical methods: DBSCAN, OPTICS    
 
 ### 2. Centroid, Radius, and Diameter of a cluster (For numerical data)
 
-클러스터 내에서 centroid, radius, diameter의 정의!!
+클러스터 내에서 **centroid, radius, diameter**의 정의!!
 
-- Centroid: 클러스터의 중간 지점
+- **Centroid**: 클러스터의 중간 지점
   - 각 애트리뷰트 값 끼리 더해서 평균을 구한다.  
   - i: i th object, p: p th attribute라면, 아래와 같다.  
   ![Centroid](https://sundongkim-dev.github.io/assets/img/data_science/centroid.png)
 
-- Radius: cluster의 모든 object에서 centroid까지 거리 제곱의 평균의 루트값  
+- **Radius**: cluster의 모든 object에서 centroid까지 거리 제곱의 평균의 루트값  
   ![Radius](https://sundongkim-dev.github.io/assets/img/data_science/radius.png)
 
-- Diameter: 모든 오브젝트 쌍들의 거리 제곱의 평균의 루트값  
+- **Diameter**: 모든 오브젝트 쌍들의 거리 제곱의 평균의 루트값  
   ![Diameter](https://sundongkim-dev.github.io/assets/img/data_science/diameter.png)
 
 클러스터 간의 거리를 계산하는 일반적인 대안으로 여러 가지 방식이 있다.
