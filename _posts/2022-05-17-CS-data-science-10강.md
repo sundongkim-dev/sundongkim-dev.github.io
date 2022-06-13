@@ -206,16 +206,16 @@ Agglomerative clustering method의 주요 문제점으로 많은 object들을 �
 #### 1. BIRCH
 
 CF(Clustering Feature) 트리를 점진적으로 구성한다. 다단계 clustering을 위한 계층적 데이터 구조이다.   
-Phase 1: DB를 스캔하고 in-memory CF tree를 구성한다.  
-Phase 2: 임의의 clustering algorithm으로 CF tree의 leaf node들을 구성한다.  
+Phase 1: **DB를 스캔**하고 **in-memory CF tree를 구성**한다.  
+Phase 2: 임의의 clustering algorithm으로 **CF tree의 leaf node들을 구성**한다.  
 
-한 번의 스캔으로 양호한 clustering을 찾고(scales linearly), 몇 번의 추가 스캔으로 품질을 향상 시킬 수 있지만, numeric data만을 처리할 수 있으며 data record 순서에 민감하다.
+**한 번의 스캔으로 양호한 clustering을 찾고(scales linearly)**, 몇 번의 추가 스캔으로 품질을 향상 시킬 수 있지만, **numeric data만을 처리**할 수 있으며 **data record 순서에 민감**하다.
 
 Clustering Feature는 (N, LS, SS)로 이루어져있는데, N은 data point의 개수이고, LS는 dataset의 (각 좌표계끼리) 모든 합이고, SS는 dataset의 제곱의 합이다. 마찬가지로 각 좌표계끼리의 제곱이다.
 
-LS를 N으로 나눈다면 centroid를 구할 수 있고, SS를 N(N-1)로 나누고 제곱근을 취하면 diameter를 구할 수 있다. 결국 clustering feature는 cluster에 대한 통계적 요약이며 cluster에 대한 중요한 측정값들을 기록하고 storage를 효율적으로 활용할 수 있게 한다.
+LS를 N으로 나눈다면 centroid를 구할 수 있고, SS를 N(N-1)로 나누고 제곱근을 취하면 diameter를 구할 수 있다. 결국 **clustering feature는 cluster에 대한 통계적 요약**이며 cluster에 대한 중요한 측정값들을 기록하고 storage를 효율적으로 활용할 수 있게 한다.
 
-CF tree는 hierarchical clustering을 위한 clustering feature를 저장하는 height-balanced tree이다. Leaf node가 아닌 노드는 자식이 있으며 자식들의 총 CF를 저장한다. 이러한 CF 트리에는 두 개의 파라미터가 있는데, branching factor와 threshold이다. Branching factor는 최대 자식 수를 명시하며, threshold는 leaf node에 저장되는 최대 diameter를 말한다.
+CF tree는 hierarchical clustering을 위한 clustering feature를 저장하는 **height-balanced tree**이다. Leaf node가 아닌 노드는 자식이 있으며 자식들의 총 CF를 저장한다. 이러한 CF 트리에는 두 개의 파라미터가 있는데, branching factor와 threshold이다. **Branching factor**는 **최대 자식 수**를 명시하며, **threshold**는 leaf node에 저장되는 **최대 diameter**를 말한다.
 
 1) DB를 scan하여 CF tree를 구성한다.  
 2) 초기에 첫번째 object를 추가하면 1개의 cf가 생긴다. (이때 n=1, linear=값 자신, square=자신의 제곱)  
@@ -225,9 +225,11 @@ CF tree는 hierarchical clustering을 위한 clustering feature를 저장하는 
 
 이 때, 임의의 클러스터링 알고리즘을 사용하여 리프노드를 clustering한다.
 
+결과적으로, 시간 복잡도는 O(n)으로 많이 줄였다. 그러나 데이터 삽입 순서에 민감하고 leaf node의 크기를 고정하기 때문에 cluster가 자연스럽지 않을 수 있으며 cluster가 둥근 형태로 제한될 수 있다.
+
 #### 2. ROCK: RObust Clustering using linKs(clustering categorical data)
 
-거리 기반이 아닌, link라는 개념을 사용하여 similarity와 proximity를 측정한다. Jaccard coefficient와 같은 categorical data에 대한 고전적인 measure는 잘 작동하지 않을 수 있다.
+거리 기반이 아닌, **link라는 개념을 사용**하여 similarity와 proximity를 측정한다. Jaccard coefficient와 같은 categorical data에 대한 고전적인 measure는 잘 작동하지 않을 수 있다.
 
 먼저, Jaccard coefficient를 기반으로 한 similarity function으론 아래와 같은 공식이 있다.  
 ![JC based similarity](https://sundongkim-dev.github.io/assets/img/data_science/jaccard_coefficient_based_similarity.png)    
@@ -236,17 +238,17 @@ CF tree는 hierarchical clustering을 위한 clustering feature를 저장하는 
 
 이러한 jaccard coefficient의 문제점으로 intra class간의 similarity가 inter class간의 similarity보다 높은 경우가 발생할 수 있다.
 
-Link란 common neighbor들의 수이다. 두 페어의 Jaccard coefficient가 0.5를 넘으면 common neighbor로 본다.
+Link란 **common neighbor들의 수**이다. 두 페어의 **Jaccard coefficient가 0.5를 넘으면** common neighbor로 본다.
 
-예로, T<sub>1</sub>={a,b,c}, T<sub>2</sub>={c,d,e}, T<sub>3</sub>={a,b,f}라고 하자. link(T<sub>1</sub>, T<sub>2</sub>)=4이다. 왜냐하면 이 둘은 {a,c,d}, {a,c,e}, {b,c,d}. {b,c,e} 4개의 공통된 neighbor가 있기 때문이다.
+예로, T<sub>1</sub>={a,b,c}, T<sub>2</sub>={c,d,e}, T<sub>3</sub>={a,b,f}라고 하자. link(T<sub>1</sub>, T<sub>2</sub>)=4이다. 왜냐하면 이 둘은 {a,c,d}, {a,c,e}, {b,c,d}, {b,c,e} 4개의 공통된 neighbor가 있기 때문이다.
 
 결과적으로, Jaccard coefficient보다 link를 통한 측정이 더 낫다고 볼 수 있다.
 
 #### 3. CHAMELEON: Hierarchical Clustering Using Dynamic Modeling
 
-Dynamic model에 기반해서 similarity를 측정한다. Bottom-up 방식으로 두 클러스터는 interconnectivity와 closeness(proximity)가 높은 경우에만 병합된다.
+**Dynamic model**에 기반해서 similarity를 측정한다. Bottom-up 방식으로 두 클러스터는 **interconnectivity와 closeness(proximity)가 높은 경우**에만 병합된다.
 
-높은 경우란 언제를 말하는 걸까? 바로 두 클러스터를 다시 각각 두 조각으로 쪼개서 interconnectivity와 closeness를 구하고 그것보다 큰 경우를 말하는 것이다.
+높은 경우란 언제를 말하는 걸까? 바로 **두 클러스터를 다시 각각 두 조각으로 쪼개서 interconnectivity와 closeness를 구하고 그것보다 큰 경우**를 말하는 것이다.
 
 내부의 interconnectivity와 closeness보다 interconnectivity, closeness가 큰 클러스터끼리 합치는 것이다.
 
