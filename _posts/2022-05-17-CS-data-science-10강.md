@@ -138,10 +138,9 @@ K-Means method의 문제점으로 outlier에 너무 민감한 점을 꼽을 수 
 
 ### 3. The K-Medoids Clustering Method
 
-K-Medoids clustering method로는 다음 3 가지 방식이 있다.
+K-Medoids clustering method로는 다음 2 가지 방식이 있다.
 1. PAM(Partitioning Around Medoids)
 2. CLARA(Clustering Large Applications)
-3. CLARANS: Randomized sampling
 
 #### PAM(Partitioning Around Medoids)
 1) 실제 object를 cluster의 대표값으로 선정하는데, k 개의 object를 임의로 선택한다.  
