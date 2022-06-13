@@ -191,7 +191,7 @@ Median = 21 + ((1597-950)/(1500))x29 = 21 + 18763/1500
 
 - **Measurement**
   - **Quartiles**: Q<sub>1</sub>(25<sup>th</sup> percentile) / Q<sub>3</sub>(75<sup>th</sup> percentile) / Q<sub>2</sub>(50<sup>th</sup> percentile = median) / Q<sub>4</sub>(100<sup>th</sup> percentile = max)
-  - **Inter-quartile range(IQR)**: IQR = Q<sub>3</sub>-Q<sub>1</sub>, 이 차이가 작으면 데이터가 조밀하게 분포한 것이고 크다면 넓게 분포한 것을 뜻한다. 해당 구간에 전체 데이터의 50%가 속한 것이기 때문이다.
+  - **Inter-quartile range(IQR)**: IQR = Q<sub>3</sub>-Q<sub>1</sub>, 이 **차이가 작으면 데이터가 조밀**하게 분포한 것이고 **크다면 넓게 분포**한 것을 뜻한다. 해당 구간에 전체 데이터의 **50%가 속한 것**이기 때문이다.
   - **Five number summary**: min, Q<sub>1</sub>, median, Q<sub>3</sub>, max
   - **Boxplot**: Five number summary를 시각화 한 것이다.
   - **Outlier**: 주로 값이 1.5 x IQR보다 작거나 큰 값
@@ -214,7 +214,7 @@ Median = 21 + ((1597-950)/(1500))x29 = 21 + 18763/1500
 
   ![Boxplot Analysis](https://sundongkim-dev.github.io/assets/img/data_science/Boxplot.png)  
 
-위의 그림 예시에서는 outlier(IQR의 1.5배)가 길이를 초과하므로 없다.
+위의 그림 예시에서는 **outlier(IQR의 1.5배)**가 길이를 초과하므로 없다.
 Outlier가 있는 예시는 아래와 같은 그림이 있다.  
 ![Boxplot Outlier](https://sundongkim-dev.github.io/assets/img/data_science/Outlier.png)
 
@@ -243,10 +243,14 @@ x축은 값, y축은 빈도를 나타내는 막대 형태의 그래프로 data d
   - Bar chart는 histogram의 special case이다.
 
 **3. Quantile plot**  
-기본적으로, 하나의 attribute에 대해 모든 데이터를 표시한다. User로 하여금 전체적인 경향이나 경향에 어긋나는 케이스들을 확인하기 쉽게 한다. f-value를 0, 0.25, 0.5, 0.75, 1.00에 눈금을 만들어서 quantile 정보를 알게한다. 이 때, 데이터 X<sub>i</sub>는 **오름차순으로 정렬**하고 그에 따른 f는 0~1의 값으로 100%에 곱해서 값의 위치를 구할 수 있다.
+기본적으로, 하나의 attribute에 대해 모든 데이터를 표시한다. User로 하여금 전체적인 경향이나 경향에 어긋나는 케이스들을 확인하기 쉽게 한다.
+
+f-value를 0, 0.25, 0.5, 0.75, 1.00에 눈금을 만들어서 quantile 정보를 알게한다. 이 때, 데이터 X<sub>i</sub>는 **오름차순으로 정렬**하고 그에 따른 f는 0~1의 값으로 100%에 곱해서 값의 위치를 구할 수 있다.
 
 **4. Quantile-quantile(q-q) plot**  
-다른 두 데이터 셋을 같은 attribute에 대해 비교할 때 사용한다. 한 분포의 quantiles와 이에 대응하는 다른 분포의 quantiles를 표기한다. 예를 들어, branch1, branch2(각각 다른 분포의 attribute)가 있으면 branch1 축의 40~120 값의 분포에 대해 branch2는 어떻게 분포하는지 점으로 표기한다. 아래의 그림을 보면 이해하기 쉽다.
+다른 두 데이터 셋을 같은 attribute에 대해 비교할 때 사용한다. 한 분포의 quantiles와 이에 대응하는 다른 분포의 quantiles를 표기한다.
+
+예를 들어, branch1, branch2(각각 다른 분포의 attribute)가 있으면 branch1 축의 40~120 값의 분포에 대해 branch2는 어떻게 분포하는지 점으로 표기한다. 아래의 그림을 보면 이해하기 쉽다.
 ![QQ Plot](https://sundongkim-dev.github.io/assets/img/data_science/qq_plot.png)
 
 
