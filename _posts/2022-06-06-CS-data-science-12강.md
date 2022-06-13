@@ -111,7 +111,7 @@ Hub score는 해당 페이지의 **out-link neighbor들의 authority score들의
 자주 인용되는 페이지는 일반적으로 더 중요하다고 볼 수 있다. PageRank는 기본적으로 citation counting이지만 그저 counting하는 것 이상의 효과를 보인다. "Indirect citations"를 고려하는데 이는 많이 인용된 paper가 인용하는 것은 더 큰 의미가 있다는 것을 뜻한다. 또한, 모든 page의 인용 횟수가 0이 아닌 것으로 가정(smoothing of citation)한다.
 
 **1. Indirect Citation**  
-"중요한(important)" 페이지는 다른 많은 페이지들이 참조하는 것을 말하며 특히 많은 중요한 페이지들이 참조한다면 더욱 중요한 것이다.
+"중요한(important)" 페이지는 다른 많은 페이지들이 참조하는 것을 말하며 **특히 많은 중요한 페이지들이 참조한다면 더욱 중요한 것**이다. Counting만 고려하는 것이 아니라 간접적인 정보도 활용하는 것이다.
 
 **2. Calculate importance score (authority score)**  
 처음에는 모든 페이지에 같은 스코어(e.g. 1)를 할당한다.(=smoothing of citation)
