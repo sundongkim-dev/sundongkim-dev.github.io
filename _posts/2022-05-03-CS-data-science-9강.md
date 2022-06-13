@@ -147,11 +147,11 @@ ex) customer _ID, name, address
     - **Weighted arithmetic mean**: 샘플마다 중요도를 반영한다. 예시로, 국영수를 치뤘을 때 수학에 더 비중이 있다면 weight을 다르게 처리해주는 것이 있다.
     - **Trimmed mean**: 너무 극단적인 값이 있다면 평균의 의미를 저해하므로 제외하고 계산한다. 적절한 기준을 설정하기 어려우므로 잘 사용하지 않는다.
 
-Mean은 Outlier에 영향을 많이 받는다는 단점이 있어 Median이라는 척도가 생겼다.
+Mean은 **Outlier에 영향을 많이 받는다는 단점**이 있어 Median이라는 척도가 생겼다.
 
 - **Median**   
-  - 정렬이 되어 있다는 전제하에, 홀수개의 데이터인 경우 가장 가운데 값, 짝수개의 데이터인 경우 가운데 두 값의 평균을 말한다.  
-  - Outlier에 robust하다는 장점이 있다.
+  - **정렬이 되어 있다는 전제하에**, 홀수개의 데이터인 경우 가장 가운데 값, 짝수개의 데이터인 경우 가운데 두 값의 평균을 말한다.  
+  - **Outlier에 robust하다**는 장점이 있다.
   - 새로운 값이 들어온다면, 매번 들어올 때마다 정렬 후 구할 수 있기 때문에 overhead가 있다. 때문에, 이를 동적으로 처리해야하는데 그 방법으로 data를 그룹화(histogram)해서 interpolation으로 추정하는 방법(구간 안에서 uniform하게 분포한다고 가정)을 사용한다.
   - 처음에 구간을 나누고 도중에 새로운 데이터가 들어오면 그 데이터가 해당하는 구간의 frequency를 올려준다.
   - Median = L<sub>1</sub>(구간의 시작지점) + ((n/2-sum(이전 freq))/(median frequency)) x width  
@@ -185,12 +185,12 @@ Median = 21 + ((1597-950)/(1500))x29 = 21 + 18763/1500
 ![Symmetric vs. Skewed Data](https://sundongkim-dev.github.io/assets/img/data_science/Symmetric_Skewed_Data.png)
 
 - Symmetric인 경우는 mean, median, mode 모두 같은 경우이다.
-- Skewed인데 mean > median > mode인 경우, positively skewed이고 반대로 mode > median > mean인 경우, negatively skewed이다.  
+- Skewed인데 mean > median > mode인 경우, **positively skewed**이고 반대로 mode > median > mean인 경우, **negatively skewed**이다.  
 
 ### Measuring the Dispersion of Data  
 
 - **Measurement**
-  - **Quartiles**: Q<sub>1</sub>(25<sup>th</sup> percentile), Q<sub>3</sub>(75<sup>th</sup> percentile)를 의미하고 Q<sub>2</sub>(50<sup>th</sup> percentile = median) Q<sub>4</sub>(100<sup>th</sup> percentile = max)
+  - **Quartiles**: Q<sub>1</sub>(25<sup>th</sup> percentile) / Q<sub>3</sub>(75<sup>th</sup> percentile) / Q<sub>2</sub>(50<sup>th</sup> percentile = median) / Q<sub>4</sub>(100<sup>th</sup> percentile = max)
   - **Inter-quartile range(IQR)**: IQR = Q<sub>3</sub>-Q<sub>1</sub>, 이 차이가 작으면 데이터가 조밀하게 분포한 것이고 크다면 넓게 분포한 것을 뜻한다. 해당 구간에 전체 데이터의 50%가 속한 것이기 때문이다.
   - **Five number summary**: min, Q<sub>1</sub>, median, Q<sub>3</sub>, max
   - **Boxplot**: Five number summary를 시각화 한 것이다.
