@@ -118,26 +118,32 @@ Hub score는 해당 페이지의 **out-link neighbor들의 authority score들의
 
 각 페이지마다, out-link를 따라서 그 이웃들에게 해당 페이지의 스코어를 분할해서 전달한다. 이 때, 해당 페이지의 점수가 변하지는 않는다. 그렇게 전달 받은 점수들은 in-link를 통해 각 페이지에 전해질 것이며 그를 모두 더한다. 위 과정이 수렴이 될 때까지 반복하면 importance score가 정해진다.
 
-하지만 위와 같은 simple한 version은 2 가지 문제가 발생한다. Dangling nodes와 Cyclic citation이다. Dangling nodes는 어떤 페이지가 out-link가 없고 그 페이지로 in-link들이 구성되어 있다면, 그 페이지로 점수가 몰려서 결국 다른 페이지는 점수를 잃는 현상이다. Cyclic citation은 일련의 페이지들이 cycle을 형성해서 점수가 안빠져나가고 계속 서로 더해주어서 점수가 무한이 되는 것을 말한다.
+하지만 위와 같은 simple한 version은 2 가지 문제가 발생한다. **Dangling nodes**와 **Cyclic citation**이다.
+
+**Dangling nodes**는 어떤 페이지가 out-link가 없고 그 페이지로 **in-link들만**이 구성되어 있다면, 그 페이지로 점수가 고여서 결국 다른 페이지는 상대적으로 점수를 잃는 현상이다.
+
+**Cyclic citation**은 일련의 페이지들이 cycle을 형성해서 점수가 안 빠져나가고 계속 서로 더해주어서 점수가 무한이 되는 것을 말한다.
 
 이를 어떻게 해결할 수 있을까?
 
-먼저 dangling nodes 부터 살펴보자. Out-link가 없는 페이지는 해당 iteration에서 모든 노드의 문서들에게 균등하게 분할해서 점수를 나눠주는 형식으로 처리하면 된다.
+먼저 dangling nodes 부터 살펴보자. Out-link가 없는 페이지는 해당 iteration에서 **모든 노드의 문서들에게 균등하게 분할**해서 점수를 나눠주는 형식으로 처리하면 된다.
 
-Cyclic citation의 경우 alpha의 확률로는 똑같이 진행하고 (1-alpha)의 확률로 모든 노드에게 균등하게 분할하는 방식으로 처리해서 해결하였다.
+Cyclic citation의 경우 alpha의 확률로는 똑같이 진행하고 (1-alpha)의 확률로 **모든 노드에게 균등하게 분할하는 방식**으로 처리해서 해결하였다.
+
+
+
+**3. Random Surfer**  
+말 그대로 웹을 랜덤하게 서핑하는 것이다. 랜덤한 페이지로 jump하는 것을 말하며 다른말로 **restart surfing**이라고도 한다. 어떤 임의의 페이지에서도 alpha의 확률로 link를 랜덤하게 선택해서 진행하고(=random walk), (1-alpha)의 확률로 랜덤한 페이지로 간다.(=restart)
 
 이렇게 경로와 상관없이 랜덤하게 흩뿌려주는 과정 때문에 random surfing이라는 말이 붙었다.
 
-**3. Random Surfer**  
-말 그대로 웹을 랜덤하게 서핑하는 것이다. 랜덤한 페이지로 jump하는 것을 말하며 다른말로 restart surfing이라고도 한다. 어떤 임의의 페이지에서도 alpha의 확률로 link를 랜덤하게 선택해서 진행하고(=random walk), (1-alpha)의 확률로 랜덤한 페이지로(=restart) 간다.
-
 이를 수식으로 표현하면 아래와 같다.  
 ![pageRank](https://sundongkim-dev.github.io/assets/img/data_science/pageRank.PNG)    
-위 식에서는 random walk에 (1-alpha)가 곱해져있는데 딱히 상관없다. 결국, random walk는 dangling nodes 문제를 해결했고, restart는 cyclic citation을 해결한 셈이다.
+위 식에서는 random walk에 (1-alpha)가 곱해져 있는데 딱히 상관없다. 결국, random walk는 dangling nodes 문제를 해결했고, restart는 cyclic citation을 해결한 셈이다.
 
 ### Link-Based Object Classification (LBC)
 
-앞에서는 object의 attribute로 예측했었는데, 이제는 그 뿐 아니라 그의 link와 그 link로 이루어진 object의 attribute까지 고려하는 것이 LBC이다.
+앞에서는 object의 attribute로 예측했었는데, 이제는 그 뿐 아니라 **그의 link와 그 link로 이루어진 object의 attribute**까지 고려하는 것이 LBC이다.
 
 예로,  
 - Web: 페이지에 나타나는 단어, 페이지 간의 링크, HTML 태그 등을 기준으로 웹 페이지의 카테고리를 예측
