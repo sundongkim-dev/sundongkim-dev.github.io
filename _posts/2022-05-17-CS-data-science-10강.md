@@ -259,11 +259,14 @@ Link란 **common neighbor들의 수**이다. 두 페어의 **Jaccard coefficient
 - **Partitioning**
   - **METIS**라는 방법을 사용해서 **잘리는 edge의 수**와 **그 edge에 붙어있는 weight**을 **최소화하는 방향**으로 자른다. 또한, 그래프를 **거의 같은 사이즈의 서브 그래프로 나누는 것**이다.
   - 이를 반복하여 작은 클러스터들을 만든다.
+
 - Relative interconnectivity  
-![relative_interconnectivity](https://sundongkim-dev.github.io/assets/img/data_science/relativeInterconnectivity.png)    
+![relative_interconnectivity](https://sundongkim-dev.github.io/assets/img/data_science/relativeInterconnectivity.png)
+각각의 클러스터의 edge cut의 평균과 새로 합쳐질 클러스터의 edge cut의 수의 상대적인 관계를 분수로 나타낸 것이다. 잘리는 edge의 수인 edge cut이 크다면 그만큼 높은 interconnectivity를 갖는 것이다.
+
 - Relative closeness  
 ![relative_closeness](https://sundongkim-dev.github.io/assets/img/data_science/relativeCloseness.png)  
-
+IC는 edge cut의 수로 판단했다면, RC는 edge cut의 weight으로 판단하는 것이다. 두 클러스터의 size를 고려하여 weighted average를 하고 이 값과 새로 합쳐질 클러스터의 closeness가 얼마나 큰 가(=edge cut의 weight의 합이 얼마나 큰 가)를 나타낸 것이다.
 ---
 ## Density-Based Methods
 
