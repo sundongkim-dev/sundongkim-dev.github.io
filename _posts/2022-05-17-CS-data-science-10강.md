@@ -105,7 +105,7 @@ Data mining에서 clustering의 **Requirements**는 아래와 같은 것들이 �
 
 ### 1. Basic Concept  
 
-- Database D에서 n개의 objects를 k개의 클러스터로 나누는 것으로, 클러스터를 대표하는 값과 그 클러스터의 모든 objects 까지 거리의 제곱의 합이 최소가 되도록 한다. 아래의 함수가 goodness function으로 이 값이 최소가 될수록 좋다고 할 수 있다.  
+- Database D에서 n개의 objects를 k개의 클러스터로 나누는 것으로, **클러스터를 대표하는 값과 그 클러스터의 모든 objects 까지 거리의 제곱의 합이 최소**가 되도록 한다. 아래의 함수가 goodness function으로 이 값이 최소가 될수록 좋다고 할 수 있다.  
 ![Partitioning method](https://sundongkim-dev.github.io/assets/img/data_science/partitioning_method.png)
 - 모든 파티션을 다 살펴보면 global optimal을 찾을 수 있겠지만 heuristic methods를 사용한다.   
   - K-means: 각 cluster는 cluster의 centroid로 표현된다.
@@ -114,16 +114,16 @@ Data mining에서 clustering의 **Requirements**는 아래와 같은 것들이 �
 ### 2. The K-Means Clustering Method  
 
 K값이 주어졌을 때 다음과 같이 진행된다.
-- objects를 임의로 k 부분으로 나눈다.  
+- objects를 임의로 k 부분으로 나눈다. 임의의 k 점을 initial cluster center로 하여 다른 모든 점들을 할당하여 cluster를 만드는 것이다.  
 - k 부분으로 나눠진 각 클러스터에 대해서 centroid(center로 cluster의 mean point) 값을 계산한다.                                                   
 - 각 objects를 가장 가까운 seed point(centroid)의 클러스터로 다시 포함시킨다.  
 - 다시 centroid값을 계산으로 돌아가는 과정을 반복하여 클러스터가 바뀌지 않을 때까지 진행한다.  
 
-K-means는 상대적으로 효율적이다. 시간복잡도가 O(n * k * t)이다. n은 object의 수이며 k는 cluster의 수이고 t는 반복 횟수이다. 일반적으로 n이 다른 두 수보다 매우 크다. 그렇기에 K-means는 거의 linear하다고 볼 수 있다. PAM(=O(k*(n-k)<sup>2</sup>)), CLARA(O(ks<sup>2</sup>+k(n-k)))와 비교해보면 상대적으로 효율적임을 알 수 있다.
+K-means는 상대적으로 효율적이다. **시간복잡도가 O(n * k * t)**이다. n은 object의 수이며 k는 cluster의 수이고 t는 반복 횟수이다. 일반적으로 n이 다른 두 수보다 매우 크다. 그렇기에 K-means는 거의 linear하다고 볼 수 있다. PAM(=O(k*(n-k)<sup>2</sup>)), CLARA(=O(ks<sup>2</sup>+k(n-k)))와 비교해보면 상대적으로 효율적임을 알 수 있다.
 
-하지만 종종 local optimum으로 빠진다는 문제가 있다(모든 object 기준에서 계산하는게 아닌 초기에 정한 seed로부터 계산되기 때문). 또한 categorical data인 경우는 적용할 수 없다. Mean을 정의할 수 있어야 하기 때문이다. 결과적으로 numerical attribute와 같은 타입에 적용 가능하다. 또한 사전에 k 값을 정해주어야 하는데 까다로울 수 있으며 noise와 outlier를 잘 처리하지 못한다는 단점이 있다. Non-convex shape인 cluster를 발견하기에 적절하지 않다. Centroid를 중심으로 cluster를 만들어나가기 때문이다.
+하지만 **종종 local optimum으로 빠진다는 문제**가 있다(모든 object 기준에서 계산하는게 아닌 초기에 정한 seed로부터 계산되기 때문). 또한 **categorical data인 경우는 적용할 수 없다**. Mean을 정의할 수 있어야 하기 때문이다. 결과적으로 numerical attribute와 같은 타입에 적용 가능하다. 또한 사전에 k 값을 정해주어야 하는데 까다로울 수 있으며 **noise와 outlier를 잘 처리하지 못한다**는 단점이 있다. **Non-convex shape인 cluster를 발견하기에 적절하지 않다**. Centroid를 중심으로 cluster를 만들어나가기 때문이다.
 
-이러한 K-Means method의 변형으로 2 가지가 있다. 앞서 categorical data를 처리하지 못하니까 이를 해결하고자 k-modes가 나왔다. Centroid 대신에 modes(최빈값)을 사용한다.
+이러한 K-Means method의 변형으로 2 가지가 있다. 앞서 categorical data를 처리하지 못하니까 이를 해결하고자 **k-modes**가 나왔다. Centroid 대신에 modes(최빈값)을 사용한다.
 - X, Y: m 개의 categorical attribute를 갖는 object들
 - Dissimilarity d(X, Y): # of total mismatches
 - Mode는 해당 object와의 mismatch 수의 합이 가장 작은 object(벡터)이다.
