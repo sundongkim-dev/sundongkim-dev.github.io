@@ -300,9 +300,9 @@ Density-based 알고리즘이며, 클러스터는 density-connected points의 �
 
 알고리즘은 다음과 같다.
 
-1) 임의로 점 p를 고르고, p로부터 density-reachable한 점들을 모두 찾는다.
-2) 만약 p가 core point라면 클러스터가 만들어지고, 그렇지 않으면 border point로 다른 점에서 다시 탐색을 시작한다.
-3) 모든 point들을 방문할 때까지 반복한다. 결과적으로, Eps와 MinPts와 같은 파라미터에 따라 클러스터가 다르게 만들어진다.
+1) 임의로 점 p를 고르고, p로부터 density-reachable한 점들을 모두 찾는다.  
+2) 만약 p가 core point라면 클러스터가 만들어지고, 그렇지 않으면 border point로 다른 점에서 다시 탐색을 시작한다.  
+3) 모든 point들을 방문할 때까지 반복한다. 결과적으로, Eps와 MinPts와 같은 파라미터에 따라 클러스터가 다르게 만들어진다.  
 
 DBSCAN의 문제는 **파라미터에 너무 sensitive**하다는 것이다. 이를 어떻게 극복할 수 있을까? OPTICS..!
 
