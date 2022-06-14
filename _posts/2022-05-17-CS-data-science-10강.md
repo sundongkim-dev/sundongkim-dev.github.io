@@ -56,11 +56,11 @@ Data mining에서 clustering의 **Requirements**는 아래와 같은 것들이 �
 
 - **Paritioning approach**  
   - 다양한 파티션을 구성하고 몇 가지 기준에 따라 평가한다.   
-  - Typical methods: k-means, k-medoids, CLARANS  
+  - Typical methods: k-means, k-medoids(PAM, CLARA)  
 
 - **Hierarchical approach**  
   - 어떤 기준으로 계층적으로 데이터를 분리한다.   
-  - Typical methods: Diana, Agnes, BIRCH, ROCK, CHAMELEON    
+  - Typical methods: DIANA, AGNES, BIRCH, ROCK, CHAMELEON    
 
 - **Density-based approach**  
   - 밀도함수를 기반으로 클러스터를 형성한다.   
