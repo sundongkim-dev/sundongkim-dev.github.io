@@ -119,7 +119,7 @@ K값이 주어졌을 때 다음과 같이 진행된다.
 - 각 objects를 가장 가까운 seed point(centroid)의 클러스터로 다시 포함시킨다.  
 - 다시 centroid값을 계산으로 돌아가는 과정을 반복하여 클러스터가 바뀌지 않을 때까지 진행한다.  
 
-K-means는 상대적으로 효율적이다. **시간복잡도가 O(n * k * t)**이다. n은 object의 수이며 k는 cluster의 수이고 t는 반복 횟수이다. 일반적으로 n이 다른 두 수보다 매우 크다. 그렇기에 K-means는 거의 linear하다고 볼 수 있다. PAM(=O(k*(n-k)<sup>2</sup>)), CLARA(=O(ks<sup>2</sup>+k(n-k)))와 비교해보면 상대적으로 효율적임을 알 수 있다.
+K-means는 상대적으로 효율적이다. **시간복잡도가 O(n * k * t)**이다. n은 object의 수이며 k는 cluster의 수이고 t는 반복 횟수이다. 일반적으로 n이 다른 두 수보다 매우 크다. 그렇기에 K-means는 거의 linear하다고 볼 수 있다. PAM(=O(i*k*(n-k)<sup>2</sup>)), CLARA(=O(ks<sup>2</sup>+k(n-k)))와 비교해보면 상대적으로 효율적임을 알 수 있다.
 
 하지만 **종종 local optimum으로 빠진다는 문제**가 있다(모든 object 기준에서 계산하는게 아닌 초기에 정한 seed로부터 계산되기 때문). 또한 **categorical data인 경우는 적용할 수 없다**. Mean을 정의할 수 있어야 하기 때문이다. 결과적으로 numerical attribute와 같은 타입에 적용 가능하다. 또한 사전에 k 값을 정해주어야 하는데 까다로울 수 있으며 **noise와 outlier를 잘 처리하지 못한다**는 단점이 있다. **Non-convex shape인 cluster를 발견하기에 적절하지 않다**. Centroid를 중심으로 cluster를 만들어나가기 때문이다.
 
@@ -144,7 +144,7 @@ K-Medoids clustering method로는 다음 2 가지 방식이 있다.
 
 #### PAM(Partitioning Around Medoids)
 1) **실제 object를 cluster의 대표값으로 선정**하는데, k 개의 object를 임의로 선택한다.  
-2) 선택된 object(seed)를 i, 선택되지 않은 object를 h라고 할 때, swapping cost TC<sub>ih</sub>을 각 pair i,h에 대해 계산한다.  
+2) 선택된 object(seed)를 i, 선택되지 않은 object들을 h(새 seed의 후보)라고 할 때, swapping cost TC<sub>ih</sub>을 각 pair i,h에 대해 계산한다.  
 3) 만약 TC<sub>ih</sub>이 음수라면 i는 h로 바뀌고 선택되지 않은 object들은 가장 가까운 object로 할당된다.  
 4) 위 과정을 변화가 없을 때까지 반복하는 것이 알고리즘이다.
 
