@@ -84,7 +84,7 @@ CF 접근 방식은 사용자가 제공하는 rating에만 초점을 맞춘다. 
 
 Rating이 지정되지 않은 항목 즉, Uninteresting items를 이용하는 것이 아이디어의 핵심이다. Rating matrix에서 평가되지 않은 방대한 수의 항목을 활용하면 CF 접근 방식이 크게 개선될 것이라는 가설에서 출발한다.
 
-Unrated item들은 크게 두 가지로 나누어 생각해볼 수 있는데 사용자가 존재를 알지 못하고, 이는 추천의 후보가 된다. 혹은 사용자가 알고는 있었지만 좋아하지 않았기 때문에 구입하지 않았고 따라서 rating이 매겨지지 않은 것이다. 이 경우가 Uninteresting items로 정의한다. 결과적으로, 사용자가 부정적인 선호도를 가진 item이다.
+Unrated item들은 크게 두 가지로 나누어 생각해볼 수 있다. 첫째로, 사용자가 아이템의 존재를 알지 못하는 상황이다. 이는 추천의 후보가 된다. 혹은 사용자가 알고는 있었지만 좋아하지 않았기 때문에 구입하지 않았고 따라서 rating이 매겨지지 않은 것이다. 후자의 경우를 Uninteresting items로 정의한다. 결과적으로, 사용자가 부정적인 선호도를 가진 item이다.
 
 이제 preference를 두 가지로 구분해야한다. Pre-use preferences와 Post-use preferences이다.
 Pre-use preferences는 구매 및 사용 전 아이템에 대한 사용자의 인상으로 item의 meta data로 결정되어 구입 전에 알 수 있다. Post-use preferences는 아이템 구매 및 사용 후 사용자의 인상으로 item의 실제 내용을 통해 결정되어 구입하기 전엔 알 수 없다.
