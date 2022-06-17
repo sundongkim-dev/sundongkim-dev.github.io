@@ -21,7 +21,7 @@ Social network의 예로, communication network를 말할 수 있는데 이는 �
 
 ### Some Interesting Quantities
 - **Connected components**: 얼마나 많고, 얼마나 큰가?
-- **Network diameter**: 가장 먼 두 노드의 shortest path는? 그 edge의 수는?
+- **Network diameter**: 가장 먼 두 노드의 shortest path는? 그 때, edge의 수는?
 - **Clustering**: 어느 정도로 cluster가 local하게 연결되어 있는가? long-distance connection은 얼마나 있는가?
 - **Degree distribution**: 노드가 평균적으로 갖고 있는 edge의 수는?
 
