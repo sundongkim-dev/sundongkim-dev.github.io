@@ -9,6 +9,10 @@
 <meta property="og:title" content="{{ page.title }}">
 <meta property="og:type" content="article">
 
+{% if page.use_math %}
+  {% include mathjax_support.html %}
+{% endif %}
+​
 
 {% for tag_slug in page.tags %}
   {% unless tag.header-img %}
@@ -62,7 +66,7 @@
 <!-- tipuesearch -->
 <link rel="stylesheet" href="/assets/tipuesearch/css/tipuesearch.css">
 {% if page.tipue_search_active %}
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>   
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="/assets/tipuesearch/tipuesearch_content.js"></script>
 <script src="/assets/tipuesearch/tipuesearch_set.js"></script>
 <script src="/assets/tipuesearch/tipuesearch.min.js"></script>
