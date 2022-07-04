@@ -11,7 +11,7 @@ use_math: true
 
 # **문제**
 
-> [`[프로그래머스] level 1 - x만큼 간격이 있는 n개의 숫자, 2022 KAKAO BLIND RECRUITMENT`](https://programmers.co.kr/learn/courses/30/lessons/12954)
+> [`[프로그래머스] level 1 - x만큼 간격이 있는 n개의 숫자`](https://programmers.co.kr/learn/courses/30/lessons/12954)
 
 ---
 ## **문제 설명 및 풀이**
