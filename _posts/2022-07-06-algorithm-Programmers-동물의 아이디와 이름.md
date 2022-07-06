@@ -16,7 +16,7 @@ use_math: true
 ---
 ## **문제 설명 및 풀이**
 
-SELET, FROM, ORDER BY(ASC, DESC)를 사용하는 아주 기초적인 문제이다.
+SELECT, FROM, ORDER BY(ASC, DESC)를 사용하는 아주 기초적인 문제이다.
 
 문제의 나온 attribute들을 잘 보고 쿼리를 작성하면 된다. ~~따로 설명할 것이 없네,,~~
 
