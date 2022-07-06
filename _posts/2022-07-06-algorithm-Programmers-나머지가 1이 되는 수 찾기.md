@@ -18,19 +18,11 @@ use_math: true
 
 처음부터 쭈욱 순회하면서 나머지가 1인 것을 찾아주면 된다.
 
-조금 더 빨리 구하고 싶다면,
-
 ---
-### C++스러운 나의 코드
+### 나의 코드
 ```python
 def solution(n):
-    for i in range(1, n):
+    for i in range(2, n):
         if n%i == 1:
             return i
-```
-
-### Pythonic한 풀이
-```python
-def solution(arr):
-    return (sum(arr) / len(arr))
 ```
