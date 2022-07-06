@@ -6,7 +6,6 @@ subtitle: 'Programmers, Level 1'
 categories: algorithm
 tags: programmers problems
 comments: true
-use_math: true
 ---
 
 # **문제**
