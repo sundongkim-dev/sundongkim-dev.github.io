@@ -21,7 +21,7 @@ comments: true
 
 이 역시, 가우스의 일화를 떠올려 볼 수 있다. 즉, 등차수열의 합으로 문제를 풀어낼 수 있다.
 
-$$\sum^n_{i=1}(price \times i) = price * \frac {n(n+1)}{2}$$
+$$\sum^n_{i=1}(price \times count_i) = price * \frac {n(n+1)}{2}$$
 
 ---
 ### C++스러운 나의 코드
