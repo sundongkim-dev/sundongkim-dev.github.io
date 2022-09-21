@@ -1,6 +1,6 @@
 ---
 published: true
-title: '[분산 컴퓨팅] Introduction'
+title: '[분산 컴퓨팅] Chapter 1. Introduction'
 layout: post
 subtitle: 'csReview DistributedComputing'
 categories: csReview
