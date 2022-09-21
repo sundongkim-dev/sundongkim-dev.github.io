@@ -39,3 +39,5 @@ Architectural styles는 다음과 같이 정의될 수 있다.
 - Object-based architectures
 - Resource-centered architectures
 - Event-based architectures
+
+#### Layered architecture
