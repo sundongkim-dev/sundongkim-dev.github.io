@@ -138,7 +138,7 @@ P2P 네트워크의 장점으로는 4가지를 꼽을 수 있다.
 P2P protocol을 central indexing server와 overlay network(토폴로지)의 유무로 분류해볼 수 있다.
 ![p2p_classification](https://sundongkim-dev.github.io/assets/img/distributed_computing/p2p_classification.png)  
 
-**1. Napster**
+**1. Napster**  
 최초의 p2p file sharing application, 저작권 이슈로 탄생 2년만에 망했다.
 
 Napster의 작동 방식은 다음과 같다.
@@ -153,17 +153,17 @@ Napster의 작동 방식은 다음과 같다.
 - Controllable하다. 인덱싱 서버만 꺼버리면 전체 시스템이 꺼진다. ~~단점일지도..?~~
 - 하지만 서버는 노드의 수만큼의 상태를 유지해야 하고 서버가 모든 요청을 처리하며 single point of failure가 존재한다.
 
-**2. Gnutella**
+**2. Gnutella**  
 그누텔라? 누텔라라고도 하는 이 녀석은 완전히 분산된 p2p file sharing system이다. ~~그누텔라 개발자들이 누텔라를 그렇게 많이 먹어서 이름이 그렇다는 썰이 있다...~~
 
 인덱싱 서버가 없어서 해당 파일을 찾으려면 flooding을 통한 방식 밖에 없다. 완전히 분산되어있고 search cost 또한 분산된다는 장점이 있지만 search cost는 O(N: # of nodes)이고 search time은 예측하기 어렵다는 단점이 있다. Flooding 방식을 택하다 보니 너무 많은 트래픽이 발생하기 때문이다. 이를 방지하기 위해 random walk로 neighbor 중 하나에만 forwarding을 하는 방식도 있다. 또한 node가 항상 존재하는 것이 아니라 들락날락하는 존재라 네트워크가 매우 불안정하다.  
 
-**3. KaZaA**
+**3. KaZaA**  
 이 시스템은 supernode를 기용하여 앞선 냅스터와 누텔라의 장점만을 취하려고 노력했다. 슈퍼노드는 로컬 노드들을 가지면서 그들과의 관계는 냅스터에서 인덱싱 서버와 노드와의 관계와 동일하다. 반면 슈퍼노드끼리는 누텔라 때처럼 완전한 p2p와 같다.
 
 client가 파일을 찾는다면 우선 상위의 슈퍼노드에게 물어보고 없다면 슈퍼노드가 다른 슈퍼노드들에게서 찾는 방식이다.
 
-**4. DHT protocol: Distributed Hash Table**
+**4. DHT protocol: Distributed Hash Table**  
 여지껏 위의 방식들은 centralized라면 directory size가 O(n), # of hops가 O(1)이고, flooded queries라면 directory size가 O(1), # of hops가 O(n)인 것을 볼 수 있었다. DHT는 둘 다 O(logn)에 처리하기 위한 방법이다.
 
 기본적인 idea는 어떤 hash function이 있어서 object와 node 모두 하나의 hash space에 매핑하는 것이다. Hash function이라는 토폴로지가 있어서 노드들이건 오브젝트들이건 항상 정해진 위치를 갖는다.
