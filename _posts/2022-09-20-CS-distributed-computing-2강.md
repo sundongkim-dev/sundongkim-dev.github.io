@@ -114,11 +114,10 @@ multi-tiered로 존재할 수도 있다. 몇 부분으로 나누어지는 가를
 e로 갈수록 client단에서 하는 것이 많으므로 fat하다고 한다. 통상적으로 d와 e를 fat client, a,b,c를 thin client라고 한다.
 
 a의 예시로는, blahblah
-
-b의 예시로는 FTP server를 들 수 있다.
-c의 예시로는 1강에서 봤던 email form checker를 들 수 있다.
-d의 예시로는 재고 관리 프로그램을 들 수 있다.
-e의 예시로는 웹 브라우저 캐싱을 들 수 있다.
+b의 예시로는 FTP server를 들 수 있다.  
+c의 예시로는 1강에서 봤던 email form checker를 들 수 있다.  
+d의 예시로는 재고 관리 프로그램을 들 수 있다.  
+e의 예시로는 웹 브라우저 캐싱을 들 수 있다.  
 
 Three-tiered architecture는 서버가 동시에 클라이언트의 역할을 할 때도 있는 것을 말한다.  
 ![three_tiered](https://sundongkim-dev.github.io/assets/img/distributed_computing/three_tiered.png)  
@@ -137,6 +136,14 @@ P2P 네트워크의 장점으로는 4가지를 꼽을 수 있다.
 
 P2P protocol을 central indexing server와 overlay network(토폴로지)의 유무로 분류해볼 수 있다.
 ![p2p_classification](https://sundongkim-dev.github.io/assets/img/distributed_computing/p2p_classification.png)  
+Central indexing server는 centralized 여부를 결정하고 토폴로지의 유무는 structured 여부를 결정한다.
+
+Structured P2P는 hypercube, Chord, Pastry, CAN 등이 있다. Hash function을 사용한다는 공통점이 있다.
+
+Unstructured P2P는 overlay network가 정해지지 않고 random graph를 갖는다.
+- Super-peer networks(super peer-weak peer)
+- Edge-server architecture
+  - content server끼리는 P2P, ISP와 종단끼리는 client-server관계
 
 **1. Napster**  
 최초의 p2p file sharing application, 저작권 이슈로 탄생 2년만에 망했다.
@@ -180,3 +187,52 @@ ex_1) Chord Protocol
 - i번째 엔트리 포인트는 n+2^(i-1)의 successor이다.
 - k라는 object를 원한다면 finger table을 참조하여 범위 안에 있다면 바로 찾아가고 그렇지 않다면 제일 멀리 건너뛰어서 찾는다.
 - 2의 제곱으로 움직이기에 이분 탐색처럼 작용하여 O(log n)을 달성할 수 있게 된다.
+
+#### Hybrid system architecture: The BitTorrent case
+비트토렌트는 매우 익숙한 프로그램이다. 2001년에 release되었고 게임 이론에 기반하여 free-rider 문제를 개선(incentive mechanism)했다. DHT와 달리 강력한 보증(DHT에서는 파일이 반드시 존재한다는 보장이 있음)이 없으며 실무에서 또한 잘 작동한다.
+
+토폴로지는 random하게 결정되므로 Unstructured network에 해당한다.
+
+**Swarming Protocol**  
+파일들은 아주 작은 조각들(=chunks)로 나누어진다. 그 조각들은 네트워크를 통해 전파되고 peer가 피어를 획득하면 다른 peer와 교환할 수 있게된다. 이렇게 peer끼리 piece를 서로 제공하는 것이 위에서 말한 incentive가 된다. 피어는 조각들을 모아서 마지막에 전체 파일을 어셈블하게 된다.
+
+chunk는 보통 256kb이고 각 peer는 bit map을 갖고 있어서 어떤 chunk가 있고 없는 지를 확인할 수 있다. 결과적으로 neighbor peer들에게 자기가 무엇을 갖고 있고 무엇이 필요한 지를 알려준다.
+
+**Basic Components**  
+- Web server: 콘텐츠 검색(= 파일 검색)은 웹 서버를 사용하여 비트토렌트 외부에서 처리
+- .torrent file: 필요한 메타 정보를 저장하는 정적 파일
+  + 이름, 크기, 체크섬, 트래커 노드의 IP 주소 및 포트
+  + 각 chunk가 체크섬 값으로 해시된다
+  + Peer가 나중에 다른 peer에서 chunk를 가져올 때 체크섬을 비교하여 신뢰성을 확인할 수 있다
+- Tracker: peer 추적, 활성화된 peer의 random list(=neighbor list) 가지고 있음
+- Peers: downloader(leecher)와 seeder로 나눠짐
+  + downloader: 파일의 일부분만 갖고 있는 peer
+  + seeder: 완전한 파일을 갖고 있는 peer
+
+**Rarest First**
+- 더 희귀한 piece들은 다운로드에 우선권이 주어지며, 첫 번째 후보가 된다.
+- 가장 일반적인 조각은 제일 끝으로 연기된다.
+- 이 정책은 다양한 조각이 시더에서 다운로드되도록 보장하여 더 빠른 청크 전파를 가능하게 한다.
+
+**Peer Selection**  
+- tit-for-tat 전략(반복게임에서 유저가 이전 게임에서 상대가 한 행동을 그대로 따라한다, 협조적이면 협조적으로 비협조적이면 비협조적으로)을 사용한다.
+- 청크를 교환할 "친구"를 4-5명 유지한다
+- 만약 친구가 만족스런 속도로 chunk를 주고 있지 않는다면 제거한다.(=choking)
+- 정기적으로 무작위로 새 친구를 선택한다.(=optimistic unchoking, 잘해주면 잘해주는가?)
+- 만약 친구가 없다면, 무작위로 몇 명의 새로운 친구들을 선택한다.(=anti-snubbing)
+
+만약 주고받는 것이 video라면? P2P video  
+Rarest first가 아닌 재생 시점에서 가까운 것을 가져와야 한다. chunk selection이나 peer selection 모두 재생 시점에서 가까운 것을 가져와야 하므로 달라진다.
+
+Hybrid인 이유?  
+client가 우선 web server에 파일을 look up한다. 이는 client-server 구조이고 web server, file server, tracker를 거쳐서 얻은 neighbor node들과의 통신은 p2p이므로 decentralized이다. 이렇게 섞여있다.
+
+**Some essential details**  
+- Neighbor set: B가 A의 neighbor set에 속한다면 A도 B의 neighbor set에 속한다. 트래커에 의해 주기적으로 업데이트 된다
+- Potential set: Neighbor B가 A가 원하는 block(=piece를 또 나눈 것)을 갖고 있다면 B는 A의 potential set이다.
+- 서로가 potential set에 속하면 교환한다.
+
+**BitTorrent phases**  
+1. Bootstrap phase: A가 optimistic unchoking을 통해 첫번째 piece 얻기
+2. Trading phase: P<sub>A</sub> > 0으로 항상 A가 trade할 peer가 존재한다.
+3. Last download phase: P<sub>A</sub>=0으로 A는 새로운 peer에 의존하여 missing piece들을 찾는다. 이 때 neighbor set은 트래커를 통해서만 변경이 된다.
