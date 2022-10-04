@@ -41,22 +41,32 @@ comments: true
 
 ---
 ### 1. What is a distributed system?
-Distributed system이란 무엇인가? 한글로는 분산 시스템이라고도 하는데, autonomous computing elements들의 집합이라고 할 수 있다. Autonomous computing elements는 노드라고도 하며 하드웨어 장치나 소프트웨어 프로세스를 말한다.
+Distributed system이란 무엇인가? 한글로는 분산 시스템이라고도 하는데, **사용자에게 단일한 coherent system으로 비춰지는 autonomous computing elements들의 집합**이라고 할 수 있다.
 
-이런 분산 시스템은 사용자에게는 단일한 coherent system으로 비춰진다. Coherent system이란 또 무엇인가? 전체 동작 방식에 거스르지 않고 자연스러운 컴포넌트들로 이루어진 시스템으로 일관성 있는 시스템을 말한다. 이런 일관성을 위해 노드들은 긴밀히 통신해야 한다.
+Autonomous computing elements는 노드라고도 하며 하드웨어 장치나 소프트웨어 프로세스를 말한다.
+
+Coherent system이란 또 무엇인가? 전체 동작 방식에 거스르지 않고 자연스러운 컴포넌트들로 이루어진 시스템으로 일관성 있는 시스템을 말한다. 이런 일관성을 위해 노드들은 긴밀히 통신해야 한다.
 
 #### Collection of autonomous nodes
-각 노드들은 자율적이기에 독립적인 clock을 가지고 있다. 즉, global한 clock이 없다보니 기본적인 동기화나 협력을 하기가 어렵다!! 예를 들어, Node A가 Node B에게 오후 1시에 보낸 메시지를 B는 오후 12:30분에 수신되었다고 log를 해석할 수 있다.
+각 노드들은 자율적이기에 독립적인 clock을 가지고 있다. **즉, global한 clock이 없다보니 기본적인 동기화나 협력을 하기가 어렵다!!** 예를 들어, Node A가 Node B에게 오후 1시에 보낸 메시지를 B는 오후 12:30분에 수신되었다고 로그를 해석할 수 있다.
 
 결과적으로, 이러한 노드들의 통신을 위해 관리하는 방법이 필요해졌다.
 
-**Overlay Network**  
-오버레이 네트워크의 가장 잘 알려진 예시는 p2p system이고, 오버레이 네트워크의 유형으로는 structured와 unstructured가 있다. 전자는 tree나 ring처럼 각 노드는 인접 노드 집합을 가지고 있고(토폴로지가 정해진 상황) 후자는 각 노드가 무작위로 선택된 다른 노드에 대한 참조를 가진다(random 토폴로지, 랜덤한 이웃을 가짐). 더 자세한 것은 chapter 2에서 살펴보자.
+#### Overlay Network
+오버레이 네트워크의 가장 잘 알려진 예시는 **p2p system**이고, 오버레이 네트워크의 유형으로는 **structured**와 **unstructured**가 있다.
+
+전자는 tree나 ring처럼 각 노드는 인접 노드 집합을 가지고 있고(토폴로지가 정해진 상황) 후자는 각 노드가 무작위로 선택된 다른 노드에 대한 참조를 가진다(random 토폴로지, 랜덤한 이웃을 가짐).
+
+더 자세한 것은 chapter 2에서 살펴보자.
 
 #### Single Coherent System
-사용자와 시스템 간의 상호 작용이 어디서, 언제, 어떻게 이루어지는지에 관계없이 노드들은 전체적으로 동일한 방식으로 작동한다. 예를 들어, end-user는 어디에서 computation이 일어나는 지 알 수 없고, 데이터가 정확히 저장되는 곳이 어플리케이션과 무관하고 또한 데이터가 복제되었는 지 조차 알 수 없다.
+사용자와 시스템 간의 상호 작용이 어디서, 언제, 어떻게 이루어지는지에 관계없이 노드들은 전체적으로 동일한 방식으로 작동한다.
+
+예를 들어, end-user는 어디에서 computation이 일어나는 지 알 수 없고, 데이터가 정확히 저장되는 곳이 어플리케이션과 무관하고 또한 데이터가 복제되었는 지 조차 알 수 없고 알 필요도 없다.
 
 이를 distribution transparency라고 한다.
+
+이를 완전하게 달성하는 것은 매우 어렵다. [Design goals에서 더 살펴보자.](#-2.-design-goals)
 
 #### Middleware: the OS of distributed systems
 
