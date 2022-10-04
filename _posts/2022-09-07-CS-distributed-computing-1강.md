@@ -66,13 +66,21 @@ Coherent system이란 또 무엇인가? 전체 동작 방식에 거스르지 않
 
 이를 distribution transparency라고 한다.
 
-이를 완전하게 달성하는 것은 매우 어렵다. [Design goals에서 더 살펴보자.](#-2.-design-goals)
+이를 완전하게 달성하는 것은 매우 어렵다. [Design goals에서 더 살펴보자.](####-2.-design-goals)
 
 #### Middleware: the OS of distributed systems
 
 ![Middleware](https://sundongkim-dev.github.io/assets/img/distributed_computing/middleware.png)
 
 미들웨어는 위의 그림처럼 여러 computer에 걸친 layer로 분산시스템의 OS라고 할 수 있다. 미들웨어는 주로 어플리케이션 마다 필요한 컴포넌트나 함수들을 가지고 있다.
+
+운영 체제와의 주요 차이점은 미들웨어 서비스가 네트워크 환경에서 제공된다는 것이다.
+
+미들웨어 서비스의 예시
+1. Communication: RPC
+2. Transaction
+3. Service composition: Web services
+4. Reliability
 
 ---
 ### 2. Design goals
