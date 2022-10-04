@@ -66,7 +66,7 @@ Coherent system이란 또 무엇인가? 전체 동작 방식에 거스르지 않
 
 이를 distribution transparency라고 한다.
 
-이를 완전하게 달성하는 것은 매우 어렵다. [Design goals에서 더 살펴보자.](####-2.-design-goals)
+이를 완전하게 달성하는 것은 매우 어렵다. [Design goals에서 더 살펴보자.](###2.-design-goals)
 
 #### Middleware: the OS of distributed systems
 
@@ -119,6 +119,7 @@ ex) mirrored site로 자동으로 redirect 된다.
 
 **3. Openness**: 분산 시스템이 open되어야 한다.  
 기본 환경에 관계없이 다른 개방형 시스템의 서비스와 상호 작용할 수 있어야 한다.  
+
 - Systems should conform to well-defined interfaces: 컴포넌트가 제공하는 기능의 definition이 interface에 맞게 제공  
 - Systems should easily interoperate(상호 운용성): 누구에 의해 컴포넌트가 구현되었든, 상호 간에 동작(interface 지킨다)해야 한다.  
 - Systems should support portability(이식성) of applications: A env에서 동작하는 app이 B env에서도 동작해야 한다.
