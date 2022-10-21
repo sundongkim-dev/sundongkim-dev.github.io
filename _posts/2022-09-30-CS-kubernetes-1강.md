@@ -39,7 +39,7 @@ Declarative code를 통해 배포된 container, microservices, serverless functi
 
 **Microservices**: 하나의 책임을 다루는 소규모 논리 중심 서비스
 애플리케이션을 마이크로 서비스로 분할한다. 각 마이크로서비스는 독립적인 프로세스로 실행되며 단순하고 잘 정의된 인터페이스를 통해 다른 마이크로 서비스와 통신한다.  
-![microservices_2](https://sundongkim-dev.github.io/assets/img/kubernetes/microservices_2.png)  
+![microservices_2](https://sundongkim-dev.github.io/assets/img/kubernetes/microservices2.png)  
 Monolithic의 경우 전체 단위 자체를 복사해야하고 microservices의 경우 필요한 microservice만 늘리면 된다.
 
 **Scaling Microservices**
