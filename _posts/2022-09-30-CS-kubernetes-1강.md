@@ -29,17 +29,17 @@ Declarative code를 통해 배포된 container, microservices, serverless functi
 ![container](https://sundongkim-dev.github.io/assets/img/kubernetes/container.png)
 - 별도의 OS 없이 호스트 OS에서 프로세스가 분리되어 실행
 - 개별 microservice를 위한 격리된 환경
-- VM에 대한 훨씬 가벼운 대체품 – 사실상 오버헤드 없음
+- VM에 비해 훨씬 가벼운 대체품 – 사실상 오버헤드 없음
 
 ### Microservices Architecture(MSA)
 ![microservices](https://sundongkim-dev.github.io/assets/img/kubernetes/microservices.png)  
-처음엔 Pre-SOA라고도 하는 monolithic하게 디자인 되었었다. 굉장히 깊게 엮여서 분리하기가 어려웠다. 2000년대에 와서 SOA로 디자인하게 되었고 좀 덜 엮인 모습을 한다.
+처음엔 ~~Pre-SOA라고도 불리는~~ monolithic하게 디자인 되었었다. 굉장히 깊게 엮여서 분리하기가 어려웠다. 2000년대에 와서 SOA로 디자인하게 되었고 좀 덜 엮인 모습을 한다.
 
 2010년대에는 잘게 나누어져서 교체하고 업데이트하기 편해졌다. 이를 MSA라고 하고 단일 응용 프로그램을 작은 서비스들의 모음으로 개발하는 접근법이다.
 
 **Microservices**: 하나의 책임을 다루는 소규모 논리 중심 서비스
 애플리케이션을 마이크로 서비스로 분할한다. 각 마이크로서비스는 독립적인 프로세스로 실행되며 단순하고 잘 정의된 인터페이스를 통해 다른 마이크로 서비스와 통신한다.  
-![microservices_2](https://sundongkim-dev.github.io/assets/img/kubernetes/microservices_2)  
+![microservices_2](https://sundongkim-dev.github.io/assets/img/kubernetes/microservices_2.png)  
 Monolithic의 경우 전체 단위 자체를 복사해야하고 microservices의 경우 필요한 microservice만 늘리면 된다.
 
 **Scaling Microservices**
