@@ -98,9 +98,9 @@ Coherent system이란 또 무엇인가? 전체 동작 방식에 거스르지 않
 single coherent system을 위해 아래와 같은 것들을 지원해야 한다.
 - Access: 데이터 표현의 차이 및 object 접근 방법 숨기기
 ex) 빅-엔디안, 리틀-엔디안 아키텍처 차이, 경로와 같은 것도 슬래시/백슬래시 고민할 필요 없게 해준다.
-- Location: object의 위치 숨기기
-- Relocation: object를 사용 중에 다른 위치로 이동할 수 있도록 숨긴다. ex) 어느 데이터센터에서 옮겨졌는 지 알 필요 없다.
-- Migration: object가 다른 위칠 이동할 수 있도록 숨긴다.
+- Location: object의 물리적 위치 숨기기 ex) URL
+- Relocation: object를 사용 중에 다른 위치로 이동할 수 있도록 숨긴다. ex) 모바일 유저의 엑세스 포인터 변경
+- Migration: object가 다른 위치로 이동할 수 있도록 숨긴다.(리소스의 이동 여부 숨기기)
 - Replication: object가 복제되는 것을 숨긴다.
 ex) mirrored site로 자동으로 redirect 된다.
 - Concurrency: object를 여러 독립 사용자가 공유할 수 있음을 숨긴다.
@@ -120,10 +120,10 @@ ex) mirrored site로 자동으로 redirect 된다.
 **3. Openness**: 분산 시스템이 open되어야 한다.  
 기본 환경에 관계없이 다른 개방형 시스템의 서비스와 상호 작용할 수 있어야 한다.  
 
-- Systems should conform to well-defined interfaces: 컴포넌트가 제공하는 기능의 definition이 interface에 맞게 제공  
+- Systems should conform to well-defined interfaces: 컴포넌트가 제공하는 기능의 definition이 interface에 맞게 제공해야 한다.
 - Systems should easily interoperate(상호 운용성): 누구에 의해 컴포넌트가 구현되었든, 상호 간에 동작(interface 지킨다)해야 한다.  
 - Systems should support portability(이식성) of applications: A env에서 동작하는 app이 B env에서도 동작해야 한다.
-- Systems should be easily extensible(확장성): 컴포넌트 추가 및 대체가 쉽다.
+- Systems should be easily extensible(확장성): 컴포넌트 추가 및 대체가 용이해야 한다.
 
 ##### Policies vs. Mechanisms
 Openness를 구현하는 예시로 두 가지의 차이를 알아보자.  
@@ -161,16 +161,18 @@ Openness를 구현하는 예시로 두 가지의 차이를 알아보자.
     - Peer-assited audio streaming(Spotify)
 
 #### Techniques for scaling
-**1. Hide communication latencies**
+
+**1. Hide communication latencies**  
   - Asynchronous communication: function, routine(callback, listener)
   - Separate handler for incoming response
   - 서버에서 계산할 것을 클라이언트에서 계산하게 하여 시간 단축!
     - 웹 브라우저 computation module(java applets)
-**2. Partition data and computations across multiple machines**
+
+**2. Partition data and computations across multiple machines**  
   - Move computation to clients(Java applets)
   - Decentralized naming services(DNS)
   - Decentralized information systems(WWW)
-**3. Replication and caching: Make copies of data available at different machines**
+**3. Replication and caching: Make copies of data available at different machines**  
   - Replicated file servers and DB
   - Mirrored Web sites(service provider가 사전에 replicated)
   - Web caches(in browsers and proxies)
