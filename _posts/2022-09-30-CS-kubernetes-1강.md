@@ -87,11 +87,13 @@ Monolithic의 경우 전체 단위 자체를 복사해야하고 microservices의
 ### Operating System for Computer Clusters
 - Kubernetes는 플랫폼을 구축하기 위한 플랫폼이다.
 - 분산 애플리케이션과 클러스터 간의 인터페이스(OS 역할)
-  + service discovery
-  + horizontal scaling
-  + load-balancing(request 골고루 분산)
-  + self-healing(crash되면 restart)
-  + leader election
+  + service discovery: 어플리케이션이 다른 어플리케이션을 찾고 그가 제공하는 서비스를 사용
+  + horizontal scaling: 로드 변동에 맞게 응용 프로그램 복제
+  + load-balancing: request 골고루 분산
+  + self-healing: crash되면 restart
+  + leader election: 응용 프로그램의 인스턴스를 결정하는 메커니즘으로
+다른 그룹은 유휴 상태를 유지하지만 활성 인스턴스가 실패할 경우 인계할 준비 되어있음
+
 - 앱 개발자는 핵심 비즈니스 로직을 구현하는 데 집중할 수 있게 된다.
 
 **Kubernetes Cluster**  
