@@ -198,9 +198,10 @@ Openness를 구현하는 예시로 두 가지의 차이를 알아보자.
 
 ---
 ### 3. Types of distributed systems
-**1. High performance distributed computing systems**
-**2. Distributed information systems**
-**3. Distributed systems for pervasive computing**
+
+**1. High performance distributed computing systems**  
+**2. Distributed information systems**  
+**3. Distributed systems for pervasive computing**  
 
 #### Multiprocessor and multicore vs. Multicomputer
 ![multiprocessor_multicomputer](https://sundongkim-dev.github.io/assets/img/distributed_computing/multiprocessor_multicomputer.png)
