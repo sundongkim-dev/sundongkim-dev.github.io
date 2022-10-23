@@ -8,10 +8,12 @@ tags: DistributedComputing
 comments: true
 ---
 
-### 다룰 내용
+2022년 2학기 "분산 컴퓨팅" 수업을 듣고 요약한 내용입니다.
+
+### 본 수업에서 다루게 될 내용
 - Concepts and basics of distributed computing  
 - Microservice architecture(MSA)  
-  – Container- and microservice-based cloud applications  
+  – Container-based and microservice-based cloud applications  
   – Docker and Kubernetes  
   – Hands-on experience with container platforms  
 - Blockchain network protocol and application  
@@ -20,7 +22,7 @@ comments: true
   – Ethereum and smart contract  
 
 ### 과제
-
+- Kind tutorial
 
 ## Chapter 1: Introduction
 - What is a distributed system?
@@ -43,9 +45,11 @@ comments: true
 ### 1. What is a distributed system?
 Distributed system이란 무엇인가? 한글로는 분산 시스템이라고도 하는데, **사용자에게 단일한 coherent system으로 비춰지는 autonomous computing elements들의 집합**이라고 할 수 있다.
 
-Autonomous computing elements는 노드라고도 하며 하드웨어 장치나 소프트웨어 프로세스를 말한다.
+Autonomous computing elements는 독립적인 하드웨어 장치나 소프트웨어 프로세스를 말하며 노드라고도 한다.
 
-Coherent system이란 또 무엇인가? 전체 동작 방식에 거스르지 않고 자연스러운 컴포넌트들로 이루어진 시스템으로 일관성 있는 시스템을 말한다. 이런 일관성을 위해 노드들은 긴밀히 통신해야 한다.
+그럼 Coherent system는 무슨 소리일까?
+
+전체 동작 방식에 거스르지 않고 자연스러운 컴포넌트들로 이루어진 일관성 있는 시스템을 말한다. 이런 일관성을 위해 노드들은 긴밀히 통신해야 한다. 
 
 #### Collection of autonomous nodes
 각 노드들은 자율적이기에 독립적인 clock을 가지고 있다. **즉, global한 clock이 없다보니 기본적인 동기화나 협력을 하기가 어렵다!!** 예를 들어, Node A가 Node B에게 오후 1시에 보낸 메시지를 B는 오후 12:30분에 수신되었다고 로그를 해석할 수 있다.
