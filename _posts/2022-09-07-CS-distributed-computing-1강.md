@@ -117,7 +117,9 @@ ex) mirrored site로 자동으로 redirect 된다.
 - Concurrency: object를 여러 독립 사용자가 공유할 수 있음을 숨긴다.
 - Failure: object의 오류 및 복구를 숨긴다.
 
-하지만 시스템에 따라 위의 transparency들을 모두 지키는 것은 바람직하지 않다. 숨길 수 없는 통신 지연이 있을 수 있고, 네트워크 및 노드의 failure들을 완전히 숨기는 것은 이론적으로나 현실적으로도 불가능하기 때문이다. 그 이유로 느린 컴퓨터와 고장난 컴퓨터를 구분할 수 없으며, crash 전에 서버가 실제로 작업을 수행했는지 확인할 수 없는 등을 들 수 있다.
+하지만 시스템에 따라 위의 transparency들을 모두 지키는 것은 바람직하지 않다.
+
+숨길 수 없는 통신 지연이 있을 수 있고, 네트워크 및 노드의 failure들을 완전히 숨기는 것은 이론적으로나 현실적으로도 불가능하기 때문이다. 그 이유로 느린 컴퓨터와 고장난 컴퓨터를 구분할 수 없으며, crash 전에 서버가 실제로 작업을 수행했는지 확인할 수 없는 등을 예로 들 수 있다.
 
 완전한 transparency로 인해 성능이 저하되고 시스템 분포가 노출될 수 있다. (Master를 통해 복제본을 정확하게 최신 상태로 유지하려면 시간이 걸리고, falut tolerance를 위해 쓰기 작업 즉시 플러시를 하는 등)
 
@@ -126,7 +128,7 @@ ex) mirrored site로 자동으로 redirect 된다.
 - 다른 시간대의 사용자를 처리할 때(내 시간대에 따라 조간신문 서비스)
 - 사용자가 상황을 더 쉽게 이해할 수 있는 경우(서버가 오랫동안 응답하지 않을 경우, 고장으로 보고)
 
-결과적으로는.. case by case로 알잘딱깔센으로 하라는 뜻이다..
+결과적으로는...  case by case로 알잘딱깔센으로 하라는 뜻이다..
 
 **3. Openness**: 분산 시스템이 open되어야 한다.  
 기본 환경에 관계없이 다른 개방형 시스템의 서비스와 상호 작용할 수 있어야 한다.  
@@ -136,40 +138,41 @@ ex) mirrored site로 자동으로 redirect 된다.
 - Systems should support portability(이식성) of applications: A env에서 동작하는 app이 B env에서도 동작해야 한다.
 - Systems should be easily extensible(확장성): 컴포넌트 추가 및 대체가 용이해야 한다.
 
-##### Policies vs. Mechanisms
-Openness를 구현하는 예시로 두 가지의 차이를 알아보자.  
-- 정책의 예시: config, setting
-  - 클라이언트-캐시 데이터에 대해 어느 정도의 일관성이 필요한가?
-  - 다운로드한 코드가 수행할 수 있는 작업은 무엇인가?
-  - 대역폭이 다양한 상황에서 조정해야 하는 QoS 요구사항은 무엇인가?
-  - 커뮤니케이션을 위해 어느 정도의 secrecy가 필요한가?
-- 메카니즘의 예시: policy를 구현한 code, implementation
-  - 캐싱 정책 설정 허용
-  - 모바일 코드에 대한 다양한 신뢰 수준 허용
-  - 데이터 스트림당 조정 가능한 QoS 매개 변수 제공
-  - 다양한 암호화 알고리즘 제공
+알쓸신잡!  
+- Policies vs. Mechanisms
+  - Openness를 구현하는 예시로 두 가지의 차이를 알아보자.  
+    - 정책의 예시: config, setting
+      - 클라이언트-캐시 데이터에 대해 어느 정도의 일관성이 필요한가?
+      - 다운로드한 코드가 수행할 수 있는 작업은 무엇인가?
+      - 대역폭이 다양한 상황에서 조정해야 하는 QoS 요구사항은 무엇인가?
+      - 커뮤니케이션을 위해 어느 정도의 secrecy가 필요한가?
+    - 메카니즘의 예시: policy를 구현한 code, implementation
+      - 캐싱 정책 설정 허용
+      - 모바일 코드에 대한 다양한 신뢰 수준 허용
+      - 데이터 스트림당 조정 가능한 QoS 매개 변수 제공
+      - 다양한 암호화 알고리즘 제공
 
 **4. Scalability**: 분산 시스템은 확장 가능해야 한다.  
-##### Scale in distributed systems
-- Size scalability: 사용자와 프로세스의 수
-  - centralized(한 자리에서 서버 동작) 해결책의 한계
-    - CPU에 의해 제한된 계산 용량
-    - CPU 간 전송 속도를 포함한 스토리지 용량 및 디스크
-    - 사용자와 중앙 집중식 서비스 간의 네트워크
-- **Geographical scalability**: 노드들의 최대 거리
-  - 단순히 LAN에서 WAN으로 이동할 수 없음
-    - 많은 분산 시스템은 동기화된 클라이언트-서버 상호 작용을 가정하는데 LAN은 수백 마이크로 세컨드의 지연 시간을 갖고 WAN은 수백 밀리 세컨드의 지연시간을 가져서 이동하기 쉽지 않다.
-  - WAN 링크는 종종 본질적으로 신뢰할 수 없다
-  - 멀티포인트 통신이 부족하여 간단한 검색 브로드캐스트를 배포할 수 없습니다
-    - 솔루션은 별도의 이름 지정 및 디렉터리 서비스(자체적인 확장성 있음)를 개발
-- **Administrative scalability**: Administrative domain의 수
-  - 다른 도메인들을 거치면서 문제 발생!
-  - Computing grids: 서로 다른 도메인의 값비싼 리소스 공유
-  - Shared equipment: 대규모 공유 센서 네트워크로 제작된 전파 망원경 등
-  - 예외) P2P networks
-    - File sharing systems(e.g. BitTorrent)
-    - P2P telephony (Skype)
-    - Peer-assited audio streaming(Spotify)
+- Scale in distributed systems
+  - **Size scalability**: 사용자와 프로세스의 수
+    - centralized(한 자리에서 서버 동작) 해결책의 한계
+      - CPU에 의해 제한된 계산 용량
+      - CPU 간 전송 속도를 포함한 스토리지 용량 및 디스크
+      - 사용자와 중앙 집중식 서비스 간의 네트워크
+  - **Geographical scalability**: 노드들의 최대 거리
+    - 단순히 LAN에서 WAN으로 이동할 수 없음
+      - 많은 분산 시스템은 동기화된 클라이언트-서버 상호 작용을 가정하는데 LAN은 수백 마이크로 세컨드의 지연 시간을 갖고 WAN은 수백 밀리 세컨드의 지연시간을 가져서 이동하기 쉽지 않다.
+    - WAN 링크는 종종 본질적으로 신뢰할 수 없다
+    - 멀티포인트 통신이 부족하여 간단한 검색 브로드캐스트를 배포할 수 없습니다
+      - 솔루션은 별도의 이름 지정 및 디렉터리 서비스(자체적인 확장성 있음)를 개발
+  - **Administrative scalability**: Administrative domain의 수
+    - 다른 도메인들을 거치면서 문제 발생!
+    - Computing grids: 서로 다른 도메인의 값비싼 리소스 공유
+    - Shared equipment: 대규모 공유 센서 네트워크로 제작된 전파 망원경 등
+    - 예외) P2P networks
+      - File sharing systems(e.g. BitTorrent)
+      - P2P telephony (Skype)
+      - Peer-assited audio streaming(Spotify)
 
 #### Techniques for scaling
 
@@ -183,6 +186,7 @@ Openness를 구현하는 예시로 두 가지의 차이를 알아보자.
   - Move computation to clients(Java applets)
   - Decentralized naming services(DNS)
   - Decentralized information systems(WWW)
+
 **3. Replication and caching: Make copies of data available at different machines**  
   - Replicated file servers and DB
   - Mirrored Web sites(service provider가 사전에 replicated)
@@ -191,7 +195,7 @@ Openness를 구현하는 예시로 두 가지의 차이를 알아보자.
 
 #### The problem with Replication
 
-여러 복사본(캐시 또는 복제된 복사본)이 있으면 불일치가 발생한다. 한 복사본을 수정하면 해당 복사본이 다른 복사본과 달라지게 된다. 복사본을 항상 일관되고 일반적인 방식으로 유지하려면 각 수정에 대한 global synchronization이 필요합니다. 글로벌 동기화는 대규모 솔루션을 배제한다.
+여러 복사본(캐시 또는 복제된 복사본)이 있으면 불일치가 발생한다. 한 복사본을 수정하면 해당 복사본이 다른 복사본과 달라지게 된다. 복사본을 항상 일관되고 일반적인 방식으로 유지하려면 각 수정에 대한 global synchronization이 필요해진다.
 
 불일치를 허용할 수 있다면 글로벌 동기화의 필요성을 줄일 수 있다.
 
@@ -205,7 +209,6 @@ Openness를 구현하는 예시로 두 가지의 차이를 알아보자.
 - 대역폭이 무한이다.
 - Transport cost가 0이다.
 - Administrator가 하나이다.
-
 
 ---
 ### 3. Types of distributed systems
@@ -269,6 +272,7 @@ DB에서 배웠듯 transaction은 항상 all-or-nothing이다. 또한 다음과 
 - Consistent
 - Isolated
 - Durable
+
 #### TPM: Transaction Processing Monitor
 ![TPM](https://sundongkim-dev.github.io/assets/img/distributed_computing/TPM.png)
 
@@ -312,6 +316,3 @@ DB에서 배웠듯 transaction은 항상 all-or-nothing이다. 또한 다음과 
 ![sensor_networks](https://sundongkim-dev.github.io/assets/img/distributed_computing/sensor_networks.png)
 
 각 sensor들이 각자 DB를 구축하고 있고 data를 처리할 수 있다면 필요한 내용만을 센서가 operator에게 보냄으로써 훨씬 효율적으로 동작할 수 있다.
-
----
-### 4. Summary
