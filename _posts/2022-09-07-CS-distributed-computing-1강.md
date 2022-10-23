@@ -185,7 +185,7 @@ ex) mirrored site로 자동으로 redirect 된다.
 **2. Partition data and computations across multiple machines**  
   - Move computation to clients(Java applets)
   - Decentralized naming services(DNS)
-  - Decentralized information systems(WWW)
+  - Decentralized information systems(WWW)  
 
 **3. Replication and caching: Make copies of data available at different machines**  
   - Replicated file servers and DB
@@ -213,16 +213,16 @@ ex) mirrored site로 자동으로 redirect 된다.
 ---
 ### 3. Types of distributed systems
 
-**1. High performance distributed computing systems**  
-**2. Distributed information systems**  
-**3. Distributed systems for pervasive computing**  
+**1. High performance distributed computing systems**: 컴퓨팅 파워를 필요로하는 서비스를 요청할 때 사용  
+**2. Distributed information systems**: 네이버 클라우드같이 정보를 제공해주는 시스템  
+**3. Distributed systems for pervasive computing**: 다이나믹한 환경에서 사용자가 언제 어디서든 제공 받을 수 있는 분산 시스템
 
 #### Multiprocessor and multicore vs. Multicomputer
 ![multiprocessor_multicomputer](https://sundongkim-dev.github.io/assets/img/distributed_computing/multiprocessor_multicomputer.png)
 
 Multi-processor는 memory를 공유하고 processor간의 관계가 동등하지 않을 수 있는 반면 multi-computer는 독자적인 메모리를 갖으며 별개의 machine으로 봐야 한다.
 
-멀티프로세서는 멀티컴퓨터에 비해 상대적으로 프로그래밍이 쉽지만 프로세서(또는 코어)의 수를 늘릴 때 문제가 있다. 다중 컴퓨터 위에 공유 메모리 모델을 구현하여 해결할 수 있다.
+멀티프로세서는 멀티컴퓨터에 비해 상대적으로 프로그래밍이 쉽지만 프로세서(또는 코어)의 수를 늘릴 때 문제가 있다. 이를 다중 컴퓨터 위에 공유 메모리 모델을 구현하여 해결할 수 있다.
 
 가상 메모리 기술을 통한 예로, 서로 다른 프로세서의 모든 기본 메모리 페이지를 하나의 가상 주소 공간에 매핑한다. 프로세서 A의 프로세스가 프로세서 B에 위치한 페이지 P에 주소를 지정하면, P가 로컬 디스크에 위치했을 때와 마찬가지로 A의 OS가 P를 트랩하고 B에서 가져옵니다.
 
@@ -267,7 +267,7 @@ Transaction의 primitive는 5가지가 있다.
 - READ
 - WRITE
 
-DB에서 배웠듯 transaction은 항상 all-or-nothing이다. 또한 다음과 같은 특징을 갖는다.
+DB 수업에서 배웠듯 transaction은 항상 all-or-nothing이다. 또한 다음과 같은 특징을 갖는다.
 - Atomic
 - Consistent
 - Isolated
@@ -276,7 +276,7 @@ DB에서 배웠듯 transaction은 항상 all-or-nothing이다. 또한 다음과 
 #### TPM: Transaction Processing Monitor
 ![TPM](https://sundongkim-dev.github.io/assets/img/distributed_computing/TPM.png)
 
-많은 경우, 트랜잭션과 관련된 데이터는 여러 서버에 분산된다. TP 모니터는 트랜잭션 실행을 조정하는 역할을 한다. 이로써 distributed information system을 얻게 된다.
+많은 경우, 트랜잭션에 포함된 데이터는 여러 서버에 분산된다. TP 모니터는 트랜잭션 실행을 조정하는 역할을 한다. 즉, TPM은 distributed information system이라고 할 수 있다.
 
 #### Middleware and EAI
 ![middleware_and_EAI](https://sundongkim-dev.github.io/assets/img/distributed_computing/middleware_and_EAI.png)
@@ -298,15 +298,15 @@ DB에서 배웠듯 transaction은 항상 all-or-nothing이다. 또한 다음과 
 노드가 작고 이동성이 있으며 종종 더 큰 시스템에 내장되어 있는 차세대 분산 시스템은 시스템이 사용자 환경에 자연스럽게 혼합된다는 점이 특징이다.
 
 세 가지(중복) 하위 유형
-- 유비쿼터스 컴퓨팅 시스템: 지속적으로 존재하는, 즉 시스템과 사용자 간의 지속적인 상호 작용이 있다.
+- **유비쿼터스 컴퓨팅 시스템**: 지속적으로 존재하는, 즉 시스템과 사용자 간의 지속적인 상호 작용이 있다.
   - Distribution: 투명하게 네트워크 연결, 분산 및 액세스 가능
   - Interaction: 사용자와 장치 간의 상호 작용은 눈에 띄지 않는다.
   - Context awareness: 시스템이 상호 작용을 최적화하기 위해 사용자의 컨텍스트를 인식
   - Autonomy: 기기들은 사람의 개입 없이 자율적으로 작동하며, 따라서 자기관리성이 높다
   - Intelligence: 전체적으로 시스템이 광범위한 동적 동작 및 상호 작용을 처리할 수 있다
-- 모바일 컴퓨팅 시스템: 널리 보급되지만, 장치가 본질적으로 모바일이다.
+- **모바일 컴퓨팅 시스템**: 널리 보급되지만, 장치가 본질적으로 모바일이다.
   - 의사소통은 더 어려워질 수 있다: 안정적인 경로가 없고 연결성 보장되어 있지 않다. => Disruption-tolerant networking ex) MANET
-- 센서(and actuator) 네트워크: 환경의 실제(협업적) 감지 및 작동을 강조하면서 만연하다.
+- **센서(and actuator) 네트워크**: 환경의 실제(협업적) 감지 및 작동을 강조하면서 만연하다.
   - 센서가 연결된 노드는 다음과 같습니다.
     - 다수(10s-1000s)
     - 단순(작은 메모리/컴퓨팅/통신 용량)
