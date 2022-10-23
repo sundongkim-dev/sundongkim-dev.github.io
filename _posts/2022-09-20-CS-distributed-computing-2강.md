@@ -113,7 +113,7 @@ multi-tiered로 존재할 수도 있다. 몇 부분으로 나누어지는 가를
 ![two_tiered_config](https://sundongkim-dev.github.io/assets/img/distributed_computing/two_tiered_config.png)  
 e로 갈수록 client단에서 하는 것이 많으므로 fat하다고 한다. 통상적으로 d와 e를 fat client, a,b,c를 thin client라고 한다.
 
-a의 예시로는, blahblah
+a의 예시로는, application layering 그림에서 html file을 생성하는 것을 예로 들 수 있다.  
 b의 예시로는 FTP server를 들 수 있다.  
 c의 예시로는 1강에서 봤던 email form checker를 들 수 있다.  
 d의 예시로는 재고 관리 프로그램을 들 수 있다.  
