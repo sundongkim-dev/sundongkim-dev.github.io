@@ -69,9 +69,9 @@ Structured는 tree나 ring처럼 각 노드는 인접 노드 집합을 가지고
 #### Single Coherent System
 사용자와 시스템 간의 상호 작용이 어디서, 언제, 어떻게 이루어지는지에 관계없이 노드들은 전체적으로 동일한 방식으로 작동한다.
 
-예를 들어, end-user는 어디에서 computation이 일어나는 지 알 수 없고, 데이터가 정확히 저장되는 곳이 어플리케이션과 무관하고 또한 데이터가 복제되었는 지 조차 알 수 없고 알 필요도 없다.
+예를 들어, end-user는 어디에서 computation이 일어나는 지 알 수 없고, 데이터가 정확히 저장되는 곳(어플리케이션과도 무관)이 어디인지 또한 데이터가 복제되었는 지 조차 알 수 없고 알 필요도 없다.
 
-이를 distribution transparency라고 한다.
+이를 **distribution transparency**라고 한다.
 
 이를 완전하게 달성하는 것은 매우 어렵다. [Design goals에서 더 살펴보자.](#2-design-goals)
 
