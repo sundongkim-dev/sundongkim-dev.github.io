@@ -111,7 +111,8 @@ single coherent system을 위해 아래와 같은 것들을 지원해야 한다.
 - Access: 데이터 표현의 차이 및 object 접근 방법 숨기기  
 ex) 빅-엔디안, 리틀-엔디안 아키텍처 차이, 경로와 같은 것도 슬래시/백슬래시 고민할 필요 없게 해준다.
 - Location: object의 물리적 위치 숨기기 ex) URL
-- Relocation: object를 사용 중에 다른 위치로 이동할 수 있도록 숨긴다.  ex) 모바일 유저의 엑세스 포인터 변경
+- Relocation: object를 사용 중에 다른 위치로 이동할 수 있도록 숨긴다.  
+ex) 모바일 유저의 엑세스 포인터 변경
 - Migration: object가 다른 위치로 이동할 수 있도록 숨긴다.(리소스의 이동 여부 숨기기)
 - Replication: object가 복제되는 것을 숨긴다.  
 ex) mirrored site로 자동으로 redirect 된다.
@@ -120,9 +121,9 @@ ex) mirrored site로 자동으로 redirect 된다.
 
 하지만 시스템에 따라 위의 transparency들을 모두 지키는 것은 바람직하지 않다. 또한 모두 지킬 수 없을 수도 있다.  
 
-숨길 수 없는 통신 지연이 있을 수 있고, 네트워크 및 노드의 failure들을 완전히 숨기는 것은 이론적으로나 현실적으로도 불가능하기 때문이다. 예시로, 느린 컴퓨터와 고장난 컴퓨터를 구분할 수 없으며, crash 전에 서버가 실제로 작업을 수행했는지 확인할 수 없는 등을 예로 들 수 있다.
+숨길 수 없는 물리적인 통신 지연이 있을 수 있고, 네트워크 및 노드의 failure들을 완전히 숨기는 것은 이론적으로나 현실적으로도 불가능하기 때문이다. 예시로, 느린 컴퓨터와 crashed 컴퓨터를 구분할 수 없으며, crash 전에 서버가 실제로 작업을 수행했는지 확인할 수 없는 등을 예로 들 수 있다.
 
-완전한 transparency로 인해 성능이 저하되고 시스템 분포가 노출될 수 있다. (Master를 통해 복제본을 정확하게 최신 상태로 유지하려면 시간이 걸리고, falut tolerance를 위해 쓰기 작업 즉시 플러시를 하는 등)
+완전한 transparency로 인해 **성능이 저하**되고 **시스템 분포가 노출**될 수 있다. (Master를 통해 복제본을 정확하게 최신 상태로 유지하려면 시간이 걸리고, falut tolerance를 위해 쓰기 작업 즉시 플러시를 하는 등)
 
 때때로, distribution을 노출하는 것이 좋을 수 있다.
 - 위치 기반 서비스 활용(인근 친구 찾기)
@@ -132,15 +133,16 @@ ex) mirrored site로 자동으로 redirect 된다.
 결과적으로는...  case by case로 알잘딱깔센으로 하라는 뜻이다..
 
 **3. Openness**: 분산 시스템이 open되어야 한다.  
+
 기본 환경에 관계없이 다른 개방형 시스템의 서비스와 상호 작용할 수 있어야 한다.  
 
-- Systems should conform to well-defined interfaces: 컴포넌트가 제공하는 기능의 definition이 interface에 맞게 제공해야 한다.
-- Systems should easily interoperate(상호 운용성): 누구에 의해 컴포넌트가 구현되었든, 상호 간에 동작(interface 지킨다)해야 한다.  
-- Systems should support portability(이식성) of applications: A env에서 동작하는 app이 B env에서도 동작해야 한다.
-- Systems should be easily extensible(확장성): 컴포넌트 추가 및 대체가 용이해야 한다.
+- Systems should **conform to well-defined interfaces**: 컴포넌트가 제공하는 기능의 definition이 interface에 맞게 제공해야 한다.
+- Systems should **easily interoperate**(상호 운용성): 누구에 의해 컴포넌트가 구현되었든, 상호 간에 동작(interface 지킨다)해야 한다.  
+- Systems should **support portability**(이식성) of applications: A env에서 동작하는 app이 B env에서도 동작해야 한다.
+- Systems should **be easily extensible**(확장성): 컴포넌트 추가 및 대체가 용이해야 한다.
 
-알쓸신잡!  
 - Policies vs. Mechanisms
+  - Policy는 어떤 방식으로 서비스할지, 즉 설정을 뜻하고 Mechanisms은 그 구현체를 말한다.
   - Openness를 구현하는 예시로 두 가지의 차이를 알아보자.  
     - 정책의 예시: config, setting
       - 클라이언트-캐시 데이터에 대해 어느 정도의 일관성이 필요한가?
@@ -164,7 +166,7 @@ ex) mirrored site로 자동으로 redirect 된다.
     - 단순히 LAN에서 WAN으로 이동할 수 없음
       - 많은 분산 시스템은 동기화된 클라이언트-서버 상호 작용을 가정하는데 LAN은 수백 마이크로 세컨드의 지연 시간을 갖고 WAN은 수백 밀리 세컨드의 지연시간을 가져서 이동하기 쉽지 않다.
     - WAN 링크는 종종 본질적으로 신뢰할 수 없다
-    - 멀티포인트 통신이 부족하여 간단한 검색 브로드캐스트를 배포할 수 없습니다
+    - 멀티포인트 통신이 부족하여 간단한 검색 브로드캐스트를 할 수 없다
       - 솔루션은 별도의 이름 지정 및 디렉터리 서비스(자체적인 확장성 있음)를 개발
   - **Administrative scalability**: Administrative domain의 수
     - 다른 도메인들을 거치면서 문제 발생!
@@ -215,7 +217,7 @@ ex) mirrored site로 자동으로 redirect 된다.
 ### 3. Types of distributed systems
 
 **1. High performance distributed computing systems**: 컴퓨팅 파워를 필요로하는 서비스를 요청할 때 사용  
-**2. Distributed information systems**: 네이버 클라우드같이 정보를 제공해주는 시스템  
+**2. Distributed information systems**: 네이버 클라우드처럼 정보를 제공해주는 시스템  
 **3. Distributed systems for pervasive computing**: 다이나믹한 환경에서 사용자가 언제 어디서든 제공 받을 수 있는 분산 시스템
 
 #### Multiprocessor and multicore vs. Multicomputer
