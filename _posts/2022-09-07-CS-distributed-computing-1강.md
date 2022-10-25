@@ -93,28 +93,27 @@ End-user는 어디에서 computation이 일어나는지 알 수 없고 데이터
 3. Communication: RPC
 4. Transaction
 5. Service composition: Web services
-6. Reliability
 
 ---
 ### 2. Design goals
 
 **1. Sharing resources**: 자원을 공유하고 쉽게 이용할 수 있게 해야 한다.  
-대표적인 예시로,
+
+대표적인 예시로 다음을 들 수 있다.
 - 클라우드 기반의 공유 스토리지 및 파일
 - P2P 지원 멀티미디어 스트리밍
 - 공유 메일 서비스
 - 공유 웹 호스팅  
 
-등이 있다.
+**2. Distribution transparency**: 리소스가 네트워크를 통해 분산된다는 사실을 사용자로부터 숨겨야 한다.
 
-**2. Distribution transparency**: 리소스가 네트워크를 통해 분산된다는 사실을 사용자로부터 숨겨야 한다.   
 single coherent system을 위해 아래와 같은 것들을 지원해야 한다.
-- Access: 데이터 표현의 차이 및 object 접근 방법 숨기기
+- Access: 데이터 표현의 차이 및 object 접근 방법 숨기기  
 ex) 빅-엔디안, 리틀-엔디안 아키텍처 차이, 경로와 같은 것도 슬래시/백슬래시 고민할 필요 없게 해준다.
 - Location: object의 물리적 위치 숨기기 ex) URL
-- Relocation: object를 사용 중에 다른 위치로 이동할 수 있도록 숨긴다. ex) 모바일 유저의 엑세스 포인터 변경
+- Relocation: object를 사용 중에 다른 위치로 이동할 수 있도록 숨긴다.  ex) 모바일 유저의 엑세스 포인터 변경
 - Migration: object가 다른 위치로 이동할 수 있도록 숨긴다.(리소스의 이동 여부 숨기기)
-- Replication: object가 복제되는 것을 숨긴다.
+- Replication: object가 복제되는 것을 숨긴다.  
 ex) mirrored site로 자동으로 redirect 된다.
 - Concurrency: object를 여러 독립 사용자가 공유할 수 있음을 숨긴다.
 - Failure: object의 오류 및 복구를 숨긴다.
