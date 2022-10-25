@@ -97,7 +97,7 @@ RESTful API의 기본 개념은 리소스이며, 각 리소스에는 고유하�
 
 또한 각 개별 배포 인스턴스에는 조작할 수 있는 고유한 URI가 있어서 개별 deployment는 또 다른 REST 자원으로 노출된다. GET 요청을 리소스 URI로 전송하여 배포에 대한 정보를 검색할 수 있으며 PUT 요청을 사용하여 수정할 수 있다.
 
-Object는 둘 이상의 리소스를 통해 노출될 수 있다. 리소스가 object를 전혀 나타내지 않는 경우도 있다. 이것의 예는 Kubernetes API가 클라이언트가 주체(사람 또는 서비스)가 API 연산을 수행할 권한이 있는지 여부를 확인할 수 있도록 하는 방법이다. 이 작업은 POST 요청을 /syslog/authorization.k8s.io/v1/subjectaccessreviews 리소스에 제출하여 수행된다. 응답은 환자가 요청 본문에 지정된 작업을 수행할 수 있는 권한이 있는지 여부를 나타냅니다. 여기서 중요한 것은 POST 요청에 의해 object가 생성되지 않는다는 것입니다.
+Object는 둘 이상의 리소스를 통해 노출될 수 있다. 리소스가 object를 전혀 나타내지 않는 경우도 있다. 예를 들어, Kubernetes API가 클라이언트가 주체(사람 또는 서비스)가 API 연산을 수행할 권한이 있는지 여부를 확인하는 것이 있다. 이 작업은 POST 요청을 /syslog/authorization.k8s.io/v1/subjectaccessreviews 리소스에 제출하여 수행된다. 응답은 환자가 요청 본문에 지정된 작업을 수행할 수 있는 권한이 있는지 여부를 나타냅니다. 여기서 중요한 것은 POST 요청에 의해 object가 생성되지 않는다는 것입니다.
 
 ### Object Manifest
 대부분의 쿠버네티스 API 객체의 매니페스트는 다음과 같은 4개의 섹션으로 구성된다.
