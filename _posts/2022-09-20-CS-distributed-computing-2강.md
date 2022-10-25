@@ -77,8 +77,9 @@ REST(Representational State Transfer)ful architecture라고도 한다. 분산 �
 
 ``ex) http://BucketName.s3.amazonaws.com/ObjectName ``  
 
+모든 operation들은 HTTP request를 전송하여 수행된다.
 
-모든 operation들은 HTTP request를 전송하여 수행된다. Bucket 및 object를 생성할 때는 POST와 URI가 필요하며, Object들을 나열할 때에는 bucket name에 GET, object를 조회할 때에는 해당 full URI에 GET을 한다.
+SOAP의 경우 Bucket 및 object를 생성할 때는 POST와 URI가 필요하며, Object들을 나열할 때에는 bucket name에 GET, object를 조회할 때에는 해당 full URI에 GET을 한다.
 
 RESTful한 approach를 사람들이 선호하는 이유는 단순해서이다.  
 **SOAP vs. RESTful**  
