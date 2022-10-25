@@ -21,7 +21,7 @@ comments: true
 
 #### How to deploy a workload?
 
-사용자가 모든 컨테이너/노드의 상태 모니터링 및 저장하고 호출을 놓친 모든 실패한 노드를 "catch up"해야 한다. 예를 들어, 컨테이너가 crash되고 죽는다면? 노드가 crash되고 죽는다면? 이는 복잡하고 custom 논리가 필요하기에 좋은 답이 아니다.
+사용자가 모든 컨테이너/노드의 상태 모니터링 및 저장하고 호출을 놓친 모든 실패한 노드를 "catch up"해야 한다. 예를 들어, 컨테이너가 crash되고 죽는다면? 노드가 crash되고 죽는다면? 이는 복잡하고 custom logic이 필요하기에 좋은 답이 아니다.
 
 ### Principle #1. Kubernetes APIs are declarative rather than imperative.
 
@@ -86,7 +86,7 @@ Persistent Volume 및 Persistent Volume Claim 추상화: 스토리지 구현과 
 
 ---
 ### Introducing the Kubernetes API Obejcts
-![kubernetes API](https://sundongkim-dev.github.io/assets/img/kubernetes/kubernetes_API.png.png)
+![kubernetes API](https://sundongkim-dev.github.io/assets/img/kubernetes/kubernetes_API.png)
 
 Kubernetes API는 POST, GET, PUT/Patch 또는 DELETE와 같은 표준 HTTP 메서드를 사용하여 CRUD 작업(생성, 읽기, 업데이트, 삭제)을 수행하는, 리소스로 상태를 나타내는 HTTP 기반 RESTful API입니다. 클러스터의 구성을 나타내는 것은 이러한 리소스(또는 개체)입니다.
 
