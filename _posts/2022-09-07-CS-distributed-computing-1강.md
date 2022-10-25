@@ -79,19 +79,21 @@ End-user는 어디에서 computation이 일어나는지 알 수 없고 데이터
 
 ![Middleware](https://sundongkim-dev.github.io/assets/img/distributed_computing/middleware.png)
 
-미들웨어는 위의 그림처럼 **여러 computer에 걸친 layer**로 **분산시스템의 OS**라고 할 수 있다. 미들웨어는 애플리케이션에서 별도로 구현할 필요가 없는 일반적으로 사용되는 컴포넌트 및 함수를 갖고 있다.
+미들웨어는 위의 그림처럼 **여러 computer에서 OS와 application 사이에 걸친 layer**로 **분산시스템의 인터페이스**라고 할 수 있다. 미들웨어는 애플리케이션에서 별도로 구현할 필요가 없는 일반적으로 사용되는 컴포넌트 및 함수를 갖고 있다.
 
 그림에서 컴퓨터들의 OS가 각각 다른데, 분산 시스템을 구성하는 컴포넌트는 heterogeneous할 수 있으므로 하드웨어나 OS가 다를 수 있다. 각 컴퓨터의 OS가 다르더라도 미들웨어의 도움을 받아 서로 다른 세 애플리케이션의 interaction이 가능해진다.
 
-미들웨어라는 중간에 위치한 레이어를 통해 분산 시스템의 목적 중 하나인 분산된 사실을 숨기는 것이 가능해진다. 미들웨어 밑에 분산되어있는 컴포넌트들끼리 필요한 프로세싱, 커뮤니케이션 같은 것들을 미들웨어에서 처리한다. 이런 식으로 분산 시스템의 인터페이스 역할을 한다.
+미들웨어라는 중간에 위치한 레이어를 통해 분산 시스템의 목적 중 하나인 "분산된 사실을 숨기는 것"이 가능해진다. 미들웨어 밑에 분산되어있는 컴포넌트들끼리 필요한 프로세싱, 커뮤니케이션 같은 것들을 미들웨어에서 처리한다. 이런 식으로 분산 시스템의 resource manager 역할을 한다. 컴퓨터의 OS가 분산시스템의 미들웨어라고 할 수 있다.
 
-한 가지 운영 체제와의 주요 차이점은 미들웨어 서비스가 네트워크 환경에서 제공된다는 것이다.
+한 가지 운영 체제와의 주요 차이점은 **미들웨어 서비스가 네트워크 환경에서 제공**된다는 것이다.
 
 미들웨어 서비스의 예시  
-1. Communication: RPC
-2. Transaction
-3. Service composition: Web services
-4. Reliability
+1. session & presentation layer
+2. TP monitor
+3. Communication: RPC
+4. Transaction
+5. Service composition: Web services
+6. Reliability
 
 ---
 ### 2. Design goals
