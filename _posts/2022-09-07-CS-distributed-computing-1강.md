@@ -241,15 +241,16 @@ Multi-processor는 memory를 공유하고 processor간의 관계가 동등하지
 
 협업을 허용하기 위해 그리드는 일반적으로 가상 조직을 사용하는데 본질적으로, 이것은 리소스 할당에 대한 권한을 허용하는 사용자(또는 더 나은 사용자 ID)의 그룹이다.
 
-Grid computing의 아키텍처는 다음과 같다.
+**Grid computing의 아키텍처**는 다음과 같다.
 ![grid_computing_layers](https://sundongkim-dev.github.io/assets/img/distributed_computing/grid_computing_layers.png)
-- Fabric: 로컬 리소스에 대한 인터페이스를 제공(상태 및 기능 쿼리, 잠금 등)
-- Connectivity: 리소스 간 데이터 이동을 위한 통신/트랜잭션 프로토콜. 또는 다양한 인증 프로토콜.
-- Resource: 프로세스 생성 또는 데이터 읽기 등 단일 리소스를 관리
-- Collective: 검색, 스케줄링, 복제와 같은 여러 리소스에 대한 액세스를 처리
+- Fabric: 로컬 리소스에 대한 **인터페이스**를 제공(상태 및 기능 쿼리, 잠금 등)
+- Connectivity: 리소스 간 데이터 이동을 위한 **통신/트랜잭션 프로토콜 또는 다양한 인증 프로토콜**.
+- Resource: 프로세스 생성 또는 데이터 읽기 등 **단일 리소스를 관리**
+- Collective: 검색, 스케줄링, 복제와 같은 **여러 리소스에 대한 액세스를 처리**
 - Application: 단일 조직에 실제 그리드 응용 프로그램을 포함
 
 #### Cloud computing
+
 ![cloud_computing](https://sundongkim-dev.github.io/assets/img/distributed_computing/cloud_computing.png)
 - Hardware: 프로세서, 라우터, 전원 및 냉각 시스템
 - Infrastructure: 가상화 기술을 구현, 가상 스토리지 장치 및 가상 서버 할당 및 관리를 중심으로 발전
@@ -257,8 +258,8 @@ Grid computing의 아키텍처는 다음과 같다.
 ex) Amazon S3 스토리지 시스템은 이른바 버킷에 정리되고 저장될 (로컬 생성) 파일에 대한 API를 제공
 - Application: 오피스 제품군(텍스트 프로세서, 스프레드시트 애플리케이션, 프레젠테이션 애플리케이션)과 같은 실제 애플리케이션, OS와 함께 제공되는 애플리케이션 제품군과 비교 가능
 
-상호 운용성은 어떻게 달성? 기본적인 접근법은 다음과 같다.  
-네트워크 응용프로그램은 원격 클라이언트가 서비스를 사용할 수 있도록 서버에서 실행되는 응용프로그램이다.
+상호 운용성은 어떻게 달성할까? 기본적인 접근법은 다음과 같다.  
+네트워크 애플리케이션은 원격 클라이언트가 서비스를 사용할 수 있도록 서버에서 실행되는 애플리케이션이다.
 - 단순한 통합: 클라이언트는 (다른) 애플리케이션에 대한 요청을 결합하고, 요청을 보내고, 응답을 수집하고, 사용자에게 일관된 결과를 제공합니다.
 - 다음 단계: 애플리케이션 간 직접 통신을 허용하여 EAI(Enterprise Application Integration)으로 이어집니다.
 
@@ -270,7 +271,7 @@ Transaction의 primitive는 5가지가 있다.
 - READ
 - WRITE
 
-DB 수업에서 배웠듯 transaction은 항상 all-or-nothing이다. 또한 다음과 같은 특징을 갖는다.
+DB 수업에서 배웠듯 transaction은 항상 all-or-nothing(atomic)이다. 또한 다음과 같은 특징을 갖는다.
 - Atomic
 - Consistent
 - Isolated
@@ -294,7 +295,7 @@ DB 수업에서 배웠듯 transaction은 항상 all-or-nothing이다. 또한 다
   - 파일 관리 파악
   - 전파 업데이트 및 알림 업데이트
 - Shared DB: 훨씬 더 유연하지만 병목 현상의 위험과 함께 공통 데이터 체계가 필요
-- RPC: 일련의 작업을 실행해야 할 때 효과적, 동시 수행중이어야 하는 제약이 있음
+- RPC: 일련의 작업을 실행해야 할 때 효과적이지만 동시 수행중이어야 하는 제약이 있음
 - Messaging: RPC를 사용하려면 발신자와 발신자가 동시에 작동해야 하지만 메시징은 시간과 공간의 분리를 허용한다. ex) message queue
 
 #### Distributed pervasive systems
