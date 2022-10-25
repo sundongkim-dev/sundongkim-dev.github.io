@@ -104,6 +104,7 @@ Monolithic의 경우 전체 단위 자체를 복사해야하고 microservices의
 - Worker node의 쿠버네티스 컴포넌트들은 마스터 노드의 컴포넌트와 통신하지만 노드끼리 서로 통신하지는 않는다.
 
 **Master nodes**  
+![master_node](https://sundongkim-dev.github.io/assets/img/kubernetes/master_node.png)  
 + 개발자와 운영자 모두 API를 통해 object를 생성한다.
 + API server는 중앙 컴포넌트로 쿠버네티스를 위한 RESTful API를 제공한다.
 + Scheduler는 어떤 worker node가 어플리케이션의 인스턴스를 실행할 지 결정한다. = task scheduling
