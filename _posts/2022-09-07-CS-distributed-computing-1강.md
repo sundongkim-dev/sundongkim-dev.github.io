@@ -290,6 +290,7 @@ DB 수업에서 배웠듯 transaction은 항상 all-or-nothing(atomic)이다. �
 - Message Oriented Middleware(MOM): 메시지가 논리적 연락처로 전송되고(게시됨) 등록된 응용 프로그램으로 전달됩니다. ex) rabbitMQ / activeMQ / PubSUb
 
 #### How to integrate applications
+
 - File transfer: 기술적으로 간단하지만 유연하지 않음
   - 파일 형식 및 레이아웃 파악
   - 파일 관리 파악
@@ -299,9 +300,10 @@ DB 수업에서 배웠듯 transaction은 항상 all-or-nothing(atomic)이다. �
 - Messaging: RPC를 사용하려면 발신자와 발신자가 동시에 작동해야 하지만 메시징은 시간과 공간의 분리를 허용한다. ex) message queue
 
 #### Distributed pervasive systems
+
 노드가 작고 이동성이 있으며 종종 더 큰 시스템에 내장되어 있는 차세대 분산 시스템은 시스템이 사용자 환경에 자연스럽게 혼합된다는 점이 특징이다.
 
-세 가지(중복) 하위 유형
+세 가지 하위 유형
 - **유비쿼터스 컴퓨팅 시스템**: 지속적으로 존재하는, 즉 시스템과 사용자 간의 지속적인 상호 작용이 있다.
   - Distribution: 투명하게 네트워크 연결, 분산 및 액세스 가능
   - Interaction: 사용자와 장치 간의 상호 작용은 눈에 띄지 않는다.
