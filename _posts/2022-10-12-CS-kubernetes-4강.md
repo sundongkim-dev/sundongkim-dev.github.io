@@ -90,7 +90,7 @@ Persistent Volume 및 Persistent Volume Claim 추상화: 스토리지 구현과 
 
 Kubernetes API는 POST, GET, PUT/Patch 또는 DELETE와 같은 표준 HTTP 메서드를 사용하여 CRUD 작업(생성, 읽기, 업데이트, 삭제)을 수행하는, 리소스로 상태를 나타내는 HTTP 기반 RESTful API입니다. 클러스터의 구성을 나타내는 것은 이러한 리소스(또는 개체)입니다.
 
-**Resource vs. Object**
+**Resource vs. Object**  
 RESTful API의 기본 개념은 리소스이며, 각 리소스에는 고유하게 식별되는 URI 또는 Uniform Resource Identifier가 할당된다. 예를 들어, Kubernetes API에서 애플리케이션 배포는 배포 리소스로 표시된다. 클러스터의 모든 배포 컬렉션은 /api/v1/deployment에 노출된 REST 리소스이다. GET 방법을 사용하여 이 URI로 HTTP 요청을 보내면 클러스터의 모든 배포 인스턴스를 나열하는 응답을 수신한다.
 
 ![Resource object](https://sundongkim-dev.github.io/assets/img/kubernetes/resource_object.png)
