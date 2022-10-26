@@ -1,10 +1,11 @@
 ---
+published: true
+title: '[리뷰] zflip4, 버즈2프로 한달 사용기'
 layout: post
 subtitle: 'techReview'
 categories: dailylife
 tags: dailylife zflip4 buds2pro
 comments: true
-title: '[리뷰] zflip4, 버즈2프로 한달 사용기'
 ---
 
 ## 첫 최신 휴대폰
