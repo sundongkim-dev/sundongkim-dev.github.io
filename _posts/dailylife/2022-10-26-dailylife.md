@@ -14,11 +14,11 @@ comments: true
 
 나는 평생 삼성만 써본 사람이었으므로 이번에 애플페이가 한국에 출시된다는 썰을 듣고 아이폰을 살까했지만 역시 가격 장벽이 나를 가로막았다. 내 지갑은 그에 비해 훨씬 얇았기에 여지없이 플립4를 선택하게 된 것 같다.
 
-[고생했어 노트9..](https://sundongkim-dev.github.io/assets/img/tech_review/note9.png)
+![고생했어 노트9..](https://sundongkim-dev.github.io/assets/img/tech_review/note9.png)
 
 나름 깔끔하게 4년을 버텼지만 칩셋이 버티지 못했다..아이폰은 안 그렇다던데 언제쯤 체험해볼까 싶다 ㅋㅋ
 
-[zflip4와 버즈2 프로](https://sundongkim-dev.github.io/assets/img/tech_review/flip&buds.jpg)
+![zflip4와 버즈2 프로](https://sundongkim-dev.github.io/assets/img/tech_review/flip&buds.jpg)
 
 ### zflip4 후기
 
