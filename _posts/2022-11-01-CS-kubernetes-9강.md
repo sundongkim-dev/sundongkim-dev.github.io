@@ -51,7 +51,6 @@ RepicaSet 및 Pod 레이블 모두에 있는 추가적으로 pod-template-hash �
 2. RollingUpdate (default 전략)
   - 포드를 점진적으로 대체하는 기본 전략으로 이전 replicaSet이 축소됨과 동시에 새로운 replicaSet이 생성되고 scaling up된다.
   - rollout되는 과정을 확인할 수 있고, 그 과정을 롤백할수도, 일시정지할수도 재개할수도 있다.
-  -
 ![rollingUpdate](https://sundongkim-dev.github.io/assets/img/kubernetes/rollingUpdate.png)
 
 3. Canary
