@@ -33,7 +33,7 @@ comments: true
 
 볼륨은 팟의 생명주기에 묶여서 팟이 살아있을 때에만 존재한다고 했지만 pod 밖에다가 매핑할수도 있다. ex) NAS volume
 ![persistingData](https://sundongkim-dev.github.io/assets/img/kubernetes/persistingData.png)
-![sharingData](https://sundongkim-dev.github.io/assets/img/kubernetes/sharingDatan.png)
+![sharingData](https://sundongkim-dev.github.io/assets/img/kubernetes/sharingData.png)
 
 ### Volume types
 - emptyDir: 팟이 시작되기 직전에 생성되고 처음에는 비어 있는 단순 디렉터리
