@@ -17,7 +17,6 @@ ReplicaSet은 팟 복제본들의 그룹을 말한다. 팟을 하나씩 작성�
 - Label selector: 어떤 팟을 복제할 것인가
 - Replica count: 원하는 복제 팟의 수
 - Pod template: 새 팟 복제본을 생성할때 사용
-- 라벨 선택기 – 복제할 포드
 - 일반적으로 higher-level 배포 리소스를 생성할 때 자동으로 생성된다
 
 결국, replicaSet이 갖고 있는 pod들을 관리한다.
@@ -33,7 +32,7 @@ ReplicaSet과 그의 팟들을 다 지울수도 있고 오직 replicaSet만 지�
 ![deployment](https://sundongkim-dev.github.io/assets/img/kubernetes/deployment.png)
 ReplicaSets 맨 위에 있는 상위 수준의 리소스 개체로 deployment 개체는 ReplicaSet 개체를 통해 포드 개체를 관리한다. 애플리케이션을 배포하고 선언적으로 업데이트하기 위한 용도이며 ReplicaSets와 마찬가지로 배포에서 팟 템플릿, replica count, label selector를 지정해준다. 또한 업데이트 전략도 지정된다.
 
-###Label Selectors in Deploy, RS, and PO
+### Label Selectors in Deploy, RS, and PO
 RepicaSet 및 Pod 레이블 모두에 있는 추가적으로 pod-template-hash 레이블이 있다. 이는 replica의 selector field에도 나타난다. 팟 템플릿 해시 레이블은 포드 템플릿의 내용으로 산출되므로 팟 템플릿을 변경할 때마다 새로운 replicaSet이 만들어진다.
 
 ![podTemplateHash](https://sundongkim-dev.github.io/assets/img/kubernetes/podTemplateHash.png)
