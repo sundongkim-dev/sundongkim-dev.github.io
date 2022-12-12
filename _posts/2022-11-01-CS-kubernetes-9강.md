@@ -45,7 +45,7 @@ RepicaSet 및 Pod 레이블 모두에 있는 추가적으로 pod-template-hash �
 ![deploymentStrategies](https://sundongkim-dev.github.io/assets/img/kubernetes/deploymentStrategies.png)
 
 1. Recreate
-  - 포드 이름은 ReplicaSEt에서 가져오므로 이름이 바뀌었다면 다른 ReplicaSet에 속함을 나타낸다.
+  - 포드 이름은 ReplicaSet에서 가져오므로 이름이 바뀌었다면 다른 ReplicaSet에 속함을 나타낸다.
 ![recreate](https://sundongkim-dev.github.io/assets/img/kubernetes/recreate.png)
 
 2. RollingUpdate (default 전략)
