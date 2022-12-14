@@ -45,7 +45,7 @@ Scaling할 때에도 역시 인덱스 순서대로 커졌다가 줄어들었다�
 
 Scaling down하면 팟만 삭제되고 claim은 그대로 유지(PVC 유지)된다. Scale up할 때 재사용할 수 있게 된다. 결과적으로, 기본 PV를 해제하려면 PVC를 수동적으로 삭제해야 한다.
 
-![dedicatedStorage2](https://sundongkim-dev.github.io/assets/img/kubernetes/dedicatedStorage.png)
+![dedicatedStorage2](https://sundongkim-dev.github.io/assets/img/kubernetes/dedicatedStorage2.png)
 
 ### Using a StatefulSet
 애플리케이션을 배포하려면 다음을 생성해야 한다.
@@ -63,4 +63,4 @@ VolumeClaimTemplates은 data(각 팟에 대한 PVC를 생성하는 데 사용)�
 
 생성된 PVC의 이름은 volumeClaim에 정의된 이름과 팟의 이름으로 구성된다.
 
-Stateful pod들을 노출시킬수도 있지만 클라이언트는 일반적으로 직접 연결하기보다 서비스를 통해 팟을 연결한다. 
+Stateful pod들을 노출시킬수도 있지만 클라이언트는 일반적으로 직접 연결하기보다 서비스를 통해 팟을 연결한다.
